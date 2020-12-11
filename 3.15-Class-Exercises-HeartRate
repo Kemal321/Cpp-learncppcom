@@ -1,0 +1,99 @@
+#pragma once
+#include<iostream>
+#include<string>
+using namespace std;
+
+class HeartRates {
+public:
+	HeartRates(string first, string last, int a, int b, int c ) {
+		firstName = first;
+		lastName = last; 
+		mm = a;
+		dd= b ;
+		yy = c;
+		age = 0;
+	
+	};
+	void setFirstName(std::string first)  {
+		firstName = first;
+	}
+	std::string getFirstName() const{
+		return firstName;
+	}
+	void setLastName(std::string first)  {
+		lastName = first;
+	}
+	std::string getLastName() const {
+		return lastName;
+	}
+	void setBirth(int m, int d, int y) {
+		cout << "Please enter your birth day (order of parameter Month-Day-Year):";
+		mm = m;
+		dd = d;
+		yy = y;
+	}
+	int calculate() {
+		age = 2021 - yy;
+		return age;
+	}
+	int calculateHeartRate() {
+		return 220 - age ;
+	}
+	void targetHeartRate() {
+		int max, min;
+		max = (220 - age) * 50 / 100;
+		min = (220 - age) * 85 / 100;
+		cout << "Your target hearth rate is in interval " << max << "---" << min;
+	}
+	void displayPersonsInfo() {
+		int max, min;
+		
+		max = (220 - age) * 50 / 100;
+		min = (220 - age) * 85 / 100;
+		cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+		cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+		cout << "Name:" << firstName << "\nSurname:" << lastName << "\nBirth day and age:" << mm << "/" << dd << "/" << yy
+			<<"---"<<age<< "\nMaximum hearth rate is:" <<220-age<< endl;
+		cout << "Your target hearth rate is in interval " << max << "---" << min;
+		cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"; 
+		cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+	};
+
+
+private:
+	string firstName;
+	string lastName;
+	int mm, dd, yy;
+	int age;	
+};
+
+-*-*-*-*-*-*-*-*-*
+-*-*-*-*-*-*-*-*-*
+-*-*-*-*-*-*-*-*-*
+-*-*-*-*-*-*-*-*-*
+-*-*-*-*-*-*-*-*-*
+//TESTİNG
+#include<iostream>
+#include<string>
+#include "HeartRates.h"
+using namespace std;
+
+
+int main()
+{
+	string name ;
+	string soyad ;
+	int a, b, c;
+	cout << "Please enter name Surname \nBirth day (order of parameter Month-Day-Year): ";
+	getline(cin, name);
+	getline(cin, soyad);
+	cin >> a >> b >> c;
+
+	HeartRates kemal{ name,soyad,a,b,c };
+	kemal.calculate();
+	kemal.displayPersonsInfo();
+
+	return 0;
+}
+
+
