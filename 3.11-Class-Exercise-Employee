@@ -1,0 +1,45 @@
+#pragma once
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Employee {
+public:
+	Employee(string a, string b, int c) {
+		firstName = a;
+		lastName = b;
+		if (c < 0) {
+			monthlySalary = 0;
+		}
+		else {
+			monthlySalary = c;
+		}
+	};
+	void setFirstName(std::string name) {
+		firstName = name;
+	}
+	std::string getFirstName() const {
+		return firstName;
+	}
+	void setLastName(std::string surname) {
+		lastName = surname;
+	}
+	std::string getLastName() const {
+		return lastName;
+	}
+	void setMonthlySalary(int salary) {
+		if (salary < 0) {
+			monthlySalary = 0;
+		}
+		else {
+			monthlySalary = salary;
+		}		
+	};
+	int getMonthlySalary() {
+		return monthlySalary;
+	};
+private:
+	std::string firstName;
+	std::string lastName;
+	int monthlySalary;
+};
