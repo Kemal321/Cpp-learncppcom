@@ -48,60 +48,60 @@ int main()
     DateClass dateClass{ 4,10,21 };
     printDate(dateClass);
 
-    // Struct member fonksiyon örneği
+    // Struct member fonksiyon Ã¶rneÄŸi
     Date date{ 28,04,1999 };
     date.print();
     
     return 0;
 }
 /*
-14.1 — Nesne yönelimli programlamaya giriş
+14.1 â€” Nesne yÃ¶nelimli programlamaya giriÅŸ
 
 Yordamsal programlama (Procedural programming)
 ----------------------------------------------
-Ders 1.3 -- Nesneler ve değişkenlere girişte, C++'daki bir nesneyi “değer saklamak için kullanılabilecek bir bellek parçası” 
-olarak tanımladık. Bir ismi olan nesneye değişken denir. C++ programlarımız, bilgisayara veri tanımlayan (nesneler aracılığıyla) 
-ve bu veriler üzerinde işlemler gerçekleştiren (ifadeler ve deyimler içeren fonksiyonlar aracılığıyla) talimatların ardışık 
-listelerinden oluşmuştur.
+Ders 1.3 -- Nesneler ve deÄŸiÅŸkenlere giriÅŸte, C++'daki bir nesneyi â€œdeÄŸer saklamak iÃ§in kullanÄ±labilecek bir bellek parÃ§asÄ±â€ 
+olarak tanÄ±mladÄ±k. Bir ismi olan nesneye deÄŸiÅŸken denir. C++ programlarÄ±mÄ±z, bilgisayara veri tanÄ±mlayan (nesneler aracÄ±lÄ±ÄŸÄ±yla) 
+ve bu veriler Ã¼zerinde iÅŸlemler gerÃ§ekleÅŸtiren (ifadeler ve deyimler iÃ§eren fonksiyonlar aracÄ±lÄ±ÄŸÄ±yla) talimatlarÄ±n ardÄ±ÅŸÄ±k 
+listelerinden oluÅŸmuÅŸtur.
 
-Şimdiye kadar, yordamsal programlama adı verilen bir programlama türünü gerçekleştirdik. Yordamsal programlamada, program
-mantığımızı uygulayan "yordamlar" oluşturmak üzerinde durulur (C++'da bunlara fonksiyon denir). Bu fonksiyonlara veri nesnelerini 
-geçeriz, bu fonksiyonlar veriler üzerinde işlemler gerçekleştirir ve ardından potansiyel olarak çağıran tarafından kullanılacak
-bir sonuç döndürür.
+Åimdiye kadar, yordamsal programlama adÄ± verilen bir programlama tÃ¼rÃ¼nÃ¼ gerÃ§ekleÅŸtirdik. Yordamsal programlamada, program
+mantÄ±ÄŸÄ±mÄ±zÄ± uygulayan "yordamlar" oluÅŸturmak Ã¼zerinde durulur (C++'da bunlara fonksiyon denir). Bu fonksiyonlara veri nesnelerini 
+geÃ§eriz, bu fonksiyonlar veriler Ã¼zerinde iÅŸlemler gerÃ§ekleÅŸtirir ve ardÄ±ndan potansiyel olarak Ã§aÄŸÄ±ran tarafÄ±ndan kullanÄ±lacak
+bir sonuÃ§ dÃ¶ndÃ¼rÃ¼r.
 
-Yordamsal programlamada, fonksiyonlar ve bu fonksiyonların üzerinde işlem yaptığı veriler ayrı varlıklardır. Programcı, 
-fonksiyonları ve verileri bir araya getirerek istenen sonucu üretmekten sorumludur. Bu, şu şekilde bir koda yol açar:
+Yordamsal programlamada, fonksiyonlar ve bu fonksiyonlarÄ±n Ã¼zerinde iÅŸlem yaptÄ±ÄŸÄ± veriler ayrÄ± varlÄ±klardÄ±r. ProgramcÄ±, 
+fonksiyonlarÄ± ve verileri bir araya getirerek istenen sonucu Ã¼retmekten sorumludur. Bu, ÅŸu ÅŸekilde bir koda yol aÃ§ar:
 
                 eat(you, apple);
 
-Şimdi etrafınıza bir bakın -- her yerde nesneler var: kitaplar, binalar, yiyecekler ve hatta siz. Bu nesnelerin iki ana 
-bileşeni vardır: 
-1) Bir dizi ilişkili özellik (ör. ağırlık, renk, boyut, katılık, şekil, vb...), ve
-2) Sergileyebilecekleri bir dizi davranış (ör. açılma, başka bir şeyi ısıtma, vb...). Bu özellikler ve davranışlar ayrılmaz.
+Åimdi etrafÄ±nÄ±za bir bakÄ±n -- her yerde nesneler var: kitaplar, binalar, yiyecekler ve hatta siz. Bu nesnelerin iki ana 
+bileÅŸeni vardÄ±r: 
+1) Bir dizi iliÅŸkili Ã¶zellik (Ã¶r. aÄŸÄ±rlÄ±k, renk, boyut, katÄ±lÄ±k, ÅŸekil, vb...), ve
+2) Sergileyebilecekleri bir dizi davranÄ±ÅŸ (Ã¶r. aÃ§Ä±lma, baÅŸka bir ÅŸeyi Ä±sÄ±tma, vb...). Bu Ã¶zellikler ve davranÄ±ÅŸlar ayrÄ±lmaz.
 
-Programlamada, özellikler nesneler tarafından, davranışlar ise fonksiyonlar tarafından temsil edilir. Ve böylece, yordamsal 
-programlama, özellikleri (nesneler) ve davranışları (fonksiyonlar) ayırarak gerçeği oldukça kötü temsil eder.
+Programlamada, Ã¶zellikler nesneler tarafÄ±ndan, davranÄ±ÅŸlar ise fonksiyonlar tarafÄ±ndan temsil edilir. Ve bÃ¶ylece, yordamsal 
+programlama, Ã¶zellikleri (nesneler) ve davranÄ±ÅŸlarÄ± (fonksiyonlar) ayÄ±rarak gerÃ§eÄŸi oldukÃ§a kÃ¶tÃ¼ temsil eder.
 
-Nesne yönelimli programlama nedir?
+Nesne yÃ¶nelimli programlama nedir?
 ----------------------------------
-Nesne yönelimli programlamada (genellikle OOP olarak kısaltılır), odak noktası, hem özellikleri hem de iyi tanımlanmış bir 
-davranış setini içeren program tanımlı veri türlerini oluşturmaktır. OOP'deki “nesne” terimi, bu türlerden örnekleyebileceğimiz
-nesnelere atıfta bulunur.
+Nesne yÃ¶nelimli programlamada (genellikle OOP olarak kÄ±saltÄ±lÄ±r), odak noktasÄ±, hem Ã¶zellikleri hem de iyi tanÄ±mlanmÄ±ÅŸ bir 
+davranÄ±ÅŸ setini iÃ§eren program tanÄ±mlÄ± veri tÃ¼rlerini oluÅŸturmaktÄ±r. OOP'deki â€œnesneâ€ terimi, bu tÃ¼rlerden Ã¶rnekleyebileceÄŸimiz
+nesnelere atÄ±fta bulunur.
 
-Bu, kodun daha çok şu şekilde görünmesine yol açar:
+Bu, kodun daha Ã§ok ÅŸu ÅŸekilde gÃ¶rÃ¼nmesine yol aÃ§ar:
 
                 you.eat(apple);
 
-Bu, kimin nesne olduğunu (you), hangi davranışın çağrıldığını (eat()), ve hangi nesnelerin bu davranışa aksesuar olduğunu (apple) 
+Bu, kimin nesne olduÄŸunu (you), hangi davranÄ±ÅŸÄ±n Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nÄ± (eat()), ve hangi nesnelerin bu davranÄ±ÅŸa aksesuar olduÄŸunu (apple) 
 daha net hale getirir.
 
-Özellikler ve davranışlar artık ayrı olmadığı için, nesneleri modülerleştirmek daha kolaydır, bu da programlarımızı yazmayı ve
-anlamayı kolaylaştırır ve ayrıca daha yüksek bir kod yeniden kullanılabilirliği sağlar. Bu nesneler, nesnelerle nasıl etkileşim
-kurduğumuzu ve onların diğer nesnelerle nasıl etkileşim kurduğunu tanımlayarak verilerimizle çalışmayı daha sezgisel hale getirir.
-Bu tür nesneleri nasıl oluşturacağımızı bir sonraki derste tartışacağız.
-Yordamsal vs OOP benzeri bir örnek
+Ã–zellikler ve davranÄ±ÅŸlar artÄ±k ayrÄ± olmadÄ±ÄŸÄ± iÃ§in, nesneleri modÃ¼lerleÅŸtirmek daha kolaydÄ±r, bu da programlarÄ±mÄ±zÄ± yazmayÄ± ve
+anlamayÄ± kolaylaÅŸtÄ±rÄ±r ve ayrÄ±ca daha yÃ¼ksek bir kod yeniden kullanÄ±labilirliÄŸi saÄŸlar. Bu nesneler, nesnelerle nasÄ±l etkileÅŸim
+kurduÄŸumuzu ve onlarÄ±n diÄŸer nesnelerle nasÄ±l etkileÅŸim kurduÄŸunu tanÄ±mlayarak verilerimizle Ã§alÄ±ÅŸmayÄ± daha sezgisel hale getirir.
+Bu tÃ¼r nesneleri nasÄ±l oluÅŸturacaÄŸÄ±mÄ±zÄ± bir sonraki derste tartÄ±ÅŸacaÄŸÄ±z.
+Yordamsal vs OOP benzeri bir Ã¶rnek
 ----------------------------------
-İşte bir hayvanın adını ve bacak sayısını yazdıran yordamsal programlama tarzında yazılmış kısa bir program:
+Ä°ÅŸte bir hayvanÄ±n adÄ±nÄ± ve bacak sayÄ±sÄ±nÄ± yazdÄ±ran yordamsal programlama tarzÄ±nda yazÄ±lmÄ±ÅŸ kÄ±sa bir program:
 
                 #include <iostream>
                 #include <string_view>
@@ -141,12 +141,12 @@ Yordamsal vs OOP benzeri bir örnek
 
                     return 0;
                 }
-Bu programda, bir hayvanın bacak sayısını almak ve bir hayvanın adını almak gibi şeyleri yapmamıza izin veren fonksiyonlar yazdık.
-Bu, oldukça iyi çalışırken, hayvanımızın artık bir yılan olduğunu güncellemek istediğimizde ne olacağını düşünün. Kodumuza bir
-yılan eklemek için, AnimalType, numLegs(), animalName()'i değiştirmemiz gerekecek. Eğer bu daha büyük bir kod tabanı olsaydı,
-AnimalType'ı kullanan herhangi bir diğer fonksiyonu da güncellememiz gerekecekti -- eğer AnimalType birçok yerde kullanılıyorsa,
-bu, dokunulması gereken çok fazla kod olabilir (ve potansiyel olarak bozulabilir).
-Şimdi, aynı programı (aynı çıktıyı üreten) daha çok bir OOP zihniyeti kullanarak yazalım:
+Bu programda, bir hayvanÄ±n bacak sayÄ±sÄ±nÄ± almak ve bir hayvanÄ±n adÄ±nÄ± almak gibi ÅŸeyleri yapmamÄ±za izin veren fonksiyonlar yazdÄ±k.
+Bu, oldukÃ§a iyi Ã§alÄ±ÅŸÄ±rken, hayvanÄ±mÄ±zÄ±n artÄ±k bir yÄ±lan olduÄŸunu gÃ¼ncellemek istediÄŸimizde ne olacaÄŸÄ±nÄ± dÃ¼ÅŸÃ¼nÃ¼n. Kodumuza bir
+yÄ±lan eklemek iÃ§in, AnimalType, numLegs(), animalName()'i deÄŸiÅŸtirmemiz gerekecek. EÄŸer bu daha bÃ¼yÃ¼k bir kod tabanÄ± olsaydÄ±,
+AnimalType'Ä± kullanan herhangi bir diÄŸer fonksiyonu da gÃ¼ncellememiz gerekecekti -- eÄŸer AnimalType birÃ§ok yerde kullanÄ±lÄ±yorsa,
+bu, dokunulmasÄ± gereken Ã§ok fazla kod olabilir (ve potansiyel olarak bozulabilir).
+Åimdi, aynÄ± programÄ± (aynÄ± Ã§Ä±ktÄ±yÄ± Ã¼reten) daha Ã§ok bir OOP zihniyeti kullanarak yazalÄ±m:
 
                 #include <iostream>
                 #include <string_view>
@@ -176,56 +176,56 @@ bu, dokunulması gereken çok fazla kod olabilir (ve potansiyel olarak bozulabilir
 
                     return 0;
                 }
-Bu örnekte, her hayvan kendi program tanımlı tipidir ve bu tip, o hayvanla ilgili her şeyi yönetir (bu durumda, sadece adı ve 
-bacak sayısını takip etmek). Şimdi, hayvanımızı bir yılana güncellemek istediğimiz durumu düşünün. Tek yapmamız gereken bir Snake
-tipi oluşturmak ve onu Cat yerine kullanmaktır. Çok az mevcut kodun değiştirilmesi gerekiyor, bu da zaten çalışan bir şeyi bozma
-riskinin çok daha az olması anlamına gelir.
+Bu Ã¶rnekte, her hayvan kendi program tanÄ±mlÄ± tipidir ve bu tip, o hayvanla ilgili her ÅŸeyi yÃ¶netir (bu durumda, sadece adÄ± ve 
+bacak sayÄ±sÄ±nÄ± takip etmek). Åimdi, hayvanÄ±mÄ±zÄ± bir yÄ±lana gÃ¼ncellemek istediÄŸimiz durumu dÃ¼ÅŸÃ¼nÃ¼n. Tek yapmamÄ±z gereken bir Snake
+tipi oluÅŸturmak ve onu Cat yerine kullanmaktÄ±r. Ã‡ok az mevcut kodun deÄŸiÅŸtirilmesi gerekiyor, bu da zaten Ã§alÄ±ÅŸan bir ÅŸeyi bozma
+riskinin Ã§ok daha az olmasÄ± anlamÄ±na gelir.
 
-Sunulan şekliyle, Cat, Dog ve Chicken örneğimiz yukarıda çok fazla tekrar içeriyor (her biri tamamen aynı üye setini tanımlıyor).
-Bu gibi bir durumda, ortak bir Animal struct oluşturmak ve her hayvan için bir örnek oluşturmak tercih edilebilir. Ama ya diğer
-hayvanlara uygulanmayan Chicken'a yeni bir üye eklemek istiyorsak (ör. wormsPerDay)? Ortak bir Animal struct ile, tüm hayvanlar
-bu üyeyi alır. OOP modelimizle, bu üyeyi Chicken nesneleriyle sınırlayabiliriz.
+Sunulan ÅŸekliyle, Cat, Dog ve Chicken Ã¶rneÄŸimiz yukarÄ±da Ã§ok fazla tekrar iÃ§eriyor (her biri tamamen aynÄ± Ã¼ye setini tanÄ±mlÄ±yor).
+Bu gibi bir durumda, ortak bir Animal struct oluÅŸturmak ve her hayvan iÃ§in bir Ã¶rnek oluÅŸturmak tercih edilebilir. Ama ya diÄŸer
+hayvanlara uygulanmayan Chicken'a yeni bir Ã¼ye eklemek istiyorsak (Ã¶r. wormsPerDay)? Ortak bir Animal struct ile, tÃ¼m hayvanlar
+bu Ã¼yeyi alÄ±r. OOP modelimizle, bu Ã¼yeyi Chicken nesneleriyle sÄ±nÄ±rlayabiliriz.
 
-OOP, masaya başka faydalar da getirir
+OOP, masaya baÅŸka faydalar da getirir
 -------------------------------------
-Okulda, programlama ödevlerinizi teslim ettiğinizde, işiniz esasen bitmiştir. Profesörünüz veya öğretim görevliniz kodunuzu 
-çalıştırır ve doğru sonucu üretip üretmediğini görür. Ya yapar ya da yapmaz ve buna göre notlandırılırsınız. Kodunuz muhtemelen 
-bu noktada atılır.
+Okulda, programlama Ã¶devlerinizi teslim ettiÄŸinizde, iÅŸiniz esasen bitmiÅŸtir. ProfesÃ¶rÃ¼nÃ¼z veya Ã¶ÄŸretim gÃ¶revliniz kodunuzu 
+Ã§alÄ±ÅŸtÄ±rÄ±r ve doÄŸru sonucu Ã¼retip Ã¼retmediÄŸini gÃ¶rÃ¼r. Ya yapar ya da yapmaz ve buna gÃ¶re notlandÄ±rÄ±lÄ±rsÄ±nÄ±z. Kodunuz muhtemelen 
+bu noktada atÄ±lÄ±r.
 
-Diğer taraftan, kodunuzu diğer geliştiriciler tarafından kullanılan bir depoya veya gerçek kullanıcıların kullandığı bir 
-uygulamaya gönderdiğinizde, tamamen farklı bir oyun söz konusudur. Yeni bir işletim sistemi veya yazılım sürümü kodunuzu 
-bozacaktır. Kullanıcılar yaptığınız bazı mantık hatalarını bulacak. Bir iş ortağı yeni bir yetenek talep edecek. Diğer
-geliştiriciler kodunuzu bozmadan genişletmek zorunda kalacak. Kodunuzun, belki de önemli ölçüde, evrim geçirebilmesi ve bunu 
-minimal zaman yatırımı, minimal baş ağrısı ve minimal kırılma ile yapabilmesi gerekiyor.
+DiÄŸer taraftan, kodunuzu diÄŸer geliÅŸtiriciler tarafÄ±ndan kullanÄ±lan bir depoya veya gerÃ§ek kullanÄ±cÄ±larÄ±n kullandÄ±ÄŸÄ± bir 
+uygulamaya gÃ¶nderdiÄŸinizde, tamamen farklÄ± bir oyun sÃ¶z konusudur. Yeni bir iÅŸletim sistemi veya yazÄ±lÄ±m sÃ¼rÃ¼mÃ¼ kodunuzu 
+bozacaktÄ±r. KullanÄ±cÄ±lar yaptÄ±ÄŸÄ±nÄ±z bazÄ± mantÄ±k hatalarÄ±nÄ± bulacak. Bir iÅŸ ortaÄŸÄ± yeni bir yetenek talep edecek. DiÄŸer
+geliÅŸtiriciler kodunuzu bozmadan geniÅŸletmek zorunda kalacak. Kodunuzun, belki de Ã¶nemli Ã¶lÃ§Ã¼de, evrim geÃ§irebilmesi ve bunu 
+minimal zaman yatÄ±rÄ±mÄ±, minimal baÅŸ aÄŸrÄ±sÄ± ve minimal kÄ±rÄ±lma ile yapabilmesi gerekiyor.
 
-Bunları en iyi şekilde ele almanın yolu, kodunuzu olabildiğince modüler (ve tekrarsız) tutmaktır. Bu konuda yardımcı olmak için, 
-OOP ayrıca miras, kapsülleme, soyutlama ve çok biçimlilik gibi bir dizi diğer faydalı kavramı da masaya getirir.
+BunlarÄ± en iyi ÅŸekilde ele almanÄ±n yolu, kodunuzu olabildiÄŸince modÃ¼ler (ve tekrarsÄ±z) tutmaktÄ±r. Bu konuda yardÄ±mcÄ± olmak iÃ§in, 
+OOP ayrÄ±ca miras, kapsÃ¼lleme, soyutlama ve Ã§ok biÃ§imlilik gibi bir dizi diÄŸer faydalÄ± kavramÄ± da masaya getirir.
 
-Yazarın notu
-Dil tasarımcılarının bir felsefesi var: büyük bir kelime yapacaksa, asla küçük bir kelime kullanma.
+YazarÄ±n notu
+Dil tasarÄ±mcÄ±larÄ±nÄ±n bir felsefesi var: bÃ¼yÃ¼k bir kelime yapacaksa, asla kÃ¼Ã§Ã¼k bir kelime kullanma.
 
-Ayrıca neden kısaltma kelimesi bu kadar uzun?
+AyrÄ±ca neden kÄ±saltma kelimesi bu kadar uzun?
 ---------------------------------------------
-Tüm bunların ne olduğunu ve kodunuzu daha az tekrarlı hale getirmeye, değiştirmeyi ve genişletmeyi kolaylaştırmaya nasıl yardımcı 
-olabileceğini zamanla anlatacağız. OOP ile doğru şekilde tanıştığınızda ve tıkladığında, muhtemelen saf yordamsal programlamaya
-geri dönmek istemeyeceksiniz.
+TÃ¼m bunlarÄ±n ne olduÄŸunu ve kodunuzu daha az tekrarlÄ± hale getirmeye, deÄŸiÅŸtirmeyi ve geniÅŸletmeyi kolaylaÅŸtÄ±rmaya nasÄ±l yardÄ±mcÄ± 
+olabileceÄŸini zamanla anlatacaÄŸÄ±z. OOP ile doÄŸru ÅŸekilde tanÄ±ÅŸtÄ±ÄŸÄ±nÄ±zda ve tÄ±kladÄ±ÄŸÄ±nda, muhtemelen saf yordamsal programlamaya
+geri dÃ¶nmek istemeyeceksiniz.
 
-Bu söylenmişken, OOP yordamsal programlamayı değiştirmez -- daha ziyade, gerektiğinde karmaşıklığı yönetmek için programlama araç
-çantanıza ek araçlar verir.
-“Object” terimi
+Bu sÃ¶ylenmiÅŸken, OOP yordamsal programlamayÄ± deÄŸiÅŸtirmez -- daha ziyade, gerektiÄŸinde karmaÅŸÄ±klÄ±ÄŸÄ± yÃ¶netmek iÃ§in programlama araÃ§
+Ã§antanÄ±za ek araÃ§lar verir.
+â€œObjectâ€ terimi
 ---------------
-“Object” teriminin biraz aşırı yüklendiğini ve bu durumun bir miktar kafa karışıklığına neden olduğunu unutmayın. Geleneksel
-programlamada, bir nesne değerleri saklamak için bir bellek parçasıdır. Nesne yönelimli programlamada, bir “nesne”,
-hem geleneksel programlama anlamında bir nesne olduğunu, hem de hem özellikleri hem de davranışları birleştirdiğini ima eder.
-Bu derslerde, nesne teriminin geleneksel anlamını tercih edeceğiz ve OOP nesnelerine özellikle atıfta bulunurken “sınıf nesnesi”
-terimini tercih edeceğiz.
+â€œObjectâ€ teriminin biraz aÅŸÄ±rÄ± yÃ¼klendiÄŸini ve bu durumun bir miktar kafa karÄ±ÅŸÄ±klÄ±ÄŸÄ±na neden olduÄŸunu unutmayÄ±n. Geleneksel
+programlamada, bir nesne deÄŸerleri saklamak iÃ§in bir bellek parÃ§asÄ±dÄ±r. Nesne yÃ¶nelimli programlamada, bir â€œnesneâ€,
+hem geleneksel programlama anlamÄ±nda bir nesne olduÄŸunu, hem de hem Ã¶zellikleri hem de davranÄ±ÅŸlarÄ± birleÅŸtirdiÄŸini ima eder.
+Bu derslerde, nesne teriminin geleneksel anlamÄ±nÄ± tercih edeceÄŸiz ve OOP nesnelerine Ã¶zellikle atÄ±fta bulunurken â€œsÄ±nÄ±f nesnesiâ€
+terimini tercih edeceÄŸiz.
 
-14.2 — Sınıflara Giriş
+14.2 â€” SÄ±nÄ±flara GiriÅŸ
 ----------------------
-Önceki bölümde, structları ele aldık ve birden çok üye değişkenini tek bir nesneye toplayabilme, başlatma ve bir birim olarak
-taşıma konusunda ne kadar iyi olduklarını tartıştık. Başka bir deyişle, structlar, ilgili veri değerlerini depolamak ve taşımak
-için uygun bir paket sağlar.
-Aşağıdaki structı düşünün:
+Ã–nceki bÃ¶lÃ¼mde, structlarÄ± ele aldÄ±k ve birden Ã§ok Ã¼ye deÄŸiÅŸkenini tek bir nesneye toplayabilme, baÅŸlatma ve bir birim olarak
+taÅŸÄ±ma konusunda ne kadar iyi olduklarÄ±nÄ± tartÄ±ÅŸtÄ±k. BaÅŸka bir deyiÅŸle, structlar, ilgili veri deÄŸerlerini depolamak ve taÅŸÄ±mak
+iÃ§in uygun bir paket saÄŸlar.
+AÅŸaÄŸÄ±daki structÄ± dÃ¼ÅŸÃ¼nÃ¼n:
 
                 #include <iostream>
 
@@ -238,35 +238,35 @@ Aşağıdaki structı düşünün:
 
                 void printDate(const Date& date)
                 {
-                    std::cout << date.day << '/' << date.month << '/' << date.year; // DMY formatını varsayalım
+                    std::cout << date.day << '/' << date.month << '/' << date.year; // DMY formatÄ±nÄ± varsayalÄ±m
                 }
 
                 int main()
                 {
-                    Date date{ 4, 10, 21 }; // toplu başlatma kullanarak başlat
-                    printDate(date);        // tüm structı fonksiyona geçirebilir
+                    Date date{ 4, 10, 21 }; // toplu baÅŸlatma kullanarak baÅŸlat
+                    printDate(date);        // tÃ¼m structÄ± fonksiyona geÃ§irebilir
 
                     return 0;
                 }
-Yukarıdaki örnekte, bir Datenesnesi oluşturuyoruz ve ardından onu tarihi yazdıran bir fonksiyona geçiriyoruz. Bu program şunu 
-yazdırır:
+YukarÄ±daki Ã¶rnekte, bir Datenesnesi oluÅŸturuyoruz ve ardÄ±ndan onu tarihi yazdÄ±ran bir fonksiyona geÃ§iriyoruz. Bu program ÅŸunu 
+yazdÄ±rÄ±r:
                 4/10/21
-Bir hatırlatma
+Bir hatÄ±rlatma
 
-Bu derslerde, tüm structlarımız topluluklardır. topluluklardır ders 13.6 -- struct topluluğu başlatma dersinde tartışıyoruz.
+Bu derslerde, tÃ¼m structlarÄ±mÄ±z topluluklardÄ±r. topluluklardÄ±r ders 13.6 -- struct topluluÄŸu baÅŸlatma dersinde tartÄ±ÅŸÄ±yoruz.
 
-structlar ne kadar kullanışlı olursa olsun, structların büyük, karmaşık programlar oluştururken (özellikle birden çok geliştirici
-tarafından çalışılanlar) zorluklar sunabilecek bir dizi eksikliği vardır.
+structlar ne kadar kullanÄ±ÅŸlÄ± olursa olsun, structlarÄ±n bÃ¼yÃ¼k, karmaÅŸÄ±k programlar oluÅŸtururken (Ã¶zellikle birden Ã§ok geliÅŸtirici
+tarafÄ±ndan Ã§alÄ±ÅŸÄ±lanlar) zorluklar sunabilecek bir dizi eksikliÄŸi vardÄ±r.
 
-Sınıf değişmezlik sorunu
+SÄ±nÄ±f deÄŸiÅŸmezlik sorunu
 ------------------------
-Belki de structların en büyük zorluğu, sınıf değişmezliklerini belgelemek ve uygulamak için etkili bir yol sağlamamalarıdır. 
-Ders 9.6 -- Assert ve static_assert'te, bir değişmezi, "bir bileşenin çalışırken doğru olması gereken bir durum" olarak tanımladık.
-Sınıf türleri bağlamında (structları, sınıfları ve unionları içerir), bir sınıf değişmezi, bir nesnenin geçerli bir durumda 
-kalması için bir nesnenin ömrü boyunca doğru olması gereken bir durumdur. Değişmezliği ihlal edilmiş bir nesne, geçersiz bir 
-durumda olduğu söylenir ve bu nesnenin daha fazla kullanılmasından beklenmeyen veya tanımlanmamış davranışlar ortaya çıkabilir.
+Belki de structlarÄ±n en bÃ¼yÃ¼k zorluÄŸu, sÄ±nÄ±f deÄŸiÅŸmezliklerini belgelemek ve uygulamak iÃ§in etkili bir yol saÄŸlamamalarÄ±dÄ±r. 
+Ders 9.6 -- Assert ve static_assert'te, bir deÄŸiÅŸmezi, "bir bileÅŸenin Ã§alÄ±ÅŸÄ±rken doÄŸru olmasÄ± gereken bir durum" olarak tanÄ±mladÄ±k.
+SÄ±nÄ±f tÃ¼rleri baÄŸlamÄ±nda (structlarÄ±, sÄ±nÄ±flarÄ± ve unionlarÄ± iÃ§erir), bir sÄ±nÄ±f deÄŸiÅŸmezi, bir nesnenin geÃ§erli bir durumda 
+kalmasÄ± iÃ§in bir nesnenin Ã¶mrÃ¼ boyunca doÄŸru olmasÄ± gereken bir durumdur. DeÄŸiÅŸmezliÄŸi ihlal edilmiÅŸ bir nesne, geÃ§ersiz bir 
+durumda olduÄŸu sÃ¶ylenir ve bu nesnenin daha fazla kullanÄ±lmasÄ±ndan beklenmeyen veya tanÄ±mlanmamÄ±ÅŸ davranÄ±ÅŸlar ortaya Ã§Ä±kabilir.
 
-Öncelikle, aşağıdaki structı düşünün:
+Ã–ncelikle, aÅŸaÄŸÄ±daki structÄ± dÃ¼ÅŸÃ¼nÃ¼n:
 
                 struct Cift
                 {
@@ -274,9 +274,9 @@ durumda olduğu söylenir ve bu nesnenin daha fazla kullanılmasından beklenmeyen v
                     int ikinci {};
                 };
 
-İlk ve ikinci üyeler herhangi bir değere bağımsız olarak ayarlanabilir, bu yüzden Cift yapısının bir değişmezi yoktur.
+Ä°lk ve ikinci Ã¼yeler herhangi bir deÄŸere baÄŸÄ±msÄ±z olarak ayarlanabilir, bu yÃ¼zden Cift yapÄ±sÄ±nÄ±n bir deÄŸiÅŸmezi yoktur.
 
-Şimdi aşağıdaki neredeyse aynı structı düşünün:
+Åimdi aÅŸaÄŸÄ±daki neredeyse aynÄ± structÄ± dÃ¼ÅŸÃ¼nÃ¼n:
 
                 struct Kesir
                 {
@@ -284,18 +284,18 @@ durumda olduğu söylenir ve bu nesnenin daha fazla kullanılmasından beklenmeyen v
                     int payda { 1 };
                 };
 
-Matematikten biliyoruz ki, paydası 0 olan bir kesir matematiksel olarak tanımsızdır (çünkü bir kesirin değeri payının paydasına 
-bölünmesidir -- ve 0'a bölme matematiksel olarak tanımsızdır). Bu nedenle, bir Kesir nesnesinin payda üyesinin asla 0'a 
-ayarlanmamasını sağlamak istiyoruz. Eğer öyleyse, o Kesir nesnesi geçersiz bir durumdadır ve bu nesnenin daha fazla
-kullanılmasından tanımlanmamış davranışlar ortaya çıkabilir.
-Örneğin:
+Matematikten biliyoruz ki, paydasÄ± 0 olan bir kesir matematiksel olarak tanÄ±msÄ±zdÄ±r (Ã§Ã¼nkÃ¼ bir kesirin deÄŸeri payÄ±nÄ±n paydasÄ±na 
+bÃ¶lÃ¼nmesidir -- ve 0'a bÃ¶lme matematiksel olarak tanÄ±msÄ±zdÄ±r). Bu nedenle, bir Kesir nesnesinin payda Ã¼yesinin asla 0'a 
+ayarlanmamasÄ±nÄ± saÄŸlamak istiyoruz. EÄŸer Ã¶yleyse, o Kesir nesnesi geÃ§ersiz bir durumdadÄ±r ve bu nesnenin daha fazla
+kullanÄ±lmasÄ±ndan tanÄ±mlanmamÄ±ÅŸ davranÄ±ÅŸlar ortaya Ã§Ä±kabilir.
+Ã–rneÄŸin:
 
                 #include <iostream>
 
                 struct Kesir
                 {
                     int pay { 0 };
-                    int payda { 1 }; // sınıf değişmezi: asla 0 olmamalı
+                    int payda { 1 }; // sÄ±nÄ±f deÄŸiÅŸmezi: asla 0 olmamalÄ±
                 };
 
                 void kesirDegeriniYazdir(const Kesir &k)
@@ -305,36 +305,36 @@ kullanılmasından tanımlanmamış davranışlar ortaya çıkabilir.
 
                 int main()
                 {
-                    Kesir k { 5, 0 };   // paydası sıfır olan bir Kesir oluştur
-                    kesirDegeriniYazdir(k); // sıfıra bölme hatası oluştur
+                    Kesir k { 5, 0 };   // paydasÄ± sÄ±fÄ±r olan bir Kesir oluÅŸtur
+                    kesirDegeriniYazdir(k); // sÄ±fÄ±ra bÃ¶lme hatasÄ± oluÅŸtur
 
                     return 0;
                 }
 
-Yukarıdaki örnekte, Kesir'in değişmezliğini belgelemek için bir yorum kullanıyoruz. Ayrıca, kullanıcı bir başlatma değeri
-sağlamazsa paydanın 1'e ayarlanmasını sağlamak için varsayılan bir üye başlatıcısı sağlıyoruz. Bu, kullanıcının bir Kesir 
-nesnesini değer başlatmaya karar vermesi durumunda Kesir nesnemizin geçerli olacağını garanti eder. Bu, iyi bir başlangıçtır.
+YukarÄ±daki Ã¶rnekte, Kesir'in deÄŸiÅŸmezliÄŸini belgelemek iÃ§in bir yorum kullanÄ±yoruz. AyrÄ±ca, kullanÄ±cÄ± bir baÅŸlatma deÄŸeri
+saÄŸlamazsa paydanÄ±n 1'e ayarlanmasÄ±nÄ± saÄŸlamak iÃ§in varsayÄ±lan bir Ã¼ye baÅŸlatÄ±cÄ±sÄ± saÄŸlÄ±yoruz. Bu, kullanÄ±cÄ±nÄ±n bir Kesir 
+nesnesini deÄŸer baÅŸlatmaya karar vermesi durumunda Kesir nesnemizin geÃ§erli olacaÄŸÄ±nÄ± garanti eder. Bu, iyi bir baÅŸlangÄ±Ã§tÄ±r.
 
-Ama hiçbir şey bizi bu sınıf değişmezini açıkça ihlal etmekten alıkoymaz: Kesir f'yi oluştururken, paydanın açıkça 0'a
-başlatılması için toplu başlatmayı kullanırız. Bu hemen bir soruna neden olmasa da, nesnemiz artık geçersiz bir durumdadır ve
-nesnenin daha fazla kullanılması beklenmeyen veya tanımsız davranışlara neden olabilir.
-Ve bu tam olarak kesirDegeriniYazdir(f)'yi çağırdığımızda gördüğümüz şey: program, sıfıra bölme hatası nedeniyle sona erer.
+Ama hiÃ§bir ÅŸey bizi bu sÄ±nÄ±f deÄŸiÅŸmezini aÃ§Ä±kÃ§a ihlal etmekten alÄ±koymaz: Kesir f'yi oluÅŸtururken, paydanÄ±n aÃ§Ä±kÃ§a 0'a
+baÅŸlatÄ±lmasÄ± iÃ§in toplu baÅŸlatmayÄ± kullanÄ±rÄ±z. Bu hemen bir soruna neden olmasa da, nesnemiz artÄ±k geÃ§ersiz bir durumdadÄ±r ve
+nesnenin daha fazla kullanÄ±lmasÄ± beklenmeyen veya tanÄ±msÄ±z davranÄ±ÅŸlara neden olabilir.
+Ve bu tam olarak kesirDegeriniYazdir(f)'yi Ã§aÄŸÄ±rdÄ±ÄŸÄ±mÄ±zda gÃ¶rdÃ¼ÄŸÃ¼mÃ¼z ÅŸey: program, sÄ±fÄ±ra bÃ¶lme hatasÄ± nedeniyle sona erer.
 
-Bir parantez açalım…
+Bir parantez aÃ§alÄ±mâ€¦
 
-kesirDegeriniYazdir'nin gövdesinin başında assert(f.payda != 0); eklemek küçük bir iyileştirme olurdu. Bu, kodun belgelendirme
-değerini artırır ve hangi öncül koşulun ihlal edildiği daha belirgin hale gelir. Ancak, davranışsal olarak, bu gerçekten bir şeyi
-değiştirmez. Bu sorunları sorunun kaynağında (üye kötü bir değerle başlatıldığında veya atanmış olduğunda) yakalamak istiyoruz, 
-değil mi? Sorunun aşağı akışında (kötü değer kullanıldığında).
+kesirDegeriniYazdir'nin gÃ¶vdesinin baÅŸÄ±nda assert(f.payda != 0); eklemek kÃ¼Ã§Ã¼k bir iyileÅŸtirme olurdu. Bu, kodun belgelendirme
+deÄŸerini artÄ±rÄ±r ve hangi Ã¶ncÃ¼l koÅŸulun ihlal edildiÄŸi daha belirgin hale gelir. Ancak, davranÄ±ÅŸsal olarak, bu gerÃ§ekten bir ÅŸeyi
+deÄŸiÅŸtirmez. Bu sorunlarÄ± sorunun kaynaÄŸÄ±nda (Ã¼ye kÃ¶tÃ¼ bir deÄŸerle baÅŸlatÄ±ldÄ±ÄŸÄ±nda veya atanmÄ±ÅŸ olduÄŸunda) yakalamak istiyoruz, 
+deÄŸil mi? Sorunun aÅŸaÄŸÄ± akÄ±ÅŸÄ±nda (kÃ¶tÃ¼ deÄŸer kullanÄ±ldÄ±ÄŸÄ±nda).
 
-Kesir örneğinin göreceli basitliği göz önüne alındığında, geçersiz Kesir nesneleri oluşturmanın basitçe kaçınılması çok zor
-olmamalıdır. Ancak, birçok structı kullanan daha karmaşık bir kod tabanında, birçok üyesi olan structlar veya üyeleri karmaşık 
-ilişkiler olan structlar, hangi değer kombinasyonunun bazı sınıf değişmezini ihlal edebileceğini anlamak o kadar açık olmayabilir.
+Kesir Ã¶rneÄŸinin gÃ¶receli basitliÄŸi gÃ¶z Ã¶nÃ¼ne alÄ±ndÄ±ÄŸÄ±nda, geÃ§ersiz Kesir nesneleri oluÅŸturmanÄ±n basitÃ§e kaÃ§Ä±nÄ±lmasÄ± Ã§ok zor
+olmamalÄ±dÄ±r. Ancak, birÃ§ok structÄ± kullanan daha karmaÅŸÄ±k bir kod tabanÄ±nda, birÃ§ok Ã¼yesi olan structlar veya Ã¼yeleri karmaÅŸÄ±k 
+iliÅŸkiler olan structlar, hangi deÄŸer kombinasyonunun bazÄ± sÄ±nÄ±f deÄŸiÅŸmezini ihlal edebileceÄŸini anlamak o kadar aÃ§Ä±k olmayabilir.
 
-Daha karmaşık bir sınıf değişmezi
+Daha karmaÅŸÄ±k bir sÄ±nÄ±f deÄŸiÅŸmezi
 ---------------------------------
-Kesir için sınıf değişmezi basit bir tanedir -- payda üyesi 0 olamaz. Bu, kavramsal olarak anlaması kolay ve kaçınması çok zor
-değil. Sınıf değişmezleri, bir yapının üyelerinin ilişkili değerlere sahip olması gerektiğinde daha fazla bir meydan okuma haline
+Kesir iÃ§in sÄ±nÄ±f deÄŸiÅŸmezi basit bir tanedir -- payda Ã¼yesi 0 olamaz. Bu, kavramsal olarak anlamasÄ± kolay ve kaÃ§Ä±nmasÄ± Ã§ok zor
+deÄŸil. SÄ±nÄ±f deÄŸiÅŸmezleri, bir yapÄ±nÄ±n Ã¼yelerinin iliÅŸkili deÄŸerlere sahip olmasÄ± gerektiÄŸinde daha fazla bir meydan okuma haline
 gelir.
 
                 #include <string>
@@ -342,53 +342,53 @@ gelir.
                 struct Calisan
                 {
                     std::string isim { };
-                    char ilkHarf { }; // her zaman `isim`in ilk karakterini tutmalı (veya `0`)
+                    char ilkHarf { }; // her zaman `isim`in ilk karakterini tutmalÄ± (veya `0`)
                 };
 
-Yukarıdaki (kötü tasarlanmış) struct da, ilkHarf üyesinde saklanan karakter değeri, her zaman isim'in ilk karakteriyle 
-eşleşmelidir.
+YukarÄ±daki (kÃ¶tÃ¼ tasarlanmÄ±ÅŸ) struct da, ilkHarf Ã¼yesinde saklanan karakter deÄŸeri, her zaman isim'in ilk karakteriyle 
+eÅŸleÅŸmelidir.
 
-Bir Calisan nesnesi başlatıldığında, kullanıcı sınıf değişmezinin korunmasını sağlamaktan sorumludur. Ve eğer isme yeni 
-bir değer atanırsa, kullanıcı aynı zamanda FirstInitial'in güncellenmesini sağlamaktan da sorumludur.. Bu ilişki, bir Calisan 
-nesnesini kullanan bir geliştirici için açık olmayabilir ve hatta eğer öyleyse, bunu yapmayı unutabilir.
+Bir Calisan nesnesi baÅŸlatÄ±ldÄ±ÄŸÄ±nda, kullanÄ±cÄ± sÄ±nÄ±f deÄŸiÅŸmezinin korunmasÄ±nÄ± saÄŸlamaktan sorumludur. Ve eÄŸer isme yeni 
+bir deÄŸer atanÄ±rsa, kullanÄ±cÄ± aynÄ± zamanda FirstInitial'in gÃ¼ncellenmesini saÄŸlamaktan da sorumludur.. Bu iliÅŸki, bir Calisan 
+nesnesini kullanan bir geliÅŸtirici iÃ§in aÃ§Ä±k olmayabilir ve hatta eÄŸer Ã¶yleyse, bunu yapmayÄ± unutabilir.
 
-Calisan nesneleri oluşturmak ve güncellemek için bize yardımcı olacak fonksiyonlar yazsak bile (ilkHarf'in her zaman isim'in ilk 
-karakterinden ayarlandığından emin olmak), hala kullanıcının bu fonksiyonların farkında olmasına ve bunları kullanmasına
-güveniyoruz.
-Kısacası, bir nesnenin kullanıcısına sınıf değişmezlerini koruma görevini vermek, sorunlu kod oluşturma olasılığını artırır.
+Calisan nesneleri oluÅŸturmak ve gÃ¼ncellemek iÃ§in bize yardÄ±mcÄ± olacak fonksiyonlar yazsak bile (ilkHarf'in her zaman isim'in ilk 
+karakterinden ayarlandÄ±ÄŸÄ±ndan emin olmak), hala kullanÄ±cÄ±nÄ±n bu fonksiyonlarÄ±n farkÄ±nda olmasÄ±na ve bunlarÄ± kullanmasÄ±na
+gÃ¼veniyoruz.
+KÄ±sacasÄ±, bir nesnenin kullanÄ±cÄ±sÄ±na sÄ±nÄ±f deÄŸiÅŸmezlerini koruma gÃ¶revini vermek, sorunlu kod oluÅŸturma olasÄ±lÄ±ÄŸÄ±nÄ± artÄ±rÄ±r.
 
-Anahtar içgörü
+Anahtar iÃ§gÃ¶rÃ¼
 
-Bir nesnenin kullanıcısına sınıf değişmezlerini koruma görevini vermek, sorunlara yol açma olasılığını yükseltir.
+Bir nesnenin kullanÄ±cÄ±sÄ±na sÄ±nÄ±f deÄŸiÅŸmezlerini koruma gÃ¶revini vermek, sorunlara yol aÃ§ma olasÄ±lÄ±ÄŸÄ±nÄ± yÃ¼kseltir.
 
-İdeal olarak, sınıf türlerimizi kurşun geçirmez hale getirmeyi çok isterdik, böylece bir nesne ya geçersiz bir duruma getirilemez
-ya da eğer öyleyse hemen sinyal verebilir (gelecekteki bazı rastgele bir noktada tanımsız davranışın meydana gelmesine izin vermek
+Ä°deal olarak, sÄ±nÄ±f tÃ¼rlerimizi kurÅŸun geÃ§irmez hale getirmeyi Ã§ok isterdik, bÃ¶ylece bir nesne ya geÃ§ersiz bir duruma getirilemez
+ya da eÄŸer Ã¶yleyse hemen sinyal verebilir (gelecekteki bazÄ± rastgele bir noktada tanÄ±msÄ±z davranÄ±ÅŸÄ±n meydana gelmesine izin vermek
 yerine).
 
-structlar (topluluk ( aggregrate ) olarak) bu sorunu zarif bir şekilde çözmek için gereken mekaniklere sahip değil.
+structlar (topluluk ( aggregrate ) olarak) bu sorunu zarif bir ÅŸekilde Ã§Ã¶zmek iÃ§in gereken mekaniklere sahip deÄŸil.
 
-Sınıflara giriş
+SÄ±nÄ±flara giriÅŸ
 ---------------
-C++'ı geliştirirken, Bjarne Stroustrup, geliştiricilerin daha sezgisel bir şekilde kullanılabilecek program tanımlı türler 
-oluşturmasına olanak sağlayacak yetenekler sunmak istedi. Ayrıca, büyük, karmaşık programları (özellikle daha önce bahsedilen 
-sınıf değişmezlik sorunu gibi) sık sık rahatsız eden ve bakım zorluklarına zarif çözümler bulmakla da ilgileniyordu.
+C++'Ä± geliÅŸtirirken, Bjarne Stroustrup, geliÅŸtiricilerin daha sezgisel bir ÅŸekilde kullanÄ±labilecek program tanÄ±mlÄ± tÃ¼rler 
+oluÅŸturmasÄ±na olanak saÄŸlayacak yetenekler sunmak istedi. AyrÄ±ca, bÃ¼yÃ¼k, karmaÅŸÄ±k programlarÄ± (Ã¶zellikle daha Ã¶nce bahsedilen 
+sÄ±nÄ±f deÄŸiÅŸmezlik sorunu gibi) sÄ±k sÄ±k rahatsÄ±z eden ve bakÄ±m zorluklarÄ±na zarif Ã§Ã¶zÃ¼mler bulmakla da ilgileniyordu.
 
-Diğer programlama dilleriyle (özellikle de ilk nesne yönelimli programlama dili olan Simula ile) deneyiminden yola çıkan Bjarne,
-neredeyse her şey için kullanılabilecek genel ve güçlü bir program tanımlı tür geliştirmenin mümkün olduğuna ikna oldu. Simula'ya ,
-bir gönderme olarak, bu türü bir sınıf olarak adlandırdı. structlar gibi, bir sınıf da birçok üye değişkeni farklı türlerde
-olabilen bir program tanımlı bileşik türdür.
+DiÄŸer programlama dilleriyle (Ã¶zellikle de ilk nesne yÃ¶nelimli programlama dili olan Simula ile) deneyiminden yola Ã§Ä±kan Bjarne,
+neredeyse her ÅŸey iÃ§in kullanÄ±labilecek genel ve gÃ¼Ã§lÃ¼ bir program tanÄ±mlÄ± tÃ¼r geliÅŸtirmenin mÃ¼mkÃ¼n olduÄŸuna ikna oldu. Simula'ya ,
+bir gÃ¶nderme olarak, bu tÃ¼rÃ¼ bir sÄ±nÄ±f olarak adlandÄ±rdÄ±. structlar gibi, bir sÄ±nÄ±f da birÃ§ok Ã¼ye deÄŸiÅŸkeni farklÄ± tÃ¼rlerde
+olabilen bir program tanÄ±mlÄ± bileÅŸik tÃ¼rdÃ¼r.
 
 Kilit nokta
-Teknik açıdan bakıldığında, structlar ve sınıflar neredeyse aynıdır -- bu nedenle, bir struct kullanılarak uygulanan herhangi bir
-örnek, bir sınıf kullanılarak veya tam tersi uygulanabilir. Ancak, pratik açıdan bakıldığında, structları ve sınıfları farklı
-şekillerde kullanırız.
+Teknik aÃ§Ä±dan bakÄ±ldÄ±ÄŸÄ±nda, structlar ve sÄ±nÄ±flar neredeyse aynÄ±dÄ±r -- bu nedenle, bir struct kullanÄ±larak uygulanan herhangi bir
+Ã¶rnek, bir sÄ±nÄ±f kullanÄ±larak veya tam tersi uygulanabilir. Ancak, pratik aÃ§Ä±dan bakÄ±ldÄ±ÄŸÄ±nda, structlarÄ± ve sÄ±nÄ±flarÄ± farklÄ±
+ÅŸekillerde kullanÄ±rÄ±z.
 
-Teknik ve pratik farklılıkları 14.5 -- Public ve private üyeler ve erişim belirleyicileri dersinde ele alıyoruz.
+Teknik ve pratik farklÄ±lÄ±klarÄ± 14.5 -- Public ve private Ã¼yeler ve eriÅŸim belirleyicileri dersinde ele alÄ±yoruz.
 
-Bir sınıfı tanımlama
+Bir sÄ±nÄ±fÄ± tanÄ±mlama
 --------------------
-Bir sınıf, bir program tanımlı veri türü olduğu için, kullanılmadan önce tanımlanmalıdır. Sınıflar, struct yerine class anahtar
-kelimesini kullanarak structlarla benzer şekilde tanımlanır. Örneğin, basit bir çalışan sınıfı için bir tanım aşağıdadır:
+Bir sÄ±nÄ±f, bir program tanÄ±mlÄ± veri tÃ¼rÃ¼ olduÄŸu iÃ§in, kullanÄ±lmadan Ã¶nce tanÄ±mlanmalÄ±dÄ±r. SÄ±nÄ±flar, struct yerine class anahtar
+kelimesini kullanarak structlarla benzer ÅŸekilde tanÄ±mlanÄ±r. Ã–rneÄŸin, basit bir Ã§alÄ±ÅŸan sÄ±nÄ±fÄ± iÃ§in bir tanÄ±m aÅŸaÄŸÄ±dadÄ±r:
 
                 class Calisan
                 {
@@ -398,15 +398,15 @@ kelimesini kullanarak structlarla benzer şekilde tanımlanır. Örneğin, basit bir 
                 };
 
 
-Sınıfların ve yapıların ne kadar benzer olabileceğini göstermek için aşağıdaki program dersin başında sunduğumuz programın 
-eşdeğeridir, ancak Date artık bir struct yerine bir sınıftır:
+SÄ±nÄ±flarÄ±n ve yapÄ±larÄ±n ne kadar benzer olabileceÄŸini gÃ¶stermek iÃ§in aÅŸaÄŸÄ±daki program dersin baÅŸÄ±nda sunduÄŸumuz programÄ±n 
+eÅŸdeÄŸeridir, ancak Date artÄ±k bir struct yerine bir sÄ±nÄ±ftÄ±r:
 
                 #include <iostream>
 
-                class Date      // struct'ı class ile değiştirdik
+                class Date      // struct'Ä± class ile deÄŸiÅŸtirdik
                 {
-                public:          // ve bu satırı ekledik, buna erişim belirleyici denir ( ileride görecez 14.5 )
-                    int m_day{}; // ve her bir üye adına "m_" öneklerini ekledik
+                public:          // ve bu satÄ±rÄ± ekledik, buna eriÅŸim belirleyici denir ( ileride gÃ¶recez 14.5 )
+                    int m_day{}; // ve her bir Ã¼ye adÄ±na "m_" Ã¶neklerini ekledik
                     int m_month{};
                     int m_year{};
                 };
@@ -424,22 +424,22 @@ eşdeğeridir, ancak Date artık bir struct yerine bir sınıftır:
                     return 0;
                 }
 
-                Bu, şunu yazdırır:
+                Bu, ÅŸunu yazdÄ±rÄ±r:
 
                 4/10/21
 
-C++ standart kütüphanesinin çoğu sınıftır
+C++ standart kÃ¼tÃ¼phanesinin Ã§oÄŸu sÄ±nÄ±ftÄ±r
 -----------------------------------------
-Zaten belki de bilmeden sınıf nesnelerini kullanıyordunuz. Hem std::string hem de std::string_view birer sınıf olarak
-tanımlanmıştır. Aslında, standart kütüphanedeki takma adı olmayan türlerin çoğu sınıf olarak tanımlanmıştır!
+Zaten belki de bilmeden sÄ±nÄ±f nesnelerini kullanÄ±yordunuz. Hem std::string hem de std::string_view birer sÄ±nÄ±f olarak
+tanÄ±mlanmÄ±ÅŸtÄ±r. AslÄ±nda, standart kÃ¼tÃ¼phanedeki takma adÄ± olmayan tÃ¼rlerin Ã§oÄŸu sÄ±nÄ±f olarak tanÄ±mlanmÄ±ÅŸtÄ±r!
 
-Sınıflar gerçekten C++'ın kalbi ve ruhudur -- o kadar temeldirler ki, C++ başlangıçta "sınıflarla C" olarak adlandırıldı! 
-Sınıflarla tanıştıktan sonra, C++'da geçirdiğiniz çok zamanı onları yazmak, test etmek ve kullanmak için harcayacaksınız.
+SÄ±nÄ±flar gerÃ§ekten C++'Ä±n kalbi ve ruhudur -- o kadar temeldirler ki, C++ baÅŸlangÄ±Ã§ta "sÄ±nÄ±flarla C" olarak adlandÄ±rÄ±ldÄ±! 
+SÄ±nÄ±flarla tanÄ±ÅŸtÄ±ktan sonra, C++'da geÃ§irdiÄŸiniz Ã§ok zamanÄ± onlarÄ± yazmak, test etmek ve kullanmak iÃ§in harcayacaksÄ±nÄ±z.
 
-14.3 — Üye Fonksiyonlar
+14.3 â€” Ãœye Fonksiyonlar
 -----------------------
-Ders 13.5 -- structlara, üyelere ve üye seçimine girişte, üye değişkenler içerebilen bir program tanımlı tür olan structı tanıttık.
-İşte bir tarihi tutmak için kullanılan bir struct örneği:
+Ders 13.5 -- structlara, Ã¼yelere ve Ã¼ye seÃ§imine giriÅŸte, Ã¼ye deÄŸiÅŸkenler iÃ§erebilen bir program tanÄ±mlÄ± tÃ¼r olan structÄ± tanÄ±ttÄ±k.
+Ä°ÅŸte bir tarihi tutmak iÃ§in kullanÄ±lan bir struct Ã¶rneÄŸi:
 
                 struct Date
                 {
@@ -448,14 +448,14 @@ Ders 13.5 -- structlara, üyelere ve üye seçimine girişte, üye değişkenler içereb
                     int day {};
                 };
 
-Şimdi, eğer tarihi ekrana yazdırmak istiyorsak (muhtemelen çok sık yapmak istediğimiz bir şey), bunu yapmak için bir fonksiyon 
-yazmanın mantıklı olduğunu görüyoruz. İşte tam bir program:
+Åimdi, eÄŸer tarihi ekrana yazdÄ±rmak istiyorsak (muhtemelen Ã§ok sÄ±k yapmak istediÄŸimiz bir ÅŸey), bunu yapmak iÃ§in bir fonksiyon 
+yazmanÄ±n mantÄ±klÄ± olduÄŸunu gÃ¶rÃ¼yoruz. Ä°ÅŸte tam bir program:
 
                 #include <iostream>
 
                 struct Date
                 {
-                    // işte üye değişkenlerimiz
+                    // iÅŸte Ã¼ye deÄŸiÅŸkenlerimiz
                     int year {};
                     int month {};
                     int day {};
@@ -463,68 +463,68 @@ yazmanın mantıklı olduğunu görüyoruz. İşte tam bir program:
 
                 void print(const Date& date)
                 {
-                    // üye değişkenler üye seçim operatörü (.) kullanılarak erişilir
+                    // Ã¼ye deÄŸiÅŸkenler Ã¼ye seÃ§im operatÃ¶rÃ¼ (.) kullanÄ±larak eriÅŸilir
                     std::cout << date.year << '/' << date.month << '/' << date.day;
                 }
 
                 int main()
                 {
-                    Date today { 2020, 10, 14 }; // structı toplu başlatma
+                    Date today { 2020, 10, 14 }; // structÄ± toplu baÅŸlatma
 
-                    today.day = 16; // üye değişkenler üye seçim operatörü (.) kullanılarak erişilir
-                    print(today);   // üye olmayan fonksiyon normal çağrı sözdizimi kullanılarak erişilir
+                    today.day = 16; // Ã¼ye deÄŸiÅŸkenler Ã¼ye seÃ§im operatÃ¶rÃ¼ (.) kullanÄ±larak eriÅŸilir
+                    print(today);   // Ã¼ye olmayan fonksiyon normal Ã§aÄŸrÄ± sÃ¶zdizimi kullanÄ±larak eriÅŸilir
 
                     return 0;
                 }
 
-                Bu program şunu yazdırır:
+                Bu program ÅŸunu yazdÄ±rÄ±r:
 
                 2020/10/16
-Özelliklerin ve eylemlerin ( properties and actions ) ayrılması
+Ã–zelliklerin ve eylemlerin ( properties and actions ) ayrÄ±lmasÄ±
 ---------------------------------------------------------------
-Etrafınıza bir bakın -- her yerde nesneler var: kitaplar ve binalar ve yiyecekler ve hatta siz. Gerçek hayattaki nesnelerin iki 
-ana bileşeni vardır: 
-1) Bir dizi gözlemlenebilir özellik (ör. ağırlık, renk, boyut, katılık, şekil vb.), ve
-2) Bu özelliklere dayalı olarak gerçekleştirebilecekleri veya üzerlerinde gerçekleştirilebilecekleri bir dizi eylem
-   (ör. açılma, başka bir şeye zarar verme vb.). Bu özellikler ve eylemler ayrılmaz.
+EtrafÄ±nÄ±za bir bakÄ±n -- her yerde nesneler var: kitaplar ve binalar ve yiyecekler ve hatta siz. GerÃ§ek hayattaki nesnelerin iki 
+ana bileÅŸeni vardÄ±r: 
+1) Bir dizi gÃ¶zlemlenebilir Ã¶zellik (Ã¶r. aÄŸÄ±rlÄ±k, renk, boyut, katÄ±lÄ±k, ÅŸekil vb.), ve
+2) Bu Ã¶zelliklere dayalÄ± olarak gerÃ§ekleÅŸtirebilecekleri veya Ã¼zerlerinde gerÃ§ekleÅŸtirilebilecekleri bir dizi eylem
+   (Ã¶r. aÃ§Ä±lma, baÅŸka bir ÅŸeye zarar verme vb.). Bu Ã¶zellikler ve eylemler ayrÄ±lmaz.
 
-Programlamada, özellikleri değişkenlerle, eylemleri ise fonksiyonlarla temsil ederiz.
+Programlamada, Ã¶zellikleri deÄŸiÅŸkenlerle, eylemleri ise fonksiyonlarla temsil ederiz.
 
-Yukarıdaki Date örneğinde, özelliklerimizi (Date'in üye değişkenleri) ve bu özellikleri kullanarak gerçekleştirdiğimiz eylemleri
-(print() fonksiyonu) ayrı ayrı tanımladığımızı not edin. Date ve print() arasındaki bağlantıyı, yalnızca print()'ın
-const Date& parametresine dayanarak çıkarırız.
+YukarÄ±daki Date Ã¶rneÄŸinde, Ã¶zelliklerimizi (Date'in Ã¼ye deÄŸiÅŸkenleri) ve bu Ã¶zellikleri kullanarak gerÃ§ekleÅŸtirdiÄŸimiz eylemleri
+(print() fonksiyonu) ayrÄ± ayrÄ± tanÄ±mladÄ±ÄŸÄ±mÄ±zÄ± not edin. Date ve print() arasÄ±ndaki baÄŸlantÄ±yÄ±, yalnÄ±zca print()'Ä±n
+const Date& parametresine dayanarak Ã§Ä±karÄ±rÄ±z.
 
-Her ikisini de bir ad alanına koyabilirdik (ikisinin birlikte paketlenmesi gerektiğini daha belirgin hale getirmek için), ancak bu,
-programımıza daha fazla isim ekler ve daha fazla ad alanı öneki ekler, kodumuzu karmaşıklaştırır.
-Özelliklerimizi ve eylemlerimizi tek bir paket olarak birlikte tanımlayabileceğimiz bir yol olması güzel olurdu.
+Her ikisini de bir ad alanÄ±na koyabilirdik (ikisinin birlikte paketlenmesi gerektiÄŸini daha belirgin hale getirmek iÃ§in), ancak bu,
+programÄ±mÄ±za daha fazla isim ekler ve daha fazla ad alanÄ± Ã¶neki ekler, kodumuzu karmaÅŸÄ±klaÅŸtÄ±rÄ±r.
+Ã–zelliklerimizi ve eylemlerimizi tek bir paket olarak birlikte tanÄ±mlayabileceÄŸimiz bir yol olmasÄ± gÃ¼zel olurdu.
 
-Üye Fonksiyonlar
+Ãœye Fonksiyonlar
 ----------------
-Üye değişkenlere ek olarak, sınıf türleri (structları, sınıfları ve unionları içerir) kendi fonksiyonlarına da sahip olabilir! 
-Bir sınıf türüne ait olan fonksiyonlara üye fonksiyonlar denir.
+Ãœye deÄŸiÅŸkenlere ek olarak, sÄ±nÄ±f tÃ¼rleri (structlarÄ±, sÄ±nÄ±flarÄ± ve unionlarÄ± iÃ§erir) kendi fonksiyonlarÄ±na da sahip olabilir! 
+Bir sÄ±nÄ±f tÃ¼rÃ¼ne ait olan fonksiyonlara Ã¼ye fonksiyonlar denir.
 
-Bir parantez açalım…
-Diğer nesne yönelimli dillerde (Java ve C# gibi), bunlara yöntemler( methods ) denir. C++'da "yöntem" terimi kullanılmamasına
-rağmen, ilk önce bu diğer dilleri öğrenen programcılar hala bu terimi kullanabilir.
+Bir parantez aÃ§alÄ±mâ€¦
+DiÄŸer nesne yÃ¶nelimli dillerde (Java ve C# gibi), bunlara yÃ¶ntemler( methods ) denir. C++'da "yÃ¶ntem" terimi kullanÄ±lmamasÄ±na
+raÄŸmen, ilk Ã¶nce bu diÄŸer dilleri Ã¶ÄŸrenen programcÄ±lar hala bu terimi kullanabilir.
 
-Üye fonksiyon olmayan fonksiyonlara, onları üye fonksiyonlardan ayırt etmek için üye olmayan fonksiyonlar (veya ara sıra serbest
-fonksiyonlar) denir. Yukarıdaki print() fonksiyonu bir üye olmayan fonksiyondur.
-Yazarın notu
-Bu derste, üye fonksiyonların örneklerini göstermek için structları kullanacağız -- ancak burada gösterdiğimiz her şey sınıflar
-için de eşit derecede geçerlidir. Nedenlerini oraya vardığımızda açıkça göreceğiz, gelecek derslerde 
-(14.5 -- Public ve private üyeler ve erişim belirleyicileri) sınıfların üye fonksiyonlarına örnekler göstereceğiz.
+Ãœye fonksiyon olmayan fonksiyonlara, onlarÄ± Ã¼ye fonksiyonlardan ayÄ±rt etmek iÃ§in Ã¼ye olmayan fonksiyonlar (veya ara sÄ±ra serbest
+fonksiyonlar) denir. YukarÄ±daki print() fonksiyonu bir Ã¼ye olmayan fonksiyondur.
+YazarÄ±n notu
+Bu derste, Ã¼ye fonksiyonlarÄ±n Ã¶rneklerini gÃ¶stermek iÃ§in structlarÄ± kullanacaÄŸÄ±z -- ancak burada gÃ¶sterdiÄŸimiz her ÅŸey sÄ±nÄ±flar
+iÃ§in de eÅŸit derecede geÃ§erlidir. Nedenlerini oraya vardÄ±ÄŸÄ±mÄ±zda aÃ§Ä±kÃ§a gÃ¶receÄŸiz, gelecek derslerde 
+(14.5 -- Public ve private Ã¼yeler ve eriÅŸim belirleyicileri) sÄ±nÄ±flarÄ±n Ã¼ye fonksiyonlarÄ±na Ã¶rnekler gÃ¶stereceÄŸiz.
 
-Üye fonksiyonlar, sınıf türü tanımının içinde bildirilmeli ve sınıf türü tanımının içinde veya dışında tanımlanabilir. 
-Hatırlatma olarak, bir tanım aynı zamanda bir bildirimdir, bu yüzden bir üye fonksiyonunu sınıfın içinde tanımlarsak,
-bu bir bildirim olarak sayılır.
+Ãœye fonksiyonlar, sÄ±nÄ±f tÃ¼rÃ¼ tanÄ±mÄ±nÄ±n iÃ§inde bildirilmeli ve sÄ±nÄ±f tÃ¼rÃ¼ tanÄ±mÄ±nÄ±n iÃ§inde veya dÄ±ÅŸÄ±nda tanÄ±mlanabilir. 
+HatÄ±rlatma olarak, bir tanÄ±m aynÄ± zamanda bir bildirimdir, bu yÃ¼zden bir Ã¼ye fonksiyonunu sÄ±nÄ±fÄ±n iÃ§inde tanÄ±mlarsak,
+bu bir bildirim olarak sayÄ±lÄ±r.
 
-Şimdilik işleri basit tutmak için, üye fonksiyonlarımızı sınıf türü tanımının içinde tanımlayacağız.
+Åimdilik iÅŸleri basit tutmak iÃ§in, Ã¼ye fonksiyonlarÄ±mÄ±zÄ± sÄ±nÄ±f tÃ¼rÃ¼ tanÄ±mÄ±nÄ±n iÃ§inde tanÄ±mlayacaÄŸÄ±z.
 
-Üye Fonksiyon Örneği
+Ãœye Fonksiyon Ã–rneÄŸi
 --------------------
-Dersin başındaki Date örneğini yeniden yazalım, print()'i bir üye olmayan fonksiyondan bir üye fonksiyonuna dönüştürelim:
+Dersin baÅŸÄ±ndaki Date Ã¶rneÄŸini yeniden yazalÄ±m, print()'i bir Ã¼ye olmayan fonksiyondan bir Ã¼ye fonksiyonuna dÃ¶nÃ¼ÅŸtÃ¼relim:
 
-                // Üye fonksiyon versiyonu
+                // Ãœye fonksiyon versiyonu
                 #include <iostream>
 
                 struct Tarih
@@ -533,7 +533,7 @@ Dersin başındaki Date örneğini yeniden yazalım, print()'i bir üye olmayan fonksi
                     int month {};
                     int day {};
 
-                    void print() // yazdir adında bir üye fonksiyon tanımlar
+                    void print() // yazdir adÄ±nda bir Ã¼ye fonksiyon tanÄ±mlar
                     {
                         std::cout << year << '/' << month << '/' << day;
                     }
@@ -541,77 +541,77 @@ Dersin başındaki Date örneğini yeniden yazalım, print()'i bir üye olmayan fonksi
 
                 int main()
                 {
-                    Date today { 2020, 10, 14 }; // structı toplu başlatma
+                    Date today { 2020, 10, 14 }; // structÄ± toplu baÅŸlatma
 
-                    today.day = 16; // üye değişkenler üye seçim operatörü (.) kullanılarak erişilir
-                    today.print();  // üye fonksiyonlar da üye seçim operatörü (.) kullanılarak erişilir
+                    today.day = 16; // Ã¼ye deÄŸiÅŸkenler Ã¼ye seÃ§im operatÃ¶rÃ¼ (.) kullanÄ±larak eriÅŸilir
+                    today.print();  // Ã¼ye fonksiyonlar da Ã¼ye seÃ§im operatÃ¶rÃ¼ (.) kullanÄ±larak eriÅŸilir
 
                     return 0;
                 }
 
-                Bu program derlenir ve yukarıdakiyle aynı sonucu verir:
+                Bu program derlenir ve yukarÄ±dakiyle aynÄ± sonucu verir:
 
                 2020/10/16
-Üye olmayan ve üye örnekler arasında üç anahtar fark vardır:
+Ãœye olmayan ve Ã¼ye Ã¶rnekler arasÄ±nda Ã¼Ã§ anahtar fark vardÄ±r:
 
-*- print() fonksiyonunu nerede bildiriyoruz (ve tanımlıyoruz)
-*- print() fonksiyonunu nasıl çağırıyoruz
-*- print() fonksiyonunun içinde üyelere nasıl erişiyoruz
-Her birini sırayla inceleyelim.
+*- print() fonksiyonunu nerede bildiriyoruz (ve tanÄ±mlÄ±yoruz)
+*- print() fonksiyonunu nasÄ±l Ã§aÄŸÄ±rÄ±yoruz
+*- print() fonksiyonunun iÃ§inde Ã¼yelere nasÄ±l eriÅŸiyoruz
+Her birini sÄ±rayla inceleyelim.
 
-Üye Fonksiyonlar Sınıf Türü Tanımının İçinde Bildirilir
+Ãœye Fonksiyonlar SÄ±nÄ±f TÃ¼rÃ¼ TanÄ±mÄ±nÄ±n Ä°Ã§inde Bildirilir
 -------------------------------------------------------
-Üye olmayan örnekte, print() üye olmayan fonksiyonu, Date yapısının dışında, global ad alanında tanımlanır. Varsayılan olarak, 
-dış bağlantısı vardır, bu yüzden diğer kaynak dosyalardan (uygun ileri bildirimle) çağrılabilir.
+Ãœye olmayan Ã¶rnekte, print() Ã¼ye olmayan fonksiyonu, Date yapÄ±sÄ±nÄ±n dÄ±ÅŸÄ±nda, global ad alanÄ±nda tanÄ±mlanÄ±r. VarsayÄ±lan olarak, 
+dÄ±ÅŸ baÄŸlantÄ±sÄ± vardÄ±r, bu yÃ¼zden diÄŸer kaynak dosyalardan (uygun ileri bildirimle) Ã§aÄŸrÄ±labilir.
 
-Üye örnekte, print() üye fonksiyonu, Date yapısı tanımının içinde bildirilir (ve bu durumda, tanımlanır). print()'in Date'in bir
-parçası olarak bildirildiği için, bu derleyiciye print()'in bir üye fonksiyon olduğunu söyler.
+Ãœye Ã¶rnekte, print() Ã¼ye fonksiyonu, Date yapÄ±sÄ± tanÄ±mÄ±nÄ±n iÃ§inde bildirilir (ve bu durumda, tanÄ±mlanÄ±r). print()'in Date'in bir
+parÃ§asÄ± olarak bildirildiÄŸi iÃ§in, bu derleyiciye print()'in bir Ã¼ye fonksiyon olduÄŸunu sÃ¶yler.
 
-Sınıf türü tanımının içinde tanımlanan üye fonksiyonlar, dolaylı olarak satır içidir, bu yüzden sınıf türü tanımı birden çok kod
-dosyasına dahil edilirse, bir tanım kuralını ihlal etmezler.
+SÄ±nÄ±f tÃ¼rÃ¼ tanÄ±mÄ±nÄ±n iÃ§inde tanÄ±mlanan Ã¼ye fonksiyonlar, dolaylÄ± olarak satÄ±r iÃ§idir, bu yÃ¼zden sÄ±nÄ±f tÃ¼rÃ¼ tanÄ±mÄ± birden Ã§ok kod
+dosyasÄ±na dahil edilirse, bir tanÄ±m kuralÄ±nÄ± ihlal etmezler.
 
-Üye Fonksiyonları Çağırma (ve Dolaylı Nesne (implicit object))
+Ãœye FonksiyonlarÄ± Ã‡aÄŸÄ±rma (ve DolaylÄ± Nesne (implicit object))
 --------------------------------------------------------------
-Üye olmayan örnekte, print(today)'i çağırıyoruz, burada today (açıkça) bir argüman olarak geçirilir. üye örnekte, today.print()'i
-çağırıyoruz. Bu sözdizimi, üye değişkenlere nasıl eriştiğimizle (ör. today.day = 16;) tutarlıdır.
+Ãœye olmayan Ã¶rnekte, print(today)'i Ã§aÄŸÄ±rÄ±yoruz, burada today (aÃ§Ä±kÃ§a) bir argÃ¼man olarak geÃ§irilir. Ã¼ye Ã¶rnekte, today.print()'i
+Ã§aÄŸÄ±rÄ±yoruz. Bu sÃ¶zdizimi, Ã¼ye deÄŸiÅŸkenlere nasÄ±l eriÅŸtiÄŸimizle (Ã¶r. today.day = 16;) tutarlÄ±dÄ±r.
 
-Tüm (statik olmayan) üye fonksiyonlar, o sınıf türünün bir nesnesi kullanılarak çağrılmalıdır. Bu durumda, today, print()'in 
-üzerinde çağrıldığı nesnedir. Üye fonksiyon durumunda, today'i bir argüman olarak geçirmemize gerek yok. Bir üye fonksiyonun 
-üzerinde çağrıldığı nesne, üye fonksiyona dolaylı olarak geçirilir. Bu nedenle, bir üye fonksiyonun üzerinde çağrıldığı nesne
-genellikle dolaylı nesne olarak adlandırılır.
-Başka bir deyişle, today.print()'i çağırdığımızda, today dolaylı nesnedir ve print() üye fonksiyonuna dolaylı olarak geçirilir.
+TÃ¼m (statik olmayan) Ã¼ye fonksiyonlar, o sÄ±nÄ±f tÃ¼rÃ¼nÃ¼n bir nesnesi kullanÄ±larak Ã§aÄŸrÄ±lmalÄ±dÄ±r. Bu durumda, today, print()'in 
+Ã¼zerinde Ã§aÄŸrÄ±ldÄ±ÄŸÄ± nesnedir. Ãœye fonksiyon durumunda, today'i bir argÃ¼man olarak geÃ§irmemize gerek yok. Bir Ã¼ye fonksiyonun 
+Ã¼zerinde Ã§aÄŸrÄ±ldÄ±ÄŸÄ± nesne, Ã¼ye fonksiyona dolaylÄ± olarak geÃ§irilir. Bu nedenle, bir Ã¼ye fonksiyonun Ã¼zerinde Ã§aÄŸrÄ±ldÄ±ÄŸÄ± nesne
+genellikle dolaylÄ± nesne olarak adlandÄ±rÄ±lÄ±r.
+BaÅŸka bir deyiÅŸle, today.print()'i Ã§aÄŸÄ±rdÄ±ÄŸÄ±mÄ±zda, today dolaylÄ± nesnedir ve print() Ã¼ye fonksiyonuna dolaylÄ± olarak geÃ§irilir.
 
-İşte print()'in üye olmayan versiyonu tekrar:
+Ä°ÅŸte print()'in Ã¼ye olmayan versiyonu tekrar:
 
-                // üye olmayan print versiyonu
+                // Ã¼ye olmayan print versiyonu
                 void print(const Date& date)
                 {
-                    // üye değişkenler üye seçim operatörü (.) kullanılarak erişilir
+                    // Ã¼ye deÄŸiÅŸkenler Ã¼ye seÃ§im operatÃ¶rÃ¼ (.) kullanÄ±larak eriÅŸilir
                     std::cout << date.year << '/' << date.month << '/' << date.day;
                 }
-Bu print() versiyonunun const Date& date referans parametresi vardır. Fonksiyonun içinde, üyelere bu referans parametresi
-üzerinden erişiriz, yani date.year, date.month ve date.day. print(today) çağrıldığında, date referans parametresi today argümanına
-bağlanır ve date.year, date.month ve date.day sırasıyla today.year, today.month ve today.day olarak değerlendirilir.
-Şimdi print() üye fonksiyonunun tanımına tekrar bakalım:
-Üye Fonksiyon Örneği
+Bu print() versiyonunun const Date& date referans parametresi vardÄ±r. Fonksiyonun iÃ§inde, Ã¼yelere bu referans parametresi
+Ã¼zerinden eriÅŸiriz, yani date.year, date.month ve date.day. print(today) Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nda, date referans parametresi today argÃ¼manÄ±na
+baÄŸlanÄ±r ve date.year, date.month ve date.day sÄ±rasÄ±yla today.year, today.month ve today.day olarak deÄŸerlendirilir.
+Åimdi print() Ã¼ye fonksiyonunun tanÄ±mÄ±na tekrar bakalÄ±m:
+Ãœye Fonksiyon Ã–rneÄŸi
 
-                void print() // yazdir adında bir üye fonksiyon tanımlar
+                void print() // yazdir adÄ±nda bir Ã¼ye fonksiyon tanÄ±mlar
                 {
                     std::cout << yil << '/' << ay << '/' << gun;
                 }
-Üye örneğinde, üyelere yil, ay ve gun olarak erişiriz.
+Ãœye Ã¶rneÄŸinde, Ã¼yelere yil, ay ve gun olarak eriÅŸiriz.
 
-Bir üye fonksiyonun içinde, üye seçim operatörü (.) ile öneki olmayan her üye tanımlayıcı, dolaylı nesne ile ilişkilendirilir.
-Başka bir deyişle, today.print() çağrıldığında, today dolaylı nesnemizdir ve yil, ay ve gun (önekli olmayanlar) sırasıyla
-today.yil, today.ay ve today.gun değerlerine karşılık gelir.
+Bir Ã¼ye fonksiyonun iÃ§inde, Ã¼ye seÃ§im operatÃ¶rÃ¼ (.) ile Ã¶neki olmayan her Ã¼ye tanÄ±mlayÄ±cÄ±, dolaylÄ± nesne ile iliÅŸkilendirilir.
+BaÅŸka bir deyiÅŸle, today.print() Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nda, today dolaylÄ± nesnemizdir ve yil, ay ve gun (Ã¶nekli olmayanlar) sÄ±rasÄ±yla
+today.yil, today.ay ve today.gun deÄŸerlerine karÅŸÄ±lÄ±k gelir.
 
-Anahtar nokta şudur ki, Üye olmayan fonksiyonlarla, üzerinde çalışmak için bir nesneyi fonksiyona açıkça geçirmeliyiz ve üyelere
-açıkça erişiriz. Üye fonksiyonlarla, üzerinde çalışmak için bir nesneyi dolaylı olarak fonksiyona geçiririz ve üyelere dolaylı 
-olarak erişiriz.
+Anahtar nokta ÅŸudur ki, Ãœye olmayan fonksiyonlarla, Ã¼zerinde Ã§alÄ±ÅŸmak iÃ§in bir nesneyi fonksiyona aÃ§Ä±kÃ§a geÃ§irmeliyiz ve Ã¼yelere
+aÃ§Ä±kÃ§a eriÅŸiriz. Ãœye fonksiyonlarla, Ã¼zerinde Ã§alÄ±ÅŸmak iÃ§in bir nesneyi dolaylÄ± olarak fonksiyona geÃ§iririz ve Ã¼yelere dolaylÄ± 
+olarak eriÅŸiriz.
 
-Başka Bir Üye Fonksiyon Örneği
+BaÅŸka Bir Ãœye Fonksiyon Ã–rneÄŸi
 ------------------------------
-İşte biraz daha karmaşık bir üye fonksiyonla bir örnek:
+Ä°ÅŸte biraz daha karmaÅŸÄ±k bir Ã¼ye fonksiyonla bir Ã¶rnek:
                 #include <iostream>
                 #include <string>
 
@@ -635,51 +635,51 @@ Başka Bir Üye Fonksiyon Örneği
 
                     return 0;
                 }
-                Bu, çıktıyı üretir:
+                Bu, Ã§Ä±ktÄ±yÄ± Ã¼retir:
 
                 Joe kisses Kate
-Bunun nasıl çalıştığını inceleyelim. Öncelikle, iki Person structı tanımlıyoruz, joe ve kate. Sonra, joe.kisses(kate)'i 
-çağırıyoruz. joe burada dolaylı nesnedir ve kate açık bir argüman olarak geçirilir.
+Bunun nasÄ±l Ã§alÄ±ÅŸtÄ±ÄŸÄ±nÄ± inceleyelim. Ã–ncelikle, iki Person structÄ± tanÄ±mlÄ±yoruz, joe ve kate. Sonra, joe.kisses(kate)'i 
+Ã§aÄŸÄ±rÄ±yoruz. joe burada dolaylÄ± nesnedir ve kate aÃ§Ä±k bir argÃ¼man olarak geÃ§irilir.
 
-kisses() üye fonksiyonu çalıştığında, isim tanımlayıcısı üye seçim operatörünü (.) kullanmaz, bu yüzden dolaylı nesneye, yani
-joe'ya başvurur. Bu, joe.isim'e çözülür. person.name, üye seçim operatörünü kullanır, bu yüzden dolaylı nesneye başvurmaz. person,,
-kate için bir referans olduğundan, bu kate.name'e çözülür.
+kisses() Ã¼ye fonksiyonu Ã§alÄ±ÅŸtÄ±ÄŸÄ±nda, isim tanÄ±mlayÄ±cÄ±sÄ± Ã¼ye seÃ§im operatÃ¶rÃ¼nÃ¼ (.) kullanmaz, bu yÃ¼zden dolaylÄ± nesneye, yani
+joe'ya baÅŸvurur. Bu, joe.isim'e Ã§Ã¶zÃ¼lÃ¼r. person.name, Ã¼ye seÃ§im operatÃ¶rÃ¼nÃ¼ kullanÄ±r, bu yÃ¼zden dolaylÄ± nesneye baÅŸvurmaz. person,,
+kate iÃ§in bir referans olduÄŸundan, bu kate.name'e Ã§Ã¶zÃ¼lÃ¼r.
 
-Anahtar nokta şudur ki, Bir üye fonksiyon olmadan, kisses(joe, kate)'i yazmış olurduk. Bir üye fonksiyonla, joe.kisses(kate)'i 
-yazıyoruz. İkincisinin ne kadar daha iyi okunduğuna ve hangi nesnenin eylemi başlattığının ve hangisinin destek olduğunun ne kadar
-açık olduğuna dikkat edin.
+Anahtar nokta ÅŸudur ki, Bir Ã¼ye fonksiyon olmadan, kisses(joe, kate)'i yazmÄ±ÅŸ olurduk. Bir Ã¼ye fonksiyonla, joe.kisses(kate)'i 
+yazÄ±yoruz. Ä°kincisinin ne kadar daha iyi okunduÄŸuna ve hangi nesnenin eylemi baÅŸlattÄ±ÄŸÄ±nÄ±n ve hangisinin destek olduÄŸunun ne kadar
+aÃ§Ä±k olduÄŸuna dikkat edin.
 
-Üye Değişkenler ve Fonksiyonlar Herhangi Bir Sırayla Tanımlanabilir
+Ãœye DeÄŸiÅŸkenler ve Fonksiyonlar Herhangi Bir SÄ±rayla TanÄ±mlanabilir
 -------------------------------------------------------------------
-C++ derleyicisi normalde kodu yukarıdan aşağıya derler. Her isimle karşılaştığında, derleyici zaten o isim için bir bildirim
-görmüş olup olmadığını belirler, böylece uygun tip kontrolünü yapabilir.
+C++ derleyicisi normalde kodu yukarÄ±dan aÅŸaÄŸÄ±ya derler. Her isimle karÅŸÄ±laÅŸtÄ±ÄŸÄ±nda, derleyici zaten o isim iÃ§in bir bildirim
+gÃ¶rmÃ¼ÅŸ olup olmadÄ±ÄŸÄ±nÄ± belirler, bÃ¶ylece uygun tip kontrolÃ¼nÃ¼ yapabilir.
 
-Bu, bir üye olmayan fonksiyonun içinde, en azından bildirilmemiş bir değişkene erişemez veya bir fonksiyonu çağıramazsınız
-anlamına gelir:
+Bu, bir Ã¼ye olmayan fonksiyonun iÃ§inde, en azÄ±ndan bildirilmemiÅŸ bir deÄŸiÅŸkene eriÅŸemez veya bir fonksiyonu Ã§aÄŸÄ±ramazsÄ±nÄ±z
+anlamÄ±na gelir:
                 void x()
                 {
-                    y(); // hata: y henüz bildirilmedi, bu yüzden derleyici ne olduğunu bilmiyor
+                    y(); // hata: y henÃ¼z bildirilmedi, bu yÃ¼zden derleyici ne olduÄŸunu bilmiyor
                 }
 
                 int y()
                 {
                     return 5;
                 }
-Ancak, üye fonksiyonlar (ve üye veri başlatıcıları) ile, bu sınırlama geçerli değildir ve üyelerimizi istediğimiz herhangi bir
-sırayla tanımlayabiliriz. Örneğin:
+Ancak, Ã¼ye fonksiyonlar (ve Ã¼ye veri baÅŸlatÄ±cÄ±larÄ±) ile, bu sÄ±nÄ±rlama geÃ§erli deÄŸildir ve Ã¼yelerimizi istediÄŸimiz herhangi bir
+sÄ±rayla tanÄ±mlayabiliriz. Ã–rneÄŸin:
 
                 struct Foo
                 {
-                    int m_x{ y() };   // burada y()'yi çağırmak tamam, çünkü y() daha sonra tanımlanır
+                    int m_x{ y() };   // burada y()'yi Ã§aÄŸÄ±rmak tamam, Ã§Ã¼nkÃ¼ y() daha sonra tanÄ±mlanÄ±r
 
-                    void x() { y(); } // burada y()'yi çağırmak tamam, çünkü y() daha sonra tanımlanır
+                    void x() { y(); } // burada y()'yi Ã§aÄŸÄ±rmak tamam, Ã§Ã¼nkÃ¼ y() daha sonra tanÄ±mlanÄ±r
                     int y()  { return 5; }
                 };
 
-Üye Fonksiyonlar Aşırı Yüklenebilir
+Ãœye Fonksiyonlar AÅŸÄ±rÄ± YÃ¼klenebilir
 ------------------------------------
-Üye olmayan fonksiyonlar gibi, üye fonksiyonlar da aşırı yüklenebilir, yeter ki her üye fonksiyon ayırt edilebilsin.
-İşte aşırı yüklenmiş print() üye fonksiyonlarına sahip bir Date yapısı örneği:
+Ãœye olmayan fonksiyonlar gibi, Ã¼ye fonksiyonlar da aÅŸÄ±rÄ± yÃ¼klenebilir, yeter ki her Ã¼ye fonksiyon ayÄ±rt edilebilsin.
+Ä°ÅŸte aÅŸÄ±rÄ± yÃ¼klenmiÅŸ print() Ã¼ye fonksiyonlarÄ±na sahip bir Date yapÄ±sÄ± Ã¶rneÄŸi:
 
                 #include <iostream>
                 #include <string_view>
@@ -705,41 +705,41 @@ sırayla tanımlayabiliriz. Örneğin:
                 {
                     Date today { 2020, 10, 14 };
 
-                    today.print(); // Tarih::print() çağırır
+                    today.print(); // Tarih::print() Ã§aÄŸÄ±rÄ±r
                     std::cout << '\n';
 
-                    today.print("Date: "); // Tarih::yazdir(std::string_view) çağırır
+                    today.print("Date: "); // Tarih::print(std::string_view) Ã§aÄŸÄ±rÄ±r
                     std::cout << '\n';
 
                     return 0;
                 }
-                Bu, şunu yazdırır:
+                Bu, ÅŸunu yazdÄ±rÄ±r:
 
                 2020/10/14
                 Tarih: 2020/10/14
-structlar ve Üye Fonksiyonlar
+Structlar ve Ãœye Fonksiyonlar
 -----------------------------
-C'de, structların yalnızca veri üyeleri vardır, üye fonksiyonları yoktur. C++'da, sınıflar tasarlanırken, Bjarne Stroustrup,
-structların (C'den miras alınan) üye fonksiyonlara sahip olma yeteneğine sahip olup olmaması gerektiğini düşünmek için bir miktar
-zaman harcadı. Düşündükten sonra, bunun gerektiğine karar verdi.
-Bir parantez açalım…
-Bu karar, structların hangi yeni C++ yeteneklerine erişim hakkı olması gerektiği hakkında başka soruların ortaya çıkmasına neden
-oldu. Bjarne, structların sınırlı bir yetenek alt kümesine erişim hakkı vermenin, dilin karmaşıklığını ve kenar durumlarını
-artıracağından endişe ediyordu. Basitlik için, sonuçta Bjarne, structların ve sınıfların birleşik bir kural setine sahip olmasına 
-karar verdi (yani structlar, sınıfların yapabildiği her şeyi yapabilir ve tam tersi), ve gelenek, structların nasıl
-kullanılacağını belirleyebilir.
+C'de, structlarÄ±n yalnÄ±zca veri Ã¼yeleri vardÄ±r, Ã¼ye fonksiyonlarÄ± yoktur. C++'da, sÄ±nÄ±flar tasarlanÄ±rken, Bjarne Stroustrup,
+structlarÄ±n (C'den miras alÄ±nan) Ã¼ye fonksiyonlara sahip olma yeteneÄŸine sahip olup olmamasÄ± gerektiÄŸini dÃ¼ÅŸÃ¼nmek iÃ§in bir miktar
+zaman harcadÄ±. DÃ¼ÅŸÃ¼ndÃ¼kten sonra, bunun gerektiÄŸine karar verdi.
 
-Modern C++'da, structların üye fonksiyonlara sahip olması uygundur. Bu, bizim gelecek ders 14.9 -- Yapıcılarına ( constructor )
-Giriş'te ele alacağımız private bir üye fonksiyon türü olan yapıcıları dışlar. Bir yapıcıya sahip bir sınıf türü artık bir topluluk
-değildir ve structlarımızın topluluk olarak kalmasını istiyoruz.
+Bu karar, structlarÄ±n hangi yeni C++ yeteneklerine eriÅŸim hakkÄ± olmasÄ± gerektiÄŸi hakkÄ±nda baÅŸka sorularÄ±n ortaya Ã§Ä±kmasÄ±na neden
+oldu. Bjarne, structlarÄ±n sÄ±nÄ±rlÄ± bir yetenek alt kÃ¼mesine eriÅŸim hakkÄ± vermenin, dilin karmaÅŸÄ±klÄ±ÄŸÄ±nÄ± ve kenar durumlarÄ±nÄ±
+artÄ±racaÄŸÄ±ndan endiÅŸe ediyordu. Basitlik iÃ§in, sonuÃ§ta Bjarne, structlarÄ±n ve sÄ±nÄ±flarÄ±n birleÅŸik bir kural setine sahip olmasÄ±na 
+karar verdi (yani structlar, sÄ±nÄ±flarÄ±n yapabildiÄŸi her ÅŸeyi yapabilir ve tam tersi), ve gelenek, structlarÄ±n nasÄ±l
+kullanÄ±lacaÄŸÄ±nÄ± belirleyebilir.
 
-*** BEST -> Üye fonksiyonlar, hem structlarla hem de sınıflarla kullanılabilir. Ancak, structlar, yapıcı üye fonksiyonlarını 
-            tanımlamaktan kaçınmalıdır, çünkü bunu yapmak onları bir topluluk olmaktan çıkarır.
+Modern C++'da, structlarÄ±n Ã¼ye fonksiyonlara sahip olmasÄ± uygundur. Bu, bizim gelecek ders 14.9 -- YapÄ±cÄ±larÄ±na ( constructor )
+GiriÅŸ'te ele alacaÄŸÄ±mÄ±z private bir Ã¼ye fonksiyon tÃ¼rÃ¼ olan yapÄ±cÄ±larÄ± dÄ±ÅŸlar. Bir yapÄ±cÄ±ya sahip bir sÄ±nÄ±f tÃ¼rÃ¼ artÄ±k bir topluluk
+deÄŸildir ve structlarÄ±mÄ±zÄ±n topluluk olarak kalmasÄ±nÄ± istiyoruz.
 
-Veri Üyesi Olmayan Sınıf Türleri
+*** BEST -> Ãœye fonksiyonlar, hem structlarla hem de sÄ±nÄ±flarla kullanÄ±labilir. Ancak, structlar, yapÄ±cÄ± Ã¼ye fonksiyonlarÄ±nÄ± 
+            tanÄ±mlamaktan kaÃ§Ä±nmalÄ±dÄ±r, Ã§Ã¼nkÃ¼ bunu yapmak onlarÄ± bir topluluk olmaktan Ã§Ä±karÄ±r.
+
+Veri Ãœyesi Olmayan SÄ±nÄ±f TÃ¼rleri
 --------------------------------
-Veri üyesi olmayan bir sınıf türü oluşturmak mümkündür (ör. yalnızca üye fonksiyonlara sahip sınıf türleri). Ayrıca, böyle bir 
-sınıf türünün nesnelerini örnekleştirmek de mümkündür:
+Veri Ã¼yesi olmayan bir sÄ±nÄ±f tÃ¼rÃ¼ oluÅŸturmak mÃ¼mkÃ¼ndÃ¼r (Ã¶r. yalnÄ±zca Ã¼ye fonksiyonlara sahip sÄ±nÄ±f tÃ¼rleri). AyrÄ±ca, bÃ¶yle bir 
+sÄ±nÄ±f tÃ¼rÃ¼nÃ¼n nesnelerini Ã¶rnekleÅŸtirmek de mÃ¼mkÃ¼ndÃ¼r:
 #include <iostream>
 
                 struct Foo
@@ -750,13 +750,13 @@ sınıf türünün nesnelerini örnekleştirmek de mümkündür:
                 int main()
                 {
                     Foo f{};
-                    f.printHi(); // çağırmak için nesne gerektirir
+                    f.printHi(); // Ã§aÄŸÄ±rmak iÃ§in nesne gerektirir
 
                     return 0;
                 }
-Ancak, bir sınıf türünün hiç veri üyesi yoksa, bir sınıf türünü kullanmak muhtemelen gereksizdir. Bu tür durumlarda, bunun yerine
-bir ad alanı kullanmayı düşünün (üye olmayan fonksiyonları içerir). Bu, okuyucuya hiçbir verinin yönetilmediğini (ve fonksiyonları
-çağırmak için bir nesnenin örnekleştirilmesini gerektirmediğini) daha açık hale getirir.
+Ancak, bir sÄ±nÄ±f tÃ¼rÃ¼nÃ¼n hiÃ§ veri Ã¼yesi yoksa, bir sÄ±nÄ±f tÃ¼rÃ¼nÃ¼ kullanmak muhtemelen gereksizdir. Bu tÃ¼r durumlarda, bunun yerine
+bir ad alanÄ± kullanmayÄ± dÃ¼ÅŸÃ¼nÃ¼n (Ã¼ye olmayan fonksiyonlarÄ± iÃ§erir). Bu, okuyucuya hiÃ§bir verinin yÃ¶netilmediÄŸini (ve fonksiyonlarÄ±
+Ã§aÄŸÄ±rmak iÃ§in bir nesnenin Ã¶rnekleÅŸtirilmesini gerektirmediÄŸini) daha aÃ§Ä±k hale getirir.
 
                 #include <iostream>
 
@@ -767,23 +767,23 @@ bir ad alanı kullanmayı düşünün (üye olmayan fonksiyonları içerir). Bu, okuyucuy
 
                 int main()
                 {
-                    Foo::printHi(); // Hiç bir nesne gerekli değil
+                    Foo::printHi(); // HiÃ§ bir nesne gerekli deÄŸil
 
                     return 0;
                 }
-*** BEST -> Sınıf türünüzün hiç veri üyesi yoksa, bir ad alanı kullanmayı tercih edin.
+*** BEST -> SÄ±nÄ±f tÃ¼rÃ¼nÃ¼zÃ¼n hiÃ§ veri Ã¼yesi yoksa, bir ad alanÄ± kullanmayÄ± tercih edin.
 
-14.4 — Const Sınıf Nesneleri ve Const Üye Fonksiyonlar
+14.4 â€” Const SÄ±nÄ±f Nesneleri ve Const Ãœye Fonksiyonlar
 ------------------------------------------------------
-5.1 -- Sabit değişkenler (isimli sabitler) dersinde, temel bir veri türünün (int, double, char, vb.) nesnelerinin const anahtar
-kelimesi ile sabit yapılabilceğini öğrendiniz. Tüm const değişkenler oluşturuldukları anda başlatılmalıdır.
+5.1 -- Sabit deÄŸiÅŸkenler (isimli sabitler) dersinde, temel bir veri tÃ¼rÃ¼nÃ¼n (int, double, char, vb.) nesnelerinin const anahtar
+kelimesi ile sabit yapÄ±labilceÄŸini Ã¶ÄŸrendiniz. TÃ¼m const deÄŸiÅŸkenler oluÅŸturulduklarÄ± anda baÅŸlatÄ±lmalÄ±dÄ±r.
 
-                const int x;      // derleme hatası: başlatılmadı
-                const int y{};    // tamam: değer başlatıldı
-                const int z{ 5 }; // tamam: liste başlatıldı
+                const int x;      // derleme hatasÄ±: baÅŸlatÄ±lmadÄ±
+                const int y{};    // tamam: deÄŸer baÅŸlatÄ±ldÄ±
+                const int z{ 5 }; // tamam: liste baÅŸlatÄ±ldÄ±
 
-Benzer şekilde, sınıf türü nesneleri (structlar, sınıflar ve unionlar) de const anahtar kelimesi kullanılarak sabit yapılabilir.
-Bu tür nesneler de oluşturuldukları anda başlatılmalıdır.
+Benzer ÅŸekilde, sÄ±nÄ±f tÃ¼rÃ¼ nesneleri (structlar, sÄ±nÄ±flar ve unionlar) de const anahtar kelimesi kullanÄ±larak sabit yapÄ±labilir.
+Bu tÃ¼r nesneler de oluÅŸturulduklarÄ± anda baÅŸlatÄ±lmalÄ±dÄ±r.
 
                 struct Tarih
                 {
@@ -794,19 +794,19 @@ Bu tür nesneler de oluşturuldukları anda başlatılmalıdır.
 
                 int main()
                 {
-                    const Date today { 2020, 10, 14 }; // const sınıf türü nesne
+                    const Date today { 2020, 10, 14 }; // const sÄ±nÄ±f tÃ¼rÃ¼ nesne
 
                     return 0;
                 }
 
-Normal değişkenlerle olduğu gibi, sınıf türü nesnelerinizi de genellikle oluşturulduktan sonra değiştirilmediklerini garanti etmek
-istediğinizde const (veya constexpr) yapmak istersiniz.
+Normal deÄŸiÅŸkenlerle olduÄŸu gibi, sÄ±nÄ±f tÃ¼rÃ¼ nesnelerinizi de genellikle oluÅŸturulduktan sonra deÄŸiÅŸtirilmediklerini garanti etmek
+istediÄŸinizde const (veya constexpr) yapmak istersiniz.
 
-Sabit nesnelerin veri üyelerini değiştirmek yasaktır
+Sabit nesnelerin veri Ã¼yelerini deÄŸiÅŸtirmek yasaktÄ±r
 ----------------------------------------------------
-Bir const sınıf türü nesnesi başlatıldıktan sonra, nesnenin veri üyelerini değiştirmeye yönelik herhangi bir girişim yasaktır,
-çünkü bu, nesnenin const-özelliğini ihlal eder. Bu, hem üye değişkenleri doğrudan değiştirmeyi (eğer onlar public ise), hem de üye
-değişkenlerin değerini ayarlayan üye fonksiyonları çağırmayı içerir.
+Bir const sÄ±nÄ±f tÃ¼rÃ¼ nesnesi baÅŸlatÄ±ldÄ±ktan sonra, nesnenin veri Ã¼yelerini deÄŸiÅŸtirmeye yÃ¶nelik herhangi bir giriÅŸim yasaktÄ±r,
+Ã§Ã¼nkÃ¼ bu, nesnenin const-Ã¶zelliÄŸini ihlal eder. Bu, hem Ã¼ye deÄŸiÅŸkenleri doÄŸrudan deÄŸiÅŸtirmeyi (eÄŸer onlar public ise), hem de Ã¼ye
+deÄŸiÅŸkenlerin deÄŸerini ayarlayan Ã¼ye fonksiyonlarÄ± Ã§aÄŸÄ±rmayÄ± iÃ§erir.
 
                 struct Date
                 {
@@ -824,15 +824,15 @@ değişkenlerin değerini ayarlayan üye fonksiyonları çağırmayı içerir.
                 {
                     const Date today { 2020, 10, 14 }; // const
 
-                    today.day += 1;        // derleme hatası: const nesnenin üyesini değiştiremez
-                    today.incrementDay();  // derleme hatası: const nesnenin üyesini değiştiren üye fonksiyonu çağıramaz
+                    today.day += 1;        // derleme hatasÄ±: const nesnenin Ã¼yesini deÄŸiÅŸtiremez
+                    today.incrementDay();  // derleme hatasÄ±: const nesnenin Ã¼yesini deÄŸiÅŸtiren Ã¼ye fonksiyonu Ã§aÄŸÄ±ramaz
 
                     return 0;
                 }
 
-Sabit nesneler, sabit olmayan üye fonksiyonları çağıramaz
+Sabit nesneler, sabit olmayan Ã¼ye fonksiyonlarÄ± Ã§aÄŸÄ±ramaz
 ---------------------------------------------------------
-Bu kodun da bir derleme hatası oluşturduğunu görmek sizi şaşırtabilir:
+Bu kodun da bir derleme hatasÄ± oluÅŸturduÄŸunu gÃ¶rmek sizi ÅŸaÅŸÄ±rtabilir:
 
                 #include <iostream>
 
@@ -852,22 +852,22 @@ Bu kodun da bir derleme hatası oluşturduğunu görmek sizi şaşırtabilir:
                 {
                     const Date today { 2020, 10, 14 }; // const
 
-                    today.print();  // derleme hatası: sabit olmayan üye fonksiyonu çağıramaz
+                    today.print();  // derleme hatasÄ±: sabit olmayan Ã¼ye fonksiyonu Ã§aÄŸÄ±ramaz
 
                     return 0;
                 }
 
-print() bir üye değişkeni değiştirmeye çalışmasa bile, today.print() çağrımız hala bir const ihlalidir. Bu, print() üye
-fonksiyonunun kendisinin const olarak bildirilmediği için olur. Derleyici, const bir nesne üzerinde sabit olmayan bir üye
-fonksiyonu çağırmamıza izin vermez.
+print() bir Ã¼ye deÄŸiÅŸkeni deÄŸiÅŸtirmeye Ã§alÄ±ÅŸmasa bile, today.print() Ã§aÄŸrÄ±mÄ±z hala bir const ihlalidir. Bu, print() Ã¼ye
+fonksiyonunun kendisinin const olarak bildirilmediÄŸi iÃ§in olur. Derleyici, const bir nesne Ã¼zerinde sabit olmayan bir Ã¼ye
+fonksiyonu Ã§aÄŸÄ±rmamÄ±za izin vermez.
 
-Sabit Üye Fonksiyonlar
+Sabit Ãœye Fonksiyonlar
 ----------------------
-Yukarıdaki sorunu çözmek için, print()'i bir const üye fonksiyon yapmamız gerekiyor. Bir const üye fonksiyon, nesneyi 
-değiştirmeyeceğini veya herhangi bir sabit olmayan üye fonksiyonları çağırmayacağını (çünkü onlar nesneyi değiştirebilir) garanti
-eden bir üye fonksiyondur.
-print()'i bir const üye fonksiyon yapmak kolaydır - sadece const anahtar kelimesini, parametre listesinden sonra, ancak fonksiyon 
-gövdesinden önce fonksiyon prototipine ekleriz:
+YukarÄ±daki sorunu Ã§Ã¶zmek iÃ§in, print()'i bir const Ã¼ye fonksiyon yapmamÄ±z gerekiyor. Bir const Ã¼ye fonksiyon, nesneyi 
+deÄŸiÅŸtirmeyeceÄŸini veya herhangi bir sabit olmayan Ã¼ye fonksiyonlarÄ± Ã§aÄŸÄ±rmayacaÄŸÄ±nÄ± (Ã§Ã¼nkÃ¼ onlar nesneyi deÄŸiÅŸtirebilir) garanti
+eden bir Ã¼ye fonksiyondur.
+print()'i bir const Ã¼ye fonksiyon yapmak kolaydÄ±r - sadece const anahtar kelimesini, parametre listesinden sonra, ancak fonksiyon 
+gÃ¶vdesinden Ã¶nce fonksiyon prototipine ekleriz:
 
                 #include <iostream>
 
@@ -877,7 +877,7 @@ gövdesinden önce fonksiyon prototipine ekleriz:
                     int month {};
                     int day {};
 
-                    void print() const // şimdi bir const üye fonksiyon
+                    void print() const // ÅŸimdi bir const Ã¼ye fonksiyon
                     {
                         std::cout << year << '/' << month << '/' << day;
                     }
@@ -887,15 +887,15 @@ gövdesinden önce fonksiyon prototipine ekleriz:
                 {
                     const Date today { 2020, 10, 14 }; // const
 
-                    today.print();  // tamam: const nesne const üye fonksiyonu çağırabilir
+                    today.print();  // tamam: const nesne const Ã¼ye fonksiyonu Ã§aÄŸÄ±rabilir
 
                     return 0;
                 }
 
-Yukarıdaki örnekte, print() bir const üye fonksiyon haline getirildi, bu da onu const nesnelerde (örneğin today gibi) 
-çağırabileceğimiz anlamına gelir.
-Bir üye fonksiyonun const olarak işaretlenmesi, bu fonksiyonun nesneyi değiştirmeyeceğini veya herhangi bir const olmayan üye
-fonksiyonları çağırmayacağını (çünkü onlar nesneyi değiştirebilir) garanti eder. Örneğin:
+YukarÄ±daki Ã¶rnekte, print() bir const Ã¼ye fonksiyon haline getirildi, bu da onu const nesnelerde (Ã¶rneÄŸin today gibi) 
+Ã§aÄŸÄ±rabileceÄŸimiz anlamÄ±na gelir.
+Bir Ã¼ye fonksiyonun const olarak iÅŸaretlenmesi, bu fonksiyonun nesneyi deÄŸiÅŸtirmeyeceÄŸini veya herhangi bir const olmayan Ã¼ye
+fonksiyonlarÄ± Ã§aÄŸÄ±rmayacaÄŸÄ±nÄ± (Ã§Ã¼nkÃ¼ onlar nesneyi deÄŸiÅŸtirebilir) garanti eder. Ã–rneÄŸin:
 
                 struct Date
                 {
@@ -903,9 +903,9 @@ fonksiyonları çağırmayacağını (çünkü onlar nesneyi değiştirebilir) garanti eder.
                     int month {};
                     int day {};
 
-                    void incrementDay() const // const olarak işaretlendi
+                    void incrementDay() const // const olarak iÅŸaretlendi
                     {
-                        ++day; // derleme hatası: const fonksiyon üyeyi değiştiremez
+                        ++day; // derleme hatasÄ±: const fonksiyon Ã¼yeyi deÄŸiÅŸtiremez
                     }
                 };
 
@@ -918,12 +918,12 @@ fonksiyonları çağırmayacağını (çünkü onlar nesneyi değiştirebilir) garanti eder.
                     return 0;
                 }
 
-Bu örnekte, incrementDay() const bir üye fonksiyon olarak işaretlenmiştir, ancak gun'u değiştirmeye çalışır. Bu bir derleme hatası
-oluşturacaktır.
+Bu Ã¶rnekte, incrementDay() const bir Ã¼ye fonksiyon olarak iÅŸaretlenmiÅŸtir, ancak day'i deÄŸiÅŸtirmeye Ã§alÄ±ÅŸÄ±r. Bu bir derleme hatasÄ±
+oluÅŸturacaktÄ±r.
 
-Sabit Üye Fonksiyonlar Sabit Olmayan Nesneler Üzerinde Çağrılabilir
+Sabit Ãœye Fonksiyonlar Sabit Olmayan Nesneler Ãœzerinde Ã‡aÄŸrÄ±labilir
 -------------------------------------------------------------------
-Sabit üye fonksiyonlar, sabit olmayan nesneler üzerinde de çağrılabilir:
+Sabit Ã¼ye fonksiyonlar, sabit olmayan nesneler Ã¼zerinde de Ã§aÄŸrÄ±labilir:
 
                 #include <iostream>
 
@@ -943,29 +943,29 @@ Sabit üye fonksiyonlar, sabit olmayan nesneler üzerinde de çağrılabilir:
                 {
                     Date today { 2020, 10, 14 }; // non-const
 
-                    today.print();  // tamam: sabit olmayan nesne üzerinde const üye fonksiyonu çağırabilir
+                    today.print();  // tamam: sabit olmayan nesne Ã¼zerinde const Ã¼ye fonksiyonu Ã§aÄŸÄ±rabilir
 
                     return 0;
                 }
-Çünkü const üye fonksiyonlar hem const hem de non-const nesneler üzerinde çağrılabilir, bir üye fonksiyonun nesnenin durumunu
-değiştirmemesi durumunda, bu fonksiyonun const yapılması gerekir.
-*** BEST -> Bir üye fonksiyonun nesnenin durumunu değiştirmemesi (ve hiçbir zaman değiştirmeyeceği) durumunda, bu fonksiyonun
-const yapılması gerekir, böylece hem const hem de non-const nesneler üzerinde çağrılabilir.
+Ã‡Ã¼nkÃ¼ const Ã¼ye fonksiyonlar hem const hem de non-const nesneler Ã¼zerinde Ã§aÄŸrÄ±labilir, bir Ã¼ye fonksiyonun nesnenin durumunu
+deÄŸiÅŸtirmemesi durumunda, bu fonksiyonun const yapÄ±lmasÄ± gerekir.
+*** BEST -> Bir Ã¼ye fonksiyonun nesnenin durumunu deÄŸiÅŸtirmemesi (ve hiÃ§bir zaman deÄŸiÅŸtirmeyeceÄŸi) durumunda, bu fonksiyonun
+const yapÄ±lmasÄ± gerekir, bÃ¶ylece hem const hem de non-const nesneler Ã¼zerinde Ã§aÄŸrÄ±labilir.
 
-Hangi üye fonksiyonlara const uygulayacağınıza dikkat edin. Bir üye fonksiyon bir kez const olarak yapıldığında, bu fonksiyon 
-const nesneler üzerinde çağrılabilir. Bir üye fonksiyonun const'unun daha sonra kaldırılması, const bir nesne üzerinde bu üye 
-fonksiyonu çağıran herhangi bir kodu bozacaktır.
+Hangi Ã¼ye fonksiyonlara const uygulayacaÄŸÄ±nÄ±za dikkat edin. Bir Ã¼ye fonksiyon bir kez const olarak yapÄ±ldÄ±ÄŸÄ±nda, bu fonksiyon 
+const nesneler Ã¼zerinde Ã§aÄŸrÄ±labilir. Bir Ã¼ye fonksiyonun const'unun daha sonra kaldÄ±rÄ±lmasÄ±, const bir nesne Ã¼zerinde bu Ã¼ye 
+fonksiyonu Ã§aÄŸÄ±ran herhangi bir kodu bozacaktÄ±r.
 
 Const Referans Yoluyla Const Nesneler
 -------------------------------------
-Const yerel değişkenlerin örnekleştirilmesi, const nesneler oluşturmanın bir yoludur, ancak daha yaygın bir yol, bir nesneyi const
-referans yoluyla bir fonksiyona geçirmektir. 12.5 -- Lvalue referansı ile geçiş dersinde, sınıf türü argümanlarını değer yerine 
-const referans olarak geçirmenin avantajlarını ele aldık. Tekrarlamak gerekirse, bir sınıf türü argümanını değer olarak geçirmek,
-sınıfın bir kopyasının yapılmasına neden olur (bu yavaştır) - çoğu zaman, bir kopyaya ihtiyacımız yoktur, orijinal argümana bir 
-referans işimizi görür ve bir kopya yapmayı önler. Fonksiyonun const lvalue argümanları ve rvalue argümanları (ör. literaller ve 
-geçici nesneler) kabul etmesine izin vermek için referansı genellikle const yaparız.
+Const yerel deÄŸiÅŸkenlerin Ã¶rnekleÅŸtirilmesi, const nesneler oluÅŸturmanÄ±n bir yoludur, ancak daha yaygÄ±n bir yol, bir nesneyi const
+referans yoluyla bir fonksiyona geÃ§irmektir. 12.5 -- Lvalue referansÄ± ile geÃ§iÅŸ dersinde, sÄ±nÄ±f tÃ¼rÃ¼ argÃ¼manlarÄ±nÄ± deÄŸer yerine 
+const referans olarak geÃ§irmenin avantajlarÄ±nÄ± ele aldÄ±k. Tekrarlamak gerekirse, bir sÄ±nÄ±f tÃ¼rÃ¼ argÃ¼manÄ±nÄ± deÄŸer olarak geÃ§irmek,
+sÄ±nÄ±fÄ±n bir kopyasÄ±nÄ±n yapÄ±lmasÄ±na neden olur (bu yavaÅŸtÄ±r) - Ã§oÄŸu zaman, bir kopyaya ihtiyacÄ±mÄ±z yoktur, orijinal argÃ¼mana bir 
+referans iÅŸimizi gÃ¶rÃ¼r ve bir kopya yapmayÄ± Ã¶nler. Fonksiyonun const lvalue argÃ¼manlarÄ± ve rvalue argÃ¼manlarÄ± (Ã¶r. literaller ve 
+geÃ§ici nesneler) kabul etmesine izin vermek iÃ§in referansÄ± genellikle const yaparÄ±z.
 
-Aşağıdaki kodda neyin yanlış olduğunu anlayabilir misiniz?
+AÅŸaÄŸÄ±daki kodda neyin yanlÄ±ÅŸ olduÄŸunu anlayabilir misiniz?
 
                 #include <iostream>
 
@@ -996,11 +996,11 @@ Aşağıdaki kodda neyin yanlış olduğunu anlayabilir misiniz?
                     return 0;
                 }
                 
-Cevap, doSomething() fonksiyonunun içinde, date const bir nesne olarak ele alınır (çünkü const referans ile geçirilmiştir).
-Ve bu const date ile, const olmayan üye fonksiyonu yazdir()'i çağırıyoruz. Const nesneler üzerinde const olmayan üye fonksiyonları
-çağıramayacağımız için, bu bir derleme hatası oluşturacaktır.
+Cevap, doSomething() fonksiyonunun iÃ§inde, date const bir nesne olarak ele alÄ±nÄ±r (Ã§Ã¼nkÃ¼ const referans ile geÃ§irilmiÅŸtir).
+Ve bu const date ile, const olmayan Ã¼ye fonksiyonu yazdir()'i Ã§aÄŸÄ±rÄ±yoruz. Const nesneler Ã¼zerinde const olmayan Ã¼ye fonksiyonlarÄ±
+Ã§aÄŸÄ±ramayacaÄŸÄ±mÄ±z iÃ§in, bu bir derleme hatasÄ± oluÅŸturacaktÄ±r.
 
-Düzeltme basittir: print()'i const yapın:
+DÃ¼zeltme basittir: print()'i const yapÄ±n:
 
                 #include <iostream>
 
@@ -1030,13 +1030,13 @@ Düzeltme basittir: print()'i const yapın:
 
                     return 0;
                 }
-Şimdi doSomething() fonksiyonunda, const date başarıyla const üye fonksiyonu print()'i çağırabilecektir.
+Åimdi doSomething() fonksiyonunda, const date baÅŸarÄ±yla const Ã¼ye fonksiyonu print()'i Ã§aÄŸÄ±rabilecektir.
 
-Üye Fonksiyonun Const ve Non-Const Aşırı Yüklemesi
+Ãœye Fonksiyonun Const ve Non-Const AÅŸÄ±rÄ± YÃ¼klemesi
 --------------------------------------------------
-Son olarak, çok sık yapılmamasına rağmen, bir üye fonksiyonun const ve non-const versiyonunu aşırı yüklemek mümkündür. Bu, const
-nitelikleyicinin fonksiyonun imzasının bir parçası olarak kabul edildiği için çalışır, bu yüzden yalnızca const'ları farklı olan
-iki fonksiyon farklı kabul edilir.
+Son olarak, Ã§ok sÄ±k yapÄ±lmamasÄ±na raÄŸmen, bir Ã¼ye fonksiyonun const ve non-const versiyonunu aÅŸÄ±rÄ± yÃ¼klemek mÃ¼mkÃ¼ndÃ¼r. Bu, const
+nitelikleyicinin fonksiyonun imzasÄ±nÄ±n bir parÃ§asÄ± olarak kabul edildiÄŸi iÃ§in Ã§alÄ±ÅŸÄ±r, bu yÃ¼zden yalnÄ±zca const'larÄ± farklÄ± olan
+iki fonksiyon farklÄ± kabul edilir.
 
                 #include <iostream>
 
@@ -1063,268 +1063,268 @@ iki fonksiyon farklı kabul edilir.
 
                     return 0;
                 }
-                Bu, şunu yazdırır:
+                Bu, ÅŸunu yazdÄ±rÄ±r:
 
                 non-const
                 const
-Bir fonksiyonun const ve non-const versiyonu ile aşırı yükleme genellikle dönüş değerinin const'lıkta farklı olması gerektiğinde
-yapılır. Bu oldukça nadirdir.
+Bir fonksiyonun const ve non-const versiyonu ile aÅŸÄ±rÄ± yÃ¼kleme genellikle dÃ¶nÃ¼ÅŸ deÄŸerinin const'lÄ±kta farklÄ± olmasÄ± gerektiÄŸinde
+yapÄ±lÄ±r. Bu oldukÃ§a nadirdir.
 
-14.5 — Public ve Private Üyeler ve Erişim Belirleyiciler
+14.5 â€” Public ve Private Ãœyeler ve EriÅŸim Belirleyiciler
 --------------------------------------------------------
-Bir sonbahar gününde caddede yürüyorsunuz ve bir burrito yiyorsunuz. Oturacak bir yer arıyorsunuz, etrafınıza bakıyorsunuz.
-Solunuzda çimleri biçilmiş, gölgelik ağaçları olan, birkaç rahatsız edici bankı ve yakındaki oyun alanında bağıran çocukları olan
-bir park var. Sağınızda bir yabancının evi var. Pencereden, rahat bir koltuk ve çıtırdayan bir şömine görüyorsunuz.
+Bir sonbahar gÃ¼nÃ¼nde caddede yÃ¼rÃ¼yorsunuz ve bir burrito yiyorsunuz. Oturacak bir yer arÄ±yorsunuz, etrafÄ±nÄ±za bakÄ±yorsunuz.
+Solunuzda Ã§imleri biÃ§ilmiÅŸ, gÃ¶lgelik aÄŸaÃ§larÄ± olan, birkaÃ§ rahatsÄ±z edici bankÄ± ve yakÄ±ndaki oyun alanÄ±nda baÄŸÄ±ran Ã§ocuklarÄ± olan
+bir park var. SaÄŸÄ±nÄ±zda bir yabancÄ±nÄ±n evi var. Pencereden, rahat bir koltuk ve Ã§Ä±tÄ±rdayan bir ÅŸÃ¶mine gÃ¶rÃ¼yorsunuz.
 
-Ağır bir iç çekerek, parkı seçiyorsunuz.
+AÄŸÄ±r bir iÃ§ Ã§ekerek, parkÄ± seÃ§iyorsunuz.
 
-Seçiminizin ana belirleyicisi, parkın bir public alan olması, evin ise private olmasıdır. Siz (ve herkes) public alanlara serbestçe
-erişebilirsiniz. Ancak evin üyeleri (veya açıkça izin verilen kişiler) private konuta erişebilir.
+SeÃ§iminizin ana belirleyicisi, parkÄ±n bir public alan olmasÄ±, evin ise private olmasÄ±dÄ±r. Siz (ve herkes) public alanlara serbestÃ§e
+eriÅŸebilirsiniz. Ancak evin Ã¼yeleri (veya aÃ§Ä±kÃ§a izin verilen kiÅŸiler) private konuta eriÅŸebilir.
 
-Üye Erişimi
+Ãœye EriÅŸimi
 -----------
-Benzer bir kavram, bir sınıf türünün üyelerine de uygulanır. Bir sınıf türünün her üyesinin, kimin o üyeye erişebileceğini
-belirleyen bir erişim düzeyi adı verilen bir özelliği vardır.
+Benzer bir kavram, bir sÄ±nÄ±f tÃ¼rÃ¼nÃ¼n Ã¼yelerine de uygulanÄ±r. Bir sÄ±nÄ±f tÃ¼rÃ¼nÃ¼n her Ã¼yesinin, kimin o Ã¼yeye eriÅŸebileceÄŸini
+belirleyen bir eriÅŸim dÃ¼zeyi adÄ± verilen bir Ã¶zelliÄŸi vardÄ±r.
 
-C++'da üç farklı erişim düzeyi vardır: public, private ve protected. Bu derste, en yaygın kullanılan iki erişim düzeyini ele 
-alacağız: public ve private.
-Bir üyeye erişildiğinde, derleyici üyenin erişim düzeyinin o üyeye erişime izin verip vermediğini kontrol eder. Erişime izin 
-verilmezse, derleyici bir derleme hatası oluşturur. Bu erişim düzeyi sistemine bazen gayri resmi olarak erişim kontrolleri denir.
-Bir yapının üyeleri varsayılan olarak public'tir
+C++'da Ã¼Ã§ farklÄ± eriÅŸim dÃ¼zeyi vardÄ±r: public, private ve protected. Bu derste, en yaygÄ±n kullanÄ±lan iki eriÅŸim dÃ¼zeyini ele 
+alacaÄŸÄ±z: public ve private.
+Bir Ã¼yeye eriÅŸildiÄŸinde, derleyici Ã¼yenin eriÅŸim dÃ¼zeyinin o Ã¼yeye eriÅŸime izin verip vermediÄŸini kontrol eder. EriÅŸime izin 
+verilmezse, derleyici bir derleme hatasÄ± oluÅŸturur. Bu eriÅŸim dÃ¼zeyi sistemine bazen gayri resmi olarak eriÅŸim kontrolleri denir.
+Bir yapÄ±nÄ±n Ã¼yeleri varsayÄ±lan olarak public'tir
 ------------------------------------------------
-Public erişim düzeyine sahip üyelere public üyeler denir. Public üyeler, nasıl erişileceği konusunda herhangi bir kısıtlama 
-olmayan bir sınıf türünün üyeleridir. Açılış analojimizdeki park gibi, public üyelere herkes (kapsam dahilinde oldukları sürece)
-erişebilir.
+Public eriÅŸim dÃ¼zeyine sahip Ã¼yelere public Ã¼yeler denir. Public Ã¼yeler, nasÄ±l eriÅŸileceÄŸi konusunda herhangi bir kÄ±sÄ±tlama 
+olmayan bir sÄ±nÄ±f tÃ¼rÃ¼nÃ¼n Ã¼yeleridir. AÃ§Ä±lÄ±ÅŸ analojimizdeki park gibi, public Ã¼yelere herkes (kapsam dahilinde olduklarÄ± sÃ¼rece)
+eriÅŸebilir.
 
-Public üyelere, aynı sınıfın diğer üyeleri tarafından erişilebilir. Özellikle, public üyelere public tarafından da erişilebilir,
-bu da belirli bir sınıf türünün üyelerinin dışında bulunan kodu ifade ederiz. Public örnekleri arasında üye olmayan fonksiyonlar 
-ve diğer sınıf türlerinin üyeleri bulunur.
+Public Ã¼yelere, aynÄ± sÄ±nÄ±fÄ±n diÄŸer Ã¼yeleri tarafÄ±ndan eriÅŸilebilir. Ã–zellikle, public Ã¼yelere public tarafÄ±ndan da eriÅŸilebilir,
+bu da belirli bir sÄ±nÄ±f tÃ¼rÃ¼nÃ¼n Ã¼yelerinin dÄ±ÅŸÄ±nda bulunan kodu ifade ederiz. Public Ã¶rnekleri arasÄ±nda Ã¼ye olmayan fonksiyonlar 
+ve diÄŸer sÄ±nÄ±f tÃ¼rlerinin Ã¼yeleri bulunur.
 
-Anahtar nokta şudur ki, Bir yapının üyeleri varsayılan olarak public'tir. Public üyelere, sınıf türünün diğer üyeleri ve public 
-tarafından erişilebilir.
+Anahtar nokta ÅŸudur ki, Bir Struct'Ä±n Ã¼yeleri varsayÄ±lan olarak public'tir. Public Ã¼yelere, sÄ±nÄ±f tÃ¼rÃ¼nÃ¼n diÄŸer Ã¼yeleri ve public 
+tarafÄ±ndan eriÅŸilebilir.
 
-"Public" terimi, belirli bir sınıf türünün üyelerinin dışında bulunan kodu ifade etmek için kullanılır. Bu, üye olmayan 
-fonksiyonları ve diğer sınıf türlerinin üyelerini içerir. Varsayılan olarak, bir struct'ın tüm üyeleri public üyelerdir.
-Aşağıdaki struct'ı düşünün:
+"Public" terimi, belirli bir sÄ±nÄ±f tÃ¼rÃ¼nÃ¼n Ã¼yelerinin dÄ±ÅŸÄ±nda bulunan kodu ifade etmek iÃ§in kullanÄ±lÄ±r. Bu, Ã¼ye olmayan 
+fonksiyonlarÄ± ve diÄŸer sÄ±nÄ±f tÃ¼rlerinin Ã¼yelerini iÃ§erir. VarsayÄ±lan olarak, bir struct'Ä±n tÃ¼m Ã¼yeleri public Ã¼yelerdir.
+AÅŸaÄŸÄ±daki struct'Ä± dÃ¼ÅŸÃ¼nÃ¼n:
 
                 #include <iostream>
 
                 struct Date
                 {
-                    // struct üyeleri varsayılan olarak public'tir, herkes tarafından erişilebilir
-                    int year {};       // varsayılan olarak public
-                    int month {};      // varsayılan olarak public
-                    int day {};        // varsayılan olarak public
+                    // struct Ã¼yeleri varsayÄ±lan olarak public'tir, herkes tarafÄ±ndan eriÅŸilebilir
+                    int year {};       // varsayÄ±lan olarak public
+                    int month {};      // varsayÄ±lan olarak public
+                    int day {};        // varsayÄ±lan olarak public
 
-                    void print() const // varsayılan olarak public
+                    void print() const // varsayÄ±lan olarak public
                     {
-                        // public üyelere sınıf tipinin üye fonksiyonlarında erişilebilir
+                        // public Ã¼yelere sÄ±nÄ±f tipinin Ã¼ye fonksiyonlarÄ±nda eriÅŸilebilir
                         std::cout << year << '/' << month << '/' << day;
                     }
                 };
 
-                // üye olmayan fonksiyon main "public" kısmının bir parçasıdır
+                // Ã¼ye olmayan fonksiyon main "public" kÄ±smÄ±nÄ±n bir parÃ§asÄ±dÄ±r
                 int main()
                 {
-                    Date today { 2020, 10, 14 }; // struct'ımızı topluca başlatıyoruz
+                    Date today { 2020, 10, 14 }; // struct'Ä±mÄ±zÄ± topluca baÅŸlatÄ±yoruz
 
-                    // public üyelere public tarafından erişilebilir
-                    today.day = 16; // tamam: day üyesi public
-                    today.print();  // tamam: print() üye fonksiyonu public
+                    // public Ã¼yelere public tarafÄ±ndan eriÅŸilebilir
+                    today.day = 16; // tamam: day Ã¼yesi public
+                    today.print();  // tamam: print() Ã¼ye fonksiyonu public
 
                     return 0;
                 }
-Bu örnekte, üyelere üç yerde erişilir:
+Bu Ã¶rnekte, Ã¼yelere Ã¼Ã§ yerde eriÅŸilir:
 
-*- Üye fonksiyonu print() içinde, implicit nesnenin year, month ve day üyelerine erişiriz.
-*- main() içinde, today.day'a doğrudan erişiriz ve değerini ayarlarız.
-*- main() içinde, today.print() üye fonksiyonunu çağırırız.
-Bu üç erişime de izin verilir çünkü public üyelere her yerden erişilebilir. main() Date'in bir üyesi olmadığı için, public'in bir
-parçası olarak kabul edilir. Ancak, public'in public üyelere erişim hakkı olduğu için, main() Date'in üyelerine (today.print() 
-çağrısını içerir) doğrudan erişebilir.
+*- Ãœye fonksiyonu print() iÃ§inde, implicit nesnenin year, month ve day Ã¼yelerine eriÅŸiriz.
+*- main() iÃ§inde, today.day'a doÄŸrudan eriÅŸiriz ve deÄŸerini ayarlarÄ±z.
+*- main() iÃ§inde, today.print() Ã¼ye fonksiyonunu Ã§aÄŸÄ±rÄ±rÄ±z.
+Bu Ã¼Ã§ eriÅŸime de izin verilir Ã§Ã¼nkÃ¼ public Ã¼yelere her yerden eriÅŸilebilir. main() Date'in bir Ã¼yesi olmadÄ±ÄŸÄ± iÃ§in, public'in bir
+parÃ§asÄ± olarak kabul edilir. Ancak, public'in public Ã¼yelere eriÅŸim hakkÄ± olduÄŸu iÃ§in, main() Date'in Ã¼yelerine (today.print() 
+Ã§aÄŸrÄ±sÄ±nÄ± iÃ§erir) doÄŸrudan eriÅŸebilir.
 
-Bir sınıfın üyeleri varsayılan olarak private'dir
+Bir sÄ±nÄ±fÄ±n Ã¼yeleri varsayÄ±lan olarak private'dir
 -------------------------------------------------
-Private erişim seviyesine sahip üyelere private üyeler denir. Private üyeler, yalnızca aynı sınıfın diğer üyeleri tarafından 
-erişilebilen bir sınıf tipinin üyeleridir.
-Aşağıdaki örneği düşünün, bu örnek yukarıdaki örnekle neredeyse aynıdır:
+Private eriÅŸim seviyesine sahip Ã¼yelere private Ã¼yeler denir. Private Ã¼yeler, yalnÄ±zca aynÄ± sÄ±nÄ±fÄ±n diÄŸer Ã¼yeleri tarafÄ±ndan 
+eriÅŸilebilen bir sÄ±nÄ±f tipinin Ã¼yeleridir.
+AÅŸaÄŸÄ±daki Ã¶rneÄŸi dÃ¼ÅŸÃ¼nÃ¼n, bu Ã¶rnek yukarÄ±daki Ã¶rnekle neredeyse aynÄ±dÄ±r:
 
                 #include <iostream>
 
-                class Date // artık bir struct yerine bir sınıf
+                class Date // artÄ±k bir struct yerine bir sÄ±nÄ±f
                 {
-                    // sınıf üyeleri varsayılan olarak private'dir, yalnızca diğer üyeler tarafından erişilebilir
-                    int m_year {};     // varsayılan olarak private
-                    int m_month {};    // varsayılan olarak private
-                    int m_day {};      // varsayılan olarak private
+                    // sÄ±nÄ±f Ã¼yeleri varsayÄ±lan olarak private'dir, yalnÄ±zca diÄŸer Ã¼yeler tarafÄ±ndan eriÅŸilebilir
+                    int m_year {};     // varsayÄ±lan olarak private
+                    int m_month {};    // varsayÄ±lan olarak private
+                    int m_day {};      // varsayÄ±lan olarak private
 
-                    void print() const // varsayılan olarak private
+                    void print() const // varsayÄ±lan olarak private
                     {
-                        // private üyelere üye fonksiyonlarda erişilebilir
+                        // private Ã¼yelere Ã¼ye fonksiyonlarda eriÅŸilebilir
                         std::cout << m_year << '/' << m_month << '/' << m_day;
                     }
                 };
 
                 int main()
                 {
-                    Date today { 2020, 10, 14 }; // derleme hatası: artık toplu başlatma kullanılamaz
+                    Date today { 2020, 10, 14 }; // derleme hatasÄ±: artÄ±k toplu baÅŸlatma kullanÄ±lamaz
 
-                    // private üyelere public tarafından erişilemez
-                    today.m_day = 16; // derleme hatası: m_day üyesi private
-                    today.print();    // derleme hatası: print() üye fonksiyonu private
+                    // private Ã¼yelere public tarafÄ±ndan eriÅŸilemez
+                    today.m_day = 16; // derleme hatasÄ±: m_day Ã¼yesi private
+                    today.print();    // derleme hatasÄ±: print() Ã¼ye fonksiyonu private
 
                     return 0;
                 }
-Bu örnekte, üyelere aynı üç yerde erişilir:
-*- Üye fonksiyonu print() içinde, implicit nesnenin m_year, m_month ve m_day üyelerine erişiriz.
-*- main() içinde, today.m_day'a doğrudan erişiriz ve değerini ayarlarız.
-*- main() içinde, today.print() üye fonksiyonunu çağırırız.
-Ancak, bu programı derlerseniz, üç derleme hatası oluştuğunu göreceksiniz.
+Bu Ã¶rnekte, Ã¼yelere aynÄ± Ã¼Ã§ yerde eriÅŸilir:
+*- Ãœye fonksiyonu print() iÃ§inde, implicit nesnenin m_year, m_month ve m_day Ã¼yelerine eriÅŸiriz.
+*- main() iÃ§inde, today.m_day'a doÄŸrudan eriÅŸiriz ve deÄŸerini ayarlarÄ±z.
+*- main() iÃ§inde, today.print() Ã¼ye fonksiyonunu Ã§aÄŸÄ±rÄ±rÄ±z.
+Ancak, bu programÄ± derlerseniz, Ã¼Ã§ derleme hatasÄ± oluÅŸtuÄŸunu gÃ¶receksiniz.
 
-main() içinde, today.m_day = 16 ve today.print() ifadeleri artık derleme hataları oluşturur. Bu, main()'in public'in bir parçası 
-olması ve public'in private üyelere doğrudan erişimine izin verilmemesi nedeniyledir.
+main() iÃ§inde, today.m_day = 16 ve today.print() ifadeleri artÄ±k derleme hatalarÄ± oluÅŸturur. Bu, main()'in public'in bir parÃ§asÄ± 
+olmasÄ± ve public'in private Ã¼yelere doÄŸrudan eriÅŸimine izin verilmemesi nedeniyledir.
 
-print() içinde, m_year, m_month ve m_day üyelerine erişime izin verilir. Bu, print()'in sınıfın bir üyesi olması ve sınıfın
-üyelerinin private üyelere erişimine izin verilmesi nedeniyledir.
+print() iÃ§inde, m_year, m_month ve m_day Ã¼yelerine eriÅŸime izin verilir. Bu, print()'in sÄ±nÄ±fÄ±n bir Ã¼yesi olmasÄ± ve sÄ±nÄ±fÄ±n
+Ã¼yelerinin private Ã¼yelere eriÅŸimine izin verilmesi nedeniyledir.
 
-Peki üçüncü derleme hatası nereden geliyor? Belki de şaşırtıcı bir şekilde, today'ın başlatılması artık bir derleme hatası 
-oluşturuyor. Ders 13.6 -- Struct aggregate initialization'da, bir topluluğun "private veya protected olmayan statik olmayan veri 
-üyeleri olmaması gerektiğini" belirttik. Date sınıfımızın private veri üyeleri var (çünkü sınıfların üyeleri varsayılan olarak 
-private), bu yüzden Date sınıfımız bir topluluk olarak nitelendirilmiyor. Bu yüzden, artık onu başlatmak için toplu başlatma
-kullanamayız.
+Peki Ã¼Ã§Ã¼ncÃ¼ derleme hatasÄ± nereden geliyor? Belki de ÅŸaÅŸÄ±rtÄ±cÄ± bir ÅŸekilde, today'Ä±n baÅŸlatÄ±lmasÄ± artÄ±k bir derleme hatasÄ± 
+oluÅŸturuyor. Ders 13.6 -- Struct aggregate initialization'da, bir topluluÄŸun "private veya protected olmayan statik olmayan veri 
+Ã¼yeleri olmamasÄ± gerektiÄŸini" belirttik. Date sÄ±nÄ±fÄ±mÄ±zÄ±n private veri Ã¼yeleri var (Ã§Ã¼nkÃ¼ sÄ±nÄ±flarÄ±n Ã¼yeleri varsayÄ±lan olarak 
+private), bu yÃ¼zden Date sÄ±nÄ±fÄ±mÄ±z bir topluluk olarak nitelendirilmiyor. Bu yÃ¼zden, artÄ±k onu baÅŸlatmak iÃ§in toplu baÅŸlatma
+kullanamayÄ±z.
 
-Sınıfları (genellikle topluluk olmayanları) nasıl düzgün bir şekilde başlatacağımızı, yaklaşan ders 14.9 -- Constructorlara
-Giriş'te tartışacağız.
+SÄ±nÄ±flarÄ± (genellikle topluluk olmayanlarÄ±) nasÄ±l dÃ¼zgÃ¼n bir ÅŸekilde baÅŸlatacaÄŸÄ±mÄ±zÄ±, yaklaÅŸan ders 14.9 -- Constructorlara
+GiriÅŸ'te tartÄ±ÅŸacaÄŸÄ±z.
 
 *** Ana Fikir
-Bir sınıfın üyeleri varsayılan olarak private'dir. Private üyelere sınıfın diğer üyeleri tarafından erişilebilir, ancak public
-tarafından erişilemez. Private üyelere sahip bir sınıf artık bir topluluk değildir ve bu nedenle toplu başlatma kullanamaz.
+Bir sÄ±nÄ±fÄ±n Ã¼yeleri varsayÄ±lan olarak private'dir. Private Ã¼yelere sÄ±nÄ±fÄ±n diÄŸer Ã¼yeleri tarafÄ±ndan eriÅŸilebilir, ancak public
+tarafÄ±ndan eriÅŸilemez. Private Ã¼yelere sahip bir sÄ±nÄ±f artÄ±k bir topluluk deÄŸildir ve bu nedenle toplu baÅŸlatma kullanamaz.
 
-Private Üye Değişkenlerinizi Adlandırma
+Private Ãœye DeÄŸiÅŸkenlerinizi AdlandÄ±rma
 ---------------------------------------
-C++'da, private veri üyelerini "m_" önekiyle başlayacak şekilde adlandırma yaygın bir uygulamadır. Bu, birkaç önemli nedenle
-yapılır. Bir sınıfın aşağıdaki üye fonksiyonunu düşünün:
+C++'da, private veri Ã¼yelerini "m_" Ã¶nekiyle baÅŸlayacak ÅŸekilde adlandÄ±rma yaygÄ±n bir uygulamadÄ±r. Bu, birkaÃ§ Ã¶nemli nedenle
+yapÄ±lÄ±r. Bir sÄ±nÄ±fÄ±n aÅŸaÄŸÄ±daki Ã¼ye fonksiyonunu dÃ¼ÅŸÃ¼nÃ¼n:
 
-                // Private üye m_name'i name parametresinin değerine ayarlayan bir üye fonksiyon
+                // Private Ã¼ye m_name'i name parametresinin deÄŸerine ayarlayan bir Ã¼ye fonksiyon
                 void setName(std::string_view name)
                 {
                     m_name = name;
                 }
-Öncelikle, "m_" öneki, bir üye fonksiyonu içindeki veri üyelerini fonksiyon parametrelerinden veya yerel değişkenlerden kolayca
-ayırt etmemizi sağlar. "m_name" in bir üye olduğunu ve "name" in olmadığını kolayca görebiliriz. Bu, bu fonksiyonun sınıfın
-durumunu değiştirdiğini açıkça belirtir. Ve bu önemlidir çünkü bir veri üyesinin değerini değiştirdiğimizde, bu değişiklik üye 
-fonksiyonun kapsamının ötesinde kalır (fonksiyon parametrelerine veya yerel değişkenlere yapılan değişiklikler genellikle bu
-şekilde olmaz).
+Ã–ncelikle, "m_" Ã¶neki, bir Ã¼ye fonksiyonu iÃ§indeki veri Ã¼yelerini fonksiyon parametrelerinden veya yerel deÄŸiÅŸkenlerden kolayca
+ayÄ±rt etmemizi saÄŸlar. "m_name" in bir Ã¼ye olduÄŸunu ve "name" in olmadÄ±ÄŸÄ±nÄ± kolayca gÃ¶rebiliriz. Bu, bu fonksiyonun sÄ±nÄ±fÄ±n
+durumunu deÄŸiÅŸtirdiÄŸini aÃ§Ä±kÃ§a belirtir. Ve bu Ã¶nemlidir Ã§Ã¼nkÃ¼ bir veri Ã¼yesinin deÄŸerini deÄŸiÅŸtirdiÄŸimizde, bu deÄŸiÅŸiklik Ã¼ye 
+fonksiyonun kapsamÄ±nÄ±n Ã¶tesinde kalÄ±r (fonksiyon parametrelerine veya yerel deÄŸiÅŸkenlere yapÄ±lan deÄŸiÅŸiklikler genellikle bu
+ÅŸekilde olmaz).
 
-Bu, yerel statik değişkenler için "s_" öneklerini ve global değişkenler için "g_" öneklerini kullanmayı önermemizin aynı nedenidir.
-İkincisi, "m_" öneki, private üye değişkenler ile yerel değişkenlerin, fonksiyon parametrelerinin ve üye fonksiyonlarının adları
-arasında ad çakışmalarını önlemeye yardımcı olur.
+Bu, yerel statik deÄŸiÅŸkenler iÃ§in "s_" Ã¶neklerini ve global deÄŸiÅŸkenler iÃ§in "g_" Ã¶neklerini kullanmayÄ± Ã¶nermemizin aynÄ± nedenidir.
+Ä°kincisi, "m_" Ã¶neki, private Ã¼ye deÄŸiÅŸkenler ile yerel deÄŸiÅŸkenlerin, fonksiyon parametrelerinin ve Ã¼ye fonksiyonlarÄ±nÄ±n adlarÄ±
+arasÄ±nda ad Ã§akÄ±ÅŸmalarÄ±nÄ± Ã¶nlemeye yardÄ±mcÄ± olur.
 
-Eğer private üyemizi m_name yerine name olarak adlandırmış olsaydık:
-Name fonksiyon parametremiz, name private veri üyesini gölgede bırakırdı.
-Eğer name adında bir üye fonksiyonumuz olsaydı, name tanımlayıcısının yeniden tanımlanması nedeniyle bir derleme hatası alırdık.
-*** BEST -> Private üyelerinizi, onları yerel değişkenlerin, fonksiyon parametrelerinin ve üye fonksiyonların adlarından ayırt 
-etmeye yardımcı olmak için "m_" önekiyle başlayacak şekilde adlandırmayı düşünün.
+EÄŸer private Ã¼yemizi m_name yerine name olarak adlandÄ±rmÄ±ÅŸ olsaydÄ±k:
+Name fonksiyon parametremiz, name private veri Ã¼yesini gÃ¶lgede bÄ±rakÄ±rdÄ±.
+EÄŸer name adÄ±nda bir Ã¼ye fonksiyonumuz olsaydÄ±, name tanÄ±mlayÄ±cÄ±sÄ±nÄ±n yeniden tanÄ±mlanmasÄ± nedeniyle bir derleme hatasÄ± alÄ±rdÄ±k.
+*** BEST -> Private Ã¼yelerinizi, onlarÄ± yerel deÄŸiÅŸkenlerin, fonksiyon parametrelerinin ve Ã¼ye fonksiyonlarÄ±n adlarÄ±ndan ayÄ±rt 
+etmeye yardÄ±mcÄ± olmak iÃ§in "m_" Ã¶nekiyle baÅŸlayacak ÅŸekilde adlandÄ±rmayÄ± dÃ¼ÅŸÃ¼nÃ¼n.
 
-Erişim Seviyelerini Erişim Belirleyicileri ile Ayarlama
+EriÅŸim Seviyelerini EriÅŸim Belirleyicileri ile Ayarlama
 -------------------------------------------------------
-Varsayılan olarak, struct'ların (ve unionların) üyeleri public'tir ve sınıfların üyeleri private'dir.
-Ancak, üyelerimizin erişim seviyesini bir erişim belirleyicisi kullanarak açıkça ayarlayabiliriz. Bir erişim belirleyicisi,
-belirleyiciyi takip eden tüm üyelerin erişim seviyesini ayarlar. C++ üç erişim belirleyicisi sağlar: public:, private: ve protected
+VarsayÄ±lan olarak, struct'larÄ±n (ve unionlarÄ±n) Ã¼yeleri public'tir ve sÄ±nÄ±flarÄ±n Ã¼yeleri private'dir.
+Ancak, Ã¼yelerimizin eriÅŸim seviyesini bir eriÅŸim belirleyicisi kullanarak aÃ§Ä±kÃ§a ayarlayabiliriz. Bir eriÅŸim belirleyicisi,
+belirleyiciyi takip eden tÃ¼m Ã¼yelerin eriÅŸim seviyesini ayarlar. C++ Ã¼Ã§ eriÅŸim belirleyicisi saÄŸlar: public:, private: ve protected
 
-Aşağıdaki örnekte, print() üye fonksiyonunun public tarafından kullanılabilmesini sağlamak için public: erişim belirleyicisini ve
-veri üyelerimizi private yapmak için private: erişim belirleyicisini kullanıyoruz.
+AÅŸaÄŸÄ±daki Ã¶rnekte, print() Ã¼ye fonksiyonunun public tarafÄ±ndan kullanÄ±labilmesini saÄŸlamak iÃ§in public: eriÅŸim belirleyicisini ve
+veri Ã¼yelerimizi private yapmak iÃ§in private: eriÅŸim belirleyicisini kullanÄ±yoruz.
 
                 class Date
                 {
-                // Burada tanımlanan herhangi bir üye varsayılan olarak private olurdu
+                // Burada tanÄ±mlanan herhangi bir Ã¼ye varsayÄ±lan olarak private olurdu
 
-                public: // işte bizim public erişim belirleyicimiz
+                public: // iÅŸte bizim public eriÅŸim belirleyicimiz
 
-                    void print() const // yukarıdaki public: belirleyici nedeniyle public
+                    void print() const // yukarÄ±daki public: belirleyici nedeniyle public
                     {
-                        // üyeler diğer private üyelere erişebilir
+                        // Ã¼yeler diÄŸer private Ã¼yelere eriÅŸebilir
                         std::cout << m_year << '/' << m_month << '/' << m_day;
                     }
 
-                private: // işte bizim private erişim belirleyicimiz
+                private: // iÅŸte bizim private eriÅŸim belirleyicimiz
 
-                    int m_year { 2020 };  // yukarıdaki private: belirleyici nedeniyle private
-                    int m_month { 14 }; // yukarıdaki private: belirleyici nedeniyle private
-                    int m_day { 10 };   // yukarıdaki private: belirleyici nedeniyle private
+                    int m_year { 2020 };  // yukarÄ±daki private: belirleyici nedeniyle private
+                    int m_month { 14 }; // yukarÄ±daki private: belirleyici nedeniyle private
+                    int m_day { 10 };   // yukarÄ±daki private: belirleyici nedeniyle private
                 };
 
                 int main()
                 {
                     Date d{};
-                    d.print();  // tamam, main() public üyelere erişebilir
+                    d.print();  // tamam, main() public Ã¼yelere eriÅŸebilir
 
                     return 0;
                 }
-Bu örnek derlenir. Print() public: erişim belirleyicisi nedeniyle bir public üye olduğu için, main() (public'in bir parçası olan)
-ona erişebilir. Private üyelere sahip olduğumuz için, d'yi topluca başlatamayız. Bu örnekte, bunun yerine varsayılan üye 
-başlatmasını kullanıyoruz (geçici bir çözüm olarak).
+Bu Ã¶rnek derlenir. Print() public: eriÅŸim belirleyicisi nedeniyle bir public Ã¼ye olduÄŸu iÃ§in, main() (public'in bir parÃ§asÄ± olan)
+ona eriÅŸebilir. Private Ã¼yelere sahip olduÄŸumuz iÃ§in, d'yi topluca baÅŸlatamayÄ±z. Bu Ã¶rnekte, bunun yerine varsayÄ±lan Ã¼ye 
+baÅŸlatmasÄ±nÄ± kullanÄ±yoruz (geÃ§ici bir Ã§Ã¶zÃ¼m olarak).
 
-Sınıflar private erişime varsayılan olarak sahip olduğu için, öncü private: erişim belirleyicisini atlayabilirsiniz:
+SÄ±nÄ±flar private eriÅŸime varsayÄ±lan olarak sahip olduÄŸu iÃ§in, Ã¶ncÃ¼ private: eriÅŸim belirleyicisini atlayabilirsiniz:
 
                 Class Foo
                 {
-                // sınıflar varsayılan olarak private üyelere sahip olduğu için burada private erişim belirleyicisine gerek yok
-                    int m_something {};  // varsayılan olarak private
+                // sÄ±nÄ±flar varsayÄ±lan olarak private Ã¼yelere sahip olduÄŸu iÃ§in burada private eriÅŸim belirleyicisine gerek yok
+                    int m_something {};  // varsayÄ±lan olarak private
                 };
-Ancak, sınıflar ve struct'lar farklı erişim seviyesi varsayılanlarına sahip olduğu için, birçok geliştirici açık olmayı tercih 
+Ancak, sÄ±nÄ±flar ve struct'lar farklÄ± eriÅŸim seviyesi varsayÄ±lanlarÄ±na sahip olduÄŸu iÃ§in, birÃ§ok geliÅŸtirici aÃ§Ä±k olmayÄ± tercih 
 eder:
 
                 class Foo
                 {
-                private: // gereksiz, ancak ardından gelenlerin private olduğunu açıkça belirtir
-                    int m_something {};  // varsayılan olarak private
+                private: // gereksiz, ancak ardÄ±ndan gelenlerin private olduÄŸunu aÃ§Ä±kÃ§a belirtir
+                    int m_something {};  // varsayÄ±lan olarak private
                 };
-Bu teknik olarak gereksiz olsa da, explicit private: belirleyicisinin kullanılması, ardından gelen üyelerin private olduğunu 
-açıkça belirtir, Foo'nun bir sınıf mı yoksa bir struct mı olarak tanımlandığına dayanarak varsayılan erişim seviyesini çıkarmadan.
+Bu, yani explicit private: teknik olarak gereksiz olsa da,  belirleyicinin kullanÄ±lmasÄ±, ardÄ±ndan gelen Ã¼yelerin private olduÄŸunu 
+aÃ§Ä±kÃ§a belirtir, BÃ–ylece Foo'nun bir sÄ±nÄ±f mÄ± yoksa bir struct mÄ± olarak tanÄ±mlandÄ±ÄŸÄ±na dayanarak varsayÄ±lan eriÅŸim seviyesini Ã§Ä±karmadan anlamÄ±ÅŸ oluruz.
 
-Erişim Seviyesi Özeti
+EriÅŸim Seviyesi Ã–zeti
 ---------------------
-İşte farklı erişim seviyelerinin hızlı bir özeti:
+Ä°ÅŸte farklÄ± eriÅŸim seviyelerinin hÄ±zlÄ± bir Ã¶zeti:
 
-Bir sınıf tipi, herhangi bir sırayla herhangi bir sayıda erişim belirleyicisini kullanabilir ve bunlar tekrar tekrar 
-kullanılabilir (örneğin, bazı public üyeleriniz, ardından bazı private olanlar, ardından daha fazla public olanlar olabilir).
+Bir sÄ±nÄ±f tipi, herhangi bir sÄ±rayla herhangi bir sayÄ±da eriÅŸim belirleyicisini kullanabilir ve bunlar tekrar tekrar 
+kullanÄ±labilir (Ã¶rneÄŸin, bazÄ± public Ã¼yeleriniz, ardÄ±ndan bazÄ± private olanlar, ardÄ±ndan daha fazla public olanlar olabilir).
 
-Çoğu sınıf, çeşitli üyeler için hem private hem de public erişim belirleyicilerini kullanır. Bu konuda bir örneği bir sonraki 
-bölümde göreceğiz.
-| Erişim Düzeyi | Erişim Belirleyici | Üye Erişimi | Türetilmiş Sınıf Erişimi  |
+Ã‡oÄŸu sÄ±nÄ±f, Ã§eÅŸitli Ã¼yeler iÃ§in hem private hem de public eriÅŸim belirleyicilerini kullanÄ±r. Bu konuda bir Ã¶rneÄŸi bir sonraki 
+bÃ¶lÃ¼mde gÃ¶receÄŸiz.
+| EriÅŸim DÃ¼zeyi | EriÅŸim Belirleyici | Ãœye EriÅŸimi | TÃ¼retilmiÅŸ SÄ±nÄ±f EriÅŸimi  |
 |---------------|---------------------|-------------|--------------------------|
 | Public        | `public:`           | evet        | evet                     |
 | Protected     | `protected:`        | evet        | evet                     |
-| Private       | `private:`          | evet        | hayır                    |
+| Private       | `private:`          | evet        | hayÄ±r                    |
 
-Struct'lar ve Sınıflar için Erişim Seviyesi En İyi Uygulamaları
+Struct'lar ve SÄ±nÄ±flar iÃ§in EriÅŸim Seviyesi En Ä°yi UygulamalarÄ±
 ---------------------------------------------------------------
-Artık erişim seviyelerinin ne olduğunu anladığımıza göre, nasıl kullanacağımızı konuşalım.
-Struct'lar tamamen erişim belirleyicilerinden kaçınmalıdır, yani tüm struct üyeleri varsayılan olarak public olacaktır.
-Struct'larımızın topluluklar olmasını istiyoruz ve topluluklar yalnızca public üyelere sahip olabilir. Public: erişim
-belirleyicisinin kullanılması varsayılanla gereksiz olurdu ve private: veya protected: kullanmak struct'ı bir topluluk olmaktan 
-çıkarırdı.
+ArtÄ±k eriÅŸim seviyelerinin ne olduÄŸunu anladÄ±ÄŸÄ±mÄ±za gÃ¶re, nasÄ±l kullanacaÄŸÄ±mÄ±zÄ± konuÅŸalÄ±m.
+Struct'lar tamamen eriÅŸim belirleyicilerinden kaÃ§Ä±nmalÄ±dÄ±r, yani tÃ¼m struct Ã¼yeleri varsayÄ±lan olarak public olacaktÄ±r.
+Struct'larÄ±mÄ±zÄ±n topluluklar olmasÄ±nÄ± istiyoruz ve topluluklar yalnÄ±zca public Ã¼yelere sahip olabilir. Public: eriÅŸim
+belirleyicisinin kullanÄ±lmasÄ± varsayÄ±lanla gereksiz olurdu ve private: veya protected: kullanmak struct'Ä± bir topluluk olmaktan 
+Ã§Ä±karÄ±rdÄ±.
 
-Sınıflar genellikle yalnızca private (veya protected) veri üyelerine sahip olmalıdır (varsayılan private erişim seviyesini
-kullanarak veya private: (veya protected) erişim belirleyicisini kullanarak). Bunun gerekçesini bir sonraki ders olan
-14.6 -- Erişim Fonksiyonları'nda tartışacağız.
+SÄ±nÄ±flar genellikle yalnÄ±zca private (veya protected) veri Ã¼yelerine sahip olmalÄ±dÄ±r (varsayÄ±lan private eriÅŸim seviyesini
+kullanarak veya private: (veya protected) eriÅŸim belirleyicisini kullanarak). Bunun gerekÃ§esini bir sonraki ders olan
+14.6 -- EriÅŸim FonksiyonlarÄ±'nda tartÄ±ÅŸacaÄŸÄ±z.
 
-Sınıflar normalde public üye fonksiyonlarına sahip olur (bu nedenle bu üye fonksiyonlar, nesne oluşturulduktan sonra public 
-tarafından kullanılabilir). Ancak, nadiren üye fonksiyonlar private (veya protected) yapılır eğer public tarafından kullanılmaları
-amaçlanmamışsa.
+SÄ±nÄ±flar normalde public Ã¼ye fonksiyonlarÄ±na sahip olur (bu nedenle bu Ã¼ye fonksiyonlar, nesne oluÅŸturulduktan sonra public 
+tarafÄ±ndan kullanÄ±labilir). Ancak, nadiren Ã¼ye fonksiyonlar private (veya protected) yapÄ±lÄ±r eÄŸer public tarafÄ±ndan kullanÄ±lmalarÄ±
+amaÃ§lanmamÄ±ÅŸsa.
 
-*** BEST -> Sınıflar genellikle üye değişkenlerini private (veya protected) yapmalı ve üye fonksiyonlarını public yapmalıdır.
-Struct'lar genellikle erişim belirleyicilerini kullanmaktan kaçınmalıdır (tüm üyeler varsayılan olarak public olacaktır).
+*** BEST -> SÄ±nÄ±flar genellikle Ã¼ye deÄŸiÅŸkenlerini private (veya protected) yapmalÄ± ve Ã¼ye fonksiyonlarÄ±nÄ± public yapmalÄ±dÄ±r.
+Struct'lar genellikle eriÅŸim belirleyicilerini kullanmaktan kaÃ§Ä±nmalÄ±dÄ±r (tÃ¼m Ã¼yeler varsayÄ±lan olarak public olacaktÄ±r).
 
-Erişim Seviyeleri Sınıf Bazında Çalışır
+EriÅŸim Seviyeleri SÄ±nÄ±f BazÄ±nda Ã‡alÄ±ÅŸÄ±r
 ---------------------------------------
-C++ erişim seviyelerinin sıklıkla kaçırılan veya yanlış anlaşılan bir inceliği, üyelere erişimin sınıf bazında tanımlandığı,
-nesne bazında tanımlanmadığıdır.
+C++ eriÅŸim seviyelerinin sÄ±klÄ±kla kaÃ§Ä±rÄ±lan veya yanlÄ±ÅŸ anlaÅŸÄ±lan bir inceliÄŸi, Ã¼yelere eriÅŸimin sÄ±nÄ±f bazÄ±nda tanÄ±mlandÄ±ÄŸÄ±,
+nesne bazÄ±nda tanÄ±mlanmadÄ±ÄŸÄ±dÄ±r.
 
-Bir üye fonksiyonun doğrudan private üyelere erişebileceğini zaten biliyorsunuz. Ancak, erişim seviyeleri sınıf bazında olduğu 
-için, bir üye fonksiyonu aynı sınıf tipinden olan ve kapsamda olan herhangi bir diğer nesnenin private üyelerine de doğrudan
-erişebilir.Bunu bir örnekle gösterelim:
+Bir Ã¼ye fonksiyonun doÄŸrudan private Ã¼yelere eriÅŸebileceÄŸini zaten biliyorsunuz. Ancak, eriÅŸim seviyeleri sÄ±nÄ±f bazÄ±nda olduÄŸu 
+iÃ§in, bir Ã¼ye fonksiyonu aynÄ± sÄ±nÄ±f tipinden olan ve kapsamda olan herhangi bir diÄŸer nesnenin private Ã¼yelerine de doÄŸrudan
+eriÅŸebilir.Bunu bir Ã¶rnekle gÃ¶sterelim:
 
                 #include <iostream>
                 #include <string>
@@ -1359,46 +1359,46 @@ erişebilir.Bunu bir örnekle gösterelim:
 
                     return 0;
                 }
-                Bu, şunu yazdırır:
+                Bu, ÅŸunu yazdÄ±rÄ±r:
 
                 Joe kisses Kate
-Burada dikkat edilmesi gereken birkaç şey var.
+Burada dikkat edilmesi gereken birkaÃ§ ÅŸey var.
 
-Öncelikle, m_name private yapıldı, bu yüzden yalnızca Person sınıfının üyeleri tarafından erişilebilir (public tarafından değil).
-İkincisi, sınıfımızın private üyeleri olduğu için, bir topluluk değildir ve Person nesnelerimizi başlatmak için toplu başlatma
-kullanamayız. Bu soruna uygun bir çözüm bulana kadar, Person nesnelerimize bir isim atamamıza izin veren setName() adında bir
-public üye fonksiyon oluşturduk.
+Ã–ncelikle, m_name private yapÄ±ldÄ±, bu yÃ¼zden yalnÄ±zca Person sÄ±nÄ±fÄ±nÄ±n Ã¼yeleri tarafÄ±ndan eriÅŸilebilir (public tarafÄ±ndan deÄŸil).
+Ä°kincisi, sÄ±nÄ±fÄ±mÄ±zÄ±n private Ã¼yeleri olduÄŸu iÃ§in, bir topluluk deÄŸildir ve Person nesnelerimizi baÅŸlatmak iÃ§in toplu baÅŸlatma
+kullanamayÄ±z. Bu soruna uygun bir Ã§Ã¶zÃ¼m bulana kadar, Person nesnelerimize bir isim atamamÄ±za izin veren setName() adÄ±nda bir
+public Ã¼ye fonksiyon oluÅŸturduk.
 
-Üçüncüsü, kisses() bir üye fonksiyon olduğu için, private üye m_name'e doğrudan erişim hakkına sahiptir. Ancak, p.m_name'e de
-doğrudan erişim hakkına sahip olduğunu görmek sizi şaşırtabilir! Bu, p'nin bir Person nesnesi olduğu ve kisses()'in kapsamda olan
-herhangi bir Person nesnesinin private üyelerine erişebileceği için çalışır!
-Bu konuyu operatör aşırı yükleme bölümünde daha fazla örneklerle göreceğiz.
+ÃœÃ§Ã¼ncÃ¼sÃ¼, kisses() bir Ã¼ye fonksiyon olduÄŸu iÃ§in, private Ã¼ye m_name'e doÄŸrudan eriÅŸim hakkÄ±na sahiptir. Ancak, p.m_name'e de
+doÄŸrudan eriÅŸim hakkÄ±na sahip olduÄŸunu gÃ¶rmek sizi ÅŸaÅŸÄ±rtabilir! Bu, p'nin bir Person nesnesi olduÄŸu ve kisses()'in kapsamda olan
+herhangi bir Person nesnesinin private Ã¼yelerine eriÅŸebileceÄŸi iÃ§in Ã§alÄ±ÅŸÄ±r!
+Bu konuyu operatÃ¶r aÅŸÄ±rÄ± yÃ¼kleme bÃ¶lÃ¼mÃ¼nde daha fazla Ã¶rneklerle gÃ¶receÄŸiz.
 
-Teknik ve pratik açıdan struct'lar ve sınıflar arasındaki fark
+Teknik ve pratik aÃ§Ä±dan struct'lar ve sÄ±nÄ±flar arasÄ±ndaki fark
 --------------------------------------------------------------
-Artık erişim seviyelerini ele aldığımıza göre, struct'lar ve sınıflar arasındaki teknik farkları nihayet tartışabiliriz.
-Hazır mısınız?
-Bir sınıf üyelerini varsayılan olarak private yapar, oysa bir struct üyelerini varsayılan olarak public yapar.
+ArtÄ±k eriÅŸim seviyelerini ele aldÄ±ÄŸÄ±mÄ±za gÃ¶re, struct'lar ve sÄ±nÄ±flar arasÄ±ndaki teknik farklarÄ± nihayet tartÄ±ÅŸabiliriz.
+HazÄ±r mÄ±sÄ±nÄ±z?
+Bir sÄ±nÄ±f Ã¼yelerini varsayÄ±lan olarak private yapar, oysa bir struct Ã¼yelerini varsayÄ±lan olarak public yapar.
 Evet, bu kadar. :))
 
-Yazarın Notu
+YazarÄ±n Notu
 
-Titiz olmak gerekirse, bir tane daha küçük bir fark var -- struct'lar diğer sınıf türlerinden public olarak miras alır ve sınıflar
-private olarak miras alır. Bu konunun ne anlama geldiğini, miras bölümünde ele alacağız, ancak bu belirli nokta pratik olarak 
-önemsizdir çünkü zaten miras için varsayılanlara güvenmemelisiniz.
-Pratikte, struct'ları ve sınıfları farklı şekillerde kullanırız.
+Titiz olmak gerekirse, bir tane daha kÃ¼Ã§Ã¼k bir fark var -- struct'lar diÄŸer sÄ±nÄ±f tÃ¼rlerinden public olarak miras alÄ±r ve sÄ±nÄ±flar
+private olarak miras alÄ±r. Bu konunun ne anlama geldiÄŸini, miras bÃ¶lÃ¼mÃ¼nde ele alacaÄŸÄ±z, ancak bu belirli nokta pratik olarak 
+Ã¶nemsizdir Ã§Ã¼nkÃ¼ zaten miras iÃ§in varsayÄ±lanlara gÃ¼venmemelisiniz.
+Pratikte, struct'larÄ± ve sÄ±nÄ±flarÄ± farklÄ± ÅŸekillerde kullanÄ±rÄ±z.
 
-Bir kural olarak, aşağıdakilerin tümü doğru olduğunda bir struct kullanın:
+Bir kural olarak, aÅŸaÄŸÄ±dakilerin tÃ¼mÃ¼ doÄŸru olduÄŸunda bir struct kullanmak mantÄ±klÄ±dÄ±r:
 
-*- Kısıtlı erişimden fayda sağlamayan basit bir veri koleksiyonunuz var.
-*- Toplu başlatma yeterlidir.
-*- Sınıf değişmezleriniz, kurulum ihtiyaçlarınız veya temizleme ihtiyaçlarınız yok.
-*- Struct'ların kullanılabileceği birkaç örnek: constexpr global program verileri, bir nokta struct'ı
-   (private yapılmalarından fayda sağlamayan basit bir int üye koleksiyonu), bir fonksiyondan bir veri seti döndürmek için
-   kullanılan struct'lar.
+*- KÄ±sÄ±tlÄ± eriÅŸimden fayda saÄŸlamayan basit bir veri koleksiyonunuz var.
+*- Toplu baÅŸlatma yeterlidir.
+*- SÄ±nÄ±f deÄŸiÅŸmezleriniz, kurulum ihtiyaÃ§larÄ±nÄ±z veya temizleme ihtiyaÃ§larÄ±nÄ±z yok.
+*- Struct'larÄ±n kullanÄ±labileceÄŸi birkaÃ§ Ã¶rnek: constexpr global program verileri, bir nokta struct'Ä±
+   (private yapÄ±lmalarÄ±ndan fayda saÄŸlamayan basit bir int Ã¼ye koleksiyonu), bir fonksiyondan bir veri seti dÃ¶ndÃ¼rmek iÃ§in
+   kullanÄ±lan struct'lar.
 
-Aksi takdirde bir sınıf kullanın.
+Aksi takdirde bir sÄ±nÄ±f kullanÄ±n.
 
-Struct'larımızın topluluklar olmasını istiyoruz. Yani, struct'ınızı bir topluluk olmaktan çıkaracak herhangi bir özellik
-kullanıyorsanız, muhtemelen bir sınıf kullanmalısınız (ve sınıflar için tüm en iyi uygulamaları takip etmelisiniz).
+Struct'larÄ±mÄ±zÄ±n topluluklar olmasÄ±nÄ± istiyoruz. Yani, struct'Ä±nÄ±zÄ± bir topluluk olmaktan Ã§Ä±karacak herhangi bir Ã¶zellik
+kullanÄ±yorsanÄ±z, muhtemelen bir sÄ±nÄ±f kullanmalÄ±sÄ±nÄ±z (ve sÄ±nÄ±flar iÃ§in tÃ¼m en iyi uygulamalarÄ± takip etmelisiniz).
 */
