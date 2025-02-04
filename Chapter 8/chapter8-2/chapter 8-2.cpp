@@ -9,14 +9,14 @@ Break ve Continue
 -----------------
 Break
 
-Switch ifadeleri bağlamında break ifadesini zaten gördünüz (8.5 -- Switch ifadesi temelleri), ancak bu ifade diğer kontrol akış ifadeleriyle de kullanılabilir,
-bu nedenle daha detaylı bir açıklamayı hak ediyor. break ifadesi, bir while döngüsü, do-while döngüsü, for döngüsü veya switch ifadesini sonlandırır ve kırılan
-döngü veya switch ifadesinden sonra gelen bir sonraki ifadeyle devam eder
+Switch ifadeleri baÄŸlamÄ±nda break ifadesini zaten gÃ¶rdÃ¼nÃ¼z (8.5 -- Switch ifadesi temelleri), ancak bu ifade diÄŸer kontrol akÄ±ÅŸ ifadeleriyle de kullanÄ±labilir,
+bu nedenle daha detaylÄ± bir aÃ§Ä±klamayÄ± hak ediyor. break ifadesi, bir while dÃ¶ngÃ¼sÃ¼, do-while dÃ¶ngÃ¼sÃ¼, for dÃ¶ngÃ¼sÃ¼ veya switch ifadesini sonlandÄ±rÄ±r ve kÄ±rÄ±lan
+dÃ¶ngÃ¼ veya switch ifadesinden sonra gelen bir sonraki ifadeyle devam eder
 
-Brak ile switch kullanımı
+Break ile switch kullanÄ±mÄ±
 -------------------------
-Switch ifadesi bağlamında, bir break genellikle her durumun sonunda kullanılır ve bu durumun bittiğini belirtmek için kullanılır
-(bu, ardışık durumlara geçişin önlenmesini sağlar):
+Switch ifadesi baÄŸlamÄ±nda, bir break genellikle her durumun sonunda kullanÄ±lÄ±r ve bu durumun bittiÄŸini belirtmek iÃ§in kullanÄ±lÄ±r
+(bu, ardÄ±ÅŸÄ±k durumlara geÃ§iÅŸin Ã¶nlenmesini saÄŸlar):
                 #include <iostream>
 
                 void printMath(int x, int y, char ch)
@@ -25,13 +25,13 @@ Switch ifadesi bağlamında, bir break genellikle her durumun sonunda kullanılır v
                     {
                     case '+':
                         std::cout << x << " + " << y << " = " << x + y << '\n';
-                        break; // ardışık durumlara geçme
+                        break; // ardÄ±ÅŸÄ±k durumlara geÃ§me
                     case '-':
                         std::cout << x << " - " << y << " = " << x - y << '\n';
-                        break; // ardışık durumlara geçme
+                        break; // ardÄ±ÅŸÄ±k durumlara geÃ§me
                     case '*':
                         std::cout << x << " * " << y << " = " << x * y << '\n';
-                        break; // ardışık durumlara geçme
+                        break; // ardÄ±ÅŸÄ±k durumlara geÃ§me
                     case '/':
                         std::cout << x << " / " << y << " = " << x / y << '\n';
                         break;
@@ -45,73 +45,73 @@ Switch ifadesi bağlamında, bir break genellikle her durumun sonunda kullanılır v
                     return 0;
                 }
 
-Bir loop ile break in kullanımı
+Bir loop ile break in kullanÄ±mÄ±
 --------------------------------
-Döngü bağlamında, bir `break` ifadesi döngüyü erken sonlandırmak için kullanılabilir. İşlem, döngünün sonundan sonraki ifadeyle devam eder.
+DÃ¶ngÃ¼ baÄŸlamÄ±nda, bir `break` ifadesi dÃ¶ngÃ¼yÃ¼ erken sonlandÄ±rmak iÃ§in kullanÄ±labilir. Ä°ÅŸlem, dÃ¶ngÃ¼nÃ¼n sonundan sonraki ifadeyle devam eder.
                 #include <iostream>
 
                 int main()
                 {
                     int sum{ 0 };
 
-                    // Kullanıcıya 10'a kadar sayı girmesine izin ver
+                    // KullanÄ±cÄ±ya 10'a kadar sayÄ± girmesine izin ver
                     for (int count{ 0 }; count < 10; ++count)
                     {
-                        std::cout << "Eklemek için bir sayı girin veya çıkmak için 0 girin: ";
+                        std::cout << "Eklemek iÃ§in bir sayÄ± girin veya Ã§Ä±kmak iÃ§in 0 girin: ";
                         int num{};
                         std::cin >> num;
 
-                        // Kullanıcı 0 girdiyse döngüden çık
+                        // KullanÄ±cÄ± 0 girdiyse dÃ¶ngÃ¼den Ã§Ä±k
                         if (num == 0)
-                            break; // döngüden şimdi çık
+                            break; // dÃ¶ngÃ¼den ÅŸimdi Ã§Ä±k
 
-                        // Aksi takdirde sayıyı toplamımıza ekleyin
+                        // Aksi takdirde sayÄ±yÄ± toplamÄ±mÄ±za ekleyin
                         sum += num;
                     }
 
-                    // break'ten sonra işlem buradan devam edecek
-                    std::cout << "Girdiğiniz tüm sayıların toplamı: " << sum << '\n';
+                    // break'ten sonra iÅŸlem buradan devam edecek
+                    std::cout << "GirdiÄŸiniz tÃ¼m sayÄ±larÄ±n toplamÄ±: " << sum << '\n';
 
                     return 0;
                 }
 
-Bu program, kullanıcının 10'a kadar sayı girmesine izin verir ve giriş yapılan tüm sayıların toplamını
-sonunda görüntüler. Kullanıcı 0 girdiğinde, break, döngünün erken sona ermesine (10 sayı girilmeden önce) neden olur.
-Çıktı : 
-                Bir sayı eklemek için girin veya çıkmak için 0 girin: 5
-                Bir sayı eklemek için girin veya çıkmak için 0 girin: 3
-                Bir sayı eklemek için girin veya çıkmak için 0 girin: 8
-                Bir sayı eklemek için girin veya çıkmak için 0 girin: 0
-                Girdiğiniz tüm sayıların toplamı: 16
+Bu program, kullanÄ±cÄ±nÄ±n 10'a kadar sayÄ± girmesine izin verir ve giriÅŸ yapÄ±lan tÃ¼m sayÄ±larÄ±n toplamÄ±nÄ±
+sonunda gÃ¶rÃ¼ntÃ¼ler. KullanÄ±cÄ± 0 girdiÄŸinde, break, dÃ¶ngÃ¼nÃ¼n erken sona ermesine (10 sayÄ± girilmeden Ã¶nce) neden olur.
+Ã‡Ä±ktÄ± : 
+                Bir sayÄ± eklemek iÃ§in girin veya Ã§Ä±kmak iÃ§in 0 girin: 5
+                Bir sayÄ± eklemek iÃ§in girin veya Ã§Ä±kmak iÃ§in 0 girin: 3
+                Bir sayÄ± eklemek iÃ§in girin veya Ã§Ä±kmak iÃ§in 0 girin: 8
+                Bir sayÄ± eklemek iÃ§in girin veya Ã§Ä±kmak iÃ§in 0 girin: 0
+                GirdiÄŸiniz tÃ¼m sayÄ±larÄ±n toplamÄ±: 16
 
-`break`, isteğe bağlı olarak sonsuz bir döngüden çıkmak için yaygın olarak kullanılan bir yöntemdir yukarıdaki işlemin aynısı bir if bloğu ile yapılabilir. 
+`break`, isteÄŸe baÄŸlÄ± olarak sonsuz bir dÃ¶ngÃ¼den Ã§Ä±kmak iÃ§in yaygÄ±n olarak kullanÄ±lan bir yÃ¶ntemdir yukarÄ±daki iÅŸlemin aynÄ±sÄ± bir if bloÄŸu ile yapÄ±labilir. 
 
 Break vs return 
 ---------------
-`Break` ve `return` ifadeleri arasındaki farkı anlamak yeni programcılar için bazen zor olabilir. Bir `break` ifadesi, switch veya döngüyü sonlandırır ve işlem,
-switch veya döngünün ötesindeki ilk ifadeyle devam eder. Bir `return` ifadesi ise içinde bulunduğu fonksiyonu tamamen sonlandırır ve işlem, fonksiyonun çağrıldığı 
+`Break` ve `return` ifadeleri arasÄ±ndaki farkÄ± anlamak yeni programcÄ±lar iÃ§in bazen zor olabilir. Bir `break` ifadesi, switch veya dÃ¶ngÃ¼yÃ¼ sonlandÄ±rÄ±r ve iÅŸlem,
+switch veya dÃ¶ngÃ¼nÃ¼n Ã¶tesindeki ilk ifadeyle devam eder. Bir `return` ifadesi ise iÃ§inde bulunduÄŸu fonksiyonu tamamen sonlandÄ±rÄ±r ve iÅŸlem, fonksiyonun Ã§aÄŸrÄ±ldÄ±ÄŸÄ± 
 noktada devam eder.
 
                         #include <iostream>
 
                         int breakOrReturn()
                         {
-                            while (true) // sonsuz döngü
+                            while (true) // sonsuz dÃ¶ngÃ¼
                             {
-                                std::cout << "'b' girmek için veya 'r' girmek için: ";
+                                std::cout << "'b' girmek iÃ§in veya 'r' girmek iÃ§in: ";
                                 char ch{};
                                 std::cin >> ch;
 
                                 if (ch == 'b')
-                                    break; // işlem, döngünün ötesindeki ilk ifadeyle devam edecektir
+                                    break; // iÅŸlem, dÃ¶ngÃ¼nÃ¼n Ã¶tesindeki ilk ifadeyle devam edecektir
 
                                 if (ch == 'r')
-                                    return 1; // return, fonksiyonun hemen çağrıldığı yere (bu durumda main()) geri dönecektir
+                                    return 1; // return, fonksiyonun hemen Ã§aÄŸrÄ±ldÄ±ÄŸÄ± yere (bu durumda main()) geri dÃ¶necektir
                             }
 
-                            // döngüyü kırmak, işlemin buradan devam etmesine neden olur
+                            // dÃ¶ngÃ¼yÃ¼ kÄ±rmak, iÅŸlemin buradan devam etmesine neden olur
 
-                            std::cout << "Döngüden çıktık\n";
+                            std::cout << "DÃ¶ngÃ¼den Ã§Ä±ktÄ±k\n";
 
                             return 0;
                         }
@@ -119,25 +119,25 @@ noktada devam eder.
                         int main()
                         {
                             int returnValue{ breakOrReturn() };
-                            std::cout << "breakOrReturn fonksiyonu şunu döndürdü: " << returnValue << '\n';
+                            std::cout << "breakOrReturn fonksiyonu ÅŸunu dÃ¶ndÃ¼rdÃ¼: " << returnValue << '\n';
 
                             return 0;
                         }
 
-Bu programın iki çalıştırması:
+Bu programÄ±n iki Ã§alÄ±ÅŸtÄ±rmasÄ±:
 
-                        'b' girmek için veya 'r' girmek için: r
-                        breakOrReturn fonksiyonu 1 döndürdü
+                        'b' girmek iÃ§in veya 'r' girmek iÃ§in: r
+                        breakOrReturn fonksiyonu 1 dÃ¶ndÃ¼rdÃ¼
 
-                        'b' girmek için veya 'r' girmek için: b
-                        Döngüden çıktık
-                        breakOrReturn fonksiyonu 0 döndürdü
+                        'b' girmek iÃ§in veya 'r' girmek iÃ§in: b
+                        DÃ¶ngÃ¼den Ã§Ä±ktÄ±k
+                        breakOrReturn fonksiyonu 0 dÃ¶ndÃ¼rdÃ¼
 
 `Continue` ifadesi
 ------------------
-`continue` ifadesi, mevcut döngü iterasyonunu sonlandırmadan tüm döngüyü sonlandırmak için uygun bir yol sağlar.
+`continue` ifadesi, mevcut dÃ¶ngÃ¼ iterasyonunu sonlandÄ±rmadan tÃ¼m dÃ¶ngÃ¼yÃ¼ sonlandÄ±rmak iÃ§in uygun bir yol saÄŸlar.
 
-İşte `continue` kullanımının bir örneği:
+Ä°ÅŸte `continue` kullanÄ±mÄ±nÄ±n bir Ã¶rneÄŸi:
 
                 #include <iostream>
 
@@ -145,11 +145,11 @@ Bu programın iki çalıştırması:
                 {
                     for (int count{ 0 }; count < 10; ++count)
                     {
-                        // eğer sayı 4'e bölünebiliyorsa, bu iterasyonu atla
+                        // eÄŸer sayÄ± 4'e bÃ¶lÃ¼nebiliyorsa, bu iterasyonu atla
                         if ((count % 4) == 0)
                             continue; // bir sonraki iterasyona git
 
-                        // Eğer sayı 4'e bölünebiliyorsa, devam et
+                        // EÄŸer sayÄ± 4'e bÃ¶lÃ¼nebiliyorsa, devam et
                         std::cout << count << '\n';
 
                         // continue ifadesi buraya atlar
@@ -158,7 +158,7 @@ Bu programın iki çalıştırması:
                     return 0;
                 }
 
-Yani bu program 4 e bölünemeyen sayıları yazdırır
+Yani bu program 4 e bÃ¶lÃ¼nemeyen sayÄ±larÄ± yazdÄ±rÄ±r
                     1
                     2
                     3
@@ -166,32 +166,32 @@ Yani bu program 4 e bölünemeyen sayıları yazdırır
                     6
                     7
                     9
-`continue` ifadesi, mevcut yürütme noktasını mevcut döngünün altına atarak çalışır.
+`continue` ifadesi, mevcut yÃ¼rÃ¼tme noktasÄ±nÄ± mevcut dÃ¶ngÃ¼nÃ¼n altÄ±na atarak Ã§alÄ±ÅŸÄ±r.
 
-Bir for-döngüsü durumunda, for-döngüsünün end ifadesi (yukarıdaki örnekte `++count`), continue'dan sonra hala çalışır (çünkü bu, döngü gövdesinin sonundan sonra 
-gerçekleşir).
+Bir for-dÃ¶ngÃ¼sÃ¼ durumunda, for-dÃ¶ngÃ¼sÃ¼nÃ¼n end ifadesi (yukarÄ±daki Ã¶rnekte `++count`), continue'dan sonra hala Ã§alÄ±ÅŸÄ±r (Ã§Ã¼nkÃ¼ bu, dÃ¶ngÃ¼ gÃ¶vdesinin sonundan sonra 
+gerÃ§ekleÅŸir).
 
-Dikkatli olun, bir continue ifadesini while veya do-while döngüleri ile kullanırken. Bu döngüler genellikle döngü gövdesi içinde kullanılan değişkenlerin değerini 
-değiştirir. Eğer continue ifadesi, bu satırların atlanmasına neden oluyorsa, döngü sonsuz olabilir!
+Dikkatli olun, bir continue ifadesini while veya do-while dÃ¶ngÃ¼leri ile kullanÄ±rken. Bu dÃ¶ngÃ¼ler genellikle dÃ¶ngÃ¼ gÃ¶vdesi iÃ§inde kullanÄ±lan deÄŸiÅŸkenlerin deÄŸerini 
+deÄŸiÅŸtirir. EÄŸer continue ifadesi, bu satÄ±rlarÄ±n atlanmasÄ±na neden oluyorsa, dÃ¶ngÃ¼ sonsuz olabilir!
 
-break ve continue kullanımı üzerine yapılan tartışma
+break ve continue kullanÄ±mÄ± Ã¼zerine yapÄ±lan tartÄ±ÅŸma
 ----------------------------------------------------
-Birçok kaynak, break ve continue ifadelerinin döngülerde kullanılmasından kaçınılması gerektiği konusunda okuyucuları uyarır, çünkü bu ifadeler, yürütme akışının
-atlamasına neden olabilir ve mantık akışını takip etmeyi zorlaştırabilir. Örneğin, karmaşık bir mantık parçasında ortasında bir break, ya atlanabilir ya da ne 
-koşullar altında tetiklenmesi gerektiği açık olmayabilir.
+BirÃ§ok kaynak, break ve continue ifadelerinin dÃ¶ngÃ¼lerde kullanÄ±lmasÄ±ndan kaÃ§Ä±nÄ±lmasÄ± gerektiÄŸi konusunda okuyucularÄ± uyarÄ±r, Ã§Ã¼nkÃ¼ bu ifadeler, yÃ¼rÃ¼tme akÄ±ÅŸÄ±nÄ±n
+atlamasÄ±na neden olabilir ve mantÄ±k akÄ±ÅŸÄ±nÄ± takip etmeyi zorlaÅŸtÄ±rabilir. Ã–rneÄŸin, karmaÅŸÄ±k bir mantÄ±k parÃ§asÄ±nda ortasÄ±nda bir break, ya atlanabilir ya da ne 
+koÅŸullar altÄ±nda tetiklenmesi gerektiÄŸi aÃ§Ä±k olmayabilir.
 
-Ancak, dikkatli bir şekilde kullanıldığında, break ve continue, döngüleri daha okunabilir hale getirmeye yardımcı olabilir. Bu ifadeler, iç içe geçmiş blokların 
-sayısını azaltarak ve karmaşık döngü mantığına duyulan ihtiyacı azaltarak, döngüleri daha anlaşılır hale getirebilir.
-Örneğin: 
+Ancak, dikkatli bir ÅŸekilde kullanÄ±ldÄ±ÄŸÄ±nda, break ve continue, dÃ¶ngÃ¼leri daha okunabilir hale getirmeye yardÄ±mcÄ± olabilir. Bu ifadeler, iÃ§ iÃ§e geÃ§miÅŸ bloklarÄ±n 
+sayÄ±sÄ±nÄ± azaltarak ve karmaÅŸÄ±k dÃ¶ngÃ¼ mantÄ±ÄŸÄ±na duyulan ihtiyacÄ± azaltarak, dÃ¶ngÃ¼leri daha anlaÅŸÄ±lÄ±r hale getirebilir.
+Ã–rneÄŸin: 
             #include <iostream>
 
             int main()
             {
-                int count{ 0 }; // döngünün kaç kez tekrarlandığını say
-                bool keepLooping { true }; // döngünün bitip bitmediğini kontrol eder
+                int count{ 0 }; // dÃ¶ngÃ¼nÃ¼n kaÃ§ kez tekrarlandÄ±ÄŸÄ±nÄ± say
+                bool keepLooping { true }; // dÃ¶ngÃ¼nÃ¼n bitip bitmediÄŸini kontrol eder
                 while (keepLooping)
                 {
-                    std::cout << "Bu döngüden çıkmak için 'e' girin veya devam etmek için herhangi bir karakter girin: ";
+                    std::cout << "Bu dÃ¶ngÃ¼den Ã§Ä±kmak iÃ§in 'e' girin veya devam etmek iÃ§in herhangi bir karakter girin: ";
                     char ch{};
                     std::cin >> ch;
 
@@ -200,23 +200,23 @@ sayısını azaltarak ve karmaşık döngü mantığına duyulan ihtiyacı azaltarak, döngü
                     else
                     {
                         ++count;
-                        std::cout << "Biz " << count << " kez tekrarladık\n";
+                        std::cout << "Biz " << count << " kez tekrarladÄ±k\n";
                     }
                 }
 
                 return 0;
             }
 
-Bu program, döngünün devam edip etmeyeceğini kontrol etmek için bir Boolean değişkeni ve kullanıcı çıkış yapmazsa yalnızca çalışan iç içe geçmiş bir blok kullanır.
-Break kullanılarak oluşturulmuş haline bakalım bir de:
+Bu program, dÃ¶ngÃ¼nÃ¼n devam edip etmeyeceÄŸini kontrol etmek iÃ§in bir Boolean deÄŸiÅŸkeni ve kullanÄ±cÄ± Ã§Ä±kÄ±ÅŸ yapmazsa yalnÄ±zca Ã§alÄ±ÅŸan iÃ§ iÃ§e geÃ§miÅŸ bir blok kullanÄ±r.
+Break kullanÄ±larak oluÅŸturulmuÅŸ haline bakalÄ±m bir de:
                     #include <iostream>
 
                     int main()
                     {
-                        int count{ 0 }; // döngünün kaç kez tekrarlandığını say
-                        while (true) // kullanıcı sonlandırana kadar döngüyü sürdür
+                        int count{ 0 }; // dÃ¶ngÃ¼nÃ¼n kaÃ§ kez tekrarlandÄ±ÄŸÄ±nÄ± say
+                        while (true) // kullanÄ±cÄ± sonlandÄ±rana kadar dÃ¶ngÃ¼yÃ¼ sÃ¼rdÃ¼r
                         {
-                            std::cout << "Bu döngüden çıkmak için 'e' girin veya devam etmek için herhangi bir karakter girin: ";
+                            std::cout << "Bu dÃ¶ngÃ¼den Ã§Ä±kmak iÃ§in 'e' girin veya devam etmek iÃ§in herhangi bir karakter girin: ";
                             char ch{};
                             std::cin >> ch;
 
@@ -224,17 +224,17 @@ Break kullanılarak oluşturulmuş haline bakalım bir de:
                                 break;
 
                             ++count;
-                            std::cout << "Biz " << count << " kez tekrarladık\n";
+                            std::cout << "Biz " << count << " kez tekrarladÄ±k\n";
                         }
 
                         return 0;
                     }
 
-Bu versiyonda, tek bir break ifadesi kullanarak bir Boolean değişkenin kullanımını (ve amaçlanan kullanımının ne olduğunu ve nerede değerinin değiştiğini anlamanın
-gerekliliğini), bir else ifadesini ve iç içe geçmiş bir bloku önledik.
+Bu versiyonda, tek bir break ifadesi kullanarak bir Boolean deÄŸiÅŸkenin kullanÄ±mÄ±nÄ± (ve amaÃ§lanan kullanÄ±mÄ±nÄ±n ne olduÄŸunu ve nerede deÄŸerinin deÄŸiÅŸtiÄŸini anlamanÄ±n
+gerekliliÄŸini), bir else ifadesini ve iÃ§ iÃ§e geÃ§miÅŸ bir bloku Ã¶nledik.
 
-continue ifadesi, bir koşul karşılandığında döngü iterasyonlarını atlamak için en etkili şekilde bir for-döngüsünün başında kullanılır. Bu, iç içe geçmiş bir bloku
-önlememize olanak tanıyabilir.
+continue ifadesi, bir koÅŸul karÅŸÄ±landÄ±ÄŸÄ±nda dÃ¶ngÃ¼ iterasyonlarÄ±nÄ± atlamak iÃ§in en etkili ÅŸekilde bir for-dÃ¶ngÃ¼sÃ¼nÃ¼n baÅŸÄ±nda kullanÄ±lÄ±r. Bu, iÃ§ iÃ§e geÃ§miÅŸ bir bloku
+Ã¶nlememize olanak tanÄ±yabilir.
 
                 #include <iostream>
 
@@ -242,10 +242,10 @@ continue ifadesi, bir koşul karşılandığında döngü iterasyonlarını atlamak için e
                 {
                     for (int count{ 0 }; count < 10; ++count)
                     {
-                        // eğer sayı 4'e bölünmüyorsa...
-                        if ((count % 4) != 0) // iç içe geçmiş blok
+                        // eÄŸer sayÄ± 4'e bÃ¶lÃ¼nmÃ¼yorsa...
+                        if ((count % 4) != 0) // iÃ§ iÃ§e geÃ§miÅŸ blok
                         {
-                                // Sayıyı yazdır
+                                // SayÄ±yÄ± yazdÄ±r
                                 std::cout << count << '\n';
                         }
                     }
@@ -262,11 +262,11 @@ Bunun yerine bunu yazabiliriz:
                 {
                     for (int count{ 0 }; count < 10; ++count)
                     {
-                        // eğer sayı 4'e bölünebiliyorsa, bu iterasyonu atla
+                        // eÄŸer sayÄ± 4'e bÃ¶lÃ¼nebiliyorsa, bu iterasyonu atla
                         if ((count % 4) == 0)
                             continue;
 
-                        // iç içe geçmiş bir blok gerekli değil
+                        // iÃ§ iÃ§e geÃ§miÅŸ bir blok gerekli deÄŸil
 
                         std::cout << count << '\n';
                     }
@@ -274,65 +274,64 @@ Bunun yerine bunu yazabiliriz:
                     return 0;
                 }
 
-Değişkenlerin sayısını en aza indirme ve iç içe geçmiş blokların sayısını azaltma, kodun anlaşılırlığını artırırken, bir break veya continue kullanmanın 
-bu anlaşılırlığı bozmasından daha etkilidir. Bu nedenle, break veya continue'nin ölçülü bir şekilde kullanılmasını kabul edilebilir buluyoruz.
+DeÄŸiÅŸkenlerin sayÄ±sÄ±nÄ± en aza indirme ve iÃ§ iÃ§e geÃ§miÅŸ bloklarÄ±n sayÄ±sÄ±nÄ± azaltma, kodun anlaÅŸÄ±lÄ±rlÄ±ÄŸÄ±nÄ± artÄ±rÄ±rken, bir break veya continue kullanmanÄ±n 
+bu anlaÅŸÄ±lÄ±rlÄ±ÄŸÄ± bozmasÄ±ndan daha etkilidir. Bu nedenle, break veya continue'nin Ã¶lÃ§Ã¼lÃ¼ bir ÅŸekilde kullanÄ±lmasÄ±nÄ± kabul edilebilir buluyoruz.
 
-*** BEST -> Loop mantığınızı basitleştirmek için break ve continue kullanın.
+*** BEST -> Loop mantÄ±ÄŸÄ±nÄ±zÄ± basitleÅŸtirmek iÃ§in break ve continue kullanÄ±n.
 
-Early return ( break ve continue ye benzer bir durum du hatırlamak iyidir )
+Early return ( break ve continue ye benzer bir durum du hatÄ±rlamak iyidir )
 ----------------------------------------------------------------------------
-Erken dönüşlerin kullanımına dair benzer bir argüman da return ifadeleri için yapılabilir. Bir fonksiyon içindeki son ifade olmayan bir return ifadesine erken 
-dönüş denir. Birçok programcı, erken dönüşlerden kaçınılması gerektiğine inanır. Fonksiyonu sadece bir return ifadesi olan ve bu ifadenin fonksiyonun altında
-bulunduğu bir yapı, basitlik taşır - fonksiyonun argümanları alacağını, uyguladığı mantığı gerçekleştireceğini ve sapma olmadan bir sonuç döndüreceğinizi 
-varsayabilirsiniz. Ekstra dönüş ifadeleri, mantığı karmaşıklaştırır.
+Erken dÃ¶nÃ¼ÅŸlerin kullanÄ±mÄ±na dair benzer bir argÃ¼man da return ifadeleri iÃ§in yapÄ±labilir. Bir fonksiyon iÃ§indeki son ifade olmayan bir return ifadesine erken 
+dÃ¶nÃ¼ÅŸ denir. BirÃ§ok programcÄ±, erken dÃ¶nÃ¼ÅŸlerden kaÃ§Ä±nÄ±lmasÄ± gerektiÄŸine inanÄ±r. Fonksiyonu sadece bir return ifadesi olan ve bu ifadenin fonksiyonun altÄ±nda
+bulunduÄŸu bir yapÄ±, basitlik taÅŸÄ±r - fonksiyonun argÃ¼manlarÄ± alacaÄŸÄ±nÄ±, uyguladÄ±ÄŸÄ± mantÄ±ÄŸÄ± gerÃ§ekleÅŸtireceÄŸini ve sapma olmadan bir sonuÃ§ dÃ¶ndÃ¼receÄŸinizi 
+varsayabilirsiniz. Ekstra dÃ¶nÃ¼ÅŸ ifadeleri, mantÄ±ÄŸÄ± karmaÅŸÄ±klaÅŸtÄ±rÄ±r.
 
-Karşı argüman ise erken dönüşlerin fonksiyonunuzu hemen bitirmesine olanak tanıdığını, bu sayede gereksiz mantık okuma ve koşullu iç içe geçmiş blokları en aza 
-indirdiğini ve kodunuzu daha okunabilir hale getirdiğini savunur.
+KarÅŸÄ± argÃ¼man ise erken dÃ¶nÃ¼ÅŸlerin fonksiyonunuzu hemen bitirmesine olanak tanÄ±dÄ±ÄŸÄ±nÄ±, bu sayede gereksiz mantÄ±k okuma ve koÅŸullu iÃ§ iÃ§e geÃ§miÅŸ bloklarÄ± en aza 
+indirdiÄŸini ve kodunuzu daha okunabilir hale getirdiÄŸini savunur.
 
-Bazı geliştiriciler orta bir yol izler ve erken dönüşleri yalnızca fonksiyonun başında parametre doğrulama (geçersiz argümanların yakalanması) için kullanır, 
-ardından tek bir dönüş ifadesi kullanır.
+BazÄ± geliÅŸtiriciler orta bir yol izler ve erken dÃ¶nÃ¼ÅŸleri yalnÄ±zca fonksiyonun baÅŸÄ±nda parametre doÄŸrulama (geÃ§ersiz argÃ¼manlarÄ±n yakalanmasÄ±) iÃ§in kullanÄ±r, 
+ardÄ±ndan tek bir dÃ¶nÃ¼ÅŸ ifadesi kullanÄ±r.
 
-Bizim duruşumuz erken dönüşlerin daha çok yardımcı olduğu yönündedir, ancak bunun pratiğinde bir miktar sanat olduğunu kabul ediyoruz.
+Bizim duruÅŸumuz erken dÃ¶nÃ¼ÅŸlerin daha Ã§ok yardÄ±mcÄ± olduÄŸu yÃ¶nÃ¼ndedir, ancak bunun pratiÄŸinde bir miktar sanat olduÄŸunu kabul ediyoruz.
 
-*** BEST -> Erken dönüşler, fonksiyonunuzun mantığını basitleştiriyorsa kullanın.
+*** BEST -> Erken dÃ¶nÃ¼ÅŸler, fonksiyonunuzun mantÄ±ÄŸÄ±nÄ± basitleÅŸtiriyorsa kullanÄ±n.
 
-                                                        8.12 Halts (Programınızı Erken Sonlandırma)
+                                                        8.12 Halts (ProgramÄ±nÄ±zÄ± Erken SonlandÄ±rma)
                                                         -------------------------------------------
 
+Bu bÃ¶lÃ¼mde ele alacaÄŸÄ±mÄ±z akÄ±ÅŸ kontrol ifadesi kategorisi, "halt"tir. Bir "halt", programÄ± sonlandÄ±ran bir akÄ±ÅŸ kontrol ifadesidir. C++'da, "halt"lar fonksiyonlar 
+olarak uygulanÄ±r (anahtar kelimeler olarak deÄŸil), bu nedenle "halt" ifadelerimiz fonksiyon Ã§aÄŸrÄ±larÄ± olacaktÄ±r.
 
-Bu bölümde ele alacağımız akış kontrol ifadesi kategorisi, "halt"tir. Bir "halt", programı sonlandıran bir akış kontrol ifadesidir. C++'da, "halt"lar fonksiyonlar 
-olarak uygulanır (anahtar kelimeler olarak değil), bu nedenle "halt" ifadelerimiz fonksiyon çağrıları olacaktır.
+KÄ±saca, bir program normal olarak sona erdiÄŸinde neler olduÄŸunu Ã¶zetleyelim. main() fonksiyonu dÃ¶ndÃ¼ÄŸÃ¼nde (fonksiyonun sonuna ulaÅŸarak veya bir return ifadesi 
+aracÄ±lÄ±ÄŸÄ±yla), bir dizi farklÄ± ÅŸey gerÃ§ekleÅŸir.
 
-Kısaca, bir program normal olarak sona erdiğinde neler olduğunu özetleyelim. main() fonksiyonu döndüğünde (fonksiyonun sonuna ulaşarak veya bir return ifadesi 
-aracılığıyla), bir dizi farklı şey gerçekleşir.
+Ä°lk olarak, fonksiyondan Ã§Ä±kÄ±ldÄ±ÄŸÄ± iÃ§in tÃ¼m yerel deÄŸiÅŸkenler ve fonksiyon parametreleri (normalde olduÄŸu gibi) yok edilir.
 
-İlk olarak, fonksiyondan çıkıldığı için tüm yerel değişkenler ve fonksiyon parametreleri (normalde olduğu gibi) yok edilir.
+SonrasÄ±nda, main() fonksiyonundan dÃ¶nen deÄŸer (durum kodu) ile std::exit() adlÄ± Ã¶zel bir fonksiyon Ã§aÄŸrÄ±lÄ±r. 
 
-Sonrasında, main() fonksiyonundan dönen değer (durum kodu) ile std::exit() adlı özel bir fonksiyon çağrılır. Peki std::exit() nedir?
-std::exit() nedir 
------------------
+std::exit() nedir ?
+-------------------
+std::exit() iÅŸlevi, programÄ±n normal bir ÅŸekilde sona ermesine neden olan bir fonksiyondur. Normal sonlanma, programÄ±n beklenen bir ÅŸekilde sonlandÄ±ÄŸÄ± anlamÄ±na
+gelir. Normal sonlanma terimi, programÄ±n baÅŸarÄ±lÄ± olup olmadÄ±ÄŸÄ± konusunda bir ÅŸey ifade etmez (bu, durum kodu iÃ§indir). Ã–rneÄŸin, kullanÄ±cÄ±nÄ±n iÅŸlem yapmak iÃ§in
+bir dosya adÄ± yazmasÄ±nÄ± beklediÄŸiniz bir program yazÄ±yorsanÄ±z, eÄŸer kullanÄ±cÄ± geÃ§erli olmayan bir dosya adÄ± yazarsa, programÄ±nÄ±z muhtemelen baÅŸarÄ±sÄ±zlÄ±k durumunu
+gÃ¶stermek iÃ§in bir sÄ±fÄ±r olmayan durum kodu dÃ¶ndÃ¼recektir, ancak hala normal bir sona erme olacaktÄ±r.
 
-std::exit() işlevi, programın normal bir şekilde sona ermesine neden olan bir fonksiyondur. Normal sonlanma, programın beklenen bir şekilde sonlandığı anlamına
-gelir. Normal sonlanma terimi, programın başarılı olup olmadığı konusunda bir şey ifade etmez (bu, durum kodu içindir). Örneğin, kullanıcının işlem yapmak için
-bir dosya adı yazmasını beklediğiniz bir program yazıyorsanız, eğer kullanıcı geçerli olmayan bir dosya adı yazarsa, programınız muhtemelen başarısızlık durumunu
-göstermek için bir sıfır olmayan durum kodu döndürecektir, ancak hala normal bir sona erme olacaktır.
-
-std::exit(), bir dizi temizlik işlevini gerçekleştirir. İlk olarak, statik depolama süresine sahip nesneler yok edilir. Ardından, eğer dosyalar kullanıldıysa,,
-başka bazı dosya temizliği yapılır. Son olarak, kontrol, std::exit() 'e iletilen argüman olarak kullanılan durum koduyla birlikte işletim sistemine geri döner.
+std::exit(), bir dizi temizlik iÅŸlevini gerÃ§ekleÅŸtirir. Ä°lk olarak, statik depolama sÃ¼resine sahip nesneler yok edilir. ArdÄ±ndan, eÄŸer dosyalar kullanÄ±ldÄ±ysa,,
+baÅŸka bazÄ± dosya temizliÄŸi yapÄ±lÄ±r. Son olarak, kontrol, std::exit() 'e iletilen argÃ¼man olarak kullanÄ±lan durum koduyla birlikte iÅŸletim sistemine geri dÃ¶ner.
 
 
-std::exit i açıkça kullanma
+std::exit i aÃ§Ä±kÃ§a kullanma
 ---------------------------
-std::exit() fonksiyonu, main() fonksiyonu sona erdiğinde dolaylı olarak çağrılsa da, std::exit() ayrıca programın normal olarak sona ermeden önce programı
-durdurmak için açıkça çağrılabilir. Bu şekilde std::exit() çağrıldığında, cstdlib başlık dosyasını içermelisiniz.
+std::exit() fonksiyonu, main() fonksiyonu sona erdiÄŸinde dolaylÄ± olarak Ã§aÄŸrÄ±lsa da, std::exit() ayrÄ±ca programÄ±n normal olarak sona ermeden Ã¶nce programÄ±
+durdurmak iÃ§in aÃ§Ä±kÃ§a Ã§aÄŸrÄ±labilir. Bu ÅŸekilde std::exit() Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nda, cstdlib baÅŸlÄ±k dosyasÄ±nÄ± iÃ§ermelisiniz.
 
-İşte std::exit() 'i açıkça kullanmanın bir örneği:
-                                                #include <cstdlib> // std::exit() için
+Ä°ÅŸte std::exit() 'i aÃ§Ä±kÃ§a kullanmanÄ±n bir Ã¶rneÄŸi:
+                                                #include <cstdlib> // std::exit() iÃ§in
                                                 #include <iostream>
 
                                                 void cleanup()
                                                 {
-                                                    // Gerekli her türlü temizlik için burada kod bulunabilir
+                                                    // Gerekli her tÃ¼rlÃ¼ temizlik iÃ§in burada kod bulunabilir
                                                     std::cout << "cleanup!\n";
                                                 }
 
@@ -341,90 +340,87 @@ durdurmak için açıkça çağrılabilir. Bu şekilde std::exit() çağrıldığında, cstdli
                                                     std::cout << 1 << '\n';
                                                     cleanup();
 
-                                                    std::exit(0); // programı sonlandır ve işletim sistemine durum kodu 0 döndür
+                                                    std::exit(0); // programÄ± sonlandÄ±r ve iÅŸletim sistemine durum kodu 0 dÃ¶ndÃ¼r
 
-                                                    // Aşağıdaki ifadeler hiçbir zaman çalıştırılmaz
+                                                    // AÅŸaÄŸÄ±daki ifadeler hiÃ§bir zaman Ã§alÄ±ÅŸtÄ±rÄ±lmaz
                                                     std::cout << 2 << '\n';
 
                                                     return 0;
                                                 }
 
 
-
-
-bu program şu çıktıyı verir :
+bu program ÅŸu Ã§Ä±ktÄ±yÄ± verir :
                                                         1
                                                         cleanup!
 
-Unutmayın ki, std::exit() çağrısından sonra gelen ifadeler çalıştırılmaz çünkü program zaten sona ermiştir.
+UnutmayÄ±n ki, std::exit() Ã§aÄŸrÄ±sÄ±ndan sonra gelen ifadeler Ã§alÄ±ÅŸtÄ±rÄ±lmaz Ã§Ã¼nkÃ¼ program zaten sona ermiÅŸtir.
 
-Yukarıdaki programda std::exit()'i main() fonksiyonundan çağırıyor olsak da, std::exit() herhangi bir fonksiyondan çağrılabilir ve programı o noktada sonlandırabilir.
-std::exit()'i açıkça çağırma konusunda önemli bir not: std::exit(), herhangi bir yerel değişkeni (hem mevcut fonksiyonda hem de çağrı yığınındaki diğer fonksiyonlarda)
-temizlemez. Bu nedenle, genellikle std::exit() çağrısından kaçınılması daha iyidir.
+YukarÄ±daki programda std::exit()'i main() fonksiyonundan Ã§aÄŸÄ±rÄ±yor olsak da, std::exit() herhangi bir fonksiyondan Ã§aÄŸrÄ±labilir ve programÄ± o noktada sonlandÄ±rabilir.
+std::exit()'i aÃ§Ä±kÃ§a Ã§aÄŸÄ±rma konusunda Ã¶nemli bir not: std::exit(), herhangi bir yerel deÄŸiÅŸkeni (hem mevcut fonksiyonda hem de Ã§aÄŸrÄ± yÄ±ÄŸÄ±nÄ±ndaki diÄŸer fonksiyonlarda)
+temizlemez. Bu nedenle, genellikle std::exit() Ã§aÄŸrÄ±sÄ±ndan kaÃ§Ä±nÄ±lmasÄ± daha iyidir.
 
-*** UYARI -> std::exit() fonksiyonu, mevcut fonksiyondaki veya çağrı yığınındaki diğer fonksiyonlardaki yerel değişkenleri temizlemez.
+*** UYARI -> std::exit() fonksiyonu, mevcut fonksiyondaki veya Ã§aÄŸrÄ± yÄ±ÄŸÄ±nÄ±ndaki diÄŸer fonksiyonlardaki yerel deÄŸiÅŸkenleri temizlemez.
 
 std::atexit()
 -------------
-Çünkü std::exit(), programı hemen sonlandırır, sonlandırmadan önce manuel olarak bazı temizleme işlemleri yapmak isteyebilirsiniz. Bu bağlamda, temizleme,
-veritabanı veya ağ bağlantılarını kapatma, ayrılmış belleği serbest bırakma, bir günlüğe bilgi yazma vb. gibi işleri içerir...
+Ã‡Ã¼nkÃ¼ std::exit(), programÄ± hemen sonlandÄ±rÄ±r, sonlandÄ±rmadan Ã¶nce manuel olarak bazÄ± temizleme iÅŸlemleri yapmak isteyebilirsiniz. Bu baÄŸlamda, temizleme,
+veritabanÄ± veya aÄŸ baÄŸlantÄ±larÄ±nÄ± kapatma, ayrÄ±lmÄ±ÅŸ belleÄŸi serbest bÄ±rakma, bir gÃ¼nlÃ¼ÄŸe bilgi yazma vb. gibi iÅŸleri iÃ§erir...
 
-Yukarıdaki örnekte, temizleme görevlerimizi ele almak için cleanup() fonksiyonunu çağırdık. Ancak, her exit() çağrısından önce manuel olarak bir temizleme 
-fonksiyonunu çağırmayı hatırlamak, programcıya ek bir yük getirir.
+YukarÄ±daki Ã¶rnekte, temizleme gÃ¶revlerimizi ele almak iÃ§in cleanup() fonksiyonunu Ã§aÄŸÄ±rdÄ±k. Ancak, her exit() Ã§aÄŸrÄ±sÄ±ndan Ã¶nce manuel olarak bir temizleme 
+fonksiyonunu Ã§aÄŸÄ±rmayÄ± hatÄ±rlamak, programcÄ±ya ek bir yÃ¼k getirir.
 
-Bu konuda yardımcı olması için, C++, std::exit() aracılığıyla program sonlandırıldığında otomatik olarak çağrılacak bir işlevi belirtmenizi sağlayan std::atexit() 
-işlevini sunar.
+Bu konuda yardÄ±mcÄ± olmasÄ± iÃ§in, C++, std::exit() aracÄ±lÄ±ÄŸÄ±yla program sonlandÄ±rÄ±ldÄ±ÄŸÄ±nda otomatik olarak Ã§aÄŸrÄ±lacak bir iÅŸlevi belirtmenizi saÄŸlayan std::atexit() 
+iÅŸlevini sunar.
 
-Bir örnek:
-                        #include <cstdlib> // std::exit() için
+Bir Ã¶rnek:
+                        #include <cstdlib> // std::exit() iÃ§in
                         #include <iostream>
 
                         void cleanup()
                         {
-                            // burada herhangi bir temizleme işlemi kodu
+                            // burada herhangi bir temizleme iÅŸlemi kodu
                             std::cout << "temizleme!\n";
                         }
 
                         int main()
                         {
-                            // std::exit() çağrıldığında otomatik olarak cleanup() fonksiyonunu kaydet
-                            std::atexit(cleanup); // not: şu an cleanup() fonksiyonunu çağırmıyoruz, bu nedenle cleanup yerine cleanup() kullanmıyoruz
+                            // std::exit() Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nda otomatik olarak cleanup() fonksiyonunu kaydet
+                            std::atexit(cleanup); // not: ÅŸu an cleanup() fonksiyonunu Ã§aÄŸÄ±rmÄ±yoruz, bu nedenle cleanup yerine cleanup() kullanmÄ±yoruz
 
                             std::cout << 1 << '\n';
 
-                            std::exit(0); // programı sonlandır ve işletim sistemine durum kodu 0 döndür
+                            std::exit(0); // programÄ± sonlandÄ±r ve iÅŸletim sistemine durum kodu 0 dÃ¶ndÃ¼r
 
-                            // Aşağıdaki ifadeler asla çalışmaz
+                            // AÅŸaÄŸÄ±daki ifadeler asla Ã§alÄ±ÅŸmaz
                             std::cout << 2 << '\n';
 
                             return 0;
                         }
-bir önceki programla aynı çıktıyı verir: 
+bir Ã¶nceki programla aynÄ± Ã§Ä±ktÄ±yÄ± verir: 
                                       1
                                       temizleme!
 
-Neden bunu yapmak istersiniz? Bu size bir temizleme işlevini belirleme şansı tanır (muhtemelen main fonksiyonunda) ve ardından std::exit() fonksiyonunu açıkça 
-çağırmadan önce bu işlevi çağırmayı hatırlamak zorunda kalmazsınız.
+Neden bunu yapmak istersiniz? Bu size bir temizleme iÅŸlevini belirleme ÅŸansÄ± tanÄ±r (muhtemelen main fonksiyonunda) ve ardÄ±ndan std::exit() fonksiyonunu aÃ§Ä±kÃ§a 
+Ã§aÄŸÄ±rmadan Ã¶nce bu iÅŸlevi Ã§aÄŸÄ±rmayÄ± hatÄ±rlamak zorunda kalmazsÄ±nÄ±z.
 
-İşte std::atexit() ve cleanup fonksiyonu hakkında birkaç not: İlk olarak, main() sona erdiğinde std::exit() çağrıldığından, bu durumda programın çıkış yapması 
-std::atexit() tarafından kaydedilen işlevleri çağırır. İkinci olarak, kaydedilen işlevin parametre almadığını ve geri dönüş değeri olmadığını belirtmelisiniz. 
-Son olarak, std::atexit() kullanarak birden çok temizleme işlevini kaydedebilirsiniz ve bunlar, kayıt sırasının tersine (en son kaydedilen ilk çağrılan) çağrılır.
+Ä°ÅŸte std::atexit() ve cleanup fonksiyonu hakkÄ±nda birkaÃ§ not: Ä°lk olarak, main() sona erdiÄŸinde std::exit() Ã§aÄŸrÄ±ldÄ±ÄŸÄ±ndan, bu durumda programÄ±n Ã§Ä±kÄ±ÅŸ yapmasÄ± 
+std::atexit() tarafÄ±ndan kaydedilen iÅŸlevleri Ã§aÄŸÄ±rÄ±r. Ä°kinci olarak, kaydedilen iÅŸlevin parametre almadÄ±ÄŸÄ±nÄ± ve geri dÃ¶nÃ¼ÅŸ deÄŸeri olmadÄ±ÄŸÄ±nÄ± belirtmelisiniz. 
+Son olarak, std::atexit() kullanarak birden Ã§ok temizleme iÅŸlevini kaydedebilirsiniz ve bunlar, kayÄ±t sÄ±rasÄ±nÄ±n tersine (en son kaydedilen ilk Ã§aÄŸrÄ±lan) Ã§aÄŸrÄ±lÄ±r.
 
-
-gelişmiş okuyucular için :
-    Çoklu iş parçacıklı programlarda, `std::exit()` çağırmak programınızın çökmesine neden olabilir (çünkü `std::exit()`'i çağıran iş parçacığı, diğer iş 
-    parçacıkları tarafından hâlâ erişilebilecek olan statik nesneleri temizler). Bu nedenle, C++, `std::exit()` ve `std::atexit()` gibi benzer işlevlere
-    benzer şekilde çalışan `std::quick_exit()` ve `std::at_quick_exit()` adlı başka bir ikili fonksiyon çiftini tanıtmıştır. `std::quick_exit()`, programı
-    normal bir şekilde sonlandırır, ancak statik nesneleri temizlemez ve başka türden temizlik işlemlerini yapabilir veya yapmayabilir. `std::at_quick_exit()`,
-    `std::quick_exit()` ile sonlandırılan programlar için `std::atexit()`'in aynı rolünü yerine getirir.
+geliÅŸmiÅŸ okuyucular iÃ§in :
+    Ã‡oklu iÅŸ parÃ§acÄ±klÄ± programlarda, `std::exit()` Ã§aÄŸÄ±rmak programÄ±nÄ±zÄ±n Ã§Ã¶kmesine neden olabilir (Ã§Ã¼nkÃ¼ `std::exit()`'i Ã§aÄŸÄ±ran iÅŸ parÃ§acÄ±ÄŸÄ±, diÄŸer iÅŸ 
+    parÃ§acÄ±klarÄ± tarafÄ±ndan hÃ¢lÃ¢ eriÅŸilebilecek olan statik nesneleri temizler). Bu nedenle, C++, `std::exit()` ve `std::atexit()` gibi benzer iÅŸlevlere
+    benzer ÅŸekilde Ã§alÄ±ÅŸan `std::quick_exit()` ve `std::at_quick_exit()` adlÄ± baÅŸka bir ikili fonksiyon Ã§iftini tanÄ±tmÄ±ÅŸtÄ±r. `std::quick_exit()`, programÄ±
+    normal bir ÅŸekilde sonlandÄ±rÄ±r, ancak statik nesneleri temizlemez ve baÅŸka tÃ¼rden temizlik iÅŸlemlerini yapabilir veya yapmayabilir. `std::at_quick_exit()`,
+    `std::quick_exit()` ile sonlandÄ±rÄ±lan programlar iÃ§in `std::atexit()`'in aynÄ± rolÃ¼nÃ¼ yerine getirir.
 
 std::abort ve std::terminate
 ----------------------------
-C++ iki başka durdurma ile ilgili fonksiyon içerir.
+C++ iki baÅŸka durdurma ile ilgili fonksiyon iÃ§erir.
 
-std::abort() fonksiyonu programınızın anormal bir şekilde sonlanmasına neden olur. Anormal sonlanma, programın olağandışı bir çalışma zamanı hatası ile 
-karşılaşması ve programın çalışmaya devam edememesi anlamına gelir. Örneğin, 0'a bölmeye çalışmak bir anormal sonlanmaya neden olacaktır. std::abort() 
-herhangi bir temizlik işlemi yapmaz.
+std::abort() fonksiyonu programÄ±nÄ±zÄ±n anormal bir ÅŸekilde sonlanmasÄ±na neden olur. Anormal sonlanma, programÄ±n olaÄŸandÄ±ÅŸÄ± bir Ã§alÄ±ÅŸma zamanÄ± hatasÄ± ile 
+karÅŸÄ±laÅŸmasÄ± ve programÄ±n Ã§alÄ±ÅŸmaya devam edememesi anlamÄ±na gelir. Ã–rneÄŸin, 0'a bÃ¶lmeye Ã§alÄ±ÅŸmak bir anormal sonlanmaya neden olacaktÄ±r. std::abort() 
+herhangi bir temizlik iÅŸlemi yapmaz.
 
                     #include <cstdlib> // for std::abort()
                     #include <iostream>
@@ -434,29 +430,23 @@ herhangi bir temizlik işlemi yapmaz.
                         std::cout << 1 << '\n';
                         std::abort();
 
-                        // Sonraki ifadeler asla çalıştırılmaz.
+                        // Sonraki ifadeler asla Ã§alÄ±ÅŸtÄ±rÄ±lmaz.
                         std::cout << 2 << '\n';
 
                         return 0;
                     }
 
-Bu bölümde (8.18 -- Assert ve static_assert) ilerleyen kısımlarda std::abort'un dolaylı olarak çağrıldığı durumları göreceğiz.
+Bu bÃ¶lÃ¼mde (8.18 -- Assert ve static_assert) ilerleyen kÄ±sÄ±mlarda std::abort'un dolaylÄ± olarak Ã§aÄŸrÄ±ldÄ±ÄŸÄ± durumlarÄ± gÃ¶receÄŸiz.
 
-std::terminate() fonksiyonu genellikle exceptions ile birlikte kullanılır (exceptions daha sonraki bir bölümde ele alacağız). Her ne kadar std::terminate() 
-açıkça çağrılabilecek olsa da, genellikle bir istisna işlenmediğinde (ve birkaç başka exceptions-related durumda) dolaylı olarak çağrılır. 
-Varsayılan olarak, std::terminate() fonksiyonu std::abort() fonksiyonunu çağırır.
+std::terminate() fonksiyonu genellikle exceptions ile birlikte kullanÄ±lÄ±r (exceptions daha sonraki bir bÃ¶lÃ¼mde ele alacaÄŸÄ±z). Her ne kadar std::terminate() 
+aÃ§Ä±kÃ§a Ã§aÄŸrÄ±labilecek olsa da, genellikle bir istisna iÅŸlenmediÄŸinde (ve birkaÃ§ baÅŸka exceptions-related durumda) dolaylÄ± olarak Ã§aÄŸrÄ±lÄ±r. 
+VarsayÄ±lan olarak, std::terminate() fonksiyonu std::abort() fonksiyonunu Ã§aÄŸÄ±rÄ±r.
 
-Ne zaman halt kullanmalıyız ? 
+Ne zaman halt kullanmalÄ±yÄ±z ? 
 -----------------------------
-Kısa cevap  "neredeyse hiçbir zaman" olacaktır. Yerel nesneleri imha etmek, C++'ın önemli bir bölümünü oluşturur (özellikle sınıflara geçtiğimizde), 
-yukarıda bahsedilen fonksiyonlardan hiçbiri yerel değişkenleri temizlemez. Hata durumlarıyla başa çıkmak için exceptions, daha iyi ve güvenli bir mekanizmadır.
+KÄ±sa cevap  "neredeyse hiÃ§bir zaman" olacaktÄ±r. Yerel nesneleri imha etmek, C++'Ä±n Ã¶nemli bir bÃ¶lÃ¼mÃ¼nÃ¼ oluÅŸturur (Ã¶zellikle sÄ±nÄ±flara geÃ§tiÄŸimizde), 
+yukarÄ±da bahsedilen fonksiyonlardan hiÃ§biri yerel deÄŸiÅŸkenleri temizlemez. Hata durumlarÄ±yla baÅŸa Ã§Ä±kmak iÃ§in exceptions, daha iyi ve gÃ¼venli bir mekanizmadÄ±r.
 
-*** BEST -> Yalnızca main fonksiyonundan normal bir şekilde dönmenin güvenli bir yolu yoksa halt kullanın. Eğer exceptions ları devre dışı bırakmadıysanız,
-            hataları güvenli bir şekilde işlemek için exceptions tercih edin.
-
-
-
-
-
-
+*** BEST -> YalnÄ±zca main fonksiyonundan normal bir ÅŸekilde dÃ¶nmenin gÃ¼venli bir yolu yoksa halt kullanÄ±n. EÄŸer exceptions larÄ± devre dÄ±ÅŸÄ± bÄ±rakmadÄ±ysanÄ±z,
+            hatalarÄ± gÃ¼venli bir ÅŸekilde iÅŸlemek iÃ§in exceptions tercih edin.
 */
