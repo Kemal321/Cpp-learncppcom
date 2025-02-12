@@ -817,8 +817,7 @@ Bu sınırlamalar göz önüne alındığında, constexpr referansları genellik
 --------------------------------------------------
 Neden bir değişkenin kendisini kullanmak yerine bir değişken için bir takma ad oluşturulsun ki?
 
-Bu derste ve bundan sonraki derslerde bu konuyu açıklayacağız. İlk olarak, biraz bağlam. Daha önceki 2.4 dersinde - Fonksiyon Parametreleri
-ve Argümanlarına Giriş'te, değerle geçişi tartıştık; bir fonksiyona iletilen bir argüman, fonksiyonun parametresine kopyalanır:
+Bir fonksiyona iletilen bir argüman, fonksiyonun parametresine kopyalanır demiştik:
 
                     #include <iostream>
 
@@ -897,7 +896,7 @@ için, argümanın bir kopyası oluşturulmaz.
                     {
                         std::string x { "Hello, world!" };
 
-                        printValue(x); // Şimdi x değeri y parametresine referans olarak geçildi ( aktarıldı ) ( pahalı değil )
+                        printValue(x); // Şimdi x değeri y parametresine referans olarak geçildi ( pahalı değil )
 
                         return 0;
                     }
@@ -972,12 +971,6 @@ referans y'yi arttırdığında, aslında argüman x'i 5'ten 6'ya arttırıyor (
 sonra bile devam eder.
 
 Değerleri const olmayanlara referansla iletmek, aktarılan argümanların değerini değiştiren fonksiyonlar yazmamıza olanak tanır.
-
-Fonksiyonların iletilen argümanların değerini değiştirebilme yeteneği oldukça faydalı olabilir. Hayal edin ki bir canavarın oyuncuya başarıyla
-saldırdığını belirleyen bir fonksiyon yazdınız. Öyleyse, canavar oyuncunun sağlığına bir miktar hasar vermelidir. Eğer oyuncu nesnesini referans
-olarak iletiyorsanız, fonksiyon, iletilen gerçek oyuncu nesnesinin sağlığını doğrudan değiştirebilir. Eğer oyuncu nesnesini değer olarak
-iletiyorsanız, yalnızca bir kopyanın sağlığını değiştirebilirsiniz ki bu pek faydalı değildir.
-
 
 Referans ile geçiş, yalnızca değiştirilebilir sol değer argümanları kabul edebilir
 
@@ -1079,11 +1072,12 @@ Yukarıdaki örnekte, ilk argüman değere göre, ikincisi referansa göre ve ü
 
 (const) referans ile geçiş ne zaman yapılmalıdır
 ------------------------------------------------
-Çünkü sınıf türleri kopyalamak pahalı olabilir (bazen önemli ölçüde), genellikle sınıf türleri argümanın pahalı bir kopyasını oluşturmaktan
+Sınıf türleri kopyalamak pahalı olabilir (bazen önemli ölçüde), genellikle sınıf türleri argümanın pahalı bir kopyasını oluşturmaktan
 kaçınmak için değer yerine const referans ile iletilir. Temel tipler kopyalamak ucuz olduğundan genellikle değer ile iletilir.
+
 *** BEST 
 --------
-İlke olarak, temel tipleri değer ile, sınıf (veya yapı) tiplerini ise const referans ile iletmek genellikle uygundur.
+İlke olarak, temel tipleri değer ile, sınıf (veya struct) tiplerini ise const referans ile iletmek genellikle uygundur.
 
 Diğer yaygın tipleri değer ile iletmek: numaralandırma tipleri ve std::string_view.
 Diğer yaygın tipleri (const) referans ile iletmek: std::string, std::array ve std::vector.
@@ -1109,7 +1103,4 @@ const std::string& parametresini kullanmanın daha uygun olabileceği birkaç du
 
 std::string& yerine std::string_view (değer olarak) kullanarak stringleri iletmeyi tercih edin, ancak fonksiyonunuzun C tarzı dizileri veya
 std::string parametreleri gerektiren diğer fonksiyonları çağırdığı durumlar hariç.
-
-12.6 -> Gelişmiş geliştiriciler için bir kaç not bulunmakta bunları 12 tamamen bitmesi ve diğer durumlarda inceleyeceğim çünkü şuan bakarak bir 
-        çoğunu anlamayacağız.
 */
