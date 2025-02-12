@@ -7,83 +7,83 @@ int main()
     return 0;
 }
 /*
-                                                12.1 — Bileşik Veri Türlerine Giriş
+                                                12.1 â€” BileÅŸik Veri TÃ¼rlerine GiriÅŸ
                                                 -----------------------------------
 
 
-4.1 dersinde -- Temel veri türlerine giriş, C++'ın temel dil bölümü olarak sağladığı temel veri türlerini tanıttık.
+4.1 dersinde -- Temel veri tÃ¼rlerine giriÅŸ, C++'Ä±n temel dil bÃ¶lÃ¼mÃ¼ olarak saÄŸladÄ±ÄŸÄ± temel veri tÃ¼rlerini tanÄ±ttÄ±k.
 
-Bu temel türleri özellikle int veri türünü şimdiye kadar programlarımızda sıkça kullanmıştık. Ve bu temel türler basit kullanımlar için son derece
-kullanışlı olsalar da, daha karmaşık işler yapmaya başladığımızda tüm ihtiyaçlarımızı kapsamazlar.
+Bu temel tÃ¼rleri Ã¶zellikle int veri tÃ¼rÃ¼nÃ¼ ÅŸimdiye kadar programlarÄ±mÄ±zda sÄ±kÃ§a kullanmÄ±ÅŸtÄ±k. Ve bu temel tÃ¼rler basit kullanÄ±mlar iÃ§in son derece
+kullanÄ±ÅŸlÄ± olsalar da, daha karmaÅŸÄ±k iÅŸler yapmaya baÅŸladÄ±ÄŸÄ±mÄ±zda tÃ¼m ihtiyaÃ§larÄ±mÄ±zÄ± kapsamazlar.
 
-Örneğin, iki kesiri çarpmak için bir matematik programı yazıyormuş gibi düşünün. Programınızda bir kesiri nasıl temsil edersiniz? Muhtemelen bir
-çift tamsayı kullanırdınız (pay için bir tane, payda için bir tane), şu şekilde:
+Ã–rneÄŸin, iki kesiri Ã§arpmak iÃ§in bir matematik programÄ± yazÄ±yormuÅŸ gibi dÃ¼ÅŸÃ¼nÃ¼n. ProgramÄ±nÄ±zda bir kesiri nasÄ±l temsil edersiniz? Muhtemelen bir
+Ã§ift tamsayÄ± kullanÄ±rdÄ±nÄ±z (pay iÃ§in bir tane, payda iÃ§in bir tane), ÅŸu ÅŸekilde:
 
                     #include <iostream>
 
                     int main()
                     {
-                        // İlk kesirimiz
+                        // Ä°lk kesirimiz
                         int sayi1 {};
                         int payda1 {};
 
-                        // İkinci kesirimiz
+                        // Ä°kinci kesirimiz
                         int sayi2 {};
                         int payda2 {};
 
-                        // pay ve payda arasındaki slash'ı (eğik çizgi) kaldırmak için kullanılır
+                        // pay ve payda arasÄ±ndaki slash'Ä± (eÄŸik Ã§izgi) kaldÄ±rmak iÃ§in kullanÄ±lÄ±r
                         char yoket {};
 
-                        // Kullanıcıdan ilk kesiri girmesini isteyen bir çıkış
+                        // KullanÄ±cÄ±dan ilk kesiri girmesini isteyen bir Ã§Ä±kÄ±ÅŸ
                         std::cout << "Bir kesir girin: ";
                         std::cin >> sayi1 >> yoket >> payda1;
 
-                        // Kullanıcıdan ikinci kesiri girmesini isteyen bir çıkış
+                        // KullanÄ±cÄ±dan ikinci kesiri girmesini isteyen bir Ã§Ä±kÄ±ÅŸ
                         std::cout << "Bir kesir girin: ";
                         std::cin >> sayi2 >> yoket >> payda2;
 
-                        // İki kesirin çarpımını hesaplayıp ekrana yazdıran bir çıkış
-                        std::cout << "İki kesirin çarpımı: "
+                        // Ä°ki kesirin Ã§arpÄ±mÄ±nÄ± hesaplayÄ±p ekrana yazdÄ±ran bir Ã§Ä±kÄ±ÅŸ
+                        std::cout << "Ä°ki kesirin Ã§arpÄ±mÄ±: "
                             << sayi1 * sayi2 << '/' << payda1 * payda2 << '\n';
 
                         return 0;
                     }
-                    Çıktısı:
+                    Ã‡Ä±ktÄ±sÄ±:
                     Bir kesir girin: 1/2
                     Bir kesir girin: 3/4
-                    İki kesirin çarpımı: 3/8
+                    Ä°ki kesirin Ã§arpÄ±mÄ±: 3/8
 
-Bu program çalışsa da, üzerinde iyileştirmeler yapmamız gereken bazı zorlukları ortaya çıkarır. İlk olarak, her çift tamsayı arasında sadece 
-gevşek bir bağlantı vardır -- yorumlar ve kod içinde nasıl kullanıldıkları bağlamı dışında, her pay ve payda çiftinin ilişkili olduğuna dair
-pek bir şey yoktur. İkinci olarak, DRY (kendini tekrar etme) ilkesini izleme konusunda, bir fonksiyon oluşturmalıyız ki bu fonksiyon kullanıcının
-bir kesiri girmesini ele alsın (ve bazı hata işleme işlemleri de içersin). Ancak, fonksiyonlar yalnızca tek bir değer döndürebilir, peki payyı ve
-paydayı çağıran yere nasıl geri döndürebiliriz?
+Bu program Ã§alÄ±ÅŸsa da, Ã¼zerinde iyileÅŸtirmeler yapmamÄ±z gereken bazÄ± zorluklarÄ± ortaya Ã§Ä±karÄ±r. Ä°lk olarak, her Ã§ift tamsayÄ± arasÄ±nda sadece 
+gevÅŸek bir baÄŸlantÄ± vardÄ±r -- yorumlar ve kod iÃ§inde nasÄ±l kullanÄ±ldÄ±klarÄ± baÄŸlamÄ± dÄ±ÅŸÄ±nda, her pay ve payda Ã§iftinin iliÅŸkili olduÄŸuna dair
+pek bir ÅŸey yoktur. Ä°kinci olarak, DRY (kendini tekrar etme) ilkesini izleme konusunda, bir fonksiyon oluÅŸturmalÄ±yÄ±z ki bu fonksiyon kullanÄ±cÄ±nÄ±n
+bir kesiri girmesini ele alsÄ±n (ve bazÄ± hata iÅŸleme iÅŸlemleri de iÃ§ersin). Ancak, fonksiyonlar yalnÄ±zca tek bir deÄŸer dÃ¶ndÃ¼rebilir, peki payyÄ± ve
+paydayÄ± Ã§aÄŸÄ±ran yere nasÄ±l geri dÃ¶ndÃ¼rebiliriz?
 
-Şimdi başka bir durumu düşünün; çalışan kimliklerini tutan bir program yazmanız gerekiyor. Bunun için nasıl bir şey denersiniz? Belki de şöyle 
-bir şey denersiniz:
+Åimdi baÅŸka bir durumu dÃ¼ÅŸÃ¼nÃ¼n; Ã§alÄ±ÅŸan kimliklerini tutan bir program yazmanÄ±z gerekiyor. Bunun iÃ§in nasÄ±l bir ÅŸey denersiniz? Belki de ÅŸÃ¶yle 
+bir ÅŸey denersiniz:
 
                     int main()
                     {
                         int id1 { 42 };
                         int id2 { 57 };
                         int id3 { 162 };
-                        // ave böylece devam edersiniz
+                        // ave bÃ¶ylece devam edersiniz
                     }
 
-Ancak, 100 çalışanınız olsaydı ne olurdu? İlk olarak, 100 değişken adını yazmanız gerekecekti. Ve eğer hepsini yazdırmamız veya bir işleme
-geçirmemiz gerekiyorsa? Bu durumda çok fazla yazı yazmak zorunda kalırdık. Bu basitçe ölçeklenemez.
+Ancak, 100 Ã§alÄ±ÅŸanÄ±nÄ±z olsaydÄ± ne olurdu? Ä°lk olarak, 100 deÄŸiÅŸken adÄ±nÄ± yazmanÄ±z gerekecekti. Ve eÄŸer hepsini yazdÄ±rmamÄ±z veya bir iÅŸleme
+geÃ§irmemiz gerekiyorsa? Bu durumda Ã§ok fazla yazÄ± yazmak zorunda kalÄ±rdÄ±k. Bu basitÃ§e Ã¶lÃ§eklenemez.
 
-Açıkça temel veri tipleri bizi sadece belirli bir noktaya kadar götürecektir.
+AÃ§Ä±kÃ§a temel veri tipleri bizi sadece belirli bir noktaya kadar gÃ¶tÃ¼recektir.
 
-compound data types - Bileşik veri türleri
+compound data types - BileÅŸik veri tÃ¼rleri
 ------------------------------------------
-Neyse ki, C++, bileşik veri tipleri adı verilen ikinci bir veri tipi kümesini destekler. Bileşik veri tipleri, temel veri tiplerinden (veya diğer
-bileşik veri tiplerinden) oluşturulabilen veri tipleridir. Her bileşik veri tipinin kendi benzersiz özellikleri vardır.
+Neyse ki, C++, bileÅŸik veri tipleri adÄ± verilen ikinci bir veri tipi kÃ¼mesini destekler. BileÅŸik veri tipleri, temel veri tiplerinden (veya diÄŸer
+bileÅŸik veri tiplerinden) oluÅŸturulabilen veri tipleridir. Her bileÅŸik veri tipinin kendi benzersiz Ã¶zellikleri vardÄ±r.
 
-Bu bölümde ve gelecekteki bölümlerde göstereceğimiz gibi, bileşik veri tiplerini yukarıda sunduğumuz tüm zorlukları zarif bir şekilde çözmek için
+Bu bÃ¶lÃ¼mde ve gelecekteki bÃ¶lÃ¼mlerde gÃ¶stereceÄŸimiz gibi, bileÅŸik veri tiplerini yukarÄ±da sunduÄŸumuz tÃ¼m zorluklarÄ± zarif bir ÅŸekilde Ã§Ã¶zmek iÃ§in
 kullanabiliriz.
 
-C++ aşağıdaki bileşik türlerini destekler:
+C++ aÅŸaÄŸÄ±daki bileÅŸik tÃ¼rlerini destekler:
 
 -Functions
 -Arrays
@@ -104,57 +104,57 @@ C++ aşağıdaki bileşik türlerini destekler:
    -Classes
    -Unions
 
-Zaten düzenli olarak bir bileşik türü kullanıyorsunuz: Fonksiyonlar. Örneğin şu fonksiyonu göz önünde bulundurun:
+Zaten dÃ¼zenli olarak bir bileÅŸik tÃ¼rÃ¼ kullanÄ±yorsunuz: Fonksiyonlar. Ã–rneÄŸin ÅŸu fonksiyonu gÃ¶z Ã¶nÃ¼nde bulundurun:
 
                     void doSomething(int x, double y)
                     {
                     }
 
-12.2 — Değer Kategorileri (L-değerleri ve R-değerleri)
+12.2 â€” DeÄŸer Kategorileri (L-deÄŸerleri ve R-deÄŸerleri)
 ------------------------------------------------------
-1.10 dersinde -- İfadelerin Tanıtımı, bir ifadeyi "birleşik sayılar, değişkenler, operatörler ve tek bir değer üretebilmek 
-için çalıştırılabilir fonksiyon çağrılarının bir kombinasyonu" olarak tanımlamıştık.
+1.10 dersinde -- Ä°fadelerin TanÄ±tÄ±mÄ±, bir ifadeyi "birleÅŸik sayÄ±lar, deÄŸiÅŸkenler, operatÃ¶rler ve tek bir deÄŸer Ã¼retebilmek 
+iÃ§in Ã§alÄ±ÅŸtÄ±rÄ±labilir fonksiyon Ã§aÄŸrÄ±larÄ±nÄ±n bir kombinasyonu" olarak tanÄ±mlamÄ±ÅŸtÄ±k.
 
                     #include <iostream>
 
                     int main()
                     {
-                        std::cout << 2 + 3 << '\n'; // 2 + 3 ifadesi 5 değerini üretir
+                        std::cout << 2 + 3 << '\n'; // 2 + 3 ifadesi 5 deÄŸerini Ã¼retir
 
                         return 0;
                     }
 
-Yukarıdaki ifade de 2 + 3 ifadesi 5 değerini üretir ve sonrasında konsola yazdırır.ayrıca ifadelerin, ifadeden daha uzun ömürlü yan etkiler 
-üretebileceğini de belirttik:
+YukarÄ±daki ifade de 2 + 3 ifadesi 5 deÄŸerini Ã¼retir ve sonrasÄ±nda konsola yazdÄ±rÄ±r.ayrÄ±ca ifadelerin, ifadeden daha uzun Ã¶mÃ¼rlÃ¼ yan etkiler 
+Ã¼retebileceÄŸini de belirttik:
 
                     #include <iostream>
 
                     int main()
                     {
                         int x { 5 };
-                        ++x; // Bu ifadenin yan etkisi x in arttırılmasıdır
+                        ++x; // Bu ifadenin yan etkisi x in arttÄ±rÄ±lmasÄ±dÄ±r
                         std::cout << x << '\n'; // Burada 6 yazar
 
                         return 0;
                     }
 
 
-Yukarıdaki programda, ifade ++x ifadesi x'in değerini artırır ve bu değer, ifadenin değerlendirmesi tamamlandıktan sonra bile değişmiş olarak 
-kalır.
+YukarÄ±daki programda, ifade ++x ifadesi x'in deÄŸerini artÄ±rÄ±r ve bu deÄŸer, ifadenin deÄŸerlendirmesi tamamlandÄ±ktan sonra bile deÄŸiÅŸmiÅŸ olarak 
+kalÄ±r.
 
-Değer üretmenin ve yan etkilere neden olmanın yanı sıra, ifadeler bir şey daha yapabilir: nesneleri veya fonksiyonları değerlendirebilirler.
+DeÄŸer Ã¼retmenin ve yan etkilere neden olmanÄ±n yanÄ± sÄ±ra, ifadeler bir ÅŸey daha yapabilir: nesneleri veya fonksiyonlarÄ± deÄŸerlendirebilirler.
 
 
-İfadelerin Özellikleri
+Ä°fadelerin Ã–zellikleri
 ----------------------
 
-İfadelerin nasıl değerlendirilmesi gerektiğini ve nerede kullanılabileceklerini belirlemek için C++'taki tüm ifadelerin iki özelliği vardır: 
-bir tür (type) ve bir değer kategorisi (value category).
+Ä°fadelerin nasÄ±l deÄŸerlendirilmesi gerektiÄŸini ve nerede kullanÄ±labileceklerini belirlemek iÃ§in C++'taki tÃ¼m ifadelerin iki Ã¶zelliÄŸi vardÄ±r: 
+bir tÃ¼r (type) ve bir deÄŸer kategorisi (value category).
 
-İfadelerin Türü
+Ä°fadelerin TÃ¼rÃ¼
 ---------------
 
-Bir ifadenin türü, değerlendirilen ifadeden elde edilen değerin, nesnenin veya işlevin türüne eşdeğerdir. Örneğin:
+Bir ifadenin tÃ¼rÃ¼, deÄŸerlendirilen ifadeden elde edilen deÄŸerin, nesnenin veya iÅŸlevin tÃ¼rÃ¼ne eÅŸdeÄŸerdir. Ã–rneÄŸin:
                     int main()
                     {
                         auto v1 { 12 / 4 }; // int / int => int
@@ -164,14 +164,14 @@ Bir ifadenin türü, değerlendirilen ifadeden elde edilen değerin, nesnenin veya i
                     }
 
 
-v1 için derleyici (derleme zamanında), iki int operatörü ile yapılan bir bölmenin bir int sonucu üreteceğini belirleyecektir, bu nedenle bu 
-ifadenin türü int'tir. Tür çıkarımı yoluyla, int daha sonra v1'in türü olarak kullanılacaktır.
+v1 iÃ§in derleyici (derleme zamanÄ±nda), iki int operatÃ¶rÃ¼ ile yapÄ±lan bir bÃ¶lmenin bir int sonucu Ã¼reteceÄŸini belirleyecektir, bu nedenle bu 
+ifadenin tÃ¼rÃ¼ int'tir. TÃ¼r Ã§Ä±karÄ±mÄ± yoluyla, int daha sonra v1'in tÃ¼rÃ¼ olarak kullanÄ±lacaktÄ±r.
 
-v2 için derleyici (derleme zamanında), bir double operatörü ve bir int operatörü ile yapılan bir bölmenin bir double sonuç üreteceğini 
-belirleyecektir. Aritmetik operatörlerin eşleşen türlerde operandlara ihtiyacı olduğunu unutmayın, bu nedenle bu durumda int operatörü
-double'a dönüştürülür ve bir kayan nokta bölme işlemi gerçekleştirilir. Bu nedenle bu ifadenin türü double'dir.
+v2 iÃ§in derleyici (derleme zamanÄ±nda), bir double operatÃ¶rÃ¼ ve bir int operatÃ¶rÃ¼ ile yapÄ±lan bir bÃ¶lmenin bir double sonuÃ§ Ã¼reteceÄŸini 
+belirleyecektir. Aritmetik operatÃ¶rlerin eÅŸleÅŸen tÃ¼rlerde operandlara ihtiyacÄ± olduÄŸunu unutmayÄ±n, bu nedenle bu durumda int operatÃ¶rÃ¼
+double'a dÃ¶nÃ¼ÅŸtÃ¼rÃ¼lÃ¼r ve bir kayan nokta bÃ¶lme iÅŸlemi gerÃ§ekleÅŸtirilir. Bu nedenle bu ifadenin tÃ¼rÃ¼ double'dir.
 
-Derleyici, bir ifadenin türünü kullanarak bir ifadenin belirli bir bağlamda geçerli olup olmadığını belirleyebilir. Örneğin:
+Derleyici, bir ifadenin tÃ¼rÃ¼nÃ¼ kullanarak bir ifadenin belirli bir baÄŸlamda geÃ§erli olup olmadÄ±ÄŸÄ±nÄ± belirleyebilir. Ã–rneÄŸin:
 
                     #include <iostream>
 
@@ -182,55 +182,55 @@ Derleyici, bir ifadenin türünü kullanarak bir ifadenin belirli bir bağlamda geçe
 
                     int main()
                     {
-                        print("foo"); // hata: print() bir int argüman bekliyordu, biz bir string literal i göndermeye çalıştık
+                        print("foo"); // hata: print() bir int argÃ¼man bekliyordu, biz bir string literal i gÃ¶ndermeye Ã§alÄ±ÅŸtÄ±k
 
                         return 0;
                     }
 
 
-Yukarıdaki programda, print(int) fonksiyonu bir int parametresi bekliyor. Ancak, iletişimde bulunduğumuz ifadenin türü (string literal
-"foo") eşleşmiyor ve herhangi bir dönüşüm bulunamıyor. Bu nedenle bir derleme hatası meydana gelir.
+YukarÄ±daki programda, print(int) fonksiyonu bir int parametresi bekliyor. Ancak, iletiÅŸimde bulunduÄŸumuz ifadenin tÃ¼rÃ¼ (string literal
+"foo") eÅŸleÅŸmiyor ve herhangi bir dÃ¶nÃ¼ÅŸÃ¼m bulunamÄ±yor. Bu nedenle bir derleme hatasÄ± meydana gelir.
 
-Bir ifadenin türü, derleme zamanında belirlenebilmelidir (aksi takdirde tür kontrolü ve tür çıkarımı çalışmaz) - ancak bir ifadenin değeri, 
-ifade constexpr ise derleme zamanında veya değilse çalışma zamanında belirlenebilir.
+Bir ifadenin tÃ¼rÃ¼, derleme zamanÄ±nda belirlenebilmelidir (aksi takdirde tÃ¼r kontrolÃ¼ ve tÃ¼r Ã§Ä±karÄ±mÄ± Ã§alÄ±ÅŸmaz) - ancak bir ifadenin deÄŸeri, 
+ifade constexpr ise derleme zamanÄ±nda veya deÄŸilse Ã§alÄ±ÅŸma zamanÄ±nda belirlenebilir.
 
-Bir ifadenin değer kategorisi
+Bir ifadenin deÄŸer kategorisi
 ------------------------------
 
-Şimdi aşağıdaki programı düşünün:
+Åimdi aÅŸaÄŸÄ±daki programÄ± dÃ¼ÅŸÃ¼nÃ¼n:
 
                     int main()
                     {
                         int x{};
 
-                        x = 5; // geçerli: x e 5 değerini atayabiliriz
-                        5 = x; // hata: x in değerini 5 e atayamayız
+                        x = 5; // geÃ§erli: x e 5 deÄŸerini atayabiliriz
+                        5 = x; // hata: x in deÄŸerini 5 e atayamayÄ±z
 
                         return 0;
                     }
 
 
-Bir atama ifadesine hangi tarafın geçerli olduğunu (değişken x'e değeri 5 atama) ve hangisinin geçerli olmadığını (x'in değerini 5'in kendi 
-anlamına atamak ne anlama gelir?) belirlemek için derleyici nasıl bilir?
+Bir atama ifadesine hangi tarafÄ±n geÃ§erli olduÄŸunu (deÄŸiÅŸken x'e deÄŸeri 5 atama) ve hangisinin geÃ§erli olmadÄ±ÄŸÄ±nÄ± (x'in deÄŸerini 5'in kendi 
+anlamÄ±na atamak ne anlama gelir?) belirlemek iÃ§in derleyici nasÄ±l bilir?
 
-Cevap, ifadelerin ikinci özelliğinde yatar: değer kategorisi. Bir ifadenin (veya alt ifadenin) değer kategorisi, bir ifadenin bir değere, 
-bir fonksiyona veya bir nesneye çözünüp çözünmediğini gösterir.
+Cevap, ifadelerin ikinci Ã¶zelliÄŸinde yatar: deÄŸer kategorisi. Bir ifadenin (veya alt ifadenin) deÄŸer kategorisi, bir ifadenin bir deÄŸere, 
+bir fonksiyona veya bir nesneye Ã§Ã¶zÃ¼nÃ¼p Ã§Ã¶zÃ¼nmediÄŸini gÃ¶sterir.
 
-C++11 öncesinde, yalnızca iki olası değer kategorisi vardı: lvalue ve rvalue.
+C++11 Ã¶ncesinde, yalnÄ±zca iki olasÄ± deÄŸer kategorisi vardÄ±: lvalue ve rvalue.
 
-C++11'de, hareket semantiğini ( move semantic ) desteklemek için üç ek değer kategorisi (glvalue, prvalue ve xvalue) eklenmiştir.
+C++11'de, hareket semantiÄŸini ( move semantic ) desteklemek iÃ§in Ã¼Ã§ ek deÄŸer kategorisi (glvalue, prvalue ve xvalue) eklenmiÅŸtir.
 
 Lvalue ve rvalue ifadeleri
 --------------------------
 
-Lvalue (okunuşu "ell-value", "sol değer ( left value )" veya "bulucu değeri ( locater value )" için kısaltma, bazen "l-value" olarak yazılır), 
-tanımlanabilir bir nesne veya işlevin (veya bit alanının) değerini döndüren bir ifadedir.
+Lvalue (okunuÅŸu "ell-value", "sol deÄŸer ( left value )" veya "bulucu deÄŸeri ( locater value )" iÃ§in kÄ±saltma, bazen "l-value" olarak yazÄ±lÄ±r), 
+tanÄ±mlanabilir bir nesne veya iÅŸlevin (veya bit alanÄ±nÄ±n) deÄŸerini dÃ¶ndÃ¼ren bir ifadedir.
 
-kimlik( identity ) terimi  C++ standardında kullanılır, ancak iyi tanımlanmamıştır. Bir kimliğe sahip bir varlık (örneğin bir nesne veya fonksiyon),
-genellikle varlığın adreslerini karşılaştırarak diğer benzer varlıklardan ayırt edilebilir.
+kimlik( identity ) terimi  C++ standardÄ±nda kullanÄ±lÄ±r, ancak iyi tanÄ±mlanmamÄ±ÅŸtÄ±r. Bir kimliÄŸe sahip bir varlÄ±k (Ã¶rneÄŸin bir nesne veya fonksiyon),
+genellikle varlÄ±ÄŸÄ±n adreslerini karÅŸÄ±laÅŸtÄ±rarak diÄŸer benzer varlÄ±klardan ayÄ±rt edilebilir.
 
-Kimliğe sahip varlıklar bir tanımlayıcı, referans veya işaretçi ( pointer ) aracılığıyla erişilebilir ve genellikle bir ifade veya
-deyimden daha uzun bir ömre sahiptir.
+KimliÄŸe sahip varlÄ±klar bir tanÄ±mlayÄ±cÄ±, referans veya iÅŸaretÃ§i ( pointer ) aracÄ±lÄ±ÄŸÄ±yla eriÅŸilebilir ve genellikle bir ifade veya
+deyimden daha uzun bir Ã¶mre sahiptir.
 
                     int main()
                     {
@@ -241,25 +241,25 @@ deyimden daha uzun bir ömre sahiptir.
                     }
 
 
-Yukarıdaki programda, x ifadesi bir lvalue ifadesidir çünkü değişken x'in değerini değerlendirir (ki bu bir tanımlayıcıya sahiptir).
+YukarÄ±daki programda, x ifadesi bir lvalue ifadesidir Ã§Ã¼nkÃ¼ deÄŸiÅŸken x'in deÄŸerini deÄŸerlendirir (ki bu bir tanÄ±mlayÄ±cÄ±ya sahiptir).
 
-Dilin içine sabitlerin tanıtılmasından bu yana, lvalues iki alt türe ayrılmaktadır: değiştirilebilir bir lvalue, değeri değiştirilebilen
-bir lvalue'dir. Değiştirilemez bir lvalue ise (çünkü lvalue const veya constexpr ise) değeri değiştirilemeyen bir lvalue'dir.
+Dilin iÃ§ine sabitlerin tanÄ±tÄ±lmasÄ±ndan bu yana, lvalues iki alt tÃ¼re ayrÄ±lmaktadÄ±r: deÄŸiÅŸtirilebilir bir lvalue, deÄŸeri deÄŸiÅŸtirilebilen
+bir lvalue'dir. DeÄŸiÅŸtirilemez bir lvalue ise (Ã§Ã¼nkÃ¼ lvalue const veya constexpr ise) deÄŸeri deÄŸiÅŸtirilemeyen bir lvalue'dir.
 
                     int main()
                     {
                         int x{};
                         const double d{};
-                        int y { x }; // x değiştirilebilir bir lvaluedir
-                        const double e { d }; // d değiştirilemez bir lvaluedir
+                        int y { x }; // x deÄŸiÅŸtirilebilir bir lvaluedir
+                        const double e { d }; // d deÄŸiÅŸtirilemez bir lvaluedir
 
                         return 0;
                     }
 
-Rvalue ("arr-value" olarak okunan, "right value"ın kısaltması ve bazen r-value olarak yazılan) bir ifade, bir lvalue olmayan bir ifadedir.
-Rvalue ifadeler bir değere çözünür. Sıkça karşılaşılan rvalue'ler arasında literaller bulunur (C tarzı dizge literalleri hariç, çünkü bunlar
-lvalue'dir) ve değer ile dönen fonksiyonların ve operatörlerin dönüş değerleri bulunur. Rvalue'lar tanımlanabilir değildir (yani hemen
-kullanılmalıdır) ve yalnızca kullanıldıkları ifade kapsamında var olurlar.
+Rvalue ("arr-value" olarak okunan, "right value"Ä±n kÄ±saltmasÄ± ve bazen r-value olarak yazÄ±lan) bir ifade, bir lvalue olmayan bir ifadedir.
+Rvalue ifadeler bir deÄŸere Ã§Ã¶zÃ¼nÃ¼r. SÄ±kÃ§a karÅŸÄ±laÅŸÄ±lan rvalue'ler arasÄ±nda literaller bulunur (C tarzÄ± dizge literalleri hariÃ§, Ã§Ã¼nkÃ¼ bunlar
+lvalue'dir) ve deÄŸer ile dÃ¶nen fonksiyonlarÄ±n ve operatÃ¶rlerin dÃ¶nÃ¼ÅŸ deÄŸerleri bulunur. Rvalue'lar tanÄ±mlanabilir deÄŸildir (yani hemen
+kullanÄ±lmalÄ±dÄ±r) ve yalnÄ±zca kullanÄ±ldÄ±klarÄ± ifade kapsamÄ±nda var olurlar.
 
                     int return5()
                     {
@@ -271,9 +271,9 @@ kullanılmalıdır) ve yalnızca kullanıldıkları ifade kapsamında var olurlar.
                         int x{ 5 }; // 5 bir rvalue ifadesidir
                         const double d{ 1.2 }; // 1.2 bir rvalue ifadesidir
 
-                        int y { x }; // x değiştirilebilir bir lvalue ifadesidir
-                        const double e { d }; // d değiştirilemez bir lvalue ifadesidir
-                        int z { return5() }; // return5(), sonuç değeri ile döndürüldüğü için bir rvalue ifadesidir
+                        int y { x }; // x deÄŸiÅŸtirilebilir bir lvalue ifadesidir
+                        const double e { d }; // d deÄŸiÅŸtirilemez bir lvalue ifadesidir
+                        int z { return5() }; // return5(), sonuÃ§ deÄŸeri ile dÃ¶ndÃ¼rÃ¼ldÃ¼ÄŸÃ¼ iÃ§in bir rvalue ifadesidir
 
                         int w { x + 1 }; // x + 1 bir rvalue ifadesidir
                         int q { static_cast<int>(d) }; // d'yi int'e static_cast etmenin sonucu bir rvalue ifadesidir
@@ -281,35 +281,35 @@ kullanılmalıdır) ve yalnızca kullanıldıkları ifade kapsamında var olurlar.
                         return 0;
                     }
 
-Belki de return5(), x + 1 ve static_cast<int>(d) ifadelerinin neden rvalue olduğunu merak ediyorsunuz: cevap, bu ifadelerin tanımlanabilir
-nesneler olmayan geçici değerler üretmesidir.
+Belki de return5(), x + 1 ve static_cast<int>(d) ifadelerinin neden rvalue olduÄŸunu merak ediyorsunuz: cevap, bu ifadelerin tanÄ±mlanabilir
+nesneler olmayan geÃ§ici deÄŸerler Ã¼retmesidir.
 
-Ana İpucu
+Ana Ä°pucu
 
-Lvalue ifadeler, tanımlanabilir bir nesneye çözünür.
-Rvalue ifadeler, bir değere çözünür.
+Lvalue ifadeler, tanÄ±mlanabilir bir nesneye Ã§Ã¶zÃ¼nÃ¼r.
+Rvalue ifadeler, bir deÄŸere Ã§Ã¶zÃ¼nÃ¼r.
 
-Şimdi x = 5'in neden geçerli olduğu ancak 5 = x'in neden geçerli olmadığı sorusunu cevaplayabiliriz: atama işlemi, atamanın sol operandının
-değiştirilebilir bir lvalue ifadesi olmasını ve sağ operandın bir rvalue ifadesi olmasını gerektirir. İkinci atama (5 = x) başarısızdır
-çünkü sol operand ifadesi 5 bir lvalue değildir.
+Åimdi x = 5'in neden geÃ§erli olduÄŸu ancak 5 = x'in neden geÃ§erli olmadÄ±ÄŸÄ± sorusunu cevaplayabiliriz: atama iÅŸlemi, atamanÄ±n sol operandÄ±nÄ±n
+deÄŸiÅŸtirilebilir bir lvalue ifadesi olmasÄ±nÄ± ve saÄŸ operandÄ±n bir rvalue ifadesi olmasÄ±nÄ± gerektirir. Ä°kinci atama (5 = x) baÅŸarÄ±sÄ±zdÄ±r
+Ã§Ã¼nkÃ¼ sol operand ifadesi 5 bir lvalue deÄŸildir.
 
                     int main()
                     {
                         int x{};
 
-                        // Atama işlemi, sol operandın değiştirilebilir bir lvalue ifadesi olmasını ve sağ operandın bir rvalue ifadesi
-                        olmasını gerektirir
-                        x = 5; // geçerli: x değiştirilebilir bir lvalue ifadesi ve 5 bir rvalue ifadesidir
-                        5 = x; // hata: 5 bir rvalue ifadesi iken x değiştirilebilir bir lvalue ifadesidir
+                        // Atama iÅŸlemi, sol operandÄ±n deÄŸiÅŸtirilebilir bir lvalue ifadesi olmasÄ±nÄ± ve saÄŸ operandÄ±n bir rvalue ifadesi
+                        olmasÄ±nÄ± gerektirir
+                        x = 5; // geÃ§erli: x deÄŸiÅŸtirilebilir bir lvalue ifadesi ve 5 bir rvalue ifadesidir
+                        5 = x; // hata: 5 bir rvalue ifadesi iken x deÄŸiÅŸtirilebilir bir lvalue ifadesidir
 
                         return 0;
                     }
 
-İşte lvalue ve rvalue ifadelerinin tam bir listesi https://en.cppreference.com/w/cpp/language/value_category . C++11'de rvalue'lar iki alt türe 
-ayrılmıştır: prvalue'lar ve xvalue'lar, bu nedenle burada bahsettiğimiz rvalue'lar, bu iki kategori toplamının birleşimidir.
+Ä°ÅŸte lvalue ve rvalue ifadelerinin tam bir listesi https://en.cppreference.com/w/cpp/language/value_category . C++11'de rvalue'lar iki alt tÃ¼re 
+ayrÄ±lmÄ±ÅŸtÄ±r: prvalue'lar ve xvalue'lar, bu nedenle burada bahsettiÄŸimiz rvalue'lar, bu iki kategori toplamÄ±nÄ±n birleÅŸimidir.
 
-Tavsiye -> Eğer bir ifadenin bir lvalue mi yoksa rvalue mi olduğundan emin değilseniz, operator& kullanarak onun adresini almaya çalışın. 
-           Çünkü operator&, operandının bir lvalue olmasını gerektirir. Eğer &(ifade); derlemesi başarılı oluyorsa, ifade bir lvalue olmalıdır:
+Tavsiye -> EÄŸer bir ifadenin bir lvalue mi yoksa rvalue mi olduÄŸundan emin deÄŸilseniz, operator& kullanarak onun adresini almaya Ã§alÄ±ÅŸÄ±n. 
+           Ã‡Ã¼nkÃ¼ operator&, operandÄ±nÄ±n bir lvalue olmasÄ±nÄ± gerektirir. EÄŸer &(ifade); derlemesi baÅŸarÄ±lÄ± oluyorsa, ifade bir lvalue olmalÄ±dÄ±r:
 
                     int foo()
                     {
@@ -324,15 +324,15 @@ Tavsiye -> Eğer bir ifadenin bir lvalue mi yoksa rvalue mi olduğundan emin değil
                         // &foo(); // derlenmez: foo() bir rvalue ifadesidir
                     }
 
-Ana İpucu
+Ana Ä°pucu
 
-Bir C tarzı string literali, C tarzı stringler (ki bunlar C tarzı arraylerdir) bir işaretçiye dönüşmesinden dolayı bir lvalue'dir. Dönüşüm süreci,
-arrayin bir lvalue olması durumunda çalışır (ve bu nedenle işaretçide depolanabilecek bir adresi vardır). C++ bunu geriye uyumluluk için miras
-almıştır.
+Bir C tarzÄ± string literali, C tarzÄ± stringler (ki bunlar C tarzÄ± arraylerdir) bir iÅŸaretÃ§iye dÃ¶nÃ¼ÅŸmesinden dolayÄ± bir lvalue'dir. DÃ¶nÃ¼ÅŸÃ¼m sÃ¼reci,
+arrayin bir lvalue olmasÄ± durumunda Ã§alÄ±ÅŸÄ±r (ve bu nedenle iÅŸaretÃ§ide depolanabilecek bir adresi vardÄ±r). C++ bunu geriye uyumluluk iÃ§in miras
+almÄ±ÅŸtÄ±r.
 
-Lvalue'dan rvalue'ye dönüşüm
+Lvalue'dan rvalue'ye dÃ¶nÃ¼ÅŸÃ¼m
 ----------------------------
-Bu örneğe tekrar bakalım:
+Bu Ã¶rneÄŸe tekrar bakalÄ±m:
 
                     int main()
                     {
@@ -343,28 +343,28 @@ Bu örneğe tekrar bakalım:
                     }
 
 
-Eğer x, değişken x'e değeri olan bir lvalue ifadesiyse, y neden değeri 5 olur?
+EÄŸer x, deÄŸiÅŸken x'e deÄŸeri olan bir lvalue ifadesiyse, y neden deÄŸeri 5 olur?
 
-Cevap, lvalue ifadelerinin, bir rvalue beklenirken ancak bir lvalue sağlandığında otomatik olarak rvalue ifadelere dönüştürülmesidir. 
-Bir int değişkeninin başlatıcısı bir rvalue ifadesi olması beklenir. Bu nedenle, lvalue ifadesi x, bir lvalue'den rvalue'ye dönüşüm geçirir,
-bu da değeri 5 olan bir değere çözünür ve ardından y'yi başlatmak için kullanılır.
+Cevap, lvalue ifadelerinin, bir rvalue beklenirken ancak bir lvalue saÄŸlandÄ±ÄŸÄ±nda otomatik olarak rvalue ifadelere dÃ¶nÃ¼ÅŸtÃ¼rÃ¼lmesidir. 
+Bir int deÄŸiÅŸkeninin baÅŸlatÄ±cÄ±sÄ± bir rvalue ifadesi olmasÄ± beklenir. Bu nedenle, lvalue ifadesi x, bir lvalue'den rvalue'ye dÃ¶nÃ¼ÅŸÃ¼m geÃ§irir,
+bu da deÄŸeri 5 olan bir deÄŸere Ã§Ã¶zÃ¼nÃ¼r ve ardÄ±ndan y'yi baÅŸlatmak iÃ§in kullanÄ±lÄ±r.
 
-Yukarıda belirtildiği gibi atama operatörünün sağ operandının bir rvalue ifadesi olmasını bekledik, peki neden bu tür kod işe yarıyor?
+YukarÄ±da belirtildiÄŸi gibi atama operatÃ¶rÃ¼nÃ¼n saÄŸ operandÄ±nÄ±n bir rvalue ifadesi olmasÄ±nÄ± bekledik, peki neden bu tÃ¼r kod iÅŸe yarÄ±yor?
 
                     int main()
                     {
                         int x{ 1 };
                         int y{ 2 };
 
-                        x = y; // y değiştirilebilir bir lvalue dir, bir rvalue değil, Ama bu geçerlidir
+                        x = y; // y deÄŸiÅŸtirilebilir bir lvalue dir, bir rvalue deÄŸil, Ama bu geÃ§erlidir
 
                         return 0;
                     }
 
-Bu durumda, y bir lvalue ifadesidir, ancak bir lvalue-to-rvalue dönüşümüne uğrar, bu da y'nin değerini (2) çözünmesine yol açar, ardından bu 
-değer x'e atanır.
+Bu durumda, y bir lvalue ifadesidir, ancak bir lvalue-to-rvalue dÃ¶nÃ¼ÅŸÃ¼mÃ¼ne uÄŸrar, bu da y'nin deÄŸerini (2) Ã§Ã¶zÃ¼nmesine yol aÃ§ar, ardÄ±ndan bu 
+deÄŸer x'e atanÄ±r.
 
-Şimdi bu örneği düşünelim:
+Åimdi bu Ã¶rneÄŸi dÃ¼ÅŸÃ¼nelim:
 
                     int main()
                     {
@@ -375,169 +375,168 @@ değer x'e atanır.
                         return 0;
                     }
 
-Bu ifadede, değişken x iki farklı bağlamda kullanılmaktadır. Atama operatörünün sol tarafında, x değişken x değeri olan bir lvalue ifadesidir.
-Atama operatörünün sağındaysa, x + 1, değeri 3 olan bir rvalue ifadesine çözünen bir ifadedir.
+Bu ifadede, deÄŸiÅŸken x iki farklÄ± baÄŸlamda kullanÄ±lmaktadÄ±r. Atama operatÃ¶rÃ¼nÃ¼n sol tarafÄ±nda, x deÄŸiÅŸken x deÄŸeri olan bir lvalue ifadesidir.
+Atama operatÃ¶rÃ¼nÃ¼n saÄŸÄ±ndaysa, x + 1, deÄŸeri 3 olan bir rvalue ifadesine Ã§Ã¶zÃ¼nen bir ifadedir.
 
-Şimdi lvalue'ları ele aldığımıza göre, ilk bileşik türümüze gelebiliriz: lvalue referansı.
+Åimdi lvalue'larÄ± ele aldÄ±ÄŸÄ±mÄ±za gÃ¶re, ilk bileÅŸik tÃ¼rÃ¼mÃ¼ze gelebiliriz: lvalue referansÄ±.
 
-Ana İpucu
+Ana Ä°pucu
 
-Lvalue ve rvalue ifadelerini tanımlamak için bir kural:
+Lvalue ve rvalue ifadelerini tanÄ±mlamak iÃ§in bir kural:
 
-Lvalue ifadeler, ifade sona erdikten sonra varlığını sürdürebilen değişkenlere veya diğer tanımlanabilir nesnelere çözünenlerdir.
-Rvalue ifadeler, ifade sona erdikten sonra atılacak olan literalleri veya fonksiyonlar/operatörler tarafından döndürülen değerleri çözünenlerdir.
+Lvalue ifadeler, ifade sona erdikten sonra varlÄ±ÄŸÄ±nÄ± sÃ¼rdÃ¼rebilen deÄŸiÅŸkenlere veya diÄŸer tanÄ±mlanabilir nesnelere Ã§Ã¶zÃ¼nenlerdir.
+Rvalue ifadeler, ifade sona erdikten sonra atÄ±lacak olan literalleri veya fonksiyonlar/operatÃ¶rler tarafÄ±ndan dÃ¶ndÃ¼rÃ¼len deÄŸerleri Ã§Ã¶zÃ¼nenlerdir.
 
-12.3 — Lvalue references
+12.3 â€” Lvalue references
 ------------------------
 
-C++ dilinde, bir referans mevcut bir nesnenin takma adıdır. Bir referans bir kez tanımlandığında, referans üzerinde yapılan herhangi bir işlem,
-referans yapılan nesneye uygulanır.
+C++ dilinde, bir referans mevcut bir nesnenin takma adÄ±dÄ±r. Bir referans bir kez tanÄ±mlandÄ±ÄŸÄ±nda, referans Ã¼zerinde yapÄ±lan herhangi bir iÅŸlem,
+referans yapÄ±lan nesneye uygulanÄ±r.
 
-Kilit nokta; Bir referans, temelde üzerine referans yapılan nesne ile özdeştir.
+Kilit nokta; Bir referans, temelde Ã¼zerine referans yapÄ±lan nesne ile Ã¶zdeÅŸtir.
 
 
-Bu, bir referansı üzerine referans yapılan nesneyi okumak veya değiştirmek için kullanabileceğimiz anlamına gelir. Başta referanslar saçma,
-gereksiz veya gereksiz gibi görünebilir, ancak C++'ta referanslar her yerde kullanılır (bunu birkaç derste göreceğiz).
+Bu, bir referansÄ± Ã¼zerine referans yapÄ±lan nesneyi okumak veya deÄŸiÅŸtirmek iÃ§in kullanabileceÄŸimiz anlamÄ±na gelir. BaÅŸta referanslar saÃ§ma veya gereksiz gibi gÃ¶rÃ¼nebilir, ancak C++'ta referanslar her yerde kullanÄ±lÄ±r (bunu birkaÃ§ derste gÃ¶receÄŸiz).
 
-Ayrıca, fonksiyonlara referanslar da oluşturabilirsiniz, ancak bu daha az sık yapılır.
+AyrÄ±ca, fonksiyonlara referanslar da oluÅŸturabilirsiniz, ancak bu daha az sÄ±k yapÄ±lÄ±r.
 
-Modern C++, iki tür referans içerir: lvalue referansları ve rvalue referansları. Bu bölümde, lvalue referanslarını tartışacağız.
+Modern C++, iki tÃ¼r referans iÃ§erir: lvalue referanslarÄ± ve rvalue referanslarÄ±. Lvalue ile devam edelim.
 
-Lvalue referans türleri
+Lvalue referans tÃ¼rleri
 -----------------------
-Bir lvalue referansı (genellikle C++11'den önce yalnızca bir türde referans olduğu için sadece referans olarak adlandırılır), mevcut bir lvalue
-(örneğin bir değişken) için bir takma ad olarak hareket eder.
+Bir lvalue referansÄ± (genellikle C++11'den Ã¶nce yalnÄ±zca bir tÃ¼rde referans olduÄŸu iÃ§in sadece referans olarak adlandÄ±rÄ±lÄ±r), mevcut bir lvalue
+(Ã¶rneÄŸin bir deÄŸiÅŸken) iÃ§in bir takma ad olarak hareket eder.
 
-Bir lvalue referans türünü bildirmek için, tür bildiriminde bir ampersand (&) kullanırız:
+Bir lvalue referans tÃ¼rÃ¼nÃ¼ bildirmek iÃ§in, tÃ¼r bildiriminde bir ampersand (&) kullanÄ±rÄ±z:
 
-                    int      // normal bir int türü
-                    int&     // bir int nesnesine yapılan bir lvalue referans
-                    double&  // bir double nesnesine yapılan bir lvalue referans
+                    int      // normal bir int tÃ¼rÃ¼
+                    int&     // bir int nesnesine yapÄ±lan bir lvalue referans
+                    double&  // bir double nesnesine yapÄ±lan bir lvalue referans
 
 
-Lvalue referans değişkenleri
+Lvalue referans deÄŸiÅŸkenleri
 ----------------------------
-Lvalue referans türü ile yapabileceğimiz şeylerden biri, bir lvalue referans değişkeni oluşturmaktır. Bir lvalue referans değişkeni, 
-genellikle başka bir değişkenin referansı olarak hareket eden bir değişkendir.
+Lvalue referans tÃ¼rÃ¼ ile yapabileceÄŸimiz ÅŸeylerden biri, bir lvalue referans deÄŸiÅŸkeni oluÅŸturmaktÄ±r. Bir lvalue referans deÄŸiÅŸkeni, 
+genellikle baÅŸka bir deÄŸiÅŸkenin referansÄ± olarak hareket eden bir deÄŸiÅŸkendir.
 
-Bir lvalue referans değişkeni oluşturmak için, basitçe bir değişkeni bir lvalue referans türü ile tanımlarız:
+Bir lvalue referans deÄŸiÅŸkeni oluÅŸturmak iÃ§in, basitÃ§e bir deÄŸiÅŸkeni bir lvalue referans tÃ¼rÃ¼ ile tanÄ±mlarÄ±z:
 
                     #include <iostream>
 
                     int main()
                     {
-                        int x { 5 };    // x, normal bir tamsayı değişkenidir
-                        int& ref { x }; // ref, şimdi değişken x için bir takma ad olarak kullanılabilen bir lvalue referans değişkenidir
+                        int x { 5 };    // x, normal bir tamsayÄ± deÄŸiÅŸkenidir
+                        int& ref { x }; // ref, ÅŸimdi deÄŸiÅŸken x iÃ§in bir takma ad olarak kullanÄ±labilen bir lvalue referans deÄŸiÅŸkenidir
 
-                        std::cout << x << '\n';  // x'in değerini yazdır (5)
-                        std::cout << ref << '\n'; // ref üzerinden x'in değerini yazdır (5)
+                        std::cout << x << '\n';  // x'in deÄŸerini yazdÄ±r (5)
+                        std::cout << ref << '\n'; // ref Ã¼zerinden x'in deÄŸerini yazdÄ±r (5)
 
                         return 0;
                     }
 
-Yukarıdaki örnekte, int& türü ref'i bir int'e referans olan bir lvalue referans olarak tanımlarız, ardından lvalue ifadesini x ile başlatırız.
-Bundan sonra, ref ve x eşanlamlı olarak kullanılabilir. Bu program şu şekilde çıktı verir:
+YukarÄ±daki Ã¶rnekte, int& tÃ¼rÃ¼ ref'i bir int'e referans olan bir lvalue referans olarak tanÄ±mlarÄ±z, ardÄ±ndan lvalue ifadesini x ile baÅŸlatÄ±rÄ±z.
+Bundan sonra, ref ve x eÅŸanlamlÄ± olarak kullanÄ±labilir. Bu program ÅŸu ÅŸekilde Ã§Ä±ktÄ± verir:
 
                     5
                     5
 
-Derleyicinin bakış açısından, ampersand'ın tip adına (int& ref) mı yoksa değişken adına (int &ref) "bağlı" olması önemli değildir ve seçim tarza
-bağlıdır. Modern C++ programcıları, referansın tip bilgisinin bir parçası olduğunu, tanımlanan değişkenin adı olmadığını daha açık bir şekilde
-ifade etmek için genellikle ampersand'ı tipin yanına koymayı tercih eder.
+Derleyicinin bakÄ±ÅŸ aÃ§Ä±sÄ±ndan, ampersand'Ä±n tip adÄ±na (int& ref) mÄ± yoksa deÄŸiÅŸken adÄ±na (int &ref) "baÄŸlÄ±" olmasÄ± Ã¶nemli deÄŸildir ve seÃ§im tarza
+baÄŸlÄ±dÄ±r. Modern C++ programcÄ±larÄ±, referansÄ±n tip bilgisinin bir parÃ§asÄ± olduÄŸunu, tanÄ±mlanan deÄŸiÅŸkenin adÄ± olmadÄ±ÄŸÄ±nÄ± daha aÃ§Ä±k bir ÅŸekilde
+ifade etmek iÃ§in genellikle ampersand'Ä± tipin yanÄ±na koymayÄ± tercih eder.
 
-*** BEST -> Bir referans tanımlarken, ampersand'ı referans değişkeninin adının yanına değil, tipin yanına koymak en iyisidir.
+*** BEST -> Bir referans tanÄ±mlarken, ampersand'Ä± referans deÄŸiÅŸkeninin adÄ±nÄ±n yanÄ±na deÄŸil, tipin yanÄ±na koymak en iyisidir.
 
 
-Değerleri bir lvalue referans üzerinden değiştirme
+DeÄŸerleri bir lvalue referans Ã¼zerinden deÄŸiÅŸtirme
 --------------------------------------------------
-Yukarıdaki örnekte, bir referansı üzerine referans yapılan nesnenin değerini okumak için kullanabileceğimizi gösterdik. Aynı zamanda bir referansı
-kullanarak üzerine referans yapılan nesnenin değerini değiştirebiliriz:
+YukarÄ±daki Ã¶rnekte, bir referansÄ± Ã¼zerine referans yapÄ±lan nesnenin deÄŸerini okumak iÃ§in kullanabileceÄŸimizi gÃ¶sterdik. AynÄ± zamanda bir referansÄ±
+kullanarak Ã¼zerine referans yapÄ±lan nesnenin deÄŸerini deÄŸiÅŸtirebiliriz:
 
                     #include <iostream>
 
                     int main()
                     {
-                        int x { 5 }; // normal bir tamsayı değişkeni
-                        int& ref { x }; // ref, şimdi değişken x için bir takma ad
+                        int x { 5 }; // normal bir tamsayÄ± deÄŸiÅŸkeni
+                        int& ref { x }; // ref, ÅŸimdi deÄŸiÅŸken x iÃ§in bir takma ad
 
-                        std::cout << x << ref << '\n'; // 55 yazdır
+                        std::cout << x << ref << '\n'; // 55 yazdÄ±r
 
-                        x = 6; // x'in değeri şimdi 6
+                        x = 6; // x'in deÄŸeri ÅŸimdi 6
 
-                        std::cout << x << ref << '\n'; // 66 yazdır
+                        std::cout << x << ref << '\n'; // 66 yazdÄ±r
 
-                        ref = 7; // üzerine referans yapılan nesne (x) şimdi değeri 7
+                        ref = 7; // Ã¼zerine referans yapÄ±lan nesne (x) ÅŸimdi deÄŸeri 7
 
-                        std::cout << x << ref << '\n'; // 77 yazdır
+                        std::cout << x << ref << '\n'; // 77 yazdÄ±r
 
                         return 0;
                     }
-                    Çıktı:
+                    Ã‡Ä±ktÄ±:
                     55
                     66
                     77
 
-Yukarıdaki örnekte, ref x için bir takma ad olduğundan dolayı x'in değerini ya x üzerinden ya da ref üzerinden değiştirebiliyoruz.
+YukarÄ±daki Ã¶rnekte, ref x iÃ§in bir takma ad olduÄŸundan dolayÄ± x'in deÄŸerini ya x Ã¼zerinden ya da ref Ã¼zerinden deÄŸiÅŸtirebiliyoruz.
 
-Lvalue referanslarının başlatılması
+Lvalue referanslarÄ±nÄ±n baÅŸlatÄ±lmasÄ±
 -----------------------------------
 
-Sabitler gibi, tüm referanslar başlatılmalıdır.
+Sabitler gibi, tÃ¼m referanslar baÅŸlatÄ±lmalÄ±dÄ±r.
 
                     int main()
                     {
-                        int& invalidRef;   // hata: referanslar başlatılmalıdır
+                        int& invalidRef;   // hata: referanslar baÅŸlatÄ±lmalÄ±dÄ±r
 
                         int x { 5 };
-                        int& ref { x }; // tamam: int referansı, int değişkenine bağlanır
+                        int& ref { x }; // tamam: int referansÄ±, int deÄŸiÅŸkenine baÄŸlanÄ±r
 
                         return 0;
                     }
 
 
-Bir referans, bir nesne (veya fonksiyon) ile başlatıldığında, o referansın o nesneye (veya fonksiyona) bağlandığını söyleriz. Bu tür bir referansın
-bağlanma sürecine referans bağlama denir. Referans yapılan nesne (veya fonksiyon) bazen referansta bulunan olarak adlandırılır.
+Bir referans, bir nesne (veya fonksiyon) ile baÅŸlatÄ±ldÄ±ÄŸÄ±nda, o referansÄ±n o nesneye (veya fonksiyona) baÄŸlandÄ±ÄŸÄ±nÄ± sÃ¶yleriz. Bu tÃ¼r bir referansÄ±n
+baÄŸlanma sÃ¼recine referans baÄŸlama denir. Referans yapÄ±lan nesne (veya fonksiyon) bazen referansta bulunan olarak adlandÄ±rÄ±lÄ±r.
 
-Lvalue referansları, değiştirilebilir bir lvalue'a bağlanmalıdır.
+Lvalue referanslarÄ±, deÄŸiÅŸtirilebilir bir lvalue'a baÄŸlanmalÄ±dÄ±r.
                     int main()
                     {
                         int x { 5 };
-                        int& ref { x }; // geçerli: değiştirilebilir bir lvalue'a bağlanan bir lvalue referansı
+                        int& ref { x }; // geÃ§erli: deÄŸiÅŸtirilebilir bir lvalue'a baÄŸlanan bir lvalue referansÄ±
 
                         const int y { 5 };
-                        int& invalidRef { y };  // geçersiz: değiştirilemez bir lvalue'a bağlanamaz
-                        int& invalidRef2 { 0 }; // geçersiz: bir rvalue'a bağlanamaz
+                        int& invalidRef { y };  // geÃ§ersiz: deÄŸiÅŸtirilemez bir lvalue'a baÄŸlanamaz
+                        int& invalidRef2 { 0 }; // geÃ§ersiz: bir rvalue'a baÄŸlanamaz
 
                         return 0;
                     }
 
-Lvalue referansları, değiştirilemez lvalue'lara veya rvalue'lara bağlanamaz (aksi takdirde referans aracılığıyla bu değerleri değiştirebilir ve 
-bu da const durumlarına aykırı olurdu). Bu nedenle, lvalue referansları zaman zaman lvalue referanslarına non-const (bazen non-const referans 
-olarak kısaltılır) olarak adlandırılır.
+Lvalue referanslarÄ±, deÄŸiÅŸtirilemez lvalue'lara veya rvalue'lara baÄŸlanamaz (aksi takdirde referans aracÄ±lÄ±ÄŸÄ±yla bu deÄŸerleri deÄŸiÅŸtirebilir ve 
+bu da const durumlarÄ±na aykÄ±rÄ± olurdu). Bu nedenle, lvalue referanslarÄ± zaman zaman lvalue referanslarÄ±na non-const (bazen non-const referans 
+olarak kÄ±saltÄ±lÄ±r) olarak adlandÄ±rÄ±lÄ±r.
 
-Çoğu durumda, referansın türü, referansta bulunan nesnenin türü ile eşleşmelidir (bu kuralın bazı istisnaları vardır, bunları miras konusunu
-ele aldığımızda tartışacağız):
+Ã‡oÄŸu durumda, referansÄ±n tÃ¼rÃ¼, referansta bulunan nesnenin tÃ¼rÃ¼ ile eÅŸleÅŸmelidir (bu kuralÄ±n bazÄ± istisnalarÄ± vardÄ±r, bunlarÄ± miras konusunu
+ele aldÄ±ÄŸÄ±mÄ±zda tartÄ±ÅŸacaÄŸÄ±z):
 
                     int main()
                     {
                         int x { 5 };
-                        int& ref { x }; // tamam: int referansı, int değişkenine bağlanır
+                        int& ref { x }; // tamam: int referansÄ±, int deÄŸiÅŸkenine baÄŸlanÄ±r
 
                         double y { 6.0 };
-                        int& invalidRef { y }; // geçersiz; int referansı, double değişkenine bağlanamaz
-                        double& invalidRef2 { x }; // geçersiz: double referansı, int değişkenine bağlanamaz
+                        int& invalidRef { y }; // geÃ§ersiz; int referansÄ±, double deÄŸiÅŸkenine baÄŸlanamaz
+                        double& invalidRef2 { x }; // geÃ§ersiz: double referansÄ±, int deÄŸiÅŸkenine baÄŸlanamaz
 
                         return 0;
                     }
 
-Lvalue referanslarından void'a izin verilmez (bu ne anlama gelir ki?).
+Lvalue referanslarÄ±ndan void'a izin verilmez (bu ne anlama gelir ki?).
 
-Referanslar yeniden yerleştirilemez (başka bir nesneyi işaret etmek üzere değiştirilemez)
+Referanslar yeniden yerleÅŸtirilemez (baÅŸka bir nesneyi iÅŸaret etmek Ã¼zere deÄŸiÅŸtirilemez)
 ------------------------------------------------------------------------------------------
-C++'ta bir referans bir kez başlatıldıktan sonra yeniden yerleştirilemez, yani başka bir nesneye referans yapacak şekilde değiştirilemez.
+C++'ta bir referans bir kez baÅŸlatÄ±ldÄ±ktan sonra yeniden yerleÅŸtirilemez, yani baÅŸka bir nesneye referans yapacak ÅŸekilde deÄŸiÅŸtirilemez.
 
-Yeni C++ programcıları genellikle referansı başka bir değişkenle yer değiştirmek için atama kullanarak yeniden yerleştirmeye çalışırlar. 
-Bu derlenir ve çalışır ancak beklenen şekilde işlev göstermez. Aşağıdaki programı düşünün:
+Yeni C++ programcÄ±larÄ± genellikle referansÄ± baÅŸka bir deÄŸiÅŸkenle yer deÄŸiÅŸtirmek iÃ§in atama kullanarak yeniden yerleÅŸtirmeye Ã§alÄ±ÅŸÄ±rlar. 
+Bu derlenir ve Ã§alÄ±ÅŸÄ±r ancak beklenen ÅŸekilde iÅŸlev gÃ¶stermez. AÅŸaÄŸÄ±daki programÄ± dÃ¼ÅŸÃ¼nÃ¼n:
 
                     #include <iostream>
 
@@ -546,46 +545,46 @@ Bu derlenir ve çalışır ancak beklenen şekilde işlev göstermez. Aşağıdaki program
                         int x { 5 };
                         int y { 6 };
 
-                        int& ref { x }; // ref, şimdi x için bir takma ad
+                        int& ref { x }; // ref, ÅŸimdi x iÃ§in bir takma ad
 
-                        ref = y; // x'in (ref tarafından referans yapılan nesnenin) değerini 6 (y'nin değeri) olarak atar
-                        // Yukarıdaki satır, ref'i y değişkenine referans yapacak şekilde DEĞİŞTİRMEZ!
+                        ref = y; // x'in (ref tarafÄ±ndan referans yapÄ±lan nesnenin) deÄŸerini 6 (y'nin deÄŸeri) olarak atar
+                        // YukarÄ±daki satÄ±r, ref'i y deÄŸiÅŸkenine referans yapacak ÅŸekilde DEÄÄ°ÅTÄ°RMEZ!
 
-                        std::cout << x << '\n'; // kullanıcı bunun 5'i yazdırmasını bekliyor
+                        std::cout << x << '\n'; // kullanÄ±cÄ± bunun 5'i yazdÄ±rmasÄ±nÄ± bekliyor
 
                         return 0;
                     }
-                    Çıktı:
+                    Ã‡Ä±ktÄ±:
                     6
 
-Bir referans bir ifadede değerlendirildiğinde, referans yaptığı nesneye çözülür. Bu nedenle, ref = y, ref'i şimdi y'ye referans yapacak şekilde
-değiştirmez. Tam tersine, çünkü ref x için bir takma ad, ifade, x = y şeklinde yazılmış gibi değerlendirilir -- ve çünkü y'nin değeri 6 ise,
-x'e değer 6 atanır.
+Bir referans bir ifadede deÄŸerlendirildiÄŸinde, referans yaptÄ±ÄŸÄ± nesneye Ã§Ã¶zÃ¼lÃ¼r. Bu nedenle, ref = y, ref'i ÅŸimdi y'ye referans yapacak ÅŸekilde
+deÄŸiÅŸtirmez. Tam tersine, Ã§Ã¼nkÃ¼ ref x iÃ§in bir takma ad, ifade, x = y ÅŸeklinde yazÄ±lmÄ±ÅŸ gibi deÄŸerlendirilir -- ve Ã§Ã¼nkÃ¼ y'nin deÄŸeri 6 ise,
+x'e deÄŸer 6 atanÄ±r.
 
-Lvalue reference kapsam and süre
+Lvalue reference kapsam and sÃ¼re
 --------------------------------
 
-Lvalue referans değişkenleri, normal değişkenlerin uyguladığı kapsama ve süre kurallarını takip eder:
+Lvalue referans deÄŸiÅŸkenleri, normal deÄŸiÅŸkenlerin uyguladÄ±ÄŸÄ± kapsama ve sÃ¼re kurallarÄ±nÄ± takip eder:
 
                     #include <iostream>
 
                     int main()
                     {
-                        int x { 5 }; // normal bir tamsayı
-                        int& ref { x }; // değişkenin değerine referans
+                        int x { 5 }; // normal bir tamsayÄ±
+                        int& ref { x }; // deÄŸiÅŸkenin deÄŸerine referans
 
                         return 0;
                     } // x ve ref burada sona erer
 
-Referanslar ve referans yapılan nesneler bağımsız ömürlere sahiptir.
+Referanslar ve referans yapÄ±lan nesneler baÄŸÄ±msÄ±z Ã¶mÃ¼rlere sahiptir.
 --------------------------------------------------------------------
-Bir istisna dışında (bunu bir sonraki derste ele alacağız), bir referansın ömrü ve referans yaptığı nesnenin ömrü bağımsızdır. 
-Başka bir deyişle, her ikisi de aşağıdaki ifadeler doğrudur:
+Bir istisna dÄ±ÅŸÄ±nda (bunu bir sonraki derste ele alacaÄŸÄ±z), bir referansÄ±n Ã¶mrÃ¼ ve referans yaptÄ±ÄŸÄ± nesnenin Ã¶mrÃ¼ baÄŸÄ±msÄ±zdÄ±r. 
+BaÅŸka bir deyiÅŸle, her ikisi de aÅŸaÄŸÄ±daki ifadeler doÄŸrudur:
 
-    1. Bir referans, ona referans yapılan nesneden önce yok edilebilir.
-    2. Referans yapılan nesne, referanstan önce yok edilebilir.
+    1. Bir referans, ona referans yapÄ±lan nesneden Ã¶nce yok edilebilir.
+    2. Referans yapÄ±lan nesne, referanstan Ã¶nce yok edilebilir.
 
-Bir referans, referanstan önce yok edildiğinde, referans yapılan nesneyi etkilemez. Aşağıdaki program bunu göstermektedir:
+Bir referans, referans yapÄ±landan Ã¶nce yok edildiÄŸinde, referans yapÄ±lan nesneyi etkilemez. Ã–rnek:
 
                     #include <iostream>
 
@@ -594,134 +593,134 @@ Bir referans, referanstan önce yok edildiğinde, referans yapılan nesneyi etkilem
                         int x { 5 };
 
                         {
-                            int& ref { x };   // ref, x'e referans yapan bir referanstır
-                            std::cout << ref << '\n'; // ref'in değerini (5) yazdırır
-                        } // ref burada yok edildi -- x bunun farkında değil
+                            int& ref { x };   // ref, x'e referans yapan bir referanstÄ±r
+                            std::cout << ref << '\n'; // ref'in deÄŸerini (5) yazdÄ±rÄ±r
+                        } // ref burada yok edildi -- x bunun farkÄ±nda deÄŸil
 
-                        std::cout << x << '\n'; // x'in değerini (5) yazdırır
+                        std::cout << x << '\n'; // x'in deÄŸerini (5) yazdÄ±rÄ±r
 
                         return 0;
                     } // x burada yok edildi
-                    Çıktı:
+                    Ã‡Ä±ktÄ±:
                     5
                     5
 
-"ref" öldüğünde, değişken x normal şekilde devam eder, neşe içinde, ona yapılan bir referansın yok edildiğinden habersiz.
+"ref" Ã¶ldÃ¼ÄŸÃ¼nde, deÄŸiÅŸken x normal ÅŸekilde devam eder, neÅŸe iÃ§inde, ona yapÄ±lan bir referansÄ±n yok edildiÄŸinden habersiz.
 
-Asılı referanslar
+AsÄ±lÄ± referanslar
 -----------------
 
-Bir nesneye yapılan bir referansın, referansın kendisinden önce yok edildiği durumda, referans artık var olmayan bir nesneye işaret eder durumda
-kalır. Böyle bir referansa "asılı referans" denir. Bir asılı referansa erişmek, tanımsız davranışa yol açar.
+Referans yapÄ±lan nesne, referansÄ±n kendisinden Ã¶nce yok edildiÄŸi durumda, referans artÄ±k var olmayan bir nesneye iÅŸaret eder durumda
+kalÄ±r. BÃ¶yle bir referansa "asÄ±lÄ± referans" denir. Bir asÄ±lÄ± referansa eriÅŸmek, tanÄ±msÄ±z davranÄ±ÅŸa yol aÃ§ar.
 
-Asılı referanslardan kaçınmak oldukça basittir, ancak bunun pratikte nasıl gerçekleşebileceğini 12.12 dersinde göstereceğiz
+AsÄ±lÄ± referanslardan kaÃ§Ä±nmak oldukÃ§a basittir, ancak bunun pratikte nasÄ±l gerÃ§ekleÅŸebileceÄŸini 12.12 dersinde gÃ¶stereceÄŸiz
 
-Referanslar nesne değildir
+Referanslar nesne deÄŸildir
 --------------------------
 
-Belki de şaşırtıcı bir şekilde, C++ dilinde referanslar nesneler değildir. Bir referansın var olması veya depolama alanını kaplaması gerekmez.
-Mümkünse, derleyici, bir referansın tüm örneklerini referans yapan nesneyle değiştirerek referansları optimize etme eğilimindedir. Ancak bu her 
-zaman mümkün olmayabilir ve böyle durumlarda referanslar depolama alanı gerektirebilir.
+Belki de ÅŸaÅŸÄ±rtÄ±cÄ± bir ÅŸekilde, C++ dilinde referanslar nesneler deÄŸildir. Bir referansÄ±n var olmasÄ± veya depolama alanÄ±nÄ± kaplamasÄ± gerekmez.
+MÃ¼mkÃ¼nse, derleyici, bir referansÄ±n tÃ¼m Ã¶rneklerini referans yapan nesneyle deÄŸiÅŸtirerek referanslarÄ± optimize etme eÄŸilimindedir. Ancak bu her 
+zaman mÃ¼mkÃ¼n olmayabilir ve bÃ¶yle durumlarda referanslar depolama alanÄ± gerektirebilir.
 
-Bu aynı zamanda "referans değişkeni" teriminin biraz yanıltıcı olduğu anlamına gelir, çünkü değişkenler adı olan nesnelerdir ve referanslar 
-nesneler değildir.
+Bu aynÄ± zamanda "referans deÄŸiÅŸkeni" teriminin biraz yanÄ±ltÄ±cÄ± olduÄŸu anlamÄ±na gelir, Ã§Ã¼nkÃ¼ deÄŸiÅŸkenler adÄ± olan nesnelerdir ve referanslar 
+nesneler deÄŸildir.
 
-Çünkü referanslar nesneler değil, başka bir nesnenin adı olan referanslar, nesne gereken herhangi bir yerde kullanılamaz (örneğin, bir referansa 
-referans olamazsınız, çünkü bir lvalue referansı tanımlanabilir bir nesneye referans yapmalıdır). Bir nesne veya tekrar yerleştirilebilen bir 
-referans gerektiğinde, std::reference_wrapper (ki bunu 23.3 dersinde ele alacağız - Birleştirme) bir çözüm sunar.
+Ã‡Ã¼nkÃ¼ referanslar nesneler deÄŸil, baÅŸka bir nesnenin adÄ± olan referanslar, nesne gereken herhangi bir yerde kullanÄ±lamaz (Ã¶rneÄŸin, bir referansa 
+referans olamazsÄ±nÄ±z, Ã§Ã¼nkÃ¼ bir lvalue referansÄ± tanÄ±mlanabilir bir nesneye referans yapmalÄ±dÄ±r). Bir nesne veya tekrar yerleÅŸtirilebilen bir 
+referans gerektiÄŸinde, std::reference_wrapper (ki bunu 23.3 dersinde ele alacaÄŸÄ±z - BirleÅŸtirme) bir Ã§Ã¶zÃ¼m sunar.
 
 Bir kenara not olarak...
 
-Aşağıdaki değişkenleri düşünün:
+AÅŸaÄŸÄ±daki deÄŸiÅŸkenleri dÃ¼ÅŸÃ¼nÃ¼n:
 
                     int var{};
-                    int& ref1{ var };  // var'a bağlı bir lvalue referansı
-                    int& ref2{ ref1 }; // var'a bağlı bir lvalue referansı
+                    int& ref1{ var };  // var'a baÄŸlÄ± bir lvalue referansÄ±
+                    int& ref2{ ref1 }; // var'a baÄŸlÄ± bir lvalue referansÄ±
 
-Çünkü ref2 (bir referans) ref1 (bir referans) ile başlatılmıştır, ref2'nin bir referansın referansı olduğunu düşünebilirsiniz. Ancak öyle değil.
-ref1, var'a referans olduğundan, bir ifadede (örneğin bir başlatıcıda) kullanıldığında, ref1 var'a değerlendirilir. Bu nedenle ref2, sadece var'a
-bağlı normal bir lvalue referansıdır (türü int& olarak belirtilmiştir).
+Ã‡Ã¼nkÃ¼ ref2 (bir referans) ref1 (bir referans) ile baÅŸlatÄ±lmÄ±ÅŸtÄ±r, ref2'nin bir referansÄ±n referansÄ± olduÄŸunu dÃ¼ÅŸÃ¼nebilirsiniz. Ancak Ã¶yle deÄŸil.
+ref1, var'a referans olduÄŸundan, bir ifadede (Ã¶rneÄŸin bir baÅŸlatÄ±cÄ±da) kullanÄ±ldÄ±ÄŸÄ±nda, ref1 var'a deÄŸerlendirilir. Bu nedenle ref2, sadece var'a
+baÄŸlÄ± normal bir lvalue referansÄ±dÄ±r (tÃ¼rÃ¼ int& olarak belirtilmiÅŸtir).
 
-Bir referansın referansına (bir int'e) sahip olmak için int&& syntax'ı kullanılmalıdır - ancak C++, referansların referansını desteklemediği için
-bu syntax C++11'de bir sağ taraf değeri referansını göstermek için kullanılmıştır (ki bunu 22.2 dersinde ele alıyoruz - R değeri referansları).
+Bir referansÄ±n referansÄ±na (bir int'e) sahip olmak iÃ§in int&& syntax'Ä± kullanÄ±lmalÄ±dÄ±r - ancak C++, referanslarÄ±n referansÄ±nÄ± desteklemediÄŸi iÃ§in
+bu syntax C++11'de bir saÄŸ taraf deÄŸeri referansÄ±nÄ± gÃ¶stermek iÃ§in kullanÄ±lmÄ±ÅŸtÄ±r (ki bunu 22.2 dersinde ele alÄ±yoruz - R deÄŸeri referanslarÄ±).
 
-ref2'nin ref1 ile başlatılmasından dolayı ref2'nin bir referansın referansı gibi algılanabileceği ancak bu durumun gerçekleşmediği .
-C++ dilinde referansların referanslarını desteklemez. int&& syntax'ı orijinalde bir referansın referansını ifade ediyordu, ancak C++11'de
-bu syntax, sağ taraf değeri referansını (rvalue reference) ifade etmek için kullanılmaya başlandı.
+ref2'nin ref1 ile baÅŸlatÄ±lmasÄ±ndan dolayÄ± ref2'nin bir referansÄ±n referansÄ± gibi algÄ±lanabileceÄŸi ancak bu durumun gerÃ§ekleÅŸmediÄŸi .
+C++ dilinde referanslarÄ±n referanslarÄ±nÄ± desteklemez. int&& syntax'Ä± orijinalde bir referansÄ±n referansÄ±nÄ± ifade ediyordu, ancak C++11'de
+bu syntax, saÄŸ taraf deÄŸeri referansÄ±nÄ± (rvalue reference) ifade etmek iÃ§in kullanÄ±lmaya baÅŸlandÄ±.
 
-12.4 - Lvalue referanslarını const lar ile kullanımı
+12.4 - Lvalue referanslarÄ±nÄ± const lar ile kullanÄ±mÄ±
 ----------------------------------------------------
                     int main()
                     {
-                        const int x{5};    // x, değiştirilemez (const) bir lvalue'dir
-                        int& ref{x};       // hata: ref, değiştirilemez lvalue'a bağlanamaz
+                        const int x{5};    // x, deÄŸiÅŸtirilemez (const) bir lvalue'dir
+                        int& ref{x};       // hata: ref, deÄŸiÅŸtirilemez lvalue'a baÄŸlanamaz
 
                         return 0;
                     }
 
-Bu durum, const bir değişkeni (x) değiştirmemize izin verecek bir const olmayan referans (ref) üzerinden değiştirmemize izin vermemek amacıyla 
-engellenmiştir.
+Bu durum, const bir deÄŸiÅŸkeni (x) deÄŸiÅŸtirmemize izin verecek bir const olmayan referans (ref) Ã¼zerinden deÄŸiÅŸtirmemize izin vermemek amacÄ±yla 
+engellenmiÅŸtir.
 
-Ancak eğer bir const değişkene bir referans oluşturmak istiyorsak, normal bir lvalue referansı (const olmayan bir değere) yeterli olmayacaktır.
+Ancak eÄŸer bir const deÄŸiÅŸkene bir referans oluÅŸturmak istiyorsak, normal bir lvalue referansÄ± (const olmayan bir deÄŸere) yeterli olmayacaktÄ±r.
 
-Bir lvalue referansının deklarasyonunda const anahtar kelimesini kullanarak, referansın işaret ettiği nesneyi const olarak ele almasını sağlarız.
-Bu tür bir referans, bir const değere sahip bir lvalue referansı olarak adlandırılır (bazen bir const referansı veya sadece const olarak da 
-adlandırılır). Lvalue references to const, değiştirilemez lvalue'lara bağlanabilir:
+Bir lvalue referansÄ±nÄ±n deklarasyonunda const anahtar kelimesini kullanarak, referansÄ±n iÅŸaret ettiÄŸi nesneyi const olarak ele almasÄ±nÄ± saÄŸlarÄ±z.
+Bu tÃ¼r bir referans, bir const deÄŸere sahip bir lvalue referansÄ± olarak adlandÄ±rÄ±lÄ±r (bazen bir const referansÄ± veya sadece const olarak da 
+adlandÄ±rÄ±lÄ±r). Const Lvalue referanslar, deÄŸiÅŸtirilemez lvalue'lara baÄŸlanabilir:
 
                     int main()
                     {
-                        const int x{5};        // x, değiştirilemez bir lvalue'dir
-                        const int& ref{x};     // uygun: ref, bir const değere sahip bir lvalue referansıdır
+                        const int x{5};        // x, deÄŸiÅŸtirilemez bir lvalue'dir
+                        const int& ref{x};     // uygun: ref, bir const deÄŸere sahip bir lvalue referansÄ±dÄ±r
 
                         return 0;
                     }
 
-Çünkü lvalue referanslarına const, üzerine referans yapılan nesneyi const olarak ele aldıkları için, referans yapılan değeri değiştirmek yerine 
-sadece erişmek için kullanılabilirler:
+Ã‡Ã¼nkÃ¼ lvalue referanslarÄ±na const, Ã¼zerine referans yapÄ±lan nesneyi const olarak ele aldÄ±klarÄ± iÃ§in, referans yapÄ±lan deÄŸeri deÄŸiÅŸtirmek yerine 
+sadece eriÅŸmek iÃ§in kullanÄ±labilirler:
 
                     #include <iostream>
 
                     int main()
                     {
-                        const int x{5};        // x, değiştirilemez bir lvalue'dir
-                        const int& ref{x};     // uygun: ref, bir const değere sahip bir lvalue referansıdır
+                        const int x{5};        // x, deÄŸiÅŸtirilemez bir lvalue'dir
+                        const int& ref{x};     // uygun: ref, bir const deÄŸere sahip bir const lvalue referansÄ±dÄ±r
 
-                        std::cout << ref << '\n'; // uygun: const nesneye erişebiliriz
-                        ref = 6;                  // hata: const bir referans aracılığıyla bir nesneyi değiştiremeyiz
+                        std::cout << ref << '\n'; // uygun: const nesneye eriÅŸebiliriz
+                        ref = 6;                  // hata: const bir referans aracÄ±lÄ±ÄŸÄ±yla bir nesneyi deÄŸiÅŸtiremeyiz
 
                         return 0;
                     }
 
-Const ile başlatılmış, değiştirilebilir bir lvalue referansı
+Const ile baÅŸlatÄ±lmÄ±ÅŸ, deÄŸiÅŸtirilebilir bir lvalue referansÄ±
 ------------------------------------------------------------
 
-Lvalue referansları const ile modifiable (değiştirilebilir) lvaluelara bağlanabilir. Bu durumda, referans aracılığıyla erişilen nesne const
-olarak işlenir (ancak temeldeki nesne const olmasa bile):
+Lvalue referanslarÄ± const ile deÄŸiÅŸtirilebilir lvaluelara baÄŸlanabilir. Bu durumda, referans aracÄ±lÄ±ÄŸÄ±yla eriÅŸilen nesne const
+olarak iÅŸlenir (ancak temeldeki nesne const olmasa bile):
 
                     #include <iostream>
 
                     int main()
                     {
-                        int x{5};               // x, değiştirilebilir bir lvalue'dir
-                        const int& ref{x};      // tamam: değiştirilebilir bir lvalue'a bir const referans bağlayabiliriz
+                        int x{5};               // x, deÄŸiÅŸtirilebilir bir lvalue'dir
+                        const int& ref{x};      // tamam: deÄŸiÅŸtirilebilir bir lvalue'a bir const referans baÄŸlayabiliriz
 
-                        std::cout << ref << '\n'; // tamam: nesneye const referans aracılığıyla erişebiliriz
-                        // ref = 7;               // hata: bir const referans aracılığıyla bir nesneyi değiştiremeyiz
+                        std::cout << ref << '\n'; // tamam: nesneye const referans aracÄ±lÄ±ÄŸÄ±yla eriÅŸebiliriz
+                        // ref = 7;               // hata: bir const referans aracÄ±lÄ±ÄŸÄ±yla bir nesneyi deÄŸiÅŸtiremeyiz
 
-                        x = 6;                   // tamam: x, değiştirilebilir bir lvalue'dir, hala orijinal tanımlayıcı aracılığıyla
-                                                    değiştirebiliriz
+                        x = 6;                   // tamam: x, deÄŸiÅŸtirilebilir bir lvalue'dir, hala orijinal tanÄ±mlayÄ±cÄ± aracÄ±lÄ±ÄŸÄ±yla
+                                                    deÄŸiÅŸtirebiliriz
 
                         return 0;
                     }
 
-Yukarıdaki programda, const referansı ref'i değiştirilebilir lvalue x'e bağladık. Ardından ref'i kullanarak x'e erişebiliriz, ancak ref const
-olduğu için ref üzerinden x'in değerini değiştiremeyiz. Ancak, x'in değerini doğrudan (tanımlayıcı x kullanarak) değiştirebiliriz.
+YukarÄ±daki programda, const referansÄ± ref'i deÄŸiÅŸtirilebilir lvalue x'e baÄŸladÄ±k. ArdÄ±ndan ref'i kullanarak x'e eriÅŸebiliriz, ancak ref const
+olduÄŸu iÃ§in ref Ã¼zerinden x'in deÄŸerini deÄŸiÅŸtiremeyiz. Ancak, x'in deÄŸerini doÄŸrudan (tanÄ±mlayÄ±cÄ± x kullanarak) deÄŸiÅŸtirebiliriz.
 
-*** BEST -> Değiştirilmek istenen nesnenin modifikasyonu gerekmediği sürece, const lvalue referanslarını lvalue referanslarına tercih edin.
+*** BEST -> DeÄŸiÅŸtirilmek istenen nesnenin modifikasyonu gerekmediÄŸi sÃ¼rece, const lvalue referanslarÄ±nÄ± lvalue referanslarÄ±na tercih edin.
 
-Const bir lvalue referansını rvalue ile başlatma
+Const bir lvalue referansÄ±nÄ± rvalue ile baÅŸlatma
 ------------------------------------------------
-Belki de şaşırtıcı bir şekilde, const lvalue referansları aynı zamanda rvalue'larla da bağlanabilir:
+Belki de ÅŸaÅŸÄ±rtÄ±cÄ± bir ÅŸekilde, const lvalue referanslarÄ± aynÄ± zamanda rvalue'larla da baÄŸlanabilir:
 
                     #include <iostream>
 
@@ -729,80 +728,80 @@ Belki de şaşırtıcı bir şekilde, const lvalue referansları aynı zamanda rvalue'la
                     {
                         const int& ref{5}; // tamam: 5 bir rvalue'dir
 
-                        std::cout << ref << '\n'; // 5'i yazdırır
+                        std::cout << ref << '\n'; // 5'i yazdÄ±rÄ±r
 
                         return 0;
                     }
 
-Bu durumda, geçici bir nesne oluşturulur ve rvalue ile başlatılır, ardından const referans o geçici nesneye bağlanır.
+Bu durumda, geÃ§ici bir nesne oluÅŸturulur ve rvalue ile baÅŸlatÄ±lÄ±r, ardÄ±ndan const referans o geÃ§ici nesneye baÄŸlanÄ±r.
 
-Geçici bir nesne (bazen anonim nesne olarak da adlandırılır), bir ifade içinde geçici olarak oluşturulan (ve sonra yok edilen) bir nesnedir.
-Geçici nesnelerin hiçbir kapsamı yoktur (bu mantıklıdır, çünkü kapsam bir tanımlayıcının özelliğidir ve geçici nesnelerin bir tanımlayıcısı
-yoktur). Bu, bir geçici nesnenin sadece oluşturulduğu noktada doğrudan kullanılabileceği anlamına gelir, çünkü bu noktadan ötesine referans
-oluşturmanın bir yolu yoktur.
+GeÃ§ici bir nesne (bazen anonim nesne olarak da adlandÄ±rÄ±lÄ±r), bir ifade iÃ§inde geÃ§ici olarak oluÅŸturulan (ve sonra yok edilen) bir nesnedir.
+GeÃ§ici nesnelerin hiÃ§bir kapsamÄ± yoktur (bu mantÄ±klÄ±dÄ±r, Ã§Ã¼nkÃ¼ kapsam bir tanÄ±mlayÄ±cÄ±nÄ±n Ã¶zelliÄŸidir ve geÃ§ici nesnelerin bir tanÄ±mlayÄ±cÄ±sÄ±
+yoktur). Bu, bir geÃ§ici nesnenin sadece oluÅŸturulduÄŸu noktada doÄŸrudan kullanÄ±labileceÄŸi anlamÄ±na gelir, Ã§Ã¼nkÃ¼ bu noktadan Ã¶tesine referans
+oluÅŸturmanÄ±n bir yolu yoktur.
 
-Const referanslar geçici nesnelere bağlandığında, geçici nesnenin ömrü uzatılır
+Const referanslar geÃ§ici nesnelere baÄŸlandÄ±ÄŸÄ±nda, geÃ§ici nesnenin Ã¶mrÃ¼ uzatÄ±lÄ±r
 -------------------------------------------------------------------------------
 
-Genellikle, geçici nesneler oluşturuldukları ifadenin sonunda yok edilir.
+Genellikle, geÃ§ici nesneler oluÅŸturulduklarÄ± ifadenin sonunda yok edilir.
 
-Ancak yukarıdaki örnekte, rvalue 5'i tutmak için oluşturulan geçici nesnenin ref tarafından başlatılan ifadenin sonunda yok edilmesi durumunda
-ne olacağını düşünelim. Referans ref, sallantıda (yok edilmiş bir nesneye referans) bırakılır ve ref'e erişmeye çalıştığımızda tanımsız davranış
+Ancak yukarÄ±daki Ã¶rnekte, rvalue 5'i tutmak iÃ§in oluÅŸturulan geÃ§ici nesnenin ref tarafÄ±ndan baÅŸlatÄ±lan ifadenin sonunda yok edilmesi durumunda
+ne olacaÄŸÄ±nÄ± dÃ¼ÅŸÃ¼nelim. Referans ref, sallantÄ±da (yok edilmiÅŸ bir nesneye referans) bÄ±rakÄ±lÄ±r ve ref'e eriÅŸmeye Ã§alÄ±ÅŸtÄ±ÄŸÄ±mÄ±zda tanÄ±msÄ±z davranÄ±ÅŸ
 elde ederiz.
 
-Bu tür durumlarda sallantı referanslarından kaçınmak için C++'da özel bir kural vardır: Bir const lvalue referansı doğrudan bir geçici nesneye
-bağlandığında, geçici nesnenin ömrü referansın ömrüyle eşleşecek şekilde uzatılır.
+Bu tÃ¼r durumlarda sallantÄ± referanslarÄ±ndan kaÃ§Ä±nmak iÃ§in C++'da Ã¶zel bir kural vardÄ±r: Bir const lvalue referansÄ± doÄŸrudan bir geÃ§ici nesneye
+baÄŸlandÄ±ÄŸÄ±nda, geÃ§ici nesnenin Ã¶mrÃ¼ referansÄ±n Ã¶mrÃ¼yle eÅŸleÅŸecek ÅŸekilde uzatÄ±lÄ±r.
 
                     #include <iostream>
 
                     int main()
                     {
-                        const int& ref{5}; // 5 değerini tutan geçici nesnenin ömrü, ref ile eşleşecek şekilde uzatılır
+                        const int& ref{5}; // 5 deÄŸerini tutan geÃ§ici nesnenin Ã¶mrÃ¼, ref ile eÅŸleÅŸecek ÅŸekilde uzatÄ±lÄ±r
 
-                        std::cout << ref << '\n'; // Bu nedenle, burada güvenli bir şekilde kullanabiliriz
+                        std::cout << ref << '\n'; // Bu nedenle, burada gÃ¼venli bir ÅŸekilde kullanabiliriz
 
                         return 0;
-                    } // Hem ref hem de geçici nesne burada sona erer
+                    } // Hem ref hem de geÃ§ici nesne burada sona erer
 
 
-Yukarıdaki örnekte, ref rvalue 5 ile başlatıldığında, bir geçici nesne oluşturulur ve ref bu geçici nesneye bağlanır. Geçici nesnenin ömrü,
-ref'in ömrüyle eşleşir. Bu nedenle, bir sonraki ifadede ref'in değerini güvenli bir şekilde yazdırabiliriz. Ardından, hem ref hem de geçici 
-nesne, bloğun sonunda kapsam dışına çıkıp yok edilir.
+YukarÄ±daki Ã¶rnekte, ref rvalue 5 ile baÅŸlatÄ±ldÄ±ÄŸÄ±nda, bir geÃ§ici nesne oluÅŸturulur ve ref bu geÃ§ici nesneye baÄŸlanÄ±r. GeÃ§ici nesnenin Ã¶mrÃ¼,
+ref'in Ã¶mrÃ¼yle eÅŸleÅŸir. Bu nedenle, bir sonraki ifadede ref'in deÄŸerini gÃ¼venli bir ÅŸekilde yazdÄ±rabiliriz. ArdÄ±ndan, hem ref hem de geÃ§ici 
+nesne, bloÄŸun sonunda kapsam dÄ±ÅŸÄ±na Ã§Ä±kÄ±p yok edilir.
 
-Ana İpucu
+Ana Ä°pucu
 
-- Lvalue referansları yalnızca değiştirilebilir lvalue'lere bağlanabilir.
-- Const lvalue referansları, değiştirilebilir lvalue'lere, değiştirilemeyen lvalue'lere ve rvalue'lere bağlanabilir. Bu, onları çok daha 
-  esnek bir referans türü yapar.
+- Lvalue referanslarÄ± yalnÄ±zca deÄŸiÅŸtirilebilir lvalue'lere baÄŸlanabilir.
+- Const lvalue referanslarÄ±, deÄŸiÅŸtirilebilir lvalue'lere, deÄŸiÅŸtirilemeyen lvalue'lere ve rvalue'lere baÄŸlanabilir. Bu, onlarÄ± Ã§ok daha 
+  esnek bir referans tÃ¼rÃ¼ yapar.
 
 
 Constexpr lvalue referanslar
 ----------------------------
 
-Referansa uygulandığında, constexpr referansın bu referansın bir sabit ifadesinde kullanılmasına izin verir. Constexpr referansların belirli
-bir kısıtlaması vardır: yalnızca statik süreye sahip nesnelere bağlanabilirler (ya global ya da static yerel değişkenler). Bu, derleyicinin
-statik nesnelerin bellekte hangi konumda oluşturulacağını bildiği için o adresi derleme zamanında bir sabit olarak işleyebilmesinden kaynaklanır.
+Referansa uygulandÄ±ÄŸÄ±nda, constexpr referansÄ±n bu referansÄ±n bir sabit ifadesinde kullanÄ±lmasÄ±na izin verir. Constexpr referanslarÄ±n belirli
+bir kÄ±sÄ±tlamasÄ± vardÄ±r: yalnÄ±zca statik sÃ¼reye sahip nesnelere baÄŸlanabilirler (ya global ya da static yerel deÄŸiÅŸkenler). Bu, derleyicinin
+statik nesnelerin bellekte hangi konumda oluÅŸturulacaÄŸÄ±nÄ± bildiÄŸi iÃ§in o adresi derleme zamanÄ±nda bir sabit olarak iÅŸleyebilmesinden kaynaklanÄ±r.
 
-Constexpr referans, bir (non-static) yerel değişkene bağlanamaz. Bu, yerel değişkenlerin adresinin, tanımlandıkları fonksiyonun gerçekten
-çağrıldığı zamana kadar bilinmediği için geçerlidir.
+Constexpr referans, bir (non-static) yerel deÄŸiÅŸkene baÄŸlanamaz. Bu, yerel deÄŸiÅŸkenlerin adresinin, tanÄ±mlandÄ±klarÄ± fonksiyonun gerÃ§ekten
+Ã§aÄŸrÄ±ldÄ±ÄŸÄ± zamana kadar bilinmediÄŸi iÃ§in geÃ§erlidir.
 
                     int g_x{5};
 
                     int main()
                     {
-                        [[maybe_unused]] constexpr int& ref1{g_x}; // tamam, global değişkene bağlanabilir
+                        [[maybe_unused]] constexpr int& ref1{g_x}; // tamam, global deÄŸiÅŸkene baÄŸlanabilir
 
                         static int s_x{6};
-                        [[maybe_unused]] constexpr int& ref2{s_x}; // tamam, static yerel değişkene bağlanabilir
+                        [[maybe_unused]] constexpr int& ref2{s_x}; // tamam, static yerel deÄŸiÅŸkene baÄŸlanabilir
 
                         int x{6};
-                        // [[maybe_unused]] constexpr int& ref3{x}; // derleme hatası: non-static bir nesneye bağlanamaz
+                        // [[maybe_unused]] constexpr int& ref3{x}; // derleme hatasÄ±: non-static bir nesneye baÄŸlanamaz
 
                         return 0;
                     }
 
-Bir const değişkenine bir constexpr referans tanımlarken, hem referansa (constexpr, referansa uygulanan) hem de referans yapılan tipe
-(const, referansın hedeflediği tipe uygulanan) hem constexpr hem de const uygulamamız gerekiyor.
+Bir const deÄŸiÅŸkenine bir constexpr referans tanÄ±mlarken, hem referansa (constexpr, referansa uygulanan) hem de referans yapÄ±lan tipe
+(const, referansÄ±n hedeflediÄŸi tipe uygulanan) hem constexpr hem de const uygulamamÄ±z gerekiyor.
 
                     int main()
                     {
@@ -812,14 +811,14 @@ Bir const değişkenine bir constexpr referans tanımlarken, hem referansa (constex
                         return 0;
                     }
 
-Bu sınırlamalar göz önüne alındığında, constexpr referansları genellikle pek fazla kullanılmaz.
+Bu sÄ±nÄ±rlamalar gÃ¶z Ã¶nÃ¼ne alÄ±ndÄ±ÄŸÄ±nda, constexpr referanslarÄ± genellikle pek fazla kullanÄ±lmaz.
 
-12.5 — Sol değer referansı argüman olarak kullanma
+12.5 â€” Sol deÄŸer referansÄ± argÃ¼man olarak kullanma
 --------------------------------------------------
-Neden bir değişkenin kendisini kullanmak yerine bir değişken için bir takma ad oluşturulsun ki?
+Neden bir deÄŸiÅŸkenin kendisini kullanmak yerine bir deÄŸiÅŸken iÃ§in bir takma ad oluÅŸturulsun ki?
 
-Bu derste ve bundan sonraki derslerde bu konuyu açıklayacağız. İlk olarak, biraz bağlam. Daha önceki 2.4 dersinde - Fonksiyon Parametreleri
-ve Argümanlarına Giriş'te, değerle geçişi tartıştık; bir fonksiyona iletilen bir argüman, fonksiyonun parametresine kopyalanır:
+Bu derste ve bundan sonraki derslerde bu konuyu aÃ§Ä±klayacaÄŸÄ±z. Ä°lk olarak, biraz baÄŸlam. Daha Ã¶nceki 2.4 dersinde - Fonksiyon Parametreleri
+ve ArgÃ¼manlarÄ±na GiriÅŸ'te, deÄŸerle geÃ§iÅŸi tartÄ±ÅŸtÄ±k; bir fonksiyona iletilen bir argÃ¼man, fonksiyonun parametresine kopyalanÄ±r:
 
                     #include <iostream>
 
@@ -832,24 +831,24 @@ ve Argümanlarına Giriş'te, değerle geçişi tartıştık; bir fonksiyona iletilen bir
                     {
                         int x { 2 };
 
-                        printDeger(x); // x, değeri y parametresine (ucuz) aktarılır (kopyalanır)
+                        printDeger(x); // x, deÄŸeri y parametresine kopyalanÄ±r (ucuz)
 
                         return 0;
                     }
 
 
-Yukarıdaki programda, printDeger(x) çağrıldığında, x'in değeri (2), parametre y içine kopyalanır. Ardından, fonksiyonun sonunda y nesnesi yok 
+YukarÄ±daki programda, printDeger(x) Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nda, x'in deÄŸeri (2), parametre y iÃ§ine kopyalanÄ±r. ArdÄ±ndan, fonksiyonun sonunda y nesnesi yok 
 edilir.
 
-Bu, fonksiyonu çağırdığımızda, argümanın değerinden bir kopya oluşturduğumuz ve ardından kısa bir süre kullanıp yok ettiğimiz anlamına gelir!
-Neyse ki, temel tiplerin kopyalanması ucuz olduğundan, bu bir sorun teşkil etmez.
+Bu, fonksiyonu Ã§aÄŸÄ±rdÄ±ÄŸÄ±mÄ±zda, argÃ¼manÄ±n deÄŸerinden bir kopya oluÅŸturduÄŸumuz ve ardÄ±ndan kÄ±sa bir sÃ¼re kullanÄ±p yok ettiÄŸimiz anlamÄ±na gelir!
+Neyse ki, temel tiplerin kopyalanmasÄ± ucuz olduÄŸundan, bu bir sorun teÅŸkil etmez.
 
-Bazı nesnelerin kopyalanması pahalı olabilir
+BazÄ± nesnelerin kopyalanmasÄ± pahalÄ± olabilir
 
-Standart kütüphanenin sağladığı çoğu tür (örneğin std::string) sınıf türleridir. Sınıf türleri genellikle kopyalamak pahalıdır. Mümkünse,
-özellikle bu kopyaları neredeyse hemen yok edeceğimiz durumlarda, pahalı kopyaların gereksiz yaratılmasından kaçınmak istiyoruz.
+Standart kÃ¼tÃ¼phanenin saÄŸladÄ±ÄŸÄ± Ã§oÄŸu tÃ¼r (Ã¶rneÄŸin std::string) sÄ±nÄ±f tÃ¼rleridir. SÄ±nÄ±f tÃ¼rleri genellikle kopyalamak pahalÄ±dÄ±r. MÃ¼mkÃ¼nse,
+Ã¶zellikle bu kopyalarÄ± neredeyse hemen yok edeceÄŸimiz durumlarda, pahalÄ± kopyalarÄ±n gereksiz yaratÄ±lmasÄ±ndan kaÃ§Ä±nmak istiyoruz.
 
-Bu noktayı gösteren aşağıdaki programı düşünün:
+Bu noktayÄ± gÃ¶steren aÅŸaÄŸÄ±daki programÄ± dÃ¼ÅŸÃ¼nÃ¼n:
 
                     #include <iostream>
                     #include <string>
@@ -861,35 +860,35 @@ Bu noktayı gösteren aşağıdaki programı düşünün:
 
                     int main()
                     {
-                        std::string x { "Hello, world!" }; // x bir std::string türüdür
+                        std::string x { "Hello, world!" }; // x bir std::string tÃ¼rÃ¼dÃ¼r
 
-                        printValue(x); // x y parametresine değer olarak geçildi ( pahalıdır )
+                        printValue(x); // x y parametresine deÄŸer olarak geÃ§ildi ( pahalÄ±dÄ±r )
 
                         return 0;
                     }
-                    Çıktı:
+                    Ã‡Ä±ktÄ±:
                     Hello, World!
 
 
-Bu program beklediğimiz gibi davranıyor gibi görünse de, aynı zamanda verimsizdir. Önceki örnekle aynı şekilde, printValue() çağrıldığında,
-argüman x printValue() parametresi y'e kopyalanır. Ancak bu örnekte, argüman bir int yerine bir std::string'dir ve std::string, kopyalaması
-pahalı bir sınıf türüdür. Ve bu pahalı kopya, her printValue() çağrıldığında yapılır!
+Bu program beklediÄŸimiz gibi davranÄ±yor gibi gÃ¶rÃ¼nse de, aynÄ± zamanda verimsizdir. Ã–nceki Ã¶rnekle aynÄ± ÅŸekilde, printValue() Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nda,
+argÃ¼man x printValue() parametresi y'e kopyalanÄ±r. Ancak bu Ã¶rnekte, argÃ¼man bir int yerine bir std::string'dir ve std::string, kopyalamasÄ±
+pahalÄ± bir sÄ±nÄ±f tÃ¼rÃ¼dÃ¼r. Ve bu pahalÄ± kopya, her printValue() Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nda yapÄ±lÄ±r!
 
 Daha iyi yapabiliriz.
 
-Referans ile argüman aktarma
+Referans ile argÃ¼man aktarma
 ----------------------------
-Bir fonksiyonu çağırırken argümanın pahalı bir kopyasını oluşturmaktan kaçınmanın bir yolu, değer ile geçiş yerine referans ile geçiş kullanmaktır.
-Referans kullanırken, bir fonksiyon parametresini normal bir tür olarak değil, bir referans türü olarak (veya sabit referans türü olarak)
-tanımlarız. Fonksiyon çağrıldığında, her referans parametresi uygun argümana bağlanır. Referans, argüman için bir takma ad olarak hareket ettiği
-için, argümanın bir kopyası oluşturulmaz.
+Bir fonksiyonu Ã§aÄŸÄ±rÄ±rken argÃ¼manÄ±n pahalÄ± bir kopyasÄ±nÄ± oluÅŸturmaktan kaÃ§Ä±nmanÄ±n bir yolu, deÄŸer ile geÃ§iÅŸ yerine referans ile geÃ§iÅŸ kullanmaktÄ±r.
+Referans kullanÄ±rken, bir fonksiyon parametresini normal bir tÃ¼r olarak deÄŸil, bir referans tÃ¼rÃ¼ olarak (veya sabit referans tÃ¼rÃ¼ olarak)
+tanÄ±mlarÄ±z. Fonksiyon Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nda, her referans parametresi uygun argÃ¼mana baÄŸlanÄ±r. Referans, argÃ¼man iÃ§in bir takma ad olarak hareket ettiÄŸi
+iÃ§in, argÃ¼manÄ±n bir kopyasÄ± oluÅŸturulmaz.
 
-İşte değer ile geçiş yerine referans ile geçiş kullanılarak yukarıdaki örneğin aynısı:
+Ä°ÅŸte deÄŸer ile geÃ§iÅŸ yerine referans ile geÃ§iÅŸ kullanÄ±larak yukarÄ±daki Ã¶rneÄŸin aynÄ±sÄ±:
 
                     #include <iostream>
                     #include <string>
 
-                    void printValue(std::string& y) // tür std::string& olarak değiştirildi
+                    void printValue(std::string& y) // tÃ¼r std::string& olarak deÄŸiÅŸtirildi
                     {
                         std::cout << y << '\n';
                     } // y burada yok edildi
@@ -898,30 +897,30 @@ için, argümanın bir kopyası oluşturulmaz.
                     {
                         std::string x { "Hello, world!" };
 
-                        printValue(x); // Şimdi x değeri y parametresine referans olarak geçildi ( aktarıldı ) ( pahalı değil )
+                        printValue(x); // Åimdi x deÄŸeri y parametresine referans olarak geÃ§ildi ( aktarÄ±ldÄ± ) ( pahalÄ± deÄŸil )
 
                         return 0;
                     }
 
 
-Bu program, türü std::string olan parametre y'nin std::string& (bir sol değer referansı) olarak değiştirilmiş olan öncekine benziyor. Şimdi, 
-printValue(x) çağrıldığında, sol değer referans parametresi y, argüman x'e bağlanır. Bir referansı bağlamak her zaman ucuzdur ve x'in bir kopyası
-yapılmasına gerek yoktur. Bir referans, referans edilen nesne için bir takma ad olarak hareket ettiği için, printValue() referans y'yi 
-kullandığında, gerçek argüman x'e erişiyor (x'in bir kopyası değil).
+Bu program, tÃ¼rÃ¼ std::string olan parametre y'nin std::string& (bir sol deÄŸer referansÄ±) olarak deÄŸiÅŸtirilmiÅŸ olan Ã¶ncekine benziyor. Åimdi, 
+printValue(x) Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nda, sol deÄŸer referans parametresi y, argÃ¼man x'e baÄŸlanÄ±r. Bir referansÄ± baÄŸlamak her zaman ucuzdur ve x'in bir kopyasÄ±
+yapÄ±lmasÄ±na gerek yoktur. Bir referans, referans edilen nesne iÃ§in bir takma ad olarak hareket ettiÄŸi iÃ§in, printValue() referans y'yi 
+kullandÄ±ÄŸÄ±nda, gerÃ§ek argÃ¼man x'e eriÅŸiyor (x'in bir kopyasÄ± deÄŸil).
 
-Kilit nokta şudur ki; Referansa göre aktarma, fonksiyon her çağrıldığında bu argümanların kopyalarını oluşturmadan argümanları bir fonksiyona
-iletmemize olanak tanır.
+Kilit nokta ÅŸudur ki; Referansa gÃ¶re aktarma, fonksiyon her Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nda bu argÃ¼manlarÄ±n kopyalarÄ±nÄ± oluÅŸturmadan argÃ¼manlarÄ± bir fonksiyona
+iletmemize olanak tanÄ±r.
 
-Referansa göre geçiş, bir argümanın değerini değiştirmemize olanak tanır
+Referansa gÃ¶re geÃ§iÅŸ, bir argÃ¼manÄ±n deÄŸerini deÄŸiÅŸtirmemize olanak tanÄ±r
 
-Bir nesne değere göre iletildiğinde, işlev parametresi argümanın bir kopyasını alır. Bu, parametrenin değerinde yapılan herhangi bir değişikliğin
-argümanın kendisine değil, argümanın kopyasına yapılacağı anlamına gelir:
+Bir nesne deÄŸere gÃ¶re iletildiÄŸinde, iÅŸlev parametresi argÃ¼manÄ±n bir kopyasÄ±nÄ± alÄ±r. Bu, parametrenin deÄŸerinde yapÄ±lan herhangi bir deÄŸiÅŸikliÄŸin
+argÃ¼manÄ±n kendisine deÄŸil, argÃ¼manÄ±n kopyasÄ±na yapÄ±lacaÄŸÄ± anlamÄ±na gelir:
 
                     #include <iostream>
 
-                    void addOne(int y) // y, x'in kopyasıdır
+                    void addOne(int y) // y, x'in kopyasÄ±dÄ±r
                     {
-                        ++y; // Buradaki değişim x'in kopyasına olacaktır, gerçek x e değil
+                        ++y; // Buradaki deÄŸiÅŸim x'in kopyasÄ±na olacaktÄ±r, gerÃ§ek x e deÄŸil
                     }
 
                     int main()
@@ -932,23 +931,23 @@ argümanın kendisine değil, argümanın kopyasına yapılacağı anlamına gelir:
 
                         addOne(x);
 
-                        std::cout << "value = " << x << '\n'; // x değiştirilmedi
+                        std::cout << "value = " << x << '\n'; // x deÄŸiÅŸtirilmedi
 
                         return 0;
                     }
-Yukarıdaki programda y değer parametresi x'in kopyası olduğundan y'yi arttırdığımızda bu sadece y'yi etkiler. Bu programın çıktısı:
+YukarÄ±daki programda y deÄŸer parametresi x'in kopyasÄ± olduÄŸundan y'yi arttÄ±rdÄ±ÄŸÄ±mÄ±zda bu sadece y'yi etkiler. Bu programÄ±n Ã§Ä±ktÄ±sÄ±:
 
                     value = 5
                     value = 5
 
-Bununla birlikte, bir referans, referans verilen nesneyle aynı şekilde davrandığından, referansa göre geçiş kullanıldığında, referans
-parametresinde yapılan herhangi bir değişiklik bağımsız değişkeni etkileyecektir:
+Bununla birlikte, bir referans, referans verilen nesneyle aynÄ± ÅŸekilde davrandÄ±ÄŸÄ±ndan, referansa gÃ¶re geÃ§iÅŸ kullanÄ±ldÄ±ÄŸÄ±nda, referans
+parametresinde yapÄ±lan herhangi bir deÄŸiÅŸiklik baÄŸÄ±msÄ±z deÄŸiÅŸkeni etkileyecektir:
 
                     #include <iostream>
 
-                    void addOne(int& y) // y gerçek x'e bağlı çünkü referans ediyor
+                    void addOne(int& y) // y gerÃ§ek x'e baÄŸlÄ± Ã§Ã¼nkÃ¼ referans ediyor
                     {
-                        ++y; // bu gerçek x'i değiştirecek
+                        ++y; // bu gerÃ§ek x'i deÄŸiÅŸtirecek
                     }
 
                     int main()
@@ -959,36 +958,36 @@ parametresinde yapılan herhangi bir değişiklik bağımsız değişkeni etkileyecektir
 
                         addOne(x);
 
-                        std::cout << "value = " << x << '\n'; // x değişti
+                        std::cout << "value = " << x << '\n'; // x deÄŸiÅŸti
 
                         return 0;
                     }
-                    Çıktısı:
+                    Ã‡Ä±ktÄ±sÄ±:
                     value = 5
                     value = 6
 
 
-Yukarıdaki örnekte, x'in başlangıçta değeri 5'tir. addOne(x) çağrıldığında, referans parametresi y, argüman x'e bağlanır. addOne() fonksiyonu
-referans y'yi arttırdığında, aslında argüman x'i 5'ten 6'ya arttırıyor (x'in bir kopyası değil). Bu değişen değer, addOne() işlemi tamamlandıktan
+YukarÄ±daki Ã¶rnekte, x'in baÅŸlangÄ±Ã§ta deÄŸeri 5'tir. addOne(x) Ã§aÄŸrÄ±ldÄ±ÄŸÄ±nda, referans parametresi y, argÃ¼man x'e baÄŸlanÄ±r. addOne() fonksiyonu
+referans y'yi arttÄ±rdÄ±ÄŸÄ±nda, aslÄ±nda argÃ¼man x'i 5'ten 6'ya arttÄ±rÄ±yor (x'in bir kopyasÄ± deÄŸil). Bu deÄŸiÅŸen deÄŸer, addOne() iÅŸlemi tamamlandÄ±ktan
 sonra bile devam eder.
 
-Değerleri const olmayanlara referansla iletmek, aktarılan argümanların değerini değiştiren fonksiyonlar yazmamıza olanak tanır.
+DeÄŸerleri const olmayanlara referansla iletmek, aktarÄ±lan argÃ¼manlarÄ±n deÄŸerini deÄŸiÅŸtiren fonksiyonlar yazmamÄ±za olanak tanÄ±r.
 
-Fonksiyonların iletilen argümanların değerini değiştirebilme yeteneği oldukça faydalı olabilir. Hayal edin ki bir canavarın oyuncuya başarıyla
-saldırdığını belirleyen bir fonksiyon yazdınız. Öyleyse, canavar oyuncunun sağlığına bir miktar hasar vermelidir. Eğer oyuncu nesnesini referans
-olarak iletiyorsanız, fonksiyon, iletilen gerçek oyuncu nesnesinin sağlığını doğrudan değiştirebilir. Eğer oyuncu nesnesini değer olarak
-iletiyorsanız, yalnızca bir kopyanın sağlığını değiştirebilirsiniz ki bu pek faydalı değildir.
+FonksiyonlarÄ±n iletilen argÃ¼manlarÄ±n deÄŸerini deÄŸiÅŸtirebilme yeteneÄŸi oldukÃ§a faydalÄ± olabilir. Hayal edin ki bir canavarÄ±n oyuncuya baÅŸarÄ±yla
+saldÄ±rdÄ±ÄŸÄ±nÄ± belirleyen bir fonksiyon yazdÄ±nÄ±z. Ã–yleyse, canavar oyuncunun saÄŸlÄ±ÄŸÄ±na bir miktar hasar vermelidir. EÄŸer oyuncu nesnesini referans
+olarak iletiyorsanÄ±z, fonksiyon, iletilen gerÃ§ek oyuncu nesnesinin saÄŸlÄ±ÄŸÄ±nÄ± doÄŸrudan deÄŸiÅŸtirebilir. EÄŸer oyuncu nesnesini deÄŸer olarak
+iletiyorsanÄ±z, yalnÄ±zca bir kopyanÄ±n saÄŸlÄ±ÄŸÄ±nÄ± deÄŸiÅŸtirebilirsiniz ki bu pek faydalÄ± deÄŸildir.
 
 
-Referans ile geçiş, yalnızca değiştirilebilir sol değer argümanları kabul edebilir
+Referans ile geÃ§iÅŸ, yalnÄ±zca deÄŸiÅŸtirilebilir sol deÄŸer argÃ¼manlarÄ± kabul edebilir
 
-Çünkü bir referans, bir değiştirilebilir sol değere (temelde bir const olmayan değişken) yalnızca bağlanabilir, bu nedenle referans ile geçiş,
-yalnızca değiştirilebilir sol değerlerle çalışır demektir. Pratikte, bu, referans ile geçişin const olmayanlara sınırlı faydasını önemli ölçüde
-sınırlar, çünkü const değişkenleri veya sabit ifadeleri iletimemiz mümkün değildir. Örneğin:
+Ã‡Ã¼nkÃ¼ bir referans, bir deÄŸiÅŸtirilebilir sol deÄŸere (temelde bir const olmayan deÄŸiÅŸken) yalnÄ±zca baÄŸlanabilir, bu nedenle referans ile geÃ§iÅŸ,
+yalnÄ±zca deÄŸiÅŸtirilebilir sol deÄŸerlerle Ã§alÄ±ÅŸÄ±r demektir. Pratikte, bu, referans ile geÃ§iÅŸin const olmayanlara sÄ±nÄ±rlÄ± faydasÄ±nÄ± Ã¶nemli Ã¶lÃ§Ã¼de
+sÄ±nÄ±rlar, Ã§Ã¼nkÃ¼ const deÄŸiÅŸkenleri veya sabit ifadeleri iletimemiz mÃ¼mkÃ¼n deÄŸildir. Ã–rneÄŸin:
 
                     #include <iostream>
 
-                    void printValue(int& y) // y sadece değiştirilebilir lvalue kabul eder
+                    void printValue(int& y) // y sadece deÄŸiÅŸtirilebilir lvalue kabul eder
                     {
                         std::cout << y << '\n';
                     }
@@ -996,28 +995,28 @@ sınırlar, çünkü const değişkenleri veya sabit ifadeleri iletimemiz mümkün değild
                     int main()
                     {
                         int x { 5 };
-                        printValue(x); // ok: x bir değiştirilebilir lvalue değişkendir
+                        printValue(x); // ok: x bir deÄŸiÅŸtirilebilir lvalue deÄŸiÅŸkendir
 
                         const int z { 5 };
-                        printValue(z); // error: z bir değiştirilebilir lvalue değişken değildir
+                        printValue(z); // error: z bir deÄŸiÅŸtirilebilir lvalue deÄŸiÅŸken deÄŸildir
 
                         printValue(5); // error: 5 bir rvalue dir
 
                         return 0;
                     }
 
-Neyse ki bunu aşmanın kolay bir yolu var ve bunu bir sonraki derste tartışacağız. Ayrıca ne zaman değere göre geçileceğine ve ne zaman referansa 
-göre geçileceğine de göz atacağız.
+Neyse ki bunu aÅŸmanÄ±n kolay bir yolu var ve bunu bir sonraki derste tartÄ±ÅŸacaÄŸÄ±z. AyrÄ±ca ne zaman deÄŸere gÃ¶re geÃ§ileceÄŸine ve ne zaman referansa 
+gÃ¶re geÃ§ileceÄŸine de gÃ¶z atacaÄŸÄ±z.
 
-12.6 — Const sol değer referansı ile geçiş
+12.6 â€” Const sol deÄŸer referansÄ± ile geÃ§iÅŸ
 ------------------------------------------
-Const olmayan bir referansın aksine (yalnızca değiştirilebilir sol değerlere bağlanabilirken), bir const referans, değiştirilebilir sol değerlere,
-değiştirilemez sol değerlere ve sağ değerlere bağlanabilir. Bu nedenle, bir referans parametreyi const yaparsak, her türlü argümana bağlanabilir 
+Const olmayan bir referansÄ±n aksine (yalnÄ±zca deÄŸiÅŸtirilebilir sol deÄŸerlere baÄŸlanabilirken), bir const referans, deÄŸiÅŸtirilebilir sol deÄŸerlere,
+deÄŸiÅŸtirilemez sol deÄŸerlere ve saÄŸ deÄŸerlere baÄŸlanabilir. Bu nedenle, bir referans parametreyi const yaparsak, her tÃ¼rlÃ¼ argÃ¼mana baÄŸlanabilir 
 hale gelecektir:
 
                     #include <iostream>
 
-                    void printValue(const int& y) // Şimdi y bir const referans
+                    void printValue(const int& y) // Åimdi y bir const referans
                     {
                         std::cout << y << '\n';
                     }
@@ -1025,40 +1024,40 @@ hale gelecektir:
                     int main()
                     {
                         int x { 5 };
-                        printValue(x); // ok: x bir değiştirilebilir lvalue
+                        printValue(x); // ok: x bir deÄŸiÅŸtirilebilir lvalue
 
                         const int z { 5 };
-                        printValue(z); // ok: z bir değiştirilemez lvalue
+                        printValue(z); // ok: z bir deÄŸiÅŸtirilemez lvalue
 
                         printValue(5); // ok: 5 bir literal rvalue
 
                         return 0;
                     }
 
-Const referans ile geçiş, referans ile geçişin temel avantajını (argümanın bir kopyasını oluşturmadan) sunarken, aynı zamanda fonksiyonun 
-referans yapılan değeri değiştiremeyeceğini garanti eder.
+Const referans ile geÃ§iÅŸ, referans ile geÃ§iÅŸin temel avantajÄ±nÄ± (argÃ¼manÄ±n bir kopyasÄ±nÄ± oluÅŸturmadan) sunarken, aynÄ± zamanda fonksiyonun 
+referans yapÄ±lan deÄŸeri deÄŸiÅŸtiremeyeceÄŸini garanti eder.
 
-Örneğin, aşağıdaki durum const olduğu için izin verilmez:
+Ã–rneÄŸin, aÅŸaÄŸÄ±daki durum const olduÄŸu iÃ§in izin verilmez:
 
                     void addOne(const int& ref)
                     {
-                        ++ref; // İzin verilmemiştir: Ref bir const çünkü
+                        ++ref; // Ä°zin verilmemiÅŸtir: Ref bir const Ã§Ã¼nkÃ¼
                     }
 
-Çoğu durumda fonksiyonlarımızın argümanların değerini değiştirmesini istemeyiz.
+Ã‡oÄŸu durumda fonksiyonlarÄ±mÄ±zÄ±n argÃ¼manlarÄ±n deÄŸerini deÄŸiÅŸtirmesini istemeyiz.
 
-*** BEST -> Aksini yapmak için özel bir nedeniniz olmadıkça (örneğin, işlevin bir argümanın değerini değiştirmesi gerekiyorsa), const referansı 
-            ile geçiş'i, const olmayan referans ile geçiş yerine tercih edin.
+*** BEST -> Aksini yapmak iÃ§in Ã¶zel bir nedeniniz olmadÄ±kÃ§a (Ã¶rneÄŸin, iÅŸlevin bir argÃ¼manÄ±n deÄŸerini deÄŸiÅŸtirmesi gerekiyorsa), const referansÄ± 
+            ile geÃ§iÅŸ'i, const olmayan referans ile geÃ§iÅŸ yerine tercih edin.
 
-Artık sabit değer referanslarının değerlere bağlanmasına izin vermenin motivasyonunu anlayabiliriz: bu yetenek olmasaydı, referans yoluyla geçiş
-kullanan işlevlere değişmez değerleri (veya diğer değerleri) aktarmanın bir yolu olmazdı!
+ArtÄ±k sabit deÄŸer referanslarÄ±nÄ±n deÄŸerlere baÄŸlanmasÄ±na izin vermenin motivasyonunu anlayabiliriz: bu yetenek olmasaydÄ±, referans yoluyla geÃ§iÅŸ
+kullanan iÅŸlevlere deÄŸiÅŸmez deÄŸerleri (veya diÄŸer deÄŸerleri) aktarmanÄ±n bir yolu olmazdÄ±!
 
 
-Değer ile geçiş ve referans ile geçişi karıştırma ( Birlikte kullanmak )
+DeÄŸer ile geÃ§iÅŸ ve referans ile geÃ§iÅŸi karÄ±ÅŸtÄ±rma ( Birlikte kullanmak )
 ------------------------------------------------------------------------
-Çoklu parametreye sahip bir fonksiyon, her parametrenin ayrı ayrı değer ile mi yoksa referans ile mi iletildiğini belirleyebilir.
+Ã‡oklu parametreye sahip bir fonksiyon, her parametrenin ayrÄ± ayrÄ± deÄŸer ile mi yoksa referans ile mi iletildiÄŸini belirleyebilir.
 
-Örneğin:
+Ã–rneÄŸin:
 
                     #include <string>
 
@@ -1075,42 +1074,42 @@ Değer ile geçiş ve referans ile geçişi karıştırma ( Birlikte kullanmak )
 
                         return 0;
                     }
-Yukarıdaki örnekte, ilk argüman değere göre, ikincisi referansa göre ve üçüncüsü const referansına göre iletilir.
+YukarÄ±daki Ã¶rnekte, ilk argÃ¼man deÄŸere gÃ¶re, ikincisi referansa gÃ¶re ve Ã¼Ã§Ã¼ncÃ¼sÃ¼ const referansÄ±na gÃ¶re iletilir.
 
 
-(const) referans ile geçiş ne zaman yapılmalıdır
+(const) referans ile geÃ§iÅŸ ne zaman yapÄ±lmalÄ±dÄ±r
 ------------------------------------------------
-Çünkü sınıf türleri kopyalamak pahalı olabilir (bazen önemli ölçüde), genellikle sınıf türleri argümanın pahalı bir kopyasını oluşturmaktan
-kaçınmak için değer yerine const referans ile iletilir. Temel tipler kopyalamak ucuz olduğundan genellikle değer ile iletilir.
+Ã‡Ã¼nkÃ¼ sÄ±nÄ±f tÃ¼rleri kopyalamak pahalÄ± olabilir (bazen Ã¶nemli Ã¶lÃ§Ã¼de), genellikle sÄ±nÄ±f tÃ¼rleri argÃ¼manÄ±n pahalÄ± bir kopyasÄ±nÄ± oluÅŸturmaktan
+kaÃ§Ä±nmak iÃ§in deÄŸer yerine const referans ile iletilir. Temel tipler kopyalamak ucuz olduÄŸundan genellikle deÄŸer ile iletilir.
 *** BEST 
 --------
-İlke olarak, temel tipleri değer ile, sınıf (veya yapı) tiplerini ise const referans ile iletmek genellikle uygundur.
+Ä°lke olarak, temel tipleri deÄŸer ile, sÄ±nÄ±f (veya yapÄ±) tiplerini ise const referans ile iletmek genellikle uygundur.
 
-Diğer yaygın tipleri değer ile iletmek: numaralandırma tipleri ve std::string_view.
-Diğer yaygın tipleri (const) referans ile iletmek: std::string, std::array ve std::vector.
+DiÄŸer yaygÄ±n tipleri deÄŸer ile iletmek: numaralandÄ±rma tipleri ve std::string_view.
+DiÄŸer yaygÄ±n tipleri (const) referans ile iletmek: std::string, std::array ve std::vector.
 
-Fonksiyon parametreleri için, çoğu durumda const std::string& yerine std::string_view'i tercih edin
+Fonksiyon parametreleri iÃ§in, Ã§oÄŸu durumda const std::string& yerine std::string_view'i tercih edin
 ---------------------------------------------------------------------------------------------------
 
-Modern C++ içinde sıkça karşılaşılan bir soru: Bir string parametresine sahip bir fonksiyon yazılırken, parametrenin türü const std::string& mı
-yoksa std::string_view mı olmalıdır?
+Modern C++ iÃ§inde sÄ±kÃ§a karÅŸÄ±laÅŸÄ±lan bir soru: Bir string parametresine sahip bir fonksiyon yazÄ±lÄ±rken, parametrenin tÃ¼rÃ¼ const std::string& mÄ±
+yoksa std::string_view mÄ± olmalÄ±dÄ±r?
 
-Çoğu durumda, std::string_view daha iyi bir tercih olacaktır, çünkü daha geniş bir argüman türü yelpazesini verimli bir şekilde işleyebilir.
+Ã‡oÄŸu durumda, std::string_view daha iyi bir tercih olacaktÄ±r, Ã§Ã¼nkÃ¼ daha geniÅŸ bir argÃ¼man tÃ¼rÃ¼ yelpazesini verimli bir ÅŸekilde iÅŸleyebilir.
 
                     void doSomething(const std::string&);
-                    void doSomething(std::string_view);   // Çoğu durumda bunu tercih edin
+                    void doSomething(std::string_view);   // Ã‡oÄŸu durumda bunu tercih edin
 
-const std::string& parametresini kullanmanın daha uygun olabileceği birkaç durum vardır:
+const std::string& parametresini kullanmanÄ±n daha uygun olabileceÄŸi birkaÃ§ durum vardÄ±r:
 
-1 - Eğer C++14 veya daha eski bir sürüm kullanıyorsanız, std::string_view mevcut değilse.
+1 - EÄŸer C++14 veya daha eski bir sÃ¼rÃ¼m kullanÄ±yorsanÄ±z, std::string_view mevcut deÄŸilse.
 
-2 - Eğer fonksiyonunuz, C tarzı bir diziyi veya std::string parametresi alan başka bir fonksiyonu çağırması gerekiyorsa, o zaman 
-    const std::string& daha iyi bir seçenek olabilir, çünkü std::string_view'ın null karakteri ile sona erdirilmiş (C tarzı dizi 
-    işlevlerinin beklediği şey) olması garanti edilmemiştir ve std::string'e verimli bir şekilde dönüştürülmez.
+2 - EÄŸer fonksiyonunuz, C tarzÄ± bir diziyi veya std::string parametresi alan baÅŸka bir fonksiyonu Ã§aÄŸÄ±rmasÄ± gerekiyorsa, o zaman 
+    const std::string& daha iyi bir seÃ§enek olabilir, Ã§Ã¼nkÃ¼ std::string_view'Ä±n null karakteri ile sona erdirilmiÅŸ (C tarzÄ± dizi 
+    iÅŸlevlerinin beklediÄŸi ÅŸey) olmasÄ± garanti edilmemiÅŸtir ve std::string'e verimli bir ÅŸekilde dÃ¶nÃ¼ÅŸtÃ¼rÃ¼lmez.
 
-std::string& yerine std::string_view (değer olarak) kullanarak stringleri iletmeyi tercih edin, ancak fonksiyonunuzun C tarzı dizileri veya
-std::string parametreleri gerektiren diğer fonksiyonları çağırdığı durumlar hariç.
+std::string& yerine std::string_view (deÄŸer olarak) kullanarak stringleri iletmeyi tercih edin, ancak fonksiyonunuzun C tarzÄ± dizileri veya
+std::string parametreleri gerektiren diÄŸer fonksiyonlarÄ± Ã§aÄŸÄ±rdÄ±ÄŸÄ± durumlar hariÃ§.
 
-12.6 -> Gelişmiş geliştiriciler için bir kaç not bulunmakta bunları 12 tamamen bitmesi ve diğer durumlarda inceleyeceğim çünkü şuan bakarak bir 
-        çoğunu anlamayacağız.
+12.6 -> GeliÅŸmiÅŸ geliÅŸtiriciler iÃ§in bir kaÃ§ not bulunmakta bunlarÄ± 12 tamamen bitmesi ve diÄŸer durumlarda inceleyeceÄŸim Ã§Ã¼nkÃ¼ ÅŸuan bakarak bir 
+        Ã§oÄŸunu anlamayacaÄŸÄ±z.
 */
