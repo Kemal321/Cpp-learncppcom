@@ -54,13 +54,13 @@ Ne yazık ki, bu sorunlar dinamik bellek tahsisi ile kolayca çözülebilir. Din
 
 Dinamik olarak tek değişkenlerin tahsisi
 
-Tek bir değişkeni dinamik olarak tahsis etmek için, yeni operatörünün skalar (dizi olmayan) formunu kullanırız:
+Tek bir değişkeni dinamik olarak tahsis etmek için, new operatörünün skalar (dizi olmayan) formunu kullanırız:
 
 ```cpp
 new int; // dinamik olarak bir tamsayı tahsis edin (ve sonucu atın)
 ```
 
-Yukarıdaki durumda, işletim sisteminden bir tamsayının değerinde bellek istiyoruz. Yeni operatörü, bu belleği kullanarak nesneyi oluşturur ve ardından tahsis edilen belleğin adresini içeren bir işaretçi döndürür.
+Yukarıdaki durumda, işletim sisteminden bir tamsayının değerinde bellek istiyoruz. new operatörü, bu belleği kullanarak nesneyi oluşturur ve ardından tahsis edilen belleğin adresini içeren bir işaretçi döndürür.
 
 Çoğu zaman, döndürülen değeri kendi işaretçi değişkenimize atarız, böylece daha sonra tahsis edilen belleğe erişebiliriz.
 
@@ -91,7 +91,7 @@ Yığın nesneleri için tahsis ve deallokasyon otomatik olarak yapılır. Belle
 
 Yığın nesneleri için tahsis ve deallokasyon otomatik olarak yapılmaz. Bizim dahil olmamız gerekiyor. Bu, belirli bir yığın üzerinde tahsis edilen nesneye belirsiz bir şekilde atıfta bulunmamız gerektiği anlamına gelir, böylece hazır olduğumuzda onun yok edilmesini isteyebiliriz. Ve bu tür nesnelere atıfta bulunma şeklimiz bellek adresi üzerinden olur.
 
-Yeni operatörünü kullandığımızda, yeni tahsis edilen nesnenin bellek adresini içeren bir işaretçi döndürür. Genellikle bu adresi bir işaretçide saklamak isteriz, böylece daha sonra nesneye erişmek (ve sonunda, yok edilmesini istemek) için bu adresi kullanabiliriz.
+new operatörünü kullandığımızda, yeni tahsis edilen nesnenin bellek adresini içeren bir işaretçi döndürür. Genellikle bu adresi bir işaretçide saklamak isteriz, böylece daha sonra nesneye erişmek (ve sonunda, yok edilmesini istemek) için bu adresi kullanabiliriz.
 
 Dinamik olarak ayrılan bir değişkeni başlatma
 
