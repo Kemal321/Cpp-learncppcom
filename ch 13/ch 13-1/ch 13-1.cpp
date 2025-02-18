@@ -6,134 +6,134 @@ int main()
 }
 /*
 
-13.1 — Program Tanımlı (Kullanıcı Tanımlı) Türlerin Girişi 
+13.1 â€” Program TanÄ±mlÄ± (KullanÄ±cÄ± TanÄ±mlÄ±) TÃ¼rlerin GiriÅŸi 
 ----------------------------------------------------------
-Temel türler, C++ dilinin çekirdek parçası olarak tanımlandığından, hemen kullanılabilirler. Örneğin, bir değişkeni int veya
-double türünde tanımlamak istiyorsak, bunu hemen yapabiliriz:
+Temel tÃ¼rler, C++ dilinin Ã§ekirdek parÃ§asÄ± olarak tanÄ±mlandÄ±ÄŸÄ±ndan, hemen kullanÄ±labilirler. Ã–rneÄŸin, bir deÄŸiÅŸkeni int veya
+double tÃ¼rÃ¼nde tanÄ±mlamak istiyorsak, bunu hemen yapabiliriz:
 
-                    int x; // 'int' temel türünde değişken tanımla
-                    double d; // 'double' temel türünde değişken tanımla
+                    int x; // 'int' temel tÃ¼rÃ¼nde deÄŸiÅŸken tanÄ±mla
+                    double d; // 'double' temel tÃ¼rÃ¼nde deÄŸiÅŸken tanÄ±mla
 
-Bu, temel türlerin basit genişlemeleri olan bileşik türler (fonksiyonlar, işaretçiler, referanslar ve diziler dahil) için de 
-geçerlidir:
+Bu, temel tÃ¼rlerin basit geniÅŸlemeleri olan bileÅŸik tÃ¼rler (fonksiyonlar, iÅŸaretÃ§iler, referanslar ve diziler dahil) iÃ§in de 
+geÃ§erlidir:
 
-                    void fcn(int) {}; // 'void()(int)' türünde bir fonksiyon tanımla
-                    int* ptr; // 'int'e işaret eden' bileşik türünde değişken tanımla
-                    int& ref { x }; // 'int'e referans' bileşik türünde değişken tanımla (x ile başlatıldı)
-                    int arr[5]; // 5 tam sayıdan oluşan bir dizi tanımla, türü 'int[5]' (bunu gelecekteki bir bölümde ele alacağız)
+                    void fcn(int) {}; // 'void()(int)' tÃ¼rÃ¼nde bir fonksiyon tanÄ±mla
+                    int* ptr; // 'int'e iÅŸaret eden' bileÅŸik tÃ¼rÃ¼nde deÄŸiÅŸken tanÄ±mla
+                    int& ref { x }; // 'int'e referans' bileÅŸik tÃ¼rÃ¼nde deÄŸiÅŸken tanÄ±mla (x ile baÅŸlatÄ±ldÄ±)
+                    int arr[5]; // 5 tam sayÄ±dan oluÅŸan bir dizi tanÄ±mla, tÃ¼rÃ¼ 'int[5]' (bunu gelecekteki bir bÃ¶lÃ¼mde ele alacaÄŸÄ±z)
 
-Bu, C++ dilinin bu türler için tür adlarını (ve sembollerini) ne anlama geldiğini zaten bildiği için çalışır - herhangi bir tanım
-sağlamamız veya içe aktarmamız gerekmez.
+Bu, C++ dilinin bu tÃ¼rler iÃ§in tÃ¼r adlarÄ±nÄ± (ve sembollerini) ne anlama geldiÄŸini zaten bildiÄŸi iÃ§in Ã§alÄ±ÅŸÄ±r - herhangi bir tanÄ±m
+saÄŸlamamÄ±z veya iÃ§e aktarmamÄ±z gerekmez.
 
-Ancak, mevcut bir tür için yeni bir ad tanımlamamıza izin veren bir tür takma adının (10.7 dersinde tanıtılan Typedefs ve tür
-takma adları) durumunu düşünün. Bir tür takma adı, programa yeni bir tanımlayıcı eklediği için, bir tür takma adı kullanılmadan
-önce tanımlanmalıdır:
+Ancak, mevcut bir tÃ¼r iÃ§in yeni bir ad tanÄ±mlamamÄ±za izin veren bir tÃ¼r takma adÄ±nÄ±n (10.7 dersinde tanÄ±tÄ±lan Typedefs ve tÃ¼r
+takma adlarÄ±) durumunu dÃ¼ÅŸÃ¼nÃ¼n. Bir tÃ¼r takma adÄ±, programa yeni bir tanÄ±mlayÄ±cÄ± eklediÄŸi iÃ§in, bir tÃ¼r takma adÄ± kullanÄ±lmadan
+Ã¶nce tanÄ±mlanmalÄ±dÄ±r:
 
                     #include <iostream>
 
-                    using length = int; // 'length' tanımlayıcısı olan bir tür takma adı tanımla
+                    using length = int; // 'length' tanÄ±mlayÄ±cÄ±sÄ± olan bir tÃ¼r takma adÄ± tanÄ±mla
 
                     int main()
                     {
-                        length x { 5 }; // 'length'i burada kullanabiliriz çünkü onu yukarıda tanımladık
+                        length x { 5 }; // 'length'i burada kullanabiliriz Ã§Ã¼nkÃ¼ onu yukarÄ±da tanÄ±mladÄ±k
                         std::cout << x << '\n';
 
                         return 0;
                     }
 
-Eğer length tanımını atlatırsak, derleyici bir length’in ne olduğunu bilmez ve bu türü kullanarak bir değişken tanımlamayı
-denediğimizde şikayet eder. Length için tanım bir nesne oluşturmaz – sadece derleyiciye bir length’in ne olduğunu söyler, böylece
-daha sonra kullanılabilir.
+EÄŸer length tanÄ±mÄ±nÄ± atlatÄ±rsak, derleyici bir lengthâ€™in ne olduÄŸunu bilmez ve bu tÃ¼rÃ¼ kullanarak bir deÄŸiÅŸken tanÄ±mlamayÄ±
+denediÄŸimizde ÅŸikayet eder. Length iÃ§in tanÄ±m bir nesne oluÅŸturmaz â€“ sadece derleyiciye bir lengthâ€™in ne olduÄŸunu sÃ¶yler, bÃ¶ylece
+daha sonra kullanÄ±labilir.
 
-Kullanıcı Tanımlı / Program Tanımlı Türler Nedir?
+KullanÄ±cÄ± TanÄ±mlÄ± / Program TanÄ±mlÄ± TÃ¼rler Nedir?
 -------------------------------------------------
-Önceki bölümün girişinde (12.1 — Bileşik Veri Türlerine Giriş), bir kesiri, kavramsal olarak birbirine bağlı olan bir pay ve payda
-ile saklama isteğini tanıttık. Bu derste, bir kesirin pay ve paydasını bağımsız olarak saklamak için iki ayrı tam sayı kullanmanın
-zorluklarını tartıştık.
+Ã–nceki bÃ¶lÃ¼mÃ¼n giriÅŸinde (12.1 â€” BileÅŸik Veri TÃ¼rlerine GiriÅŸ), bir kesiri, kavramsal olarak birbirine baÄŸlÄ± olan bir pay ve payda
+ile saklama isteÄŸini tanÄ±ttÄ±k. Bu derste, bir kesirin pay ve paydasÄ±nÄ± baÄŸÄ±msÄ±z olarak saklamak iÃ§in iki ayrÄ± tam sayÄ± kullanmanÄ±n
+zorluklarÄ±nÄ± tartÄ±ÅŸtÄ±k.
 
-Eğer C++'ta yerleşik bir kesir türü olsaydı, bu mükemmel olurdu – ama yok. Ve C++'ta, birinin ihtiyaç duyabileceği her şeyi 
-önceden tahmin etmek (hele bunları uygulamak ve test etmek) mümkün olmadığı için, potansiyel olarak yararlı yüzlerce diğer tür
-de dahil değil.
+EÄŸer C++'ta yerleÅŸik bir kesir tÃ¼rÃ¼ olsaydÄ±, bu mÃ¼kemmel olurdu â€“ ama yok. Ve C++'ta, birinin ihtiyaÃ§ duyabileceÄŸi her ÅŸeyi 
+Ã¶nceden tahmin etmek (hele bunlarÄ± uygulamak ve test etmek) mÃ¼mkÃ¼n olmadÄ±ÄŸÄ± iÃ§in, potansiyel olarak yararlÄ± yÃ¼zlerce diÄŸer tÃ¼r
+de dahil deÄŸil.
 
-Bunun yerine, C++ bu tür sorunları farklı bir şekilde çözer: programlarımızda kullanmak üzere tamamen yeni, özel türler
-oluşturmamıza izin vererek! Bu tür türler genellikle kullanıcı tanımlı türler olarak adlandırılır (ancak program tanımlı türler
-teriminin daha iyi olduğunu düşünüyoruz – bu dersin ilerleyen kısmında farkı tartışacağız). C++'ta bunu sağlayan iki kategori
-bileşik tür vardır: numaralandırılmış türler (kapsamsız ve kapsamlı numaralandırmalar dahil (unscoped and scoped enumerations) ve
-sınıf türleri (yapılar(structs),sınıflar (classes) ve birlikler (unions) dahil).
+Bunun yerine, C++ bu tÃ¼r sorunlarÄ± farklÄ± bir ÅŸekilde Ã§Ã¶zer: programlarÄ±mÄ±zda kullanmak Ã¼zere tamamen yeni, Ã¶zel tÃ¼rler
+oluÅŸturmamÄ±za izin vererek! Bu tÃ¼r tÃ¼rler genellikle kullanÄ±cÄ± tanÄ±mlÄ± tÃ¼rler olarak adlandÄ±rÄ±lÄ±r (ancak program tanÄ±mlÄ± tÃ¼rler
+teriminin daha iyi olduÄŸunu dÃ¼ÅŸÃ¼nÃ¼yoruz â€“ bu dersin ilerleyen kÄ±smÄ±nda farkÄ± tartÄ±ÅŸacaÄŸÄ±z). C++'ta bunu saÄŸlayan iki kategori
+bileÅŸik tÃ¼r vardÄ±r: numaralandÄ±rÄ±lmÄ±ÅŸ tÃ¼rler (kapsamsÄ±z ve kapsamlÄ± numaralandÄ±rmalar dahil (unscoped and scoped enumerations) ve
+sÄ±nÄ±f tÃ¼rleri (yapÄ±lar(structs),sÄ±nÄ±flar (classes) ve birlikler (unions) dahil).
 
-                    // Derleyicinin bir Fraction'ın ne olduğunu anlaması için Fraction adında bir program tanımlı tür tanımlayın
-                    // (Bir struct'ın ne olduğunu ve nasıl kullanılacağını bu bölümün ilerleyen kısmında açıklayacağız)
-                    // Bu sadece bir Fraction türünün neye benzediğini tanımlar, bir tane oluşturmaz
+                    // Derleyicinin bir Fraction'Ä±n ne olduÄŸunu anlamasÄ± iÃ§in Fraction adÄ±nda bir program tanÄ±mlÄ± tÃ¼r tanÄ±mlayÄ±n
+                    // (Bir struct'Ä±n ne olduÄŸunu ve nasÄ±l kullanÄ±lacaÄŸÄ±nÄ± bu bÃ¶lÃ¼mÃ¼n ilerleyen kÄ±smÄ±nda aÃ§Ä±klayacaÄŸÄ±z)
+                    // Bu sadece bir Fraction tÃ¼rÃ¼nÃ¼n neye benzediÄŸini tanÄ±mlar, bir tane oluÅŸturmaz
                     struct Fraction
                     {
 	                    int pay {};
 	                    int payda {};
                     };
 
-                    // Şimdi Fraction türümüzü kullanabiliriz
+                    // Åimdi Fraction tÃ¼rÃ¼mÃ¼zÃ¼ kullanabiliriz
                     int main()
                     {
-	                    Fraction f{ 3, 4 }; // Bu aslında f adında bir Fraction nesnesi oluşturur
+	                    Fraction f{ 3, 4 }; // Bu aslÄ±nda f adÄ±nda bir Fraction nesnesi oluÅŸturur
 
 	                    return 0;
                     }
 
-Bu örnekte, yeni bir program tanımlı tür olan Fraction’ı tanımlamak için struct anahtar kelimesini kullanıyoruz (global kapsamda,
-böylece dosyanın geri kalanında her yerde kullanılabilir). Bu herhangi bir bellek ayırmaz – sadece derleyiciye bir Fraction’ın
-neye benzediğini söyler, böylece daha sonra Fraction türünde nesneler ayırabiliriz. Daha sonra, main() içinde, f adında bir
-Fraction türünde değişken oluşturuyoruz (ve başlatıyoruz).
+Bu Ã¶rnekte, yeni bir program tanÄ±mlÄ± tÃ¼r olan Fractionâ€™Ä± tanÄ±mlamak iÃ§in struct anahtar kelimesini kullanÄ±yoruz (global kapsamda,
+bÃ¶ylece dosyanÄ±n geri kalanÄ±nda her yerde kullanÄ±labilir). Bu herhangi bir bellek ayÄ±rmaz â€“ sadece derleyiciye bir Fractionâ€™Ä±n
+neye benzediÄŸini sÃ¶yler, bÃ¶ylece daha sonra Fraction tÃ¼rÃ¼nde nesneler ayÄ±rabiliriz. Daha sonra, main() iÃ§inde, f adÄ±nda bir
+Fraction tÃ¼rÃ¼nde deÄŸiÅŸken oluÅŸturuyoruz (ve baÅŸlatÄ±yoruz).
 
-Program tanımlı tür tanımları her zaman noktalı virgülle biter. Tür tanımının sonunda noktalı virgülü eklememek yaygın bir
-programcı hatasıdır ve hata ayıklaması zor olabilir çünkü derleyici genellikle tür tanımından sonraki satırda hata verir. Örneğin,
-yukarıdaki örnekte Fraction tanımının sonundaki noktalı virgülü çıkarırsanız (8. satır), derleyici muhtemelen main() tanımı
-hakkında (11. satır) şikayet eder.
+Program tanÄ±mlÄ± tÃ¼r tanÄ±mlarÄ± her zaman noktalÄ± virgÃ¼lle biter. TÃ¼r tanÄ±mÄ±nÄ±n sonunda noktalÄ± virgÃ¼lÃ¼ eklememek yaygÄ±n bir
+programcÄ± hatasÄ±dÄ±r ve hata ayÄ±klamasÄ± zor olabilir Ã§Ã¼nkÃ¼ derleyici genellikle tÃ¼r tanÄ±mÄ±ndan sonraki satÄ±rda hata verir. Ã–rneÄŸin,
+yukarÄ±daki Ã¶rnekte Fraction tanÄ±mÄ±nÄ±n sonundaki noktalÄ± virgÃ¼lÃ¼ Ã§Ä±karÄ±rsanÄ±z (8. satÄ±r), derleyici muhtemelen main() tanÄ±mÄ±
+hakkÄ±nda (11. satÄ±r) ÅŸikayet eder.
 
-*** Uyarı -> Tür tanımlarınızı bir noktalı virgülle bitirmeyi unutmayın, aksi takdirde derleyici genellikle bir sonraki kod
-             satırında hata verir.
+*** UyarÄ± -> TÃ¼r tanÄ±mlarÄ±nÄ±zÄ± bir noktalÄ± virgÃ¼lle bitirmeyi unutmayÄ±n, aksi takdirde derleyici genellikle bir sonraki kod
+             satÄ±rÄ±nda hata verir.
 
-Program Tanımlı Türlerin Adlandırılması
+Program TanÄ±mlÄ± TÃ¼rlerin AdlandÄ±rÄ±lmasÄ±
 ---------------------------------------
-Geleneksel olarak, program tanımlı türler büyük harfle başlar ve bir sonek kullanmazlar (ör. Fraction, fraction, fraction_t veya 
-Fraction_t değil).
+Geleneksel olarak, program tanÄ±mlÄ± tÃ¼rler bÃ¼yÃ¼k harfle baÅŸlar ve bir sonek kullanmazlar (Ã¶r. Fraction, fraction, fraction_t veya 
+Fraction_t deÄŸil).
 
-*** BEST -> Program tanımlı türlerinizi büyük harfle başlatın ve bir sonek kullanmayın.
+*** BEST -> Program tanÄ±mlÄ± tÃ¼rlerinizi bÃ¼yÃ¼k harfle baÅŸlatÄ±n ve bir sonek kullanmayÄ±n.
 
-Yeni programcılar bazen aşağıdaki gibi değişken tanımlarını tür adı ve değişken adı arasındaki benzerlik nedeniyle kafa
-karıştırıcı bulabilirler:
+Yeni programcÄ±lar bazen aÅŸaÄŸÄ±daki gibi deÄŸiÅŸken tanÄ±mlarÄ±nÄ± tÃ¼r adÄ± ve deÄŸiÅŸken adÄ± arasÄ±ndaki benzerlik nedeniyle kafa
+karÄ±ÅŸtÄ±rÄ±cÄ± bulabilirler:
 
-                    Fraction fraction {}; // Fraction türünde fraction adında bir değişken oluşturur
+                    Fraction fraction {}; // Fraction tÃ¼rÃ¼nde fraction adÄ±nda bir deÄŸiÅŸken oluÅŸturur
 
-Bu, diğer herhangi bir değişken tanımından farklı değildir: önce tür (Fraction) gelir (ve Fraction büyük harfle başladığı için, 
-bunun bir program tanımlı tür olduğunu biliyoruz), ardından değişken adı (fraction) ve ardından isteğe bağlı bir başlatıcı. 
-C++ büyük/küçük harfe duyarlı olduğu için burada bir adlandırma çakışması yok!
+Bu, diÄŸer herhangi bir deÄŸiÅŸken tanÄ±mÄ±ndan farklÄ± deÄŸildir: Ã¶nce tÃ¼r (Fraction) gelir (ve Fraction bÃ¼yÃ¼k harfle baÅŸladÄ±ÄŸÄ± iÃ§in, 
+bunun bir program tanÄ±mlÄ± tÃ¼r olduÄŸunu biliyoruz), ardÄ±ndan deÄŸiÅŸken adÄ± (fraction) ve ardÄ±ndan isteÄŸe baÄŸlÄ± bir baÅŸlatÄ±cÄ±. 
+C++ bÃ¼yÃ¼k/kÃ¼Ã§Ã¼k harfe duyarlÄ± olduÄŸu iÃ§in burada bir adlandÄ±rma Ã§akÄ±ÅŸmasÄ± yok!
 
-Çok Dosyalı Bir Program Boyunca Program Tanımlı Türlerin Kullanılması
+Ã‡ok DosyalÄ± Bir Program Boyunca Program TanÄ±mlÄ± TÃ¼rlerin KullanÄ±lmasÄ±
 ---------------------------------------------------------------------
-Bir program tanımlı türü kullanan her kod dosyası, türün kullanıldığı yerden önce tam tür tanımını görmelidir. İleri bildirim
-yeterli değildir. Bu, derleyicinin o türden nesneler için ne kadar bellek ayırması gerektiğini bilmesi gereklidir.
+Bir program tanÄ±mlÄ± tÃ¼rÃ¼ kullanan her kod dosyasÄ±, tÃ¼rÃ¼n kullanÄ±ldÄ±ÄŸÄ± yerden Ã¶nce tam tÃ¼r tanÄ±mÄ±nÄ± gÃ¶rmelidir. Ä°leri bildirim
+yeterli deÄŸildir. Bu, derleyicinin o tÃ¼rden nesneler iÃ§in ne kadar bellek ayÄ±rmasÄ± gerektiÄŸini bilmesi gereklidir.
 
-Tür tanımlarını ihtiyaç duyan kod dosyalarına yaymak için, program tanımlı türler genellikle başlık dosyalarında tanımlanır ve 
-ardından o tür tanımını gerektiren her kod dosyasına #include edilir. Bu başlık dosyaları genellikle program tanımlı türle aynı
-adı alır (ör. Fraction adında bir program tanımlı tür, Fraction.h’de tanımlanır)
+TÃ¼r tanÄ±mlarÄ±nÄ± ihtiyaÃ§ duyan kod dosyalarÄ±na yaymak iÃ§in, program tanÄ±mlÄ± tÃ¼rler genellikle baÅŸlÄ±k dosyalarÄ±nda tanÄ±mlanÄ±r ve 
+ardÄ±ndan o tÃ¼r tanÄ±mÄ±nÄ± gerektiren her kod dosyasÄ±na #include edilir. Bu baÅŸlÄ±k dosyalarÄ± genellikle program tanÄ±mlÄ± tÃ¼rle aynÄ±
+adÄ± alÄ±r (Ã¶r. Fraction adÄ±nda bir program tanÄ±mlÄ± tÃ¼r, Fraction.hâ€™de tanÄ±mlanÄ±r)
 
-En İyi Uygulama
+En Ä°yi Uygulama
 
-Yalnızca bir kod dosyasında kullanılan bir program tanımlı tür, mümkün olduğunca ilk kullanım noktasına yakın bir yerde o kod 
-dosyasında tanımlanmalıdır.
+YalnÄ±zca bir kod dosyasÄ±nda kullanÄ±lan bir program tanÄ±mlÄ± tÃ¼r, mÃ¼mkÃ¼n olduÄŸunca ilk kullanÄ±m noktasÄ±na yakÄ±n bir yerde o kod 
+dosyasÄ±nda tanÄ±mlanmalÄ±dÄ±r.
 
-Birden çok kod dosyasında kullanılan bir program tanımlı tür, program tanımlı türle aynı adı taşıyan bir başlık dosyasında 
-tanımlanmalı ve ardından her kod dosyasına gerektiği gibi #include edilmelidir.
+Birden Ã§ok kod dosyasÄ±nda kullanÄ±lan bir program tanÄ±mlÄ± tÃ¼r, program tanÄ±mlÄ± tÃ¼rle aynÄ± adÄ± taÅŸÄ±yan bir baÅŸlÄ±k dosyasÄ±nda 
+tanÄ±mlanmalÄ± ve ardÄ±ndan her kod dosyasÄ±na gerektiÄŸi gibi #include edilmelidir.
 
-İşte Fraction türümüzü bir başlık dosyasına (Fraction.h adında) taşıyıp birden çok kod dosyasına dahil edilebilecek şekilde neye 
-benzeyeceği hakkında bir örnek:
+Ä°ÅŸte Fraction tÃ¼rÃ¼mÃ¼zÃ¼ bir baÅŸlÄ±k dosyasÄ±na (Fraction.h adÄ±nda) taÅŸÄ±yÄ±p birden Ã§ok kod dosyasÄ±na dahil edilebilecek ÅŸekilde neye 
+benzeyeceÄŸi hakkÄ±nda bir Ã¶rnek:
 
 Fraction.h:
                     #ifndef FRACTION_H
                     #define FRACTION_H
 
-                    // Fraction adında yeni bir tür tanımlayın
-                    // Bu sadece bir Fraction'ın neye benzediğini tanımlar, bir tane oluşturmaz
-                    // Bu bir tam tanımdır, ileri bildirim değil
+                    // Fraction adÄ±nda yeni bir tÃ¼r tanÄ±mlayÄ±n
+                    // Bu sadece bir Fraction'Ä±n neye benzediÄŸini tanÄ±mlar, bir tane oluÅŸturmaz
+                    // Bu bir tam tanÄ±mdÄ±r, ileri bildirim deÄŸil
                     struct Fraction
                     {
                         int pay {};
@@ -143,84 +143,84 @@ Fraction.h:
                     #endif
 
 Fraction.cpp:
-                    #include "Fraction.h" // Bu kod dosyasına Fraction tanımımızı dahil edin
+                    #include "Fraction.h" // Bu kod dosyasÄ±na Fraction tanÄ±mÄ±mÄ±zÄ± dahil edin
 
-                    // Şimdi Fraction türümüzü kullanabiliriz
+                    // Åimdi Fraction tÃ¼rÃ¼mÃ¼zÃ¼ kullanabiliriz
                     int main()
                     {
-                        Fraction f{ 3, 4 }; // Bu aslında f adında bir Fraction nesnesi oluşturur
+                        Fraction f{ 3, 4 }; // Bu aslÄ±nda f adÄ±nda bir Fraction nesnesi oluÅŸturur
 
                         return 0;
                     }
 
-Tür tanımları, bir tanımlama kuralı olan (ODR) kısmen muaf tutulmuştur
+TÃ¼r tanÄ±mlarÄ±, bir tanÄ±mlama kuralÄ± olan (ODR) kÄ±smen muaf tutulmuÅŸtur
 
-2.7 dersinde -- İleri Bildirimler ve Tanımlar, bir tanımlama kuralının her fonksiyon ve global değişkenin program başına yalnızca
-bir tanımına sahip olmasını gerektirdiğini tartıştık. Tanımı içermeyen bir dosyada belirli bir fonksiyonu veya global değişkeni 
-kullanmak için, bir ileri bildirime (genellikle bir başlık dosyası aracılığıyla yaydığımız) ihtiyacımız var. Bu, fonksiyonlar ve
-non-constexpr değişkenler söz konusu olduğunda derleyiciyi tatmin etmek için bildirimlerin yeterli olduğu için çalışır ve 
-bağlayıcı daha sonra her şeyi bağlar.
+2.7 dersinde -- Ä°leri Bildirimler ve TanÄ±mlar, bir tanÄ±mlama kuralÄ±nÄ±n her fonksiyon ve global deÄŸiÅŸkenin program baÅŸÄ±na yalnÄ±zca
+bir tanÄ±mÄ±na sahip olmasÄ±nÄ± gerektirdiÄŸini tartÄ±ÅŸtÄ±k. TanÄ±mÄ± iÃ§ermeyen bir dosyada belirli bir fonksiyonu veya global deÄŸiÅŸkeni 
+kullanmak iÃ§in, bir ileri bildirime (genellikle bir baÅŸlÄ±k dosyasÄ± aracÄ±lÄ±ÄŸÄ±yla yaydÄ±ÄŸÄ±mÄ±z) ihtiyacÄ±mÄ±z var. Bu, fonksiyonlar ve
+non-constexpr deÄŸiÅŸkenler sÃ¶z konusu olduÄŸunda derleyiciyi tatmin etmek iÃ§in bildirimlerin yeterli olduÄŸu iÃ§in Ã§alÄ±ÅŸÄ±r ve 
+baÄŸlayÄ±cÄ± daha sonra her ÅŸeyi baÄŸlar.
 
-Ancak, türler için ileri bildirimleri benzer bir şekilde kullanmak işe yaramaz, çünkü derleyici genellikle belirli bir türü
-kullanmak için tam tanımı görmeye ihtiyaç duyar. Her kod dosyasına tam tür tanımını yayabilmeliyiz.
+Ancak, tÃ¼rler iÃ§in ileri bildirimleri benzer bir ÅŸekilde kullanmak iÅŸe yaramaz, Ã§Ã¼nkÃ¼ derleyici genellikle belirli bir tÃ¼rÃ¼
+kullanmak iÃ§in tam tanÄ±mÄ± gÃ¶rmeye ihtiyaÃ§ duyar. Her kod dosyasÄ±na tam tÃ¼r tanÄ±mÄ±nÄ± yayabilmeliyiz.
 
-Bunu sağlamak için, türler bir tanımlama kuralından ( ODR ) kısmen muaf tutulur: belirli bir tür, birden çok kod dosyasında 
-tanımlanabilir. Bu yeteneği zaten kullanmış olabilirsiniz (muhtemelen farkında olmadan): programınızda <iostream> 'u içeren iki
-kod dosyası varsa, tüm giriş/çıkış tür tanımlarını her iki dosyaya da içe aktarıyorsunuz.
+Bunu saÄŸlamak iÃ§in, tÃ¼rler bir tanÄ±mlama kuralÄ±ndan ( ODR ) kÄ±smen muaf tutulur: belirli bir tÃ¼r, birden Ã§ok kod dosyasÄ±nda 
+tanÄ±mlanabilir. Bu yeteneÄŸi zaten kullanmÄ±ÅŸ olabilirsiniz (muhtemelen farkÄ±nda olmadan): programÄ±nÄ±zda <iostream> 'u iÃ§eren iki
+kod dosyasÄ± varsa, tÃ¼m giriÅŸ/Ã§Ä±kÄ±ÅŸ tÃ¼r tanÄ±mlarÄ±nÄ± her iki dosyaya da iÃ§e aktarÄ±yorsunuz.
 
-Bilmeye değer iki uyarı var.
-* - İlk olarak, hala her kod dosyası başına yalnızca bir tür tanımına sahip olabilirsiniz (bu genellikle bir sorun olmaz çünkü 
-    başlık korumaları bunu önler). 
-* - İkincisi, belirli bir tür için tüm tür tanımları aynı olmalıdır, aksi takdirde tanımsız davranış sonucu olur.( inline gibi )
+Bilmeye deÄŸer iki uyarÄ± var.
+* - Ä°lk olarak, hala her kod dosyasÄ± baÅŸÄ±na yalnÄ±zca bir tÃ¼r tanÄ±mÄ±na sahip olabilirsiniz (bu genellikle bir sorun olmaz Ã§Ã¼nkÃ¼ 
+    baÅŸlÄ±k korumalarÄ± bunu Ã¶nler). 
+* - Ä°kincisi, belirli bir tÃ¼r iÃ§in tÃ¼m tÃ¼r tanÄ±mlarÄ± aynÄ± olmalÄ±dÄ±r, aksi takdirde tanÄ±msÄ±z davranÄ±ÅŸ sonucu olur.( inline gibi )
 
-Terimler: kullanıcı tanımlı türler vs program tanımlı türler
+Terimler: kullanÄ±cÄ± tanÄ±mlÄ± tÃ¼rler vs program tanÄ±mlÄ± tÃ¼rler
 ------------------------------------------------------------
-"Kullanıcı tanımlı tür" terimi bazen gündelik konuşmalarda ortaya çıkar ve C++ dil standardında da belirtilir (ancak tanımlanmaz).
-Gündelik konuşmalarda, terim genellikle "kendi programlarınızda tanımlanan bir tür" anlamına gelir (yukarıdaki Fraction tür örneği
+"KullanÄ±cÄ± tanÄ±mlÄ± tÃ¼r" terimi bazen gÃ¼ndelik konuÅŸmalarda ortaya Ã§Ä±kar ve C++ dil standardÄ±nda da belirtilir (ancak tanÄ±mlanmaz).
+GÃ¼ndelik konuÅŸmalarda, terim genellikle "kendi programlarÄ±nÄ±zda tanÄ±mlanan bir tÃ¼r" anlamÄ±na gelir (yukarÄ±daki Fraction tÃ¼r Ã¶rneÄŸi
 gibi).
 
-C++ dil standardı, "kullanıcı tanımlı tür" terimini geleneksel olmayan bir şekilde kullanır. Dil standardında, bir "kullanıcı 
-tanımlı tür", sizin, standart kütüphanenin veya uygulamanın (ör. dil genişlemelerini desteklemek için derleyici tarafından 
-tanımlanan türler) tanımladığı herhangi bir sınıf türü veya numaralandırılmış türdür. Belki de karşı sezgisel olarak, bu,
-std::string'in (standart kütüphanede tanımlanan bir sınıf türü) bir kullanıcı tanımlı tür olarak kabul edildiği anlamına gelir!
+C++ dil standardÄ±, "kullanÄ±cÄ± tanÄ±mlÄ± tÃ¼r" terimini geleneksel olmayan bir ÅŸekilde kullanÄ±r. Dil standardÄ±nda, bir "kullanÄ±cÄ± 
+tanÄ±mlÄ± tÃ¼r", sizin, standart kÃ¼tÃ¼phanenin veya uygulamanÄ±n (Ã¶r. dil geniÅŸlemelerini desteklemek iÃ§in derleyici tarafÄ±ndan 
+tanÄ±mlanan tÃ¼rler) tanÄ±mladÄ±ÄŸÄ± herhangi bir sÄ±nÄ±f tÃ¼rÃ¼ veya numaralandÄ±rÄ±lmÄ±ÅŸ tÃ¼rdÃ¼r. Belki de karÅŸÄ± sezgisel olarak, bu,
+std::string'in (standart kÃ¼tÃ¼phanede tanÄ±mlanan bir sÄ±nÄ±f tÃ¼rÃ¼) bir kullanÄ±cÄ± tanÄ±mlÄ± tÃ¼r olarak kabul edildiÄŸi anlamÄ±na gelir!
 
-Ek ayrım sağlamak için, C++20 dil standardı, standart kütüphane, uygulama veya çekirdek dilin bir parçası olarak tanımlanmayan
-sınıf türlerini ve numaralandırılmış türleri ifade etmek için "program tanımlı tür" terimini tanımlar. Diğer bir deyişle,
-"program tanımlı türler" yalnızca bizim (veya bir üçüncü taraf kütüphanesi) tarafından tanımlanan sınıf türlerini ve enum 
-türlerini içerir.
+Ek ayrÄ±m saÄŸlamak iÃ§in, C++20 dil standardÄ±, standart kÃ¼tÃ¼phane, uygulama veya Ã§ekirdek dilin bir parÃ§asÄ± olarak tanÄ±mlanmayan
+sÄ±nÄ±f tÃ¼rlerini ve numaralandÄ±rÄ±lmÄ±ÅŸ tÃ¼rleri ifade etmek iÃ§in "program tanÄ±mlÄ± tÃ¼r" terimini tanÄ±mlar. DiÄŸer bir deyiÅŸle,
+"program tanÄ±mlÄ± tÃ¼rler" yalnÄ±zca bizim (veya bir Ã¼Ã§Ã¼ncÃ¼ taraf kÃ¼tÃ¼phanesi) tarafÄ±ndan tanÄ±mlanan sÄ±nÄ±f tÃ¼rlerini ve enum 
+tÃ¼rlerini iÃ§erir.
 
-Sonuç olarak, yalnızca kendi programlarımızda tanımladığımız sınıf türleri ve enum türleri hakkında konuşurken, "program tanımlı"
-terimini tercih ederiz, çünkü daha kesin bir tanımı vardır.
+SonuÃ§ olarak, yalnÄ±zca kendi programlarÄ±mÄ±zda tanÄ±mladÄ±ÄŸÄ±mÄ±z sÄ±nÄ±f tÃ¼rleri ve enum tÃ¼rleri hakkÄ±nda konuÅŸurken, "program tanÄ±mlÄ±"
+terimini tercih ederiz, Ã§Ã¼nkÃ¼ daha kesin bir tanÄ±mÄ± vardÄ±r.
 
-Tür                Anlam                                                                             Örnekler
+TÃ¼r                Anlam                                                                             Ã–rnekler
 ----------------------------------------------------------------------------------------------------------------------------------
-Temel              Çekirdek C++ diline yerleşik bir tür                                          int, std::nullptr_t
-Bileşik            Temel türlerden oluşturulan bir tür                                   int&, double*, std::string, Fraction
-Kullanıcı Tanımlı  Bir sınıf türü veya numaralandırılmış tür                                    std::string, Fraction
-                   (Standart kütüphanede veya uygulamada tanımlananları içerir)
-                   (Gündelik kullanımda, genellikle program tanımlı türler anlamına gelir)    
-Program Tanımlı    Bir sınıf türü veya numaralandırılmış tür
-                   (Standart kütüphane veya uygulamada tanımlananları hariç tutar)                    Fraction
+Temel              Ã‡ekirdek C++ diline yerleÅŸik bir tÃ¼r                                          int, std::nullptr_t
+BileÅŸik            Temel tÃ¼rlerden oluÅŸturulan bir tÃ¼r                                   int&, double*, std::string, Fraction
+KullanÄ±cÄ± TanÄ±mlÄ±  Bir sÄ±nÄ±f tÃ¼rÃ¼ veya numaralandÄ±rÄ±lmÄ±ÅŸ tÃ¼r                                    std::string, Fraction
+                   (Standart kÃ¼tÃ¼phanede veya uygulamada tanÄ±mlananlarÄ± iÃ§erir)
+                   (GÃ¼ndelik kullanÄ±mda, genellikle program tanÄ±mlÄ± tÃ¼rler anlamÄ±na gelir)    
+Program TanÄ±mlÄ±    Bir sÄ±nÄ±f tÃ¼rÃ¼ veya numaralandÄ±rÄ±lmÄ±ÅŸ tÃ¼r
+                   (Standart kÃ¼tÃ¼phane veya uygulamada tanÄ±mlananlarÄ± hariÃ§ tutar)                    Fraction
 ----------------------------------------------------------------------------------------------------------------------------------
 
-13.2 Kapsamsız Numaralandırılmış türler ( Unscoped enumerations )
+13.2 KapsamsÄ±z NumaralandÄ±rÄ±lmÄ±ÅŸ tÃ¼rler ( Unscoped enumerations )
 -----------------------------------------------------------------
-C++ birçok kullanışlı temel ve bileşik veri türü içerir. Ancak bu türler, yapmak istediğimiz şeyler için her zaman yeterli
-olmayabilir. Örneğin, bir elmanın kırmızı, sarı veya yeşil olup olmadığını veya bir gömleğin rengini (önceden belirlenmiş bir
-renk listesinden) takip etmesi gereken bir program yazıyorsunuz diyelim. Eğer sadece temel türler mevcut olsaydı, bunu nasıl
-yapardınız?
+C++ birÃ§ok kullanÄ±ÅŸlÄ± temel ve bileÅŸik veri tÃ¼rÃ¼ iÃ§erir. Ancak bu tÃ¼rler, yapmak istediÄŸimiz ÅŸeyler iÃ§in her zaman yeterli
+olmayabilir. Ã–rneÄŸin, bir elmanÄ±n kÄ±rmÄ±zÄ±, sarÄ± veya yeÅŸil olup olmadÄ±ÄŸÄ±nÄ± veya bir gÃ¶mleÄŸin rengini (Ã¶nceden belirlenmiÅŸ bir
+renk listesinden) takip etmesi gereken bir program yazÄ±yorsunuz diyelim. EÄŸer sadece temel tÃ¼rler mevcut olsaydÄ±, bunu nasÄ±l
+yapardÄ±nÄ±z?
 
-Rengi bir tam sayı değeri olarak saklayabilir, bazı türden bir içsel eşlemeyi kullanabilirsiniz (0 = kırmızı, 1 = yeşil, 2 = mavi):
+Rengi bir tam sayÄ± deÄŸeri olarak saklayabilir, bazÄ± tÃ¼rden bir iÃ§sel eÅŸlemeyi kullanabilirsiniz (0 = kÄ±rmÄ±zÄ±, 1 = yeÅŸil, 2 = mavi):
                     int main()
                     {
-                        int elmaRengi{ 0 }; // elma kırmızı
-                        int gomlekRengi{ 1 }; // gömlek yeşil
+                        int elmaRengi{ 0 }; // elma kÄ±rmÄ±zÄ±
+                        int gomlekRengi{ 1 }; // gÃ¶mlek yeÅŸil
 
                         return 0;
                     }
 
-Ama bu hiç de sezgisel değil ve sihirli sayıların neden kötü olduğunu zaten tartıştık. Sembolik sabitleri kullanarak sihirli 
-sayılardan kurtulabiliriz:
+Ama bu hiÃ§ de sezgisel deÄŸil ve sihirli sayÄ±larÄ±n neden kÃ¶tÃ¼ olduÄŸunu zaten tartÄ±ÅŸtÄ±k. Sembolik sabitleri kullanarak sihirli 
+sayÄ±lardan kurtulabiliriz:
 
                     constexpr int kirmizi{ 0 };
                     constexpr int yesil{ 1 };
@@ -234,13 +234,13 @@ sayılardan kurtulabiliriz:
                         return 0;
                     }
 
-Bu, okuma için biraz daha iyidir, ancak programcı hala elmaRengi ve gomlekRengi’nin (int türünde olan) renk sembolik sabitlerinden
-birini tutması gerektiğini çıkarmak zorundadır (bu sabitler muhtemelen başka bir yerde, muhtemelen ayrı bir dosyada tanımlanmıştır)
-Bu programı biraz daha açık hale getirmek için bir tür takma adı kullanabiliriz:
+Bu, okuma iÃ§in biraz daha iyidir, ancak programcÄ± hala elmaRengi ve gomlekRengiâ€™nin (int tÃ¼rÃ¼nde olan) renk sembolik sabitlerinden
+birini tutmasÄ± gerektiÄŸini Ã§Ä±karmak zorundadÄ±r (bu sabitler muhtemelen baÅŸka bir yerde, muhtemelen ayrÄ± bir dosyada tanÄ±mlanmÄ±ÅŸtÄ±r)
+Bu programÄ± biraz daha aÃ§Ä±k hale getirmek iÃ§in bir tÃ¼r takma adÄ± kullanabiliriz:
 
-using Renk = int; // Renk adında bir tür takma adı tanımla
+using Renk = int; // Renk adÄ±nda bir tÃ¼r takma adÄ± tanÄ±mla
 
-// Aşağıdaki renk değerleri bir Renk için kullanılmalıdır
+// AÅŸaÄŸÄ±daki renk deÄŸerleri bir Renk iÃ§in kullanÄ±lmalÄ±dÄ±r
 constexpr Renk kirmizi{ 0 };
 constexpr Renk yesil{ 1 };
 constexpr Renk mavi{ 2 };
@@ -253,112 +253,112 @@ int main()
     return 0;
 }
 
-Daha yaklaşıyoruz. Bu kodu okuyan biri hala bu renk sembolik sabitlerinin Renk türündeki değişkenlerle kullanılması gerektiğini
-anlamalı, ancak en azından türün artık benzersiz bir adı var, böylece Renk arayan biri ilişkili sembolik sabitler kümesini,
+Daha yaklaÅŸÄ±yoruz. Bu kodu okuyan biri hala bu renk sembolik sabitlerinin Renk tÃ¼rÃ¼ndeki deÄŸiÅŸkenlerle kullanÄ±lmasÄ± gerektiÄŸini
+anlamalÄ±, ancak en azÄ±ndan tÃ¼rÃ¼n artÄ±k benzersiz bir adÄ± var, bÃ¶ylece Renk arayan biri iliÅŸkili sembolik sabitler kÃ¼mesini,
 bulabilir.
 
-Ancak, Renk sadece bir int için bir takma ad olduğu için, bu renk sembolik sabitlerinin uygun kullanımını zorlayan hiçbir şey yok.
-Hala şöyle bir şey yapabiliriz:
+Ancak, Renk sadece bir int iÃ§in bir takma ad olduÄŸu iÃ§in, bu renk sembolik sabitlerinin uygun kullanÄ±mÄ±nÄ± zorlayan hiÃ§bir ÅŸey yok.
+Hala ÅŸÃ¶yle bir ÅŸey yapabiliriz:
 
-Renk gozRengi{ 8 }; // sözdizimsel olarak geçerli, anlamsal olarak anlamsız
+Renk gozRengi{ 8 }; // sÃ¶zdizimsel olarak geÃ§erli, anlamsal olarak anlamsÄ±z
 
-Ayrıca, bu değişkenlerin herhangi birini hata ayıklayıcımızda hata ayıklarsak, yalnızca rengin tam sayı değerini (ör. 0) görürüz,
-sembolik anlamını (kırmızı) değil, bu da programımızın doğru olup olmadığını anlamayı zorlaştırabilir.
+AyrÄ±ca, bu deÄŸiÅŸkenlerin herhangi birini hata ayÄ±klayÄ±cÄ±mÄ±zda hata ayÄ±klarsak, yalnÄ±zca rengin tam sayÄ± deÄŸerini (Ã¶r. 0) gÃ¶rÃ¼rÃ¼z,
+sembolik anlamÄ±nÄ± (kÄ±rmÄ±zÄ±) deÄŸil, bu da programÄ±mÄ±zÄ±n doÄŸru olup olmadÄ±ÄŸÄ±nÄ± anlamayÄ± zorlaÅŸtÄ±rabilir.
 
 Neyse ki, daha iyisini yapabiliriz.
 
-İlham kaynağı olarak, bool türünü düşünün. Bool’u özellikle ilginç kılan şey, yalnızca iki tanımlı değeri olmasıdır: true ve false.
-True veya false’u doğrudan (literaller olarak) kullanabiliriz, ya da bir bool nesnesi oluşturabilir ve onun bu değerlerden birini
-tutmasını sağlayabiliriz. Ayrıca, derleyici bool’u diğer türlerden ayırt edebilir. Bu, fonksiyonları aşırı yükleyebileceğimiz ve
-bu fonksiyonların bir bool değeri geçirildiğinde nasıl davranacağını özelleştirebileceğimiz anlamına gelir.
+Ä°lham kaynaÄŸÄ± olarak, bool tÃ¼rÃ¼nÃ¼ dÃ¼ÅŸÃ¼nÃ¼n. Boolâ€™u Ã¶zellikle ilginÃ§ kÄ±lan ÅŸey, yalnÄ±zca iki tanÄ±mlÄ± deÄŸeri olmasÄ±dÄ±r: true ve false.
+True veya falseâ€™u doÄŸrudan (literaller olarak) kullanabiliriz, ya da bir bool nesnesi oluÅŸturabilir ve onun bu deÄŸerlerden birini
+tutmasÄ±nÄ± saÄŸlayabiliriz. AyrÄ±ca, derleyici boolâ€™u diÄŸer tÃ¼rlerden ayÄ±rt edebilir. Bu, fonksiyonlarÄ± aÅŸÄ±rÄ± yÃ¼kleyebileceÄŸimiz ve
+bu fonksiyonlarÄ±n bir bool deÄŸeri geÃ§irildiÄŸinde nasÄ±l davranacaÄŸÄ±nÄ± Ã¶zelleÅŸtirebileceÄŸimiz anlamÄ±na gelir.
 
-Kendi özel türlerimizi tanımlama yeteneğimiz olsaydı, bu türle ilişkilendirilmiş adlandırılmış değerler kümesini tanımlayabilirdik,
-o zaman yukarıdaki zorluğu zarif bir şekilde çözmek için mükemmel bir aracımız olurdu…
+Kendi Ã¶zel tÃ¼rlerimizi tanÄ±mlama yeteneÄŸimiz olsaydÄ±, bu tÃ¼rle iliÅŸkilendirilmiÅŸ adlandÄ±rÄ±lmÄ±ÅŸ deÄŸerler kÃ¼mesini tanÄ±mlayabilirdik,
+o zaman yukarÄ±daki zorluÄŸu zarif bir ÅŸekilde Ã§Ã¶zmek iÃ§in mÃ¼kemmel bir aracÄ±mÄ±z olurduâ€¦
 
-Numaralandırmalar ( Enumerations )
+NumaralandÄ±rmalar ( Enumerations )
 ----------------------------------
-Bir numaralandırma (aynı zamanda bir numaralandırılmış tür veya bir enum olarak da adlandırılır), değerleri adlandırılmış sembolik
-sabitler kümesiyle (numaralandırıcılar olarak adlandırılır) sınırlı bir bileşik veri türüdür.
+Bir numaralandÄ±rma (veya enum), deÄŸerleri adlandÄ±rÄ±lmÄ±ÅŸ sembolik
+sabitler kÃ¼mesiyle (numaralandÄ±rÄ±cÄ±lar olarak adlandÄ±rÄ±lÄ±r) sÄ±nÄ±rlÄ± bir bileÅŸik veri tÃ¼rÃ¼dÃ¼r.
 
-C++ iki tür numaralandırmayı destekler: kapsamsız numaralandırmalar ve kapsamlı numaralandırmalar.
+C++ iki tÃ¼r numaralandÄ±rmayÄ± destekler: kapsamsÄ±z numaralandÄ±rmalar ve kapsamlÄ± numaralandÄ±rmalar.
 
-Numaralandırmalar, program tanımlı türler olduğu için 13.1 – Program Tanımlı (Kullanıcı Tanımlı) Türlerin Girişi,
-her numaralandırmanın tam olarak tanımlanması gerekiyor, kullanmadan önce (bir ileri bildirim yeterli değil).
+NumaralandÄ±rmalar, program tanÄ±mlÄ± tÃ¼rler olduÄŸu iÃ§in,her numaralandÄ±rmanÄ±n tam olarak tanÄ±mlanmasÄ± gerekiyor,
+kullanmadan Ã¶nce (bir ileri bildirim yeterli deÄŸil).
 
-Kapsamsız Numaralandırmalar ( Unscoped Enumerations )
+KapsamsÄ±z NumaralandÄ±rmalar ( Unscoped Enumerations )
 -----------------------------------------------------
-Kapsamsız numaralandırmalar, enum anahtar kelimesi aracılığıyla tanımlanır.
+KapsamsÄ±z numaralandÄ±rmalar, enum anahtar kelimesi aracÄ±lÄ±ÄŸÄ±yla tanÄ±mlanÄ±r.
 
-Numaralandırılmış türler en iyi örneklerle öğretilir, bu yüzden bazı renk değerlerini tutabilecek bir kapsamsız numaralandırma
-tanımlayalım. Nasıl çalıştığını aşağıda açıklayacağız.
-                    // Color adında yeni bir enum tanımla
+NumaralandÄ±rÄ±lmÄ±ÅŸ tÃ¼rler en iyi Ã¶rneklerle Ã¶ÄŸretilir, bu yÃ¼zden bazÄ± renk deÄŸerlerini tutabilecek bir kapsamsÄ±z numaralandÄ±rma
+tanÄ±mlayalÄ±m. NasÄ±l Ã§alÄ±ÅŸtÄ±ÄŸÄ±nÄ± aÅŸaÄŸÄ±da aÃ§Ä±klayacaÄŸÄ±z.
+                    // Color adÄ±nda yeni bir enum tanÄ±mla
                     enum Color
                     {
-                        // İşte enum değerleri
-                        // Bu sembolik sabitler, bu tipin alabileceği tüm değerleri tanımlar
-                        // Her enum değeri virgülle ayrılır, noktalı virgülle değil
+                        // Ä°ÅŸte enum deÄŸerleri
+                        // Bu sembolik sabitler, bu tipin alabileceÄŸi tÃ¼m deÄŸerleri tanÄ±mlar
+                        // Her enum deÄŸeri virgÃ¼lle ayrÄ±lÄ±r, noktalÄ± virgÃ¼lle deÄŸil
                         red,
                         green,
-                        blue, // son enum değerinden sonra virgül opsiyonel ama tavsiye edilir
-                    }; // enum tanımı noktalı virgülle bitmeli
+                        blue, // son enum deÄŸerinden sonra virgÃ¼l opsiyonel ama tavsiye edilir
+                    }; // enum tanÄ±mÄ± noktalÄ± virgÃ¼lle bitmeli
 
                     int main()
                     {
-                        // Color tipinde birkaç değişken tanımla
-                        Color apple { red };   // elma kırmızı
-                        Color shirt { green }; // gömlek yeşil
+                        // Color tipinde birkaÃ§ deÄŸiÅŸken tanÄ±mla
+                        Color apple { red };   // elma kÄ±rmÄ±zÄ±
+                        Color shirt { green }; // gÃ¶mlek yeÅŸil
                         Color cup { blue };    // bardak mavi
 
-                        Color socks { white }; // hata: white, Color'ın bir enum değeri değil
-                        Color hat { 2 };       // hata: 2, Color'ın bir enum değeri değil
+                        Color socks { white }; // hata: white, Color'Ä±n bir enum deÄŸeri deÄŸil
+                        Color hat { 2 };       // hata: 2, Color'Ä±n bir enum deÄŸeri deÄŸil
 
                         return 0;
                     }
 
-Örneğimize, enum anahtar kelimesini kullanarak derleyiciye Color adında bir enum tanımladığımızı söyleyerek başlıyoruz.
+Ã–rneÄŸimize, enum anahtar kelimesini kullanarak derleyiciye Color adÄ±nda bir enum tanÄ±mladÄ±ÄŸÄ±mÄ±zÄ± sÃ¶yleyerek baÅŸlÄ±yoruz.
 
-Bir çift süslü parantez içinde, Color tipi için enum değerlerini tanımlıyoruz: red, green ve blue. Bu enum değerleri, 
-Color tipinin sınırlı olduğu belirli değerleri tanımlar. Her enum değeri virgülle ayrılmalıdır (noktalı virgülle değil) -
-son enum değerinden sonra virgül opsiyonel ama tutarlılık için tavsiye edilir.
+Bir Ã§ift sÃ¼slÃ¼ parantez iÃ§inde, Color tipi iÃ§in enum deÄŸerlerini tanÄ±mlÄ±yoruz: red, green ve blue. Bu enum deÄŸerleri, 
+Color tipinin sÄ±nÄ±rlÄ± olduÄŸu belirli deÄŸerleri tanÄ±mlar. Her enum deÄŸeri virgÃ¼lle ayrÄ±lmalÄ±dÄ±r (noktalÄ± virgÃ¼lle deÄŸil) -
+son enum deÄŸerinden sonra virgÃ¼l opsiyonel ama tutarlÄ±lÄ±k iÃ§in tavsiye edilir.
 
-Color için tip tanımı bir noktalı virgülle biter. Artık Color adlı enum tipini tamamen tanımladık!
+Color iÃ§in tip tanÄ±mÄ± bir noktalÄ± virgÃ¼lle biter. ArtÄ±k Color adlÄ± enum tipini tamamen tanÄ±mladÄ±k!
 
-main() içinde, Color tipinde üç değişken oluşturuyoruz: apple, red rengiyle başlatılıyor; shirt, green rengiyle başlatılıyor;
-ve cup, blue rengiyle başlatılıyor. Bu nesneler için bellek ayrılır. Bir enum tipinin başlatıcısı, o tip için tanımlanan enum
-değerlerinden biri olmalıdır. Socks ve hat değişkenleri derleme hatalarına neden olur çünkü başlatıcılar white ve 2, 
-Color'ın enum değerleri değildir.
+main() iÃ§inde, Color tipinde Ã¼Ã§ deÄŸiÅŸken oluÅŸturuyoruz: apple, red rengiyle baÅŸlatÄ±lÄ±yor; shirt, green rengiyle baÅŸlatÄ±lÄ±yor;
+ve cup, blue rengiyle baÅŸlatÄ±lÄ±yor. Bu nesneler iÃ§in bellek ayrÄ±lÄ±r. Bir enum tipinin baÅŸlatÄ±cÄ±sÄ±, o tip iÃ§in tanÄ±mlanan enum
+deÄŸerlerinden biri olmalÄ±dÄ±r. Socks ve hat deÄŸiÅŸkenleri derleme hatalarÄ±na neden olur Ã§Ã¼nkÃ¼ baÅŸlatÄ±cÄ±lar white ve 2, 
+Color'Ä±n enum deÄŸerleri deÄŸildir.
 
-Enum değerleri implisit ( bilinçsiz - otomatik ) olarak constexpr'dir.
+Enum deÄŸerleri implisit ( bilinÃ§siz - otomatik ) olarak constexpr'dir.
 
-Hatırlatma
+HatÄ±rlatma
 
-Terimler üzerinde hızlıca bir özet yapalım:
+Terimler Ã¼zerinde hÄ±zlÄ±ca bir Ã¶zet yapalÄ±m:
 
-Bir enum veya enum tipi, program tarafından tanımlanan tipin kendisidir (ör. Color).
-Bir enum değeri, enum'a ait belirli bir adlandırılmış değerdir (ör. red).
-Enum ve enum değerlerinin adlandırılması
+Bir enum veya enum tipi, program tarafÄ±ndan tanÄ±mlanan tipin kendisidir (Ã¶r. Color).
+Bir enum deÄŸeri, enum'a ait belirli bir adlandÄ±rÄ±lmÄ±ÅŸ deÄŸerdir (Ã¶r. red).
+Enum ve enum deÄŸerlerinin adlandÄ±rÄ±lmasÄ±
 
-Geleneksel olarak, enum tiplerinin adları büyük harfle başlar (tüm program tarafından tanımlanan tipler gibi).
+Geleneksel olarak, enum tiplerinin adlarÄ± bÃ¼yÃ¼k harfle baÅŸlar (tÃ¼m program tarafÄ±ndan tanÄ±mlanan tipler gibi).
 
-*** Uyarı -> Enum'ların adlandırılması zorunlu değildir, ancak modern C++'da isimsiz enum'ların kullanılması kaçınılmalıdır.
+*** UyarÄ± -> Enum'larÄ±n adlandÄ±rÄ±lmasÄ± zorunlu deÄŸildir, ancak modern C++'da isimsiz enum'larÄ±n kullanÄ±lmasÄ± kaÃ§Ä±nÄ±lmalÄ±dÄ±r.
 
-Enum değerlerine isim verilmelidir. Ne yazık ki, enum değerlerinin isimleri için ortak bir adlandırma kuralı yoktur. Yaygın
-seçenekler arasında küçük harfle başlama (ör. red), büyük harfle başlama (Red), tüm büyük harfler (RED), bir önek ile tüm büyük 
-harfler (COLOR_RED) veya "k" ile öne çıkan ve büyük harfle başlayan (kColorRed) bulunur.
+Enum deÄŸerlerine isim verilmelidir. Ne yazÄ±k ki, enum deÄŸerlerinin isimleri iÃ§in ortak bir adlandÄ±rma kuralÄ± yoktur. YaygÄ±n
+seÃ§enekler arasÄ±nda kÃ¼Ã§Ã¼k harfle baÅŸlama (Ã¶r. red), bÃ¼yÃ¼k harfle baÅŸlama (Red), tÃ¼m bÃ¼yÃ¼k harfler (RED), bir Ã¶nek ile tÃ¼m bÃ¼yÃ¼k 
+harfler (COLOR_RED) veya "k" ile Ã¶ne Ã§Ä±kan ve bÃ¼yÃ¼k harfle baÅŸlayan (kColorRed) bulunur.
 
-Modern C++ kuralları genellikle tüm büyük harfli adlandırma kurallarından kaçınmayı önerir, çünkü tüm büyük harfler genellikle
-önişlemci makroları için kullanılır ve çakışabilir. Büyük harfle başlayan kurallardan kaçınmayı da öneririz, çünkü büyük harfle
-başlayan isimler genellikle program tarafından tanımlanan tipler için ayrılmıştır.
+Modern C++ kurallarÄ± genellikle tÃ¼m bÃ¼yÃ¼k harfli adlandÄ±rma kurallarÄ±ndan kaÃ§Ä±nmayÄ± Ã¶nerir, Ã§Ã¼nkÃ¼ tÃ¼m bÃ¼yÃ¼k harfler genellikle
+Ã¶niÅŸlemci makrolarÄ± iÃ§in kullanÄ±lÄ±r ve Ã§akÄ±ÅŸabilir. BÃ¼yÃ¼k harfle baÅŸlayan kurallardan kaÃ§Ä±nmayÄ± da Ã¶neririz, Ã§Ã¼nkÃ¼ bÃ¼yÃ¼k harfle
+baÅŸlayan isimler genellikle program tarafÄ±ndan tanÄ±mlanan tipler iÃ§in ayrÄ±lmÄ±ÅŸtÄ±r.
 
-*** BEST -> Enum tiplerinizi büyük harfle başlayarak adlandırın. Enum değerlerinizi küçük harfle başlayarak adlandırın.
+*** BEST -> Enum tiplerinizi bÃ¼yÃ¼k harfle baÅŸlayarak adlandÄ±rÄ±n. Enum deÄŸerlerinizi kÃ¼Ã§Ã¼k harfle baÅŸlayarak adlandÄ±rÄ±n.
 
-Enum tipleri ayrı tiplerdir
+Enum tipleri ayrÄ± tiplerdir
 
-Oluşturduğunuz her enum tipi, derleyicinin diğer tiplerden ayırt edebileceği ayrı bir tip olarak kabul edilir 
-(typedef'ler veya tip takma adları aksine, bunlar takma ad oldukları tiplerle aynı kabul edilir).
+OluÅŸturduÄŸunuz her enum tipi, derleyicinin diÄŸer tiplerden ayÄ±rt edebileceÄŸi ayrÄ± bir tip olarak kabul edilir 
+(typedef'ler veya tip takma adlarÄ± aksine, bunlar takma ad olduklarÄ± tiplerle aynÄ± kabul edilir).
 
-Çünkü enum tipleri ayrıdır, bir enum tipinin parçası olarak tanımlanan enum değerleri, başka bir enum tipinin nesneleriyle
-kullanılamaz:
+Ã‡Ã¼nkÃ¼ enum tipleri ayrÄ±dÄ±r, bir enum tipinin parÃ§asÄ± olarak tanÄ±mlanan enum deÄŸerleri, baÅŸka bir enum tipinin nesneleriyle
+kullanÄ±lamaz:
 
                     enum Pet
                     {
@@ -377,23 +377,23 @@ kullanılamaz:
 
                     int main()
                     {
-                        Pet myPet { black }; // derleme hatası: black, Pet'in bir enum değeri değil
-                        Color shirt { pig }; // derleme hatası: pig, Color'ın bir enum değeri değil
+                        Pet myPet { black }; // derleme hatasÄ±: black, Pet'in bir enum deÄŸeri deÄŸil
+                        Color shirt { pig }; // derleme hatasÄ±: pig, Color'Ä±n bir enum deÄŸeri deÄŸil
 
                         return 0;
                     }
 
-Muhtemelen zaten domuzlu bir gömlek istemezdiniz.
+Muhtemelen zaten domuzlu bir gÃ¶mlek istemezdiniz.
 
-Numaralandırmaları Kullanma ( Putting Enumerations to use )
+NumaralandÄ±rmalarÄ± Kullanma ( Putting Enumerations to use )
 -----------------------------------------------------------
-Numaralandırmalar açıklayıcı olduğu için, kod belgelerini ve okunabilirliğini artırmak için yararlıdırlar. Numaralandırılmış 
-türler, küçük bir ilgili sabitler kümesine sahip olduğunuzda ve nesnelerin aynı anda yalnızca bu değerlerden birini tutması 
-gerektiğinde en iyi şekilde kullanılır.
+NumaralandÄ±rmalar aÃ§Ä±klayÄ±cÄ± olduÄŸu iÃ§in, kod belgelerini ve okunabilirliÄŸini artÄ±rmak iÃ§in yararlÄ±dÄ±rlar. NumaralandÄ±rÄ±lmÄ±ÅŸ 
+tÃ¼rler, kÃ¼Ã§Ã¼k bir ilgili sabitler kÃ¼mesine sahip olduÄŸunuzda ve nesnelerin aynÄ± anda yalnÄ±zca bu deÄŸerlerden birini tutmasÄ± 
+gerektiÄŸinde en iyi ÅŸekilde kullanÄ±lÄ±r.
 
-Genellikle tanımlanan numaralandırılmalar arasında haftanın günleri, ana yönler ve bir kart destesindeki takımlar bulunur:
+Genellikle tanÄ±mlanan numaralandÄ±rÄ±lmalar arasÄ±nda haftanÄ±n gÃ¼nleri, ana yÃ¶nler ve bir kart destesindeki takÄ±mlar bulunur:
 
-                    enum HaftaninGünleri
+                    enum HaftaninGÃ¼nleri
                     {
                         pazar,
                         pazartesi,
@@ -404,25 +404,25 @@ Genellikle tanımlanan numaralandırılmalar arasında haftanın günleri, ana yönler 
                         cumartesi,
                     };
 
-                    enum AnaYönler
+                    enum AnaYÃ¶nler
                     {
                         kuzey,
                         dogu,
-                        güney,
+                        gÃ¼ney,
                         bati,
                     };
 
                     enum KartTakimlari
                     {
-                        kulüpler,
+                        kulÃ¼pler,
                         elmaslar,
                         kalpler,
-                        maçalar,
+                        maÃ§alar,
                     };
 
-Bazen fonksiyonlar, fonksiyonun başarıyla yürütülüp yürütülmediğini veya bir hata ile karşılaşıp karşılaşmadığını belirtmek için
-bir durum kodunu çağırıcıya döndürür. Geleneksel olarak, farklı olası hata kodlarını temsil etmek için küçük negatif sayılar 
-kullanılırdı. Örneğin:
+Bazen fonksiyonlar, fonksiyonun baÅŸarÄ±yla yÃ¼rÃ¼tÃ¼lÃ¼p yÃ¼rÃ¼tÃ¼lmediÄŸini veya bir hata ile karÅŸÄ±laÅŸÄ±p karÅŸÄ±laÅŸmadÄ±ÄŸÄ±nÄ± belirtmek iÃ§in
+bir durum kodunu Ã§aÄŸÄ±rÄ±cÄ±ya dÃ¶ndÃ¼rÃ¼r. Geleneksel olarak, farklÄ± olasÄ± hata kodlarÄ±nÄ± temsil etmek iÃ§in kÃ¼Ã§Ã¼k negatif sayÄ±lar 
+kullanÄ±lÄ±rdÄ±. Ã–rneÄŸin:
 
                     int dosyaIceriginiOku()
                     {
@@ -433,10 +433,10 @@ kullanılırdı. Örneğin:
                         if (!dosyayiAyristir())
                             return -3;
 
-                        return 0; // başarı
+                        return 0; // baÅŸarÄ±
                     }
 
-Ancak, bu tür sihirli sayıları kullanmak çok açıklayıcı değildir. Daha iyi bir yöntem, bir numaralandırılmış tür kullanmaktır:
+Ancak, bu tÃ¼r sihirli sayÄ±larÄ± kullanmak Ã§ok aÃ§Ä±klayÄ±cÄ± deÄŸildir. Daha iyi bir yÃ¶ntem, bir numaralandÄ±rÄ±lmÄ±ÅŸ tÃ¼r kullanmaktÄ±r:
 
                     enum DosyaOkumaSonucu
                     {
@@ -458,71 +458,71 @@ Ancak, bu tür sihirli sayıları kullanmak çok açıklayıcı değildir. Daha iyi bir y
                         return okumaSonucuBasari;
                     }
 
-Daha sonra çağırıcı, fonksiyonun dönüş değerini uygun numaralandırıcıya karşı test edebilir, bu da dönüş sonucunu belirli bir tam
-sayı değeri için test etmekten daha kolay anlaşılır.
+Daha sonra Ã§aÄŸÄ±rÄ±cÄ±, fonksiyonun dÃ¶nÃ¼ÅŸ deÄŸerini uygun numaralandÄ±rÄ±cÄ±ya karÅŸÄ± test edebilir, bu da dÃ¶nÃ¼ÅŸ sonucunu belirli bir tam
+sayÄ± deÄŸeri iÃ§in test etmekten daha kolay anlaÅŸÄ±lÄ±r.
 
                     if (dosyaIceriginiOku() == okumaSonucuBasari)
                     {
-                        // bir şey yap
+                        // bir ÅŸey yap
                     }
                     else
                     {
-                        // hata mesajı yazdır
+                        // hata mesajÄ± yazdÄ±r
                     }
 
-numaralandırılmış türler, oyunlarda da iyi bir şekilde kullanılabilir, farklı türdeki öğeleri, canavarları veya arazileri
-tanımlamak için. Temel olarak, küçük bir ilgili nesneler kümesi olan her şey.
+numaralandÄ±rÄ±lmÄ±ÅŸ tÃ¼rler, oyunlarda da iyi bir ÅŸekilde kullanÄ±labilir, farklÄ± tÃ¼rdeki Ã¶ÄŸeleri, canavarlarÄ± veya arazileri
+tanÄ±mlamak iÃ§in. Temel olarak, kÃ¼Ã§Ã¼k bir ilgili nesneler kÃ¼mesi olan her ÅŸey.
 
-Örneğin:
+Ã–rneÄŸin:
 
-                    enum ÖğeTürü
+                    enum Ã–ÄŸeTÃ¼rÃ¼
                     {
-                        kılıç,
-                        meşale,
+                        kÄ±lÄ±Ã§,
+                        meÅŸale,
                         iksir,
                     };
 
                     int main()
                     {
-                        ÖğeTürü tutulan{ meşale };
+                        Ã–ÄŸeTÃ¼rÃ¼ tutulan{ meÅŸale };
 
                         return 0;
                     }
 
-numaralandırılmış türler, kullanıcının iki veya daha fazla seçenek arasında bir seçim yapması gerektiğinde yararlı işlev 
+numaralandÄ±rÄ±lmÄ±ÅŸ tÃ¼rler, kullanÄ±cÄ±nÄ±n iki veya daha fazla seÃ§enek arasÄ±nda bir seÃ§im yapmasÄ± gerektiÄŸinde yararlÄ± iÅŸlev 
 parametreleri yapabilir:
 
-                    enum SıralamaDüzeni
+                    enum SÄ±ralamaDÃ¼zeni
                     {
                         alfabetik,
                         alfabetikTers,
-                        sayısal,
+                        sayÄ±sal,
                     };
 
-                    void veriyiSırala(SıralamaDüzeni düzen)
+                    void veriyiSÄ±rala(SÄ±ralamaDÃ¼zeni dÃ¼zen)
                     {
-                        switch (düzen)
+                        switch (dÃ¼zen)
                         {
                             case alfabetik:
-                                // veriyi ileri alfabetik sırayla sırala
+                                // veriyi ileri alfabetik sÄ±rayla sÄ±rala
                                 break;
                             case alfabetikTers:
-                                // veriyi geri alfabetik sırayla sırala
+                                // veriyi geri alfabetik sÄ±rayla sÄ±rala
                                 break;
-                            case sayısal:
-                                // veriyi sayısal olarak sırala
+                            case sayÄ±sal:
+                                // veriyi sayÄ±sal olarak sÄ±rala
                                 break;
                         }
                     }
 
-Birçok dil, Boole'ları tanımlamak için numaralandırılmaları kullanır - sonuçta, bir Boole, temelde yalnızca 2 numaralandırıcıya
-sahip bir sayılandırmadır: false ve true! Ancak, C++'da, true ve false, numaralandırmalar yerine anahtar kelimeler olarak 
-tanımlanmıştır.
+BirÃ§ok dil, Boole'larÄ± tanÄ±mlamak iÃ§in numaralandÄ±rÄ±lmalarÄ± kullanÄ±r - sonuÃ§ta, bir Boole, temelde yalnÄ±zca 2 numaralandÄ±rÄ±cÄ±ya
+sahip bir sayÄ±landÄ±rmadÄ±r: false ve true! Ancak, C++'da, true ve false, numaralandÄ±rmalar yerine anahtar kelimeler olarak 
+tanÄ±mlanmÄ±ÅŸtÄ±r.
 
-numaralandırılmalar küçük ve kopyalaması ucuz olduğu için, onları değer olarak geçmek (ve döndürmek) iyidir.
+numaralandÄ±rÄ±lmalar kÃ¼Ã§Ã¼k ve kopyalamasÄ± ucuz olduÄŸu iÃ§in, onlarÄ± deÄŸer olarak geÃ§mek (ve dÃ¶ndÃ¼rmek) iyidir.
 
-Ders O.1 -- Bit bayrakları ve bit manipülasyonu via std::bitset, konusunda bit bayraklarını tartıştık. numaralandırılmalar,
-std::bitset ile kullanılmak üzere ilgili bit bayrak pozisyonlarının bir koleksiyonunu tanımlamak için de kullanılabilir:
+Ders O.1 -- Bit bayraklarÄ± ve bit manipÃ¼lasyonu via std::bitset, konusunda bit bayraklarÄ±nÄ± tartÄ±ÅŸtÄ±k. numaralandÄ±rÄ±lmalar,
+std::bitset ile kullanÄ±lmak Ã¼zere ilgili bit bayrak pozisyonlarÄ±nÄ±n bir koleksiyonunu tanÄ±mlamak iÃ§in de kullanÄ±labilir:
 
                     #include <bitset>
                     #include <iostream>
@@ -548,94 +548,94 @@ std::bitset ile kullanılmak üzere ilgili bit bayrak pozisyonlarının bir koleksiy
                         ben.set(Bayraklar::mutlu);
                         ben.set(Bayraklar::gulu);
 
-                        std::cout << std::boolalpha; // bool'u true/false olarak yazdır
+                        std::cout << std::boolalpha; // bool'u true/false olarak yazdÄ±r
 
-                        // Birkaç durumu sorgula (herhangi bir bitin ayarlı olup olmadığını görmek için any() fonksiyonunu
-                           kullanırız)
+                        // BirkaÃ§ durumu sorgula (herhangi bir bitin ayarlÄ± olup olmadÄ±ÄŸÄ±nÄ± gÃ¶rmek iÃ§in any() fonksiyonunu
+                           kullanÄ±rÄ±z)
                         std::cout << "Mutlu muyum? " << ben.test(Bayraklar::mutlu) << '\n';
-                        std::cout << "Gülüyor muyum? " << ben.test(Bayraklar::gulu) << '\n';
+                        std::cout << "GÃ¼lÃ¼yor muyum? " << ben.test(Bayraklar::gulu) << '\n';
 
                         return 0;
                     }
-Bir tam sayı değerinin beklendiği yerde bir numaralandırıcıyı nasıl kullanabileceğimizi merak ediyorsanız, kapsamsız
-numaralandırıcılar otomatik olarak tam sayı değerlerine dönüştürülür. Bunu bir sonraki derste (13.3 – Kapsamsız numaralandırma 
-girişi ve çıkışı) daha ayrıntılı olarak inceleyeceğiz.
+Bir tam sayÄ± deÄŸerinin beklendiÄŸi yerde bir numaralandÄ±rÄ±cÄ±yÄ± nasÄ±l kullanabileceÄŸimizi merak ediyorsanÄ±z, kapsamsÄ±z
+numaralandÄ±rÄ±cÄ±lar otomatik olarak tam sayÄ± deÄŸerlerine dÃ¶nÃ¼ÅŸtÃ¼rÃ¼lÃ¼r. Bunu bir sonraki derste (13.3 â€“ KapsamsÄ±z numaralandÄ±rma 
+giriÅŸi ve Ã§Ä±kÄ±ÅŸÄ±) daha ayrÄ±ntÄ±lÄ± olarak inceleyeceÄŸiz.
 
-Kapsamsız Numaralandırmaların Kapsamı
+KapsamsÄ±z NumaralandÄ±rmalarÄ±n KapsamÄ±
 
-Kapsamsız numaralandırmalar, numaralandırıcı adlarını numaralandırma tanımının kendisiyle aynı kapsama koyarlar 
-(bir ad alanının yaptığı gibi yeni bir kapsam bölgesi oluşturmak yerine).
+KapsamsÄ±z numaralandÄ±rmalar, numaralandÄ±rÄ±cÄ± adlarÄ±nÄ± numaralandÄ±rma tanÄ±mÄ±nÄ±n kendisiyle aynÄ± kapsama koyarlar 
+(bir ad alanÄ±nÄ±n yaptÄ±ÄŸÄ± gibi yeni bir kapsam bÃ¶lgesi oluÅŸturmak yerine).
 
-Örneğin, bu programı verelim:
+Ã–rneÄŸin, bu programÄ± verelim:
 
-                    enum Renk // bu enum global ad alanında tanımlanmıştır
+                    enum Renk // bu enum global ad alanÄ±nda tanÄ±mlanmÄ±ÅŸtÄ±r
                     {
-                        kirmizi, // bu yüzden kirmizi global ad alanına konulur
+                        kirmizi, // bu yÃ¼zden kirmizi global ad alanÄ±na konulur
                         yesil,
                         mavi,
                     };
 
                     int main()
                     {
-                        Renk elma { kirmizi }; // elma kırmızı
+                        Renk elma { kirmizi }; // elma kÄ±rmÄ±zÄ±
 
                         return 0;
                     }
-Renk numaralandırması global kapsamda tanımlanmıştır. Bu nedenle, tüm numaralandırma adları (kırmızı, yeşil ve mavi) de global
-kapsama girer. Bu, global kapsamı kirletir ve ad çakışma olasılığını önemli ölçüde artırır.
+Renk numaralandÄ±rmasÄ± global kapsamda tanÄ±mlanmÄ±ÅŸtÄ±r. Bu nedenle, tÃ¼m numaralandÄ±rma adlarÄ± (kÄ±rmÄ±zÄ±, yeÅŸil ve mavi) de global
+kapsama girer. Bu, global kapsamÄ± kirletir ve ad Ã§akÄ±ÅŸma olasÄ±lÄ±ÄŸÄ±nÄ± Ã¶nemli Ã¶lÃ§Ã¼de artÄ±rÄ±r.
 
-Bunun bir sonucu olarak, bir numaralandırıcı adı aynı kapsamdaki birden çok numaralandırmada kullanılamaz:
+Bunun bir sonucu olarak, bir numaralandÄ±rÄ±cÄ± adÄ± aynÄ± kapsamdaki birden Ã§ok numaralandÄ±rmada kullanÄ±lamaz:
 
                     enum Renk
                     {
                         kirmizi,
                         yesil,
-                        mavi, // mavi global ad alanına konulur
+                        mavi, // mavi global ad alanÄ±na konulur
                     };
 
                     enum Duygu
                     {
                         mutlu,
                         yorgun,
-                        mavi, // hata: yukarıdaki mavi ile ad çakışması
+                        mavi, // hata: yukarÄ±daki mavi ile ad Ã§akÄ±ÅŸmasÄ±
                     };
 
                     int main()
                     {
-                        Renk elma { kirmizi }; // elma kırmızı
-                        Duygu ben { mutlu }; // şu anda mutluyum (programım derlenmiyor olsa bile)
+                        Renk elma { kirmizi }; // elma kÄ±rmÄ±zÄ±
+                        Duygu ben { mutlu }; // ÅŸu anda mutluyum (programÄ±m derlenmiyor olsa bile)
 
                         return 0;
                     }
 
-Yukarıdaki örnekte, her iki kapsamsız numaralandırma (Renk ve Duygu) aynı adı taşıyan numaralandırıcıları global kapsama koyar.
-Bu, bir ad çakışmasına ve ardından derleme hatasına yol açar.
+YukarÄ±daki Ã¶rnekte, her iki kapsamsÄ±z numaralandÄ±rma (Renk ve Duygu) aynÄ± adÄ± taÅŸÄ±yan numaralandÄ±rÄ±cÄ±larÄ± global kapsama koyar.
+Bu, bir ad Ã§akÄ±ÅŸmasÄ±na ve ardÄ±ndan derleme hatasÄ±na yol aÃ§ar.
 
-Kapsamsız numaralandırmalar ayrıca numaralandırıcıları için adlandırılmış bir kapsam bölgesi sağlar (bir ad alanının içindeki
-adları içeren bir adlandırılmış kapsam bölgesi gibi). Bu, bir kapsamsız numaralandırmanın numaralandırıcılarına şu şekilde
-erişebileceğimiz anlamına gelir:
+KapsamsÄ±z numaralandÄ±rmalar ayrÄ±ca numaralandÄ±rÄ±cÄ±larÄ± iÃ§in adlandÄ±rÄ±lmÄ±ÅŸ bir kapsam bÃ¶lgesi saÄŸlar (bir ad alanÄ±nÄ±n iÃ§indeki
+adlarÄ± iÃ§eren bir adlandÄ±rÄ±lmÄ±ÅŸ kapsam bÃ¶lgesi gibi). Bu, bir kapsamsÄ±z numaralandÄ±rmanÄ±n numaralandÄ±rÄ±cÄ±larÄ±na ÅŸu ÅŸekilde
+eriÅŸebileceÄŸimiz anlamÄ±na gelir:
 
                     enum Renk
                     {
                         kirmizi,
                         yesil,
-                        mavi, // mavi global ad alanına konulur
+                        mavi, // mavi global ad alanÄ±na konulur
                     };
 
                     int main()
                     {
-                        Renk elma { kirmizi }; // tamam, numaralandırıcıyı global ad alanından erişiyor
-                        Renk ahududu { Renk::kirmizi }; // ayrıca tamam, numaralandırıcıyı Renk kapsamından erişiyor
+                        Renk elma { kirmizi }; // tamam, numaralandÄ±rÄ±cÄ±yÄ± global ad alanÄ±ndan eriÅŸiyor
+                        Renk ahududu { Renk::kirmizi }; // ayrÄ±ca tamam, numaralandÄ±rÄ±cÄ±yÄ± Renk kapsamÄ±ndan eriÅŸiyor
 
                         return 0;
                     }
 
-Çoğu zaman, kapsamsız numaralandırıcılar kapsam çözümleme operatörünü kullanmadan erişilir.
+Ã‡oÄŸu zaman, kapsamsÄ±z numaralandÄ±rÄ±cÄ±lar kapsam Ã§Ã¶zÃ¼mleme operatÃ¶rÃ¼nÃ¼ kullanmadan eriÅŸilir.
 
-Numaralandırıcı Ad Çakışmalarını Önlemek
+NumaralandÄ±rÄ±cÄ± Ad Ã‡akÄ±ÅŸmalarÄ±nÄ± Ã–nlemek
 ----------------------------------------
-Kapsamsız numaralandırıcı ad çakışmalarını önlemenin oldukça yaygın birkaç yolu vardır. Bir seçenek, her numaralandırıcıyı
-numaralandırmanın adıyla öne koymaktır:
+KapsamsÄ±z numaralandÄ±rÄ±cÄ± ad Ã§akÄ±ÅŸmalarÄ±nÄ± Ã¶nlemenin oldukÃ§a yaygÄ±n birkaÃ§ yolu vardÄ±r. Bir seÃ§enek, her numaralandÄ±rÄ±cÄ±yÄ±
+numaralandÄ±rmanÄ±n adÄ±yla Ã¶ne koymaktÄ±r:
 
                     enum Renk
                     {
@@ -648,7 +648,7 @@ numaralandırmanın adıyla öne koymaktır:
                     {
                         duygu_mutlu,
                         duygu_yorgun,
-                        duygu_mavi, // artık renk_mavi ile ad çakışması yok
+                        duygu_mavi, // artÄ±k renk_mavi ile ad Ã§akÄ±ÅŸmasÄ± yok
                     };
 
                     int main()
@@ -659,12 +659,12 @@ numaralandırmanın adıyla öne koymaktır:
                         return 0;
                     }
 
-Bu hala ad alanını kirletir ama adları daha uzun ve daha benzersiz yaparak ad çakışma olasılığını azaltır. Daha iyi bir seçenek,
-numaralandırılmış türü, ayrı bir kapsam bölgesi sağlayan bir şeyin içine koymaktır, örneğin bir ad alanı:
+Bu hala ad alanÄ±nÄ± kirletir ama adlarÄ± daha uzun ve daha benzersiz yaparak ad Ã§akÄ±ÅŸma olasÄ±lÄ±ÄŸÄ±nÄ± azaltÄ±r. Daha iyi bir seÃ§enek,
+numaralandÄ±rÄ±lmÄ±ÅŸ tÃ¼rÃ¼, ayrÄ± bir kapsam bÃ¶lgesi saÄŸlayan bir ÅŸeyin iÃ§ine koymaktÄ±r, Ã¶rneÄŸin bir ad alanÄ±:
 
                     namespace Renk
                     {
-                        // Renk, kırmızı, mavi ve yeşil adları, Renk ad alanı içinde tanımlanır
+                        // Renk, kÄ±rmÄ±zÄ±, mavi ve yeÅŸil adlarÄ±, Renk ad alanÄ± iÃ§inde tanÄ±mlanÄ±r
                         enum Renk
                         {
                             kirmizi,
@@ -679,7 +679,7 @@ numaralandırılmış türü, ayrı bir kapsam bölgesi sağlayan bir şeyin içine koymakt
                         {
                             mutlu,
                             yorgun,
-                            mavi, // Duygu::mavi, Renk::mavi ile çakışmaz
+                            mavi, // Duygu::mavi, Renk::mavi ile Ã§akÄ±ÅŸmaz
                         };
                     }
 
@@ -691,18 +691,18 @@ numaralandırılmış türü, ayrı bir kapsam bölgesi sağlayan bir şeyin içine koymakt
                         return 0;
                     }
 
-Bu, artık numaralandırma ve numaralandırıcı adlarımızı kapsam bölgesinin adıyla öne koymamız gerektiği anlamına gelir.
-İlgili bir seçenek, kendi kapsam bölgesini tanımlayan bir kapsamlı numaralandırma kullanmaktır göreceğiz.
-*** BEST -> Numaralandırmalarınızı, numaralandırıcıların global ad alanını kirletmemesi için adlandırılmış bir kapsam bölgesi 
-            içine koymayı tercih edin (örneğin bir ad alanı veya sınıf).
+Bu, artÄ±k numaralandÄ±rma ve numaralandÄ±rÄ±cÄ± adlarÄ±mÄ±zÄ± kapsam bÃ¶lgesinin adÄ±yla Ã¶ne koymamÄ±z gerektiÄŸi anlamÄ±na gelir.
+Ä°lgili bir seÃ§enek, kendi kapsam bÃ¶lgesini tanÄ±mlayan bir kapsamlÄ± numaralandÄ±rma kullanmaktÄ±r gÃ¶receÄŸiz.
+*** BEST -> NumaralandÄ±rmalarÄ±nÄ±zÄ±, numaralandÄ±rÄ±cÄ±larÄ±n global ad alanÄ±nÄ± kirletmemesi iÃ§in adlandÄ±rÄ±lmÄ±ÅŸ bir kapsam bÃ¶lgesi 
+            iÃ§ine koymayÄ± tercih edin (Ã¶rneÄŸin bir ad alanÄ± veya sÄ±nÄ±f).
 
-Alternatif olarak, bir numaralandırma yalnızca tek bir fonksiyonun gövdesinde kullanılıyorsa, numaralandırma fonksiyonun içinde 
-tanımlanmalıdır. Bu, numaralandırmanın ve numaralandırıcılarının kapsamını yalnızca o fonksiyona sınırlar. Bu tür bir 
-numaralandırmanın numaralandırıcıları, global kapsamda tanımlanan aynı adlı numaralandırıcıları gölgede bırakır.
+Alternatif olarak, bir numaralandÄ±rma yalnÄ±zca tek bir fonksiyonun gÃ¶vdesinde kullanÄ±lÄ±yorsa, numaralandÄ±rma fonksiyonun iÃ§inde 
+tanÄ±mlanmalÄ±dÄ±r. Bu, numaralandÄ±rmanÄ±n ve numaralandÄ±rÄ±cÄ±larÄ±nÄ±n kapsamÄ±nÄ± yalnÄ±zca o fonksiyona sÄ±nÄ±rlar. Bu tÃ¼r bir 
+numaralandÄ±rmanÄ±n numaralandÄ±rÄ±cÄ±larÄ±, global kapsamda tanÄ±mlanan aynÄ± adlÄ± numaralandÄ±rÄ±cÄ±larÄ± gÃ¶lgede bÄ±rakÄ±r.
 
-Numaralandırıcılarla Karşılaştırma
+NumaralandÄ±rÄ±cÄ±larla KarÅŸÄ±laÅŸtÄ±rma
 ----------------------------------
-Bir numaralandırmanın belirli bir numaralandırıcının değerine sahip olup olmadığını test etmek için eşitlik operatörlerini
+Bir numaralandÄ±rmanÄ±n belirli bir numaralandÄ±rÄ±cÄ±nÄ±n deÄŸerine sahip olup olmadÄ±ÄŸÄ±nÄ± test etmek iÃ§in eÅŸitlik operatÃ¶rlerini
 (operator== ve operator!=) kullanabiliriz.
 
                     #include <iostream>
@@ -718,15 +718,15 @@ Bir numaralandırmanın belirli bir numaralandırıcının değerine sahip olup olmadığ
                     {
                         Renk gomlek{ mavi };
 
-                        if (gomlek == mavi) // eğer gömlek maviyse
-                            std::cout << "Gömleğiniz mavi!";
+                        if (gomlek == mavi) // eÄŸer gÃ¶mlek maviyse
+                            std::cout << "GÃ¶mleÄŸiniz mavi!";
                         else
-                            std::cout << "Gömleğiniz mavi değil!";
+                            std::cout << "GÃ¶mleÄŸiniz mavi deÄŸil!";
 
                         return 0;
                     }
-Yukarıdaki örnekte, bir if-deyimi kullanarak gomleğin numaralandırıcı maviye eşit olup olmadığını test ediyoruz. Bu, programımızın
-davranışını, numaralandırmamızın hangi numaralandırıcıyı tuttuğuna dayalı olarak koşullandırmamız için bir yol sağlar.
+YukarÄ±daki Ã¶rnekte, bir if-deyimi kullanarak gomleÄŸin numaralandÄ±rÄ±cÄ± maviye eÅŸit olup olmadÄ±ÄŸÄ±nÄ± test ediyoruz. Bu, programÄ±mÄ±zÄ±n
+davranÄ±ÅŸÄ±nÄ±, numaralandÄ±rmamÄ±zÄ±n hangi numaralandÄ±rÄ±cÄ±yÄ± tuttuÄŸuna dayalÄ± olarak koÅŸullandÄ±rmamÄ±z iÃ§in bir yol saÄŸlar.
 
-Bunu bir sonraki derste daha fazla kullanacağız.
+Bunu bir sonraki derste daha fazla kullanacaÄŸÄ±z.
 */
