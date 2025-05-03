@@ -79,86 +79,51 @@ int main()
 	//////////////////////////////////////////////////////////////////////////////////////////////////////
 	// CHARS //
 
-
-
-	// Multiliteral character e.g '43' bunlardan kaçın bunlar c++ standartlarında yok normalde o yüzden 
-	// farklı sistemlerde farklı şekilde tanımlanmış olabilirler ve kodların sonuçlarında beklenmedik 
+	// Multiliteral character e.g '43' bunlardan kaÃ§Ä±n bunlar c++ standartlarÄ±nda yok normalde o yÃ¼zden 
+	// farklÄ± sistemlerde farklÄ± ÅŸekilde tanÄ±mlanmÄ±ÅŸ olabilirler ve kodlarÄ±n sonuÃ§larÄ±nda beklenmedik 
 	// etkilere neden olabilirler.
 	/*
-	int y{ 4 };
+	double y{ 5 };
 	print(y);
 
 
-	Burada yine de 5 yazacak çünkü optimizasyon için cpp inisiyatif alarak 5.0 ı 5 ile aynı lojik olarak aynı sayacak
-	ama y nin bir double a dönüştürülerek ve bu değer ile YENİ BİR DEĞİŞKEN üretildiği ve fonksiyona bu şekilde 
-	iletildiğini unutmamak gerekiyor.
-
-	Sonradan örnekleri değiştirirken değişen parçaları yoruma çevirip yenisini yazıyorum unutma kafan karışmasın.
-
-	print(5);
+	Burada yine de 5 yazacak Ã§Ã¼nkÃ¼ optimizasyon iÃ§in cpp inisiyatif alarak 5.0 Ä± 5 ile aynÄ± lojik olarak aynÄ± sayacak
+	ama y nin bir double a dÃ¶nÃ¼ÅŸtÃ¼rÃ¼lerek ve bu deÄŸer ile YENÄ° BÄ°R DEÄÄ°ÅKEN Ã¼retildiÄŸi ve fonksiyona bu ÅŸekilde 
+	iletildiÄŸini unutmamak gerekiyor.
 	*/
-
-
-	/*print(static_cast<int>(5.5));
-
-
-	// Böylece uyarı mesajı olmadan devam etmiş olduk fakat şunu unutma
-	// static cast yaparken 1 kullanılan türe veya değişkene her hangi bir zarar verilmiyor 
-	// 2- Burada static cast yaparken mesela unsigned bir türü signed a çevirirsen
-	// örn: int s { static_cast<int>(u) }; -> Burada u bir unsigned olursa 
-	// static cast onun rangesine yani menziline depo miktarına bakmaz 
-	// O yüzden böyle bir işlem yaparken eğer taşma olursa beklenmedik sonuçlarla karşılaşabiliriz.
+	
+	/*
+ 	 print(static_cast<int>(5.5));
+	 BÃ¶ylece uyarÄ± mesajÄ± olmadan devam etmiÅŸ olduk fakat ÅŸunu unutma
+	 static cast yaparken 1 kullanÄ±lan tÃ¼re veya deÄŸiÅŸkene her hangi bir zarar verilmiyor 
+	 2- Burada static cast yaparken mesela unsigned bir tÃ¼rÃ¼ signed a Ã§evirirsen
+	 Ã¶rn: int s { static_cast<int>(u) }; -> Burada u bir unsigned olursa 
+	 static cast onun rangesine yani menziline depo miktarÄ±na bakmaz 
+	 O yÃ¼zden bÃ¶yle bir iÅŸlem yaparken eÄŸer taÅŸma olursa beklenmedik sonuÃ§larla karÅŸÄ±laÅŸabiliriz.
 	*/
-
-
 	/*
 	std::int8_t myInt {65}; 
 	std::cout << myInt << '\n';
 
-	// Burada int8_t ve uint8_t char gibi davranıyor bu bazı yerlerde u şekilde ama normalde gördüğün gibi 
-	// int yazılmış yani burada seni kandırıyorlar buna dikkat etmen gerekiyor bunun gibi yerlerde 
-	// static_cast<gerekliTür>() i kullanman gerekebilir.
-	// Bu durum aynı zamanda input alırken de sorunlar yaratabilir dikkatli olmakta fayda var. 
-	// Diğer fixed_width türler ise her zaman tam sayı değerli olarak yazılır ve giriş alırlar. 
+	// Burada int8_t ve uint8_t char gibi davranÄ±yor bu bazÄ± yerlerde u ÅŸekilde Ã§Ä±kabiliyor.
+	// int yazÄ±lmÄ±ÅŸ yani burada bazÄ± programlarda tanÄ±mlÄ± olan int8_t ile char aynÄ± mantÄ±kta olduÄŸu iÃ§in bu ÅŸekilde Ã§Ä±ktÄ± veriyor.
+	// static_cast<gerekliTÃ¼r>() i kullanman gerekebilir.
+	// Bu durum aynÄ± zamanda input alÄ±rken de sorunlar yaratabilir dikkatli olmakta fayda var. 
+	// DiÄŸer fixed_width tÃ¼rler ise her zaman tam sayÄ± deÄŸerli olarak yazÄ±lÄ±r ve giriÅŸ alÄ±rlar. 
 
 	*/
-	
-	/*// QUIZ - QUESTINO 1
-	char ch{};
-	std::cout << "Enter a single character: ";
-	
-	std::cin >> ch;
-
-	std::cout << "You entered " << "'" << ch << "', " << "which has ASCII code " << static_cast<int>(ch) << ".";
-	*/
-
-	/* QUESTİON 2 - OK
-	char ch{};
-	std::cout << "Enter a single character: ";
-
-	std::cin >> ch;
-
-	std::cout << "You entered " << "'" << ch << "', " << "which has ASCII code ";
-	print(ch);
-	std::cout << ".\n";
-	*/
-	// bir çok yolu varmış biz birini yaptık en zekice olanı bir sayı ile çarpmak 1 ile mesela yada 1 çıkartıp eklemek gibi
-	// veya int fonksiyondan return almak felan filan.
-
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Compile time contants 
-	//int x{ 3 + 4 };
-//	std::cout << x;
-	// Mesela burada kodu bir kere çalıştırdıktan sonra 3 + 4 değişmeyeceği ve bilinen şeyler olduğu için sonucu 
-	// da bilinen bir şeydir o anlamda bir sabit ifadedir. Bir kere derlendikten sonra. Tekrar tekrar hesaplanmasına gerek
-	// olmadığı için bilgisayar birinci defadan sonra int x { 7 } diyerek devam eder bir nevi. Bu optimizasyon sağlar aslında.
+	int x{ 3 + 4 };
+  	std::cout << x;
+	// Mesela burada kodu bir kere Ã§alÄ±ÅŸtÄ±rdÄ±ktan sonra 3 + 4 deÄŸiÅŸmeyeceÄŸi ve bilinen ÅŸeyler olduÄŸu iÃ§in sonucu 
+	// da bilinen bir ÅŸeydir o anlamda bir sabit ifadedir. Bir kere derlendikten sonra. Tekrar tekrar hesaplanmasÄ±na gerek
+	// olmadÄ±ÄŸÄ± iÃ§in bilgisayar birinci defadan sonra int x { 7 } diyerek devam eder Bu ÅŸekilde optimize edilir.
 
-	// bunlar sabir ifadelerdir yani constant expression Bir de compile-time constant lar var bunlarda değeri bilinen sabitlerdir
-	// yani literaller örneğin sayılar veya stringler değerleri bilinir. BUnalra compile-time constant denir. 
-	// değişkenlerde de bu durum gözükebilir tabi bunun olması için başlatıccısının bir const olması gerekir 
-	// yani değişkenin değişmeyeceğini bilmemiz gerekir const int x { 7 }; gibi
+	// bunlar sabir ifadelerdir yani constant expression Bir de compile-time constant lar var bunlarda deÄŸeri bilinen sabitlerdir
+	// yani literaller Ã¶rneÄŸin sayÄ±lar veya stringler deÄŸerleri bilinir. Bunlara compile-time constant denir. 
+	// deÄŸiÅŸkenlerde de bu durum gÃ¶zÃ¼kebilir tabi bunun olmasÄ± iÃ§in baÅŸlatÄ±ccÄ±sÄ±nÄ±n bir const olmasÄ± gerekir 
+	// yani deÄŸiÅŸkenin deÄŸiÅŸmeyeceÄŸini bilmemiz gerekir const int x { 7 }; gibi
 
 	/*
 	const int x { 6 };
@@ -166,104 +131,73 @@ int main()
 
 	const int z { x + y };
 
-	Mesela burada x ve y bilinen ve sabit ifadeler olduğu için z de değişmeyecektir bu yüzden z de bir comp.-time const olur.
-	bu compile-time constlar genellikle sembolik sabitler olarak kullanılır. 
+	Mesela burada x ve y bilinen ve sabit ifadeler olduÄŸu iÃ§in z de deÄŸiÅŸmeyecektir bu yÃ¼zden z de bir comp.-time const olur.
+	bu compile-time constlar genellikle sembolik sabitler olarak kullanÄ±lÄ±r. 
 		
 	*/
 
 	/*
-	Burada derleme zamanı sabitlerinin derleyiciye çalışma zamanında değil de derleme sırasında optimize edilebilecek
-	optimizasyonlar yapma yeteneği verir.
-	Örneğin bir sabit yerine bir değişken kullanıldığında derleyici bu sabiti doğrudan değeriyle değiştirebilir böylece kod hızlı çalışır.
+	Burada derleme zamanÄ± sabitlerinin derleyiciye Ã§alÄ±ÅŸma zamanÄ±nda deÄŸil de derleme sÄ±rasÄ±nda optimize edilebilecek
+	optimizasyonlar yapma yeteneÄŸi verir.
+	Ã–rneÄŸin bir sabit yerine bir deÄŸiÅŸken kullanÄ±ldÄ±ÄŸÄ±nda derleyici bu sabiti doÄŸrudan deÄŸeriyle deÄŸiÅŸtirebilir bÃ¶ylece kod hÄ±zlÄ± Ã§alÄ±ÅŸÄ±r.
 
-	örneğin const double gravity { 9.8 } derleyici burada gravity gördüğünde gidip adresten almak yerine 9.8 kabul ederek devam eder.
+	Ã¶rneÄŸin const double gravity { 9.8 } derleyici burada gravity gÃ¶rdÃ¼ÄŸÃ¼nde gidip adresten almak yerine 9.8 kabul ederek devam eder.
 	*/
 
 
 
 	/*
-	Burada runtime const lar ise runtime a kadar değerleri bilinmeyen constlardır. Bunalrda işte runtime expression olmuş olur.
-	---------------------------------------------------------------------------------------------------------------------------
-	Herhangi bir değişken, başlatımdan sonra değiştirilmemeli ve başlatıcı derleme zamanında biliniyorsa constexpr olarak
+	Burada runtime const lar ise runtime a kadar deÄŸerleri bilinmeyen constlardÄ±r. Bu yÃ¼zden runtime expression olarak adlandÄ±rÄ±lÄ±lrar. 
+	-----------------------------------------------------------------------------------------------------------------------------------
+	Herhangi bir deÄŸiÅŸken, baÅŸlatÄ±mdan sonra deÄŸiÅŸtirilmemeli ve baÅŸlatÄ±cÄ± derleme zamanÄ±nda biliniyorsa constexpr olarak
 	bildirilmelidir.
-	Herhangi bir değişken, başlatımdan sonra değiştirilmemeli ve başlatıcı derleme zamanında bilinmiyorsa const olarak bildirilmelidir.
+	Herhangi bir deÄŸiÅŸken, baÅŸlatÄ±mdan sonra deÄŸiÅŸtirilmemeli ve baÅŸlatÄ±cÄ± derleme zamanÄ±nda bilinmiyorsa const olarak bildirilmelidir.
 
-	Not: Gelecekte, şu an constexpr ile uyumlu olmayan bazı türleri 
-	(std::string, std::vector gibi dinamik bellek tahsisi kullanan türler dahil) tartışacağız.
-	Bu türlerin sabit nesneleri için const kullanın.
-	
+	Not: Gelecekte, ÅŸu an constexpr ile uyumlu olmayan bazÄ± tÃ¼rleri 
+	(std::string, std::vector gibi dinamik bellek tahsisi kullanan tÃ¼rler dahil) tartÄ±ÅŸacaÄŸÄ±z.
+	Bu tÃ¼rlerin sabit nesneleri iÃ§inÂ constÂ kullanÄ±n.
 
-	// Hoca devamı var fakat biraz kafa karıştırıcı oluduğu için tekrar okursun sonraki zamnalarda. Performans açısından buraları 
-	// bilmek iyi olur gibi. 
+	// Kodalarda bÃ¼yÃ¼lÃ¼ ( magic ) sayÄ±lar yani ne olduÄŸu bilinmez sayÄ±lar kullanmamak en iyisidir. Onun yerine constexpr kullanmak en iyisi 
+	// mesela gravity diyip constexpr yanÄ±mlamak varken 9.8 ile Ã§arparsan kardeÅŸim bizde sorarÄ±z bu nerden geldi diye.
 
-
-
-
-	// Kodalarda büyülü sayılar yani ne olduğu bilinmez sayılar kullanmamak en iyisidir. Onun yerine constexpr kullanmak en iyisi 
-	// mesela gravity diyip constexpr yanımlamak varken 9.8 ile çarparsan kardeşim bizde sorarız bu nerden geldi be amk. diye. ehehhehe
-
-
-
-	// std::cin>> boşluklarda kesiyor ve sonraki cin e aktarıyordu. Bundan dolayı std::string ler için burada std::getline()
-	// ı kullanacağız. Tabi input manipülatörü ile std::ws ile std::getline(std::cin >> std::ws , stringName ); Bu şekilde kullanımı var.
+	// std::cin>> boÅŸluklarda kesiyor ve sonraki cin e aktarÄ±yordu. Bundan dolayÄ± std::string ler iÃ§in burada std::getline()
+	// Ä± kullanacaÄŸÄ±z. Tabi input manipÃ¼latÃ¶rÃ¼ ile std::ws ile std::getline(std::cin >> std::ws , stringName ); Bu ÅŸekilde kullanÄ±mÄ± var.
 
 	/*
-	Burada stringlerin uzunluğunu sorarken member fonksiyon diye bir fonksiyon tipi var onu kullanıyoruz
+	Burada stringlerin uzunluÄŸunu sorarken member fonksiyon diye bir fonksiyon tipi var onu kullanÄ±yoruz
 	std::string name{"Kemaleddin"};
-	burada uzunluk bilgisi için name.length() yapıyoruz aynı python gibi.
+	burada uzunluk bilgisi iÃ§in name.length() yapÄ±yoruz aynÄ± python gibi.
 
-	normalde function(object) idi bu sefer object.function() olmuş oldu sadece buna da member function diyoz 
-	dokümanlarda std::string::length() olarak da geçer özel bir fonksiyondur.
+	normalde function(object) idi bu sefer object.function() olmuÅŸ oldu sadece buna da member function diyoz 
+	dokÃ¼manlarda std::string::length() olarak da geÃ§er Ã¶zel bir fonksiyondur.
 	
 	*/
 	/*
-	Burada stringlerin boyunu lenth() fonksiyonu ile alırken bize unsigned int döner sıkıntı çıkarmaması için static_cast<int>() ile
-	dönüşüm sağlamamız lazım. Ayrıca C++20 de std::ssize() fonksiyonu da signed int olarak uzunluğu verir.	
+	Burada stringlerin boyunu lenth() fonksiyonu ile alÄ±rken bize unsigned int dÃ¶ner sÄ±kÄ±ntÄ± Ã§Ä±karmamasÄ± iÃ§in static_cast<int>() ile
+	dÃ¶nÃ¼ÅŸÃ¼m saÄŸlamamÄ±z lazÄ±m. AyrÄ±ca C++20 de std::ssize() fonksiyonu da signed int olarak uzunluÄŸu verir.	
 	*/
-
-	/*QUIZ - STD::STRINGS - basarili :D
-	* 
-
-	std::string name{};
-	int age{};
-
-	std::cout << " Enter your full name: ";
-	std::getline(std::cin >> std::ws, name);
-
-	std::cout << "Enter your age: ";
-	std::cin >> age;
-
-	int lengthOfName{ static_cast<int>(name.length()) };
-
-
-	std::cout << "Your age + length of name is: " << age + lengthOfName ;
-	
-
-	*/
-
-
 	/*
-	std::string_view -> bize sadece salt okunur yani read-only şekilde kullanılan bir string olarak gelir c++17 den geliyor string_view
-	başlığı altında gelir bu aynı string gibi std::string_view objeAdı{} şeklinde tanımlanır fakat bunu modify edemeyiz 
-	sadece kullanabiliriz. BU yüzden kopyalama işlemleri olmadığı için daha hızlı şekilde işlem yaparız 
-	Bunu özellikle fonksiyonların parametrelerinde ve kullanabileceğimiz her yerde kullanak bize performas olarak çok daha 
-	işe yarar avantaj katar.
+	std::string_view -> bize sadece salt okunur yani read-only ÅŸekilde kullanÄ±lan bir string olarak gelir c++17 den geliyor string_view
+	baÅŸlÄ±ÄŸÄ± altÄ±nda gelir bu aynÄ± string gibi std::string_view objeAdÄ±{} ÅŸeklinde tanÄ±mlanÄ±r fakat bunu modify edemeyiz 
+	sadece kullanabiliriz. BU yÃ¼zden kopyalama iÅŸlemleri olmadÄ±ÄŸÄ± iÃ§in daha hÄ±zlÄ± ÅŸekilde iÅŸlem yaparÄ±z 
+	Bunu Ã¶zellikle fonksiyonlarÄ±n parametrelerinde ve kullanabileceÄŸimiz her yerde kullanmak bize performas olarak Ã§ok daha 
+	iÅŸe yarar avantaj katar.
 	
 	
-	*en iyi özelliği bir çok şekilde başlatılabilir string ile c-style string ile veya başka bir string_view ile başlatılabilir.
-	* Fonksiyonlarda da yine aynı şekilde bu 3 türü de kabul edecek ve bilinçsiz dönüşüm yapar yani implicit casting yapacacaktır.
-	* std::string_view objesi std::string e dönüşmeyecektir *** Bunun için 2 yol var
-	1 std::String i std::string_view ile başlatarak oluştururuz 
-	2 veya std::string_view i static_cast ile dönüştürürüz 
+	*en iyi Ã¶zelliÄŸi bir Ã§ok ÅŸekilde baÅŸlatÄ±labilir string ile c-style string ile veya baÅŸka bir string_view ile baÅŸlatÄ±labilir.
+	* Fonksiyonlarda da yine aynÄ± ÅŸekilde bu 3 tÃ¼rÃ¼ de kabul edecek ve bilinÃ§siz dÃ¶nÃ¼ÅŸÃ¼m yapar yani implicit casting yapacacaktÄ±r.
+	* std::string_view objesi std::string e dÃ¶nÃ¼ÅŸmeyecektir *** Bunun iÃ§in 2 yol var
+	1 std::String i std::string_view ile baÅŸlatarak oluÅŸtururuz 
+	2 veya std::string_view i static_cast ile dÃ¶nÃ¼ÅŸtÃ¼rÃ¼rÃ¼z 
 
 
 
 
-	std::string ve std::string_view türlerinin ikiside constexpr i tam olarak destekler burada string sembolik sabitler lazım olduğunda 
-	kullanılabilir. 
+	std::string ve std::string_view tÃ¼rlerinin ikiside constexpr i tam olarak destekler burada string sembolik sabitler lazÄ±m olduÄŸunda 
+	kullanÄ±labilir. 
 	*/
 
-/*Imporoper use of std::string_view*/
+/*Improper use of std::string_view*/
 /*
 	std::string_view sv{};
 	{
@@ -278,83 +212,38 @@ int main()
 	/*
 
 	std::string_view name { getName() }; // name initialized with return value of function
-	std::cout << name << '\n'; // undefined behavior
+	std::cout << name << '\n'; // undefinedÂ behavior
 	*/
 /*
 	std::string s { "Hello, world!" };
 	std::string_view sv { s }; // sv is now viewing s
 
 	s = "Hello, universe!";    // modifies s, which invalidates sv (s is still valid)
-	std::cout << sv << '\n';   // undefined behavior
+	std::cout << sv << '\n';   // undefinedÂ behavior
 
 */
 
-//	Yani burada s i sonradan değiştirmemiz s e bakan string_view ler invalid olmuş oluyor sonradan tekrar tanımlamadığımız sürece 
-	//	invalid bir şekilde devam edecekler.
+//	Yani burada s i sonradan deÄŸiÅŸtirmemiz s'e bakan string_view ler invalid olmuÅŸ oluyor sonradan tekrar tanÄ±mlamadÄ±ÄŸÄ±mÄ±z sÃ¼rece 
+//	invalid bir ÅŸekilde devam edecekler.
 
 
 
 
 /*
-Fonksiyonları return ederken string view kullanımında 1 eğer bir string e bakan bir string view return edersek bu sıkıntılı bir durum
-olur çünkü stringler fonksiyon tamamlandığında silinir böylece tanımlanmayan ve beklenmedik sonuçlar ortaya çıkabilir.
-Bir std::string_view'in güvenli bir şekilde döndürülebileceği iki ana durum vardır. İlk olarak, C tarzı dize değişmezleri programın 
-tamamı için mevcut olduğundan, std::string_view dönüş türüne sahip bir işlevden C tarzı dize değişmezlerini döndürmek uygundur.
+FonksiyonlarÄ± return ederken string view kullanÄ±mÄ±nda 1 eÄŸer bir string e bakan bir string view return edersek bu sÄ±kÄ±ntÄ±lÄ± bir durum
+olur Ã§Ã¼nkÃ¼ stringler fonksiyon tamamlandÄ±ÄŸÄ±nda silinir bÃ¶ylece tanÄ±mlanmayan ve beklenmedik sonuÃ§lar ortaya Ã§Ä±kabilir.
+Bir std::string_view'in gÃ¼venli bir ÅŸekilde dÃ¶ndÃ¼rÃ¼lebileceÄŸi iki ana durum vardÄ±r. Ä°lk olarak, C tarzÄ± dize deÄŸiÅŸmezleri programÄ±n 
+tamamÄ± iÃ§in mevcut olduÄŸundan, std::string_view dÃ¶nÃ¼ÅŸ tÃ¼rÃ¼ne sahip bir iÅŸlevden C tarzÄ± dize deÄŸiÅŸmezlerini dÃ¶ndÃ¼rmekÂ uygundur.
 
-2- İkincisi, std::string_view türünde bir fonksiyon parametresinin döndürülmesi genellikle uygundur:
-
-
-eğer stringview geçici bir nesneye bakıyorsa geçici nesne yok olmadan kullanılmalı yoksa sıkıntılar çıkabilir. 
+2- Ä°kincisi, std::string_view tÃ¼rÃ¼nde bir fonksiyon parametresinin dÃ¶ndÃ¼rÃ¼lmesi genellikleÂ uygundur:
 
 
+eÄŸer stringview geÃ§ici bir nesneye bakÄ±yorsa geÃ§ici nesne yok olmadan kullanÄ±lmalÄ± yoksa sÄ±kÄ±ntÄ±lar Ã§Ä±kabilir. 
 
 
-*/
-/*
-* Yaptık gardeeeeeeeeeeeeeeş
-
-// CH4 REVİEW QUİZ 1
-
-double x{};
-double y{};
-char c{};
-
-std::cout << "Enter a double value: ";
-std::cin >> x;
-
-std::cout << "Enter a double value: ";
-std::cin >> y;
-
-std::cout << "Enter one of the following: +, -, *, or /: ";
-std::cin >> c;
-
-if (c == '*')
-	std::cout << x <<" " << c << " " << y << " is: " << star(x, y);
-else if(c == '/')
-	std::cout << x << " " << c << " " << y << "is: " << division(x, y);
-else if(c == '+')
-	std::cout << x << " " << c <<" " << y << "is: " << addition(x, y);
-else
-	std::cout << x << " " << c << " " << y << "is: " << extraction(x, y);
 
 
 */
-
-/*
-* 
-* Hoca garip yapmış yav neyse 
-* buradan öğrenilen best practice her fonksiyon tek bir görevi üstlensin ******
-// CH4 REVİEW QUİZ2
-int height{};
-int t{ 1 };
-std::cout << "Enter the height of the tower in meters: ";
-std::cin >> height;
-
-freeFall(height, t);
-*/
-
-
-
 	std::cout << "How old are you?\n";
 
 	std::uint8_t age{};
@@ -368,43 +257,5 @@ freeFall(height, t);
 		std::cout << " ";
 
 	std::cout << "]\n";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	return 0;
 }
-
-
-
