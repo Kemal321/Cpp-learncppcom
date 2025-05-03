@@ -22,93 +22,85 @@ int getNumber() {
 }
 int main()
 {
-    // Birleşik işlemler matematikte işlemlere operatör işleme girenlere operand denir. 
-    // 2 + 3   -> 2 ve 3 literalleri operand iken + işaretide operatördür.
-    // 4 + 2 * 3 = 18 mi 10 mu peki C++ işlem sırasını nasıl bilebilir 
+    // BirleÅŸik iÅŸlemler matematikte iÅŸlemlere operatÃ¶r iÅŸleme girenlere operand denir. 
+    // 2 + 3   -> 2 ve 3 literalleri operand iken + iÅŸaretide operatÃ¶rdÃ¼r.
+    // 4 + 2 * 3 = 18 mi 10 mu peki C++ iÅŸlem sÄ±rasÄ±nÄ± nasÄ±l bilebilir 
     
     
     /*
     
-    Burada C++ ın yaptığı 2 şey var;
-    1- ) Derleme zamanında, derleyici ifadeyi çözümlemeli ve operatörlerle nasıl gruplandırıldığını belirlemelidir.
-    2- ) Sonrasında derleme veya çalışma zamanında işlemciler değerlendirilir ve işlemler gerçekleştirilerek sonuç üretilir
+    Burada C++ Ä±n yaptÄ±ÄŸÄ± 2 ÅŸey var;
+    1- ) Derleme zamanÄ±nda, derleyici ifadeyi Ã§Ã¶zÃ¼mlemeli ve operatÃ¶rlerle nasÄ±l gruplandÄ±rÄ±ldÄ±ÄŸÄ±nÄ±Â belirlemelidir.
+    2- ) SonrasÄ±nda derleme veya Ã§alÄ±ÅŸma zamanÄ±nda iÅŸlemciler deÄŸerlendirilir ve iÅŸlemler gerÃ§ekleÅŸtirilerek sonuÃ§ Ã¼retilir
     
     */
-    // Operator Precedence - İşlem önceliği 
+    // Operator Precedence - Ä°ÅŸlem Ã¶nceliÄŸi 
     /*
-    7-4-1 nasıl gruplandırılır mesela. 
-    Bir ifadede aynı öncelik seviyesine sahip iki operatör yan yana geldiğinde, operatörün ilişkilendirilme kuralları derleyiciye 
-    operatörleri soldan sağa mı yoksa sağdan sola mı değerlendirmesi gerektiğini söyler. Çıkarma işlemi öncelik seviyesi 6'ya sahiptir
-    ve öncelik seviyesi 6'daki operatörlerin ilişkilendirilme kuralları soldan sağa doğrudur. Bu nedenle, bu ifade soldan sağa 
-    gruplanır: (7 - 4) - 1.*/
+    7-4-1 nasÄ±l gruplandÄ±rÄ±lÄ±r mesela. 
+    Bir ifadede aynÄ± Ã¶ncelik seviyesine sahip iki operatÃ¶r yan yana geldiÄŸinde, operatÃ¶rÃ¼n iliÅŸkilendirilme kurallarÄ± derleyiciye 
+    operatÃ¶rleri soldan saÄŸa mÄ± yoksa saÄŸdan sola mÄ± deÄŸerlendirmesi gerektiÄŸini sÃ¶yler. Ã‡Ä±karma iÅŸlemi Ã¶ncelik seviyesi 6'ya sahiptir
+    ve Ã¶ncelik seviyesi 6'daki operatÃ¶rlerin iliÅŸkilendirilme kurallarÄ± soldan saÄŸa doÄŸrudur. Bu nedenle, bu ifade soldan saÄŸa 
+    gruplanÄ±r:Â (7Â -Â 4)Â -Â 1.*/
 
-    // C++ de bir çok operatör level i var bunlar 1 den başlayarak 17 ye kadar gidiyor ve () parantezler en yükselerden biri 
-    // o yüzden bileşik işlemler yapacağımız zaman parantez kullanarak bunu daha kolay okunabilir hale getirmek en iyi yoldur.
-
-    /*
-    (a * b) + (c * d) -> Fonksiyonlarda ve operantların değerlendirme sıraları belirtilmemiştir. 
-    Yani c++ yukarıda a *b veya c * d yi ilk olarak değerlendirebilir bu biraz karışıktır. Bununla alakalı 6.1 konunun altlarında bir
-    örnek var. 
-    Dikkatli olmak lazım. 
-
-    Kısaca **** İşlemciler fonksiyon argümanları ve alt ifadelerin değerlendirme sırası her hangi bir sıralamada olabilir. 
-    Bundan kaçınmanın yolları şu uyarıdır. **** Yazdığımız ifadelerin veya fonksiyon çağrılarının operand veya argüman değerlendirme
-    sırasına bağlı olmadığından emin olmalıyız.
-    */
+    // C++ de bir Ã§ok operatÃ¶r level i var bunlar 1 den baÅŸlayarak 17 ye kadar gidiyor ve () parantezler en yÃ¼kselerden biri 
+    // o yÃ¼zden bileÅŸik iÅŸlemler yapacaÄŸÄ±mÄ±z zaman parantez kullanarak bunu daha kolay okunabilir hale getirmek en iyi yoldur.
 
     /*
+    (a * b) + (c * d) -> Fonksiyonlarda ve operantlarÄ±n deÄŸerlendirme sÄ±ralarÄ± belirtilmemiÅŸtir. 
+    Yani c++ yukarÄ±da a *b veya c * d yi ilk olarak deÄŸerlendirebilir bu biraz karÄ±ÅŸÄ±ktÄ±r. Bununla alakalÄ± 6.1 konunun altlarÄ±nda bir
+    Ã¶rnek var. 
+    Dikkatli olmak lazÄ±m. 
+
+    KÄ±saca **** Ä°ÅŸlemciler fonksiyon argÃ¼manlarÄ± ve alt ifadelerin deÄŸerlendirme sÄ±rasÄ± her hangi bir sÄ±ralamada olabilir. 
+    Bundan kaÃ§Ä±nmanÄ±n yolu ise "YazdÄ±ÄŸÄ±mÄ±z ifadelerin veya fonksiyon Ã§aÄŸrÄ±larÄ±nÄ±n operand veya argÃ¼man deÄŸerlendirme
+    sÄ±rasÄ±na baÄŸlÄ± olmadÄ±ÄŸÄ±ndan emin olmaktÄ±r".
+ 
     UNARY OOPERATORS 
-    Unary yani birli operatörler isminden de belli olduğu gibi tek bir operand alırlar. Unary operatörler + ve - dir 
+    Unary yani birli operatÃ¶rler isminden de belli olduÄŸu gibi tek bir operand alÄ±rlar. Unary operatÃ¶rler + ve - dir 
     +x -x 
-    - unary operatörü operandını -1 ile çarparak return eder. 
-    + operandın değerini döndürür. Gereksizdir sadece - operatörüne simetri sağlaması için eklenmiş bir operatördür :d
+    - unary operatÃ¶rÃ¼ operandÄ±nÄ± -1 ile Ã§arparak return eder. 
+    + operandÄ±n deÄŸerini dÃ¶ndÃ¼rÃ¼r. Gereksizdir sadece - operatÃ¶rÃ¼ne simetri saÄŸlamasÄ± iÃ§in eklenmiÅŸ bir operatÃ¶rdÃ¼r :d
 
     BINARY OPERATORS
-    Klasik 2 işlemcili operatörlerdir bunlar + - / * % operatörleridir. Burada + - * işlemcileri aynı normal hayattaki gibi çalışır 
-    fakat bölme ve mod işlemine biraz değinmek gerekir.
+    Klasik 2 iÅŸlemcili operatÃ¶rlerdir bunlar + - / * % operatÃ¶rleridir. Burada + - * iÅŸlemcileri aynÄ± normal hayattaki gibi Ã§alÄ±ÅŸÄ±r 
+    fakat bÃ¶lme ve mod iÅŸlemine biraz deÄŸinmek gerekir.
     
-    / -> operatöründe 1 veya 2 tarafın kayan noktalı sayı olması bölümü de o şekilde yapar ki çıktısıda kayan noktalı sayı olur 
-    eğer 2 işlemci de integer değer olursa bölümün sonucu integer olur ve noktadan sonraki kısım DÜŞÜLÜR.
+    / -> operatÃ¶rÃ¼nde 1 veya 2 tarafÄ±n kayan noktalÄ± sayÄ± olmasÄ± bÃ¶lÃ¼mÃ¼ de o ÅŸekilde yapar ki Ã§Ä±ktÄ±sÄ±da kayan noktalÄ± sayÄ± olur 
+    eÄŸer 2 iÅŸlemci de integer deÄŸer olursa bÃ¶lÃ¼mÃ¼n sonucu integer olur ve noktadan sonraki kÄ±sÄ±m DÃœÅÃœLÃœR.
 
-    Burada 2 tamsayı varsa x ve y olsun bunları yine de floating point olarak bölmek istiyoruz dersen reis 
-    static_cast<double>(x) / y veya her ikisini veya sadece y yi değiştirerek üstteki kurala göre float bölmesi yapabilirim.
+    Burada 2 tamsayÄ± varsa x ve y olsun bunlarÄ± yine de floating point olarak bÃ¶lmek istiyoruz dersen reis 
+    static_cast<double>(x) / y veya her ikisini veya sadece y yi deÄŸiÅŸtirerek Ã¼stteki kurala gÃ¶re float bÃ¶lmesi yapabilirim.
     
-    Burada 0 veya 0.0 a bölmek tanımlanmayan davranışa neden olabilir bazı derleyicilerde sistem mimarisinin tanımlamasına göre
-    NaN veya Inf dönütü alabiliriz. 
+    Burada 0 veya 0.0 a bÃ¶lmek tanÄ±mlanmayan davranÄ±ÅŸa neden olabilir bazÄ± derleyicilerde sistem mimarisinin tanÄ±mlamasÄ±na gÃ¶re
+    NaN veya Inf dÃ¶nÃ¼tÃ¼ alabiliriz. 
 
-    Kalan alma işlemi (%) aynı bildiğimiz şey sadece eksili sayılarda her zaman ilk işlemcinin işaretini alıyor. 
-    += -= *= /= %= leri de kullanabiliyoruz bu sağdaki değişkeni soldaki ile işleme sokarak sola tekrardan atar.
+    Kalan alma iÅŸlemi (%) aynÄ± bildiÄŸimiz ÅŸey sadece eksili sayÄ±larda her zaman ilk iÅŸlemcinin iÅŸaretini alÄ±yor. 
+    += -= *= /= %= leri de kullanabiliyoruz bu saÄŸdaki deÄŸiÅŸkeni soldaki ile iÅŸleme sokarak sola tekrardan atar.
 
-    kalan alma işlemi ile işlemler yaparken negatif sayılar sorun çıkartabilir burada 0 ile karşılaştırmak 
-    daha mantıklıdır yapılabileceği her yerde 0 ile karşılaştır.
+    kalan alma iÅŸlemi ile iÅŸlemler yaparken negatif sayÄ±lar sorun Ã§Ä±kartabilir burada 0 ile karÅŸÄ±laÅŸtÄ±rmak 
+    daha mantÄ±klÄ±dÄ±r yapÄ±labileceÄŸi her yerde 0 ile karÅŸÄ±laÅŸtÄ±r.
     
     */
-
-    // Quiz 6.3 exponentiation and remainder
-
-    
-    //isEven(getNumber());
-
-    // Arttırım / Azaltım Operatörleri ve yan etkileri
+    // ArttÄ±rÄ±m / AzaltÄ±m OperatÃ¶rleri ve yan etkileri
     /*
     
-    ++x -> X i arttır ve x i geri döndür
-    --x -> X i azalt ve x i geri döndür
-    x++ -> x i kopyala, x i arttır, x i döndür ve kopyala
-    x-- -> x i kopyala, x i azalt, x i döndür ve kopyala
+    ++x -> X i arttÄ±r ve x i geri dÃ¶ndÃ¼r
+    --x -> X i azalt ve x i geri dÃ¶ndÃ¼r
+    x++ -> x i kopyala, x i arttÄ±r, x i dÃ¶ndÃ¼r ve kopyala
+    x-- -> x i kopyala, x i azalt, x i dÃ¶ndÃ¼r ve kopyala
     
 
-    Burada zaten ++x --x in çalışma mantığını biliyoruz klasik alıp değerlendir ve arttır sonrasında kullan. 
-    Ama postfix işlemlerde ise x++ ve x-- ilk olarak x in bir kopyası oluşturulur ve asıl değer arttırılır veya azaltılır
-    Sonrasında eğer değer arttırılır bunun etkisi nedir derseniz 
+    Burada zaten ++x --x in Ã§alÄ±ÅŸma mantÄ±ÄŸÄ±nÄ± biliyoruz klasik alÄ±p deÄŸerlendir ve arttÄ±r sonrasÄ±nda kullan. 
+    Ama postfix iÅŸlemlerde ise x++ ve x-- ilk olarak x in bir kopyasÄ± oluÅŸturulur ve asÄ±l deÄŸer arttÄ±rÄ±lÄ±r veya azaltÄ±lÄ±r
+    SonrasÄ±nda eÄŸer deÄŸer arttÄ±rÄ±lÄ±r bunun etkisi nedir derseniz 
     int x { 5 } ;
-    int y { ++x }; -> Burada y 6 olur yani prefix işlemlerde önce arttırım sonrasında değerlendirme olur. 
-    int z { x++ }; -> Burada ise x in kopyası oluşturulur ve orjinal arttırılır bu sırada z değişkenine x in kopyası ile işlem
-    yapılır yani z 5 olarak atanır. Sonrasında x in değeri bir arttırılır. 
-    Postfix de işlemlerin fazlalığı belli yani performans konusunda prefix işlemden daha kötü olduğunu bil.
+    int y { ++x }; -> Burada y 6 olur yani prefix iÅŸlemlerde Ã¶nce arttÄ±rÄ±m sonrasÄ±nda deÄŸerlendirme olur. 
+    int z { x++ }; -> Burada ise x in kopyasÄ± oluÅŸturulur ve orjinal arttÄ±rÄ±lÄ±r bu sÄ±rada z deÄŸiÅŸkenine x in kopyasÄ± ile iÅŸlem
+    yapÄ±lÄ±r yani z 5 olarak atanÄ±r. SonrasÄ±nda x in deÄŸeri bir arttÄ±rÄ±lÄ±r. 
+    Postfix de iÅŸlemlerin fazlalÄ±ÄŸÄ± belli yani performans konusunda prefix iÅŸlemden daha kÃ¶tÃ¼ olduÄŸunu bil.
 
     */
-    /* Burada prefix işlemler daha performanslı ve süpriz oluşturmaya daha uzak olduğu için tercih edilebildiği her yerde tercih
+    /* Burada prefix iÅŸlemler daha performanslÄ± ve sÃ¼priz oluÅŸturmaya daha uzak olduÄŸu iÃ§in tercih edilebildiÄŸi her yerde tercih
     edilmeli
     */
 
@@ -116,38 +108,35 @@ int main()
     /*
     Yan etkiler
     
-    Bir fonksiyon veya ifade bir dönüş değeri üretmek dışında gözlemlenebilir bir etkiye sahipse, bu işlevin yan etkisi olduğu söylenir.
-    * Bana biraz saçma geldi aga bunlara neden yan etki diyoz amk kutuyu itersen kutu ileri gider zaten bunun için itersin 
-    * Buna yan etki demek çok garip geliyor. He amaç x = 5 yazmak sa bilemem ama x = 5 i zaten x e 5 atamak için yazıyoz yani bu yan
-    * etki olmaz bence amk böyle mantalitenin.
-    * ** Hocam burada yazılan kodda oluşan yan etki bazen emirlerin sırasında bir hataya neden olabilri 
-    * örnek bir toplama fonksiyonna 2 değer yolayaım mesela 
+    Bir fonksiyon veya ifade bir dÃ¶nÃ¼ÅŸ deÄŸeri Ã¼retmek dÄ±ÅŸÄ±nda gÃ¶zlemlenebilir bir etkiye sahipse, bu iÅŸlevin yan etkisi olduÄŸu sÃ¶ylenir.
+    * Burada yazÄ±lan kodda oluÅŸan yan etki bazen emirlerin sÄ±rasÄ±nda bir hataya neden olabilri 
+    * Ã¶rnek bir toplama fonksiyonna 2 deÄŸer yolayaÄ±m mesela 
     * int x { 5 };
     * add(x, ++x);
-    * Burada add fonksiyonu 5 + 6 mı yapacak 6 + 6 mı undefined behaviour olur yani.
+    * Burada add fonksiyonu 5 + 6 mÄ± yapacak 6 + 6 mÄ± undefined behaviour olur yani.
     
-    ***  C++ fonksiyon argümanları ve işleçlerin işlenenleri için bir değerlendirme sırası tanımlamaz.
-    ***  Çoğu durumda, C++ aynı ifadede birden fazla kullanılan bir yan etkisi olan bir nesnenin yan 
-    ***  etkilerinin ne zaman uygulanması gerektiğini de belirtmez. Bu, aynı ifadede bir nesne daha fazla
-    ***  kullanıldığında belirsiz davranışa yol açabilir.    
+    ***  C++ fonksiyon argÃ¼manlarÄ± ve iÅŸleÃ§lerin iÅŸlenenleri iÃ§in bir deÄŸerlendirme sÄ±rasÄ± tanÄ±mlamaz.
+    ***  Ã‡oÄŸu durumda, C++ aynÄ± ifadede birden fazla kullanÄ±lan bir yan etkisi olan bir nesnenin yan 
+    ***  etkilerinin ne zaman uygulanmasÄ± gerektiÄŸini de belirtmez. Bu, aynÄ± ifadede bir nesne daha fazla
+    ***  kullanÄ±ldÄ±ÄŸÄ±nda belirsiz davranÄ±ÅŸaÂ yolÂ aÃ§abilir.    
     */
     /*
-    Virgül Operatörü
-    Virgül operatörü (,) bir ifade yerine birden fazla ifadeyi değerlendirmenize olanak tanır. Virgül operatörü sol operandı
-    değerlendirir, ardından sağ operandı değerlendirir ve son olarak sağ operandın sonucunu döndürür.
+    VirgÃ¼l OperatÃ¶rÃ¼
+    VirgÃ¼l operatÃ¶rÃ¼ (,) bir ifade yerine birden fazla ifadeyi deÄŸerlendirmenize olanak tanÄ±r. VirgÃ¼l operatÃ¶rÃ¼ sol operandÄ±
+    deÄŸerlendirir, ardÄ±ndan saÄŸ operandÄ± deÄŸerlendirir ve son olarak saÄŸ operandÄ±n sonucunu dÃ¶ndÃ¼rÃ¼r.
 
-    Genellikle, virgül operatörünü kullanarak yazılan bir ifade, ayrı ifadeler olarak yazılmış bir şekilde daha iyi anlaşılır olur.
-    Yani, birçok ifadeyi virgül operatörü ile bir arada yazmak yerine her bir ifadeyi ayrı ayrı yazmak, 
-    kodun daha okunaklı ve anlaşılır olmasını sağlar. Örneğin, verilen kod, aşağıdaki gibi daha anlaşılır bir şekilde yazılabilir:
+    Genellikle, virgÃ¼l operatÃ¶rÃ¼nÃ¼ kullanarak yazÄ±lan bir ifade, ayrÄ± ifadeler olarak yazÄ±lmÄ±ÅŸ bir ÅŸekilde daha iyi anlaÅŸÄ±lÄ±r olur.
+    Yani, birÃ§ok ifadeyi virgÃ¼l operatÃ¶rÃ¼ ile bir arada yazmak yerine her bir ifadeyi ayrÄ± ayrÄ± yazmak, 
+    kodun daha okunaklÄ± ve anlaÅŸÄ±lÄ±r olmasÄ±nÄ± saÄŸlar. Ã–rneÄŸin, verilen kod, aÅŸaÄŸÄ±daki gibi daha anlaÅŸÄ±lÄ±r bir ÅŸekildeÂ yazÄ±labilir:
     
-    Tabi işlem önceliğinde en son seviye olmasından dolayı da dikkatli olmak gerekir örneğin
-    Örnek
+    Tabi iÅŸlem Ã¶nceliÄŸinde en son seviye olmasÄ±ndan dolayÄ± da dikkatli olmak gerekir Ã¶rneÄŸin
+    Ã–rnek
     z = (a, b); // evaluate (a, b) first to get result of b, then assign that value to variable z.
-    z = a, b; // evaluates as "(z = a), b", so z gets assigned the value of a, and b is evaluated and discarded.
+    z = a, b; // evaluates as "(z = a), b", so z gets assigned the value of a, and b is evaluatedÂ andÂ discarded.
 
 
-    Çoğu yazılımcı virgül operatörünü kullanmaktan çekinir. En iyi yaklaşım da loop lar dışında 
-    virgül operatörünü kullanmaktan çekinmektir
+    Ã‡oÄŸu yazÄ±lÄ±mcÄ± virgÃ¼l operatÃ¶rÃ¼nÃ¼ kullanmaktan Ã§ekinir. En iyi yaklaÅŸÄ±m da loop lar dÄ±ÅŸÄ±nda 
+    virgÃ¼l operatÃ¶rÃ¼nÃ¼ kullanmaktan Ã§ekinmektir
 
     */
 
@@ -159,200 +148,145 @@ int main()
     */
 
     /*
-    Ternary Operator - Arithmetic if -> ?: - Kullanımı : (contidion) ? expression1 : expression2; 
-    Bu kullanıma göre zaten aritmetik if olarak da bilinir. Condition doğruysa expression1 çalıştırılır. Aksi takdirde expression 2 çalıştırılır. 
-    Önemli bir nokta expression2 opsiyonel değildir. Yani kesinlikle değer döndürmelidir.
+    Ternary Operator - Arithmetic if -> ?: - KullanÄ±mÄ± : (contidion) ? expression1 : expression2; 
+    Bu kullanÄ±ma gÃ¶re zaten aritmetik if olarak da bilinir. Condition doÄŸruysa expression1 Ã§alÄ±ÅŸtÄ±rÄ±lÄ±r. Aksi takdirde expression 2 Ã§alÄ±ÅŸtÄ±rÄ±lÄ±r. 
+    Ã–nemli bir nokta expression2 opsiyonel deÄŸildir. Yani kesinlikle deÄŸer dÃ¶ndÃ¼rmelidir.
 
-    Doğruysa expression 1 çalışır yanlışsa expression 2 çalışır. 
+    DoÄŸruysa expression 1 Ã§alÄ±ÅŸÄ±r yanlÄ±ÅŸsa expression 2 Ã§alÄ±ÅŸÄ±r. 
 
-    örneğin -> int x = ( condition ) ? expression 1 : expression 2;
-    örneğin -> larger = (x > y) ? x : y;
+    Ã¶rneÄŸin -> int x = ( condition ) ? expression 1 : expression 2;
+    Ã¶rneÄŸin -> larger = (x > y) ? x : y;
 
-    Tabi burada en önemli şeylerden biri koşul operatörünün işlem seviyesi çok düşüktür o yüzden her zaman parantez ile kullanılması en iyi harekettir
+    Tabi burada en Ã¶nemli ÅŸeylerden biri koÅŸul operatÃ¶rÃ¼nÃ¼n iÅŸlem seviyesi Ã§ok dÃ¼ÅŸÃ¼ktÃ¼r o yÃ¼zden her zaman parantez ile kullanÄ±lmasÄ± en iyi harekettir
     
-    Tabi burada kullandığımız ifadelerin türleri birbirine eşit olması gerek ya da ortak bir türe dönüştürülebilir türler olmalı 
-    örnek -> std::cout<< (x != 5 ) ? x : "x is 5"); -> Bu derlenmez çünkü bir tarafta x yani int değişkeni var ikeN 
-    diğer tarafta C-style string literali
-    var türleri uyumsuz olduğu için bu ifade derlenemeyecektir. Bu gibi durumlarda mecburen if else kalıbı kullanılmalıdır.
-
-    */
-    
-    // ** Fonksiyonların içinde tanımlanan değişkenler fonksiyonun sonunda yok olduğu gibi if else içinde tanımlanan değişkenler de if yada else 
-    // ** ifadesinin sonunda sona erer. Koşul ifadeleri bunun gibi durumlarda kullanılabilir. If else nin kullanılamayacağı yerler yani.
+    Tabi burada kullandÄ±ÄŸÄ±mÄ±z ifadelerin tÃ¼rleri birbirine eÅŸit olmasÄ± gerek ya da ortak bir tÃ¼re dÃ¶nÃ¼ÅŸtÃ¼rÃ¼lebilir tÃ¼rler olmalÄ± 
+    Ã¶rnek -> std::cout<< (x != 5 ) ? x : "x is 5"); -> Bu derlenmez Ã§Ã¼nkÃ¼ bir tarafta x yani int deÄŸiÅŸkeni var ikeN 
+    diÄŸer tarafta C-style string literali
+    var tÃ¼rleri uyumsuz olduÄŸu iÃ§in bu ifade derlenemeyecektir. Bu gibi durumlarda mecburen if else kalÄ±bÄ± kullanÄ±lmalÄ±dÄ±r.
+    */    
+    // FonksiyonlarÄ±n iÃ§inde tanÄ±mlanan deÄŸiÅŸkenler fonksiyonun sonunda yok olduÄŸu gibi if else iÃ§inde tanÄ±mlanan deÄŸiÅŸkenler de if yada else ifadesinin sonunda sona erer. KoÅŸul ifadeleri bunun gibi durumlarda kullanÄ±labilir. If else nin kullanÄ±lamayacaÄŸÄ± yerler yani.
     
     /*
-    Peki koşul operatörünü ne zaman kullanmalıyız ? 
+    Peki koÅŸul operatÃ¶rÃ¼nÃ¼ ne zaman kullanmalÄ±yÄ±z ? 
      
-    ** Koşul operatörünü basit koşul olduğu durumlarda.Sonucun kullanılabileceği okunabilirliği arttırabilecek noktalarda kullanmak gerekir 
-    * Aksi halde hata yapmaya yatkın okunaksız kodlar oluşturmuş oluruz.
-    
+    ** KoÅŸul operatÃ¶rÃ¼nÃ¼ basit koÅŸul olduÄŸu durumlarda.Sonucun kullanÄ±labileceÄŸi okunabilirliÄŸi arttÄ±rabilecek noktalarda kullanmak gerekir. Aksi halde hata yapmaya yatkÄ±n okunaksÄ±z kodlar oluÅŸturmuÅŸ oluruz.
     */
-
     // RELATIONAL OOERATORS AND FLOATING POINT COMPARISIONS
-    
-    /*Benim çevirim ilişkisel operatörler ve kayan noktalı karşılaştırma
-    > , < , >= , <= == != klasik matematiksel karşılaştırmadır 
-    Çokça gördüğümüz için örneğini yazmicam
+    /*Benim Ã§evirim iliÅŸkisel operatÃ¶rler ve kayan noktalÄ± karÅŸÄ±laÅŸtÄ±rma
+    > , < , >= , <= == != klasik matematiksel karÅŸÄ±laÅŸtÄ±rmadÄ±r 
+    Ã‡okÃ§a gÃ¶rdÃ¼ÄŸÃ¼mÃ¼z iÃ§in Ã¶rneÄŸini yazmicam
     */
 
 /*
-Boolean koşul değerleri
+Boolean koÅŸul deÄŸerleri
 
-burada yeni öğrenenler 
-if (b1 == true ) -> gibi şeyler yapıyor ve bu gereksiz bir durum bunun yerine if(b1) yazabiliriz. Çünkü burada ekstra bir değer sunmadığımız
-için bunu yazmak gereksiz oluyor o yüzden okumayı güçleştiriyor. == != karşılaştırmalarını tekli ifadelerde kullanmamak ve onun yerine 
-!b1 veya b1 -> false ve true için bunları kullanmak daha mantıklı. 
-*/
+burada yeni Ã¶ÄŸrenenler 
+if (b1 == true ) -> gibi ÅŸeyler yapÄ±yor ve bu gereksiz bir durum bunun yerine if(b1) yazabiliriz. Ã‡Ã¼nkÃ¼ burada ekstra bir deÄŸer sunmadÄ±ÄŸÄ±mÄ±z
+iÃ§in bunu yazmak gereksiz oluyor o yÃ¼zden okumayÄ± gÃ¼Ã§leÅŸtiriyor. == != karÅŸÄ±laÅŸtÄ±rmalarÄ±nÄ± tekli ifadelerde kullanmamak ve onun yerine 
+!b1 veya b1 -> false ve true iÃ§in bunlarÄ± kullanmak daha mantÄ±klÄ±. 
+*//*
+    Hesaplanan kayan noktalÄ± sayÄ±larÄ±n karÅŸÄ±laÅŸtÄ±rÄ±lmasÄ± sorunlu olabilir. Bunun nedeni de yuvarlama hatalarÄ±dÄ±r 
+    Ã–rneÄŸin 100.0 - 99.99 ile 10.0 - 9.99  ikisinin de sonucu 0.01 dir fakat C++ da oluÅŸan yuvarlama hatalarÄ±ndan dolayÄ± kullanÄ±mÄ± tehlikelidir. 
+    Bunu if else bloÄŸu ile gÃ¶rebiliriz. 
     
-    /*
-    Hesaplanan kayan noktalı sayıların karşılaştırılması sorunlu olabilir. Bunun nedeni de yuvarlama hatalarıdır 
-    Örneğin 100.0 - 99.99 iile 10.0 - 9.99  ikisinin de sonucu 0.01 dir fakat C++ da oluşan yuvarlama hatalarından dolayı kullanımı tehlikelidir. 
-    Bunu if else bloğu ile görebiliriz. 
-    
-    ** tabi bu hesaplanan değerler arasında low-precision yani düşük hassasiyet varsa burda karşılaştırma yapma da her hangi bir sorun yok demektir. 
+    ** tabi bu hesaplanan deÄŸerler arasÄ±nda low-precision yani dÃ¼ÅŸÃ¼k hassasiyet varsa burda karÅŸÄ±laÅŸtÄ±rma yapma da her hangi bir sorun yok demektir. 
 
-    Veya bir fonksiyonun dönüş değeri 0.0 ise burada direkt karşılaştırma yapılabilir 
+    Veya bir fonksiyonun dÃ¶nÃ¼ÅŸ deÄŸeri 0.0 ise burada direkt karÅŸÄ±laÅŸtÄ±rma yapÄ±labilir 
 
     if (someFunc() == 0.0 ){
         do something 
     }  
 
-    Gibisinden bir örnek verilebilir. 
+    Gibisinden bir Ã¶rnek verilebilir. 
 
-    ** Veya constexpr double gravity {9.8} gibi bir kayan noktalı sayı; yani değişmeyeceği garanti edilmiş bir literal ise burada da 
-    * direkt karşılaştırma yapılabilir. Üstteki fonksiyon örneği gibi. 
+    ** Veya constexpr double gravity {9.8} gibi bir kayan noktalÄ± sayÄ±; yani deÄŸiÅŸmeyeceÄŸi garanti edilmiÅŸ bir literal ise burada da 
+    * direkt karÅŸÄ±laÅŸtÄ±rma yapÄ±labilir. Ãœstteki fonksiyon Ã¶rneÄŸi gibi. 
     *
-    * Burada karşılaştırma yaparken belirli bir yüzde hatayı kabul ederim dersen sorun yok. Bunun için de klasik karşılaştırma ypaıyor hoca yani 
-    * tolerans veriyor hoca. ApproximatelyEqual diyerek relAbs yani Knuth un algoritması ve normal algoritma yaptı. İşin düşerse 
-    * 6.6 ch yi tekrar advanced okuyucular için olan bölümü okursun.
-    
+    * Burada karÅŸÄ±laÅŸtÄ±rma yaparken belirli bir yÃ¼zde hatayÄ± kabul ederim dersen sorun yok. Bunun iÃ§in de klasik karÅŸÄ±laÅŸtÄ±rma ypaÄ±yor hoca yani 
+    * tolerans veriyor hoca. ApproximatelyEqual diyerek relAbs yani Knuth un algoritmasÄ± ve normal algoritma yaptÄ±. Ä°ÅŸin dÃ¼ÅŸerse 
+    * 6.6 ch yi tekrar advanced okuyucular iÃ§in olan bÃ¶lÃ¼mÃ¼ okursun.    
     */
     
     // CH 6.7 Logical Operators ye geldik
     /*
-    C++ ta 3 tane mantık operatörü vardır. ! Logical Not 
+    C++ ta 3 tane mantÄ±k operatÃ¶rÃ¼ vardÄ±r. ! Logical Not 
                                            && Logical AND
                                            || Logical OR
-    Burada en çok yapılan hata Logical NOT operatörünün işlem önceliği seviyesinin yüksekliğinden dolayı. Ne demek istediğimi anladın
-    Bu hatalardan kaçınmak için; Eğer Logical Not operatörünü kullanacaksan kullandığın yerde parantezlerle durumu kontrol altına almalısın.
+    Burada en Ã§ok yapÄ±lan hata Logical NOT operatÃ¶rÃ¼nÃ¼n iÅŸlem Ã¶nceliÄŸi seviyesinin yÃ¼ksekliÄŸinden dolayÄ±. Ne demek istediÄŸimi anladÄ±n
+    Bu hatalardan kaÃ§Ä±nmak iÃ§in; EÄŸer Logical Not operatÃ¶rÃ¼nÃ¼ kullanacaksan kullandÄ±ÄŸÄ±n yerde parantezlerle durumu kontrol altÄ±na almalÄ±sÄ±n.
 
 
-    Logical OR operatöründe yapılan en büyük yanlış ise ona benzeyen Bitwise or operatörü ile karıştırılmasıdır. 
+    Logical OR operatÃ¶rÃ¼nde yapÄ±lan en bÃ¼yÃ¼k yanlÄ±ÅŸ ise ona benzeyen Bitwise or operatÃ¶rÃ¼ ile karÄ±ÅŸtÄ±rÄ±lmasÄ±dÄ±r. 
     || -> Lo. Op.
-    |  -> Bi. Op.   Bu şekildedir. İkisi farklı fonksiyonları yürüttüğü için sonuçların yanlış çıkmasına sebep olabilir. 
+    |  -> Bi. Op.   Bu ÅŸekildedir. Ä°kisi farklÄ± fonksiyonlarÄ± yÃ¼rÃ¼ttÃ¼ÄŸÃ¼ iÃ§in sonuÃ§larÄ±n yanlÄ±ÅŸ Ã§Ä±kmasÄ±na sebep olabilir. 
 
 
-    Logical AND operatöründe yapılan en büyük yanlış ise ona benzeyen Bitwise AND operatörü ile karıştırılmasıdır.
+    Logical AND operatÃ¶rÃ¼nde yapÄ±lan en bÃ¼yÃ¼k yanlÄ±ÅŸ ise ona benzeyen Bitwise AND operatÃ¶rÃ¼ ile karÄ±ÅŸtÄ±rÄ±lmasÄ±dÄ±r.
     && -> Lo. Op.
-    &  -> Bi. Op.   Bu şekildedir. İkisi farklı fonksiyonları yürüttüğü için sonuçların yanlış çıkmasına sebep olabilir.
+    &  -> Bi. Op.   Bu ÅŸekildedir. Ä°kisi farklÄ± fonksiyonlarÄ± yÃ¼rÃ¼ttÃ¼ÄŸÃ¼ iÃ§in sonuÃ§larÄ±n yanlÄ±ÅŸ Ã§Ä±kmasÄ±na sebep olabilir.
 
-    ** Burada hem Log. Or hem de Log. And kapılarını bir den fazla olacak şekilde kullanabiliriz. -> örn: if (value > 10 && value < 20 && value != 16)
+    ** Burada hem Log. Or hem de Log. And kapÄ±larÄ±nÄ± bir den fazla olacak ÅŸekilde kullanabiliriz. -> Ã¶rn: if (value > 10 && value < 20 && valueÂ !=Â 16)
 
-    ***Kısa devre değerlendirmesi.
-    * Burada Logical Or ve Logical And işlemlerinde sol operatör Or için true olduğunda sonuç true olacağı için sağ operatör değerlendirilmeden 
-    * geçilir. Logical And de de sol operator false olursa sağ operatör değerlendirilmez buna Kısa devre değerlendirmesi yani Short Circuit Evaluation
-    * denir. Performansla alakalı yerlerde çok iyi olur.
-    * ** Burada dikkat edilmesi gereken en önemli nokta yan etkili işlemlerde örneğin ++x x++ gibi işlemlerde seri şeklinde logic devrelerde 
-    * dikkatli olunmalı en mantıklı hareket bunları aynı seride kullanmamaktır. 
-    * Örn: if (x == 1 && ++y == 2)
+    ***KÄ±sa devre deÄŸerlendirmesi.
+    * Burada Logical Or ve Logical And iÅŸlemlerinde sol operatÃ¶r Or iÃ§in true olduÄŸunda sonuÃ§ true olacaÄŸÄ± iÃ§in saÄŸ operatÃ¶r deÄŸerlendirilmeden 
+    * geÃ§ilir. Logical And de de sol operator false olursa saÄŸ operatÃ¶r deÄŸerlendirilmez buna KÄ±sa devre deÄŸerlendirmesi yani Short Circuit Evaluation
+    * denir. Performansla alakalÄ± yerlerde Ã§ok iyi olur.
+    * ** Burada dikkat edilmesi gereken en Ã¶nemli nokta yan etkili iÅŸlemlerde Ã¶rneÄŸin ++x x++ gibi iÅŸlemlerde seri ÅŸeklinde logic devrelerde 
+    * dikkatli olunmalÄ± en mantÄ±klÄ± hareket bunlarÄ± aynÄ± seride kullanmamaktÄ±r. 
+    * Ã–rn: if (x == 1 && ++y == 2)
                // do something
 
-               Yukarıdaki örnekte gördüğün gibi.
+               YukarÄ±daki Ã¶rnekte gÃ¶rdÃ¼ÄŸÃ¼n gibi.
 
-    Normalde her hangi bir sıra ile değerlendirme olurken Logical operatörlerde standart açıkça "ilk olarak sol operatör değerlendirilir" Demekte.
+    Normalde her hangi bir sÄ±ra ile deÄŸerlendirme olurken Logical operatÃ¶rlerde standart aÃ§Ä±kÃ§a "ilk olarak sol operatÃ¶r deÄŸerlendirilir" Demekte.
 
-    Burada kısa devre yerleşik versiyonlarda olmakta yani overload ederek kendi tipimizi oluşturursak Kısa devre de yapmayacaktır. Advanced reader.    
-    */
-    
-
-    /*
-    OR VE AND Kapılarının karışık kullanımı
+    Burada kÄ±sa devre yerleÅŸik versiyonlarda olmakta yani overload ederek kendi tipimizi oluÅŸturursak KÄ±sa devre de yapmayacaktÄ±r. 
+    *//*
+    OR VE AND KapÄ±larÄ±nÄ±n karÄ±ÅŸÄ±k kullanÄ±mÄ±
     ---------------------------------------
-    Burada yeniler AND ve OR kapılarının aynı işlem seviyesine sahip olduğunu düşünür + ve - gibi fakat bu noktada 
-    yanılırlar.
+    Burada yeniler AND ve OR kapÄ±larÄ±nÄ±n aynÄ± iÅŸlem seviyesine sahip olduÄŸunu dÃ¼ÅŸÃ¼nÃ¼r + ve - gibi fakat bu noktada 
+    yanÄ±lÄ±rlar.
     
-    AND kapısı OR kapısından daha yüksek seviye işlem önceliğine sahip olduğu için hata yapmaya müsait bir alandır DİKKAT !!!!
+    AND kapÄ±sÄ± OR kapÄ±sÄ±ndan daha yÃ¼ksek seviye iÅŸlem Ã¶nceliÄŸine sahip olduÄŸu iÃ§in hata yapmaya mÃ¼sait bir alandÄ±r DÄ°KKAT !!!!
     
-    Buralarda parantezlerle sistemi kontrol etmek hem okunaklılığı arttırır hem daja iyi kod yazmış olursunuz ve hataları önler.
+    Buralarda parantezlerle sistemi kontrol etmek hem okunaklÄ±lÄ±ÄŸÄ± arttÄ±rÄ±r hem daja iyi kod yazmÄ±ÅŸ olursunuz ve hatalarÄ± Ã¶nler.
 
 
-    DE MORGAN IN KURALLARI ( Bi salmadın bizi amk )
+    DE MORGAN IN KURALLARI ( Bi salmadÄ±n bizi amk )
     -----------------------------------------------
 
-    Çoğu programcı !(x && y) ifadesinin  !x && !y Bu ifadeye eşit olduğunu düşünür. Fakat, not operatörü işlemler üzerine de dağılır.
+    Ã‡oÄŸu programcÄ± !(x && y) ifadesinin  !x && !y Bu ifadeye eÅŸit olduÄŸunu dÃ¼ÅŸÃ¼nÃ¼r. Fakat, not operatÃ¶rÃ¼ iÅŸlemler Ã¼zerine de daÄŸÄ±lÄ±r.
 
     !(x && y) => !x || !y
-    !(x || y) => !x && !y  Bu şekilde dağılır yani
+    !(x || y) => !x && !y  Bu ÅŸekildeÂ daÄŸÄ±lÄ±rÂ yani
     
 
-    Kanıt:
+    KanÄ±t:
     x   	y	    !x  	!y	   !(x || y)  !x && !y
     false	false	true	true	true	    true
     false	true	true	false	false	    false
     true	false	false	true	false	    false
     true	true	false	false	false	    false
 
-
-
-    LOGİCAL XOR
+    LOGÄ°CAL XOR
     -----------
-    C++ mantıksal bir XOR operatörü sağlamaz (operatör^ mantıksal bir XOR değil, bit düzeyinde bir XOR'dur).
-    Mantıksal VEYA veya mantıksal VE'den farklı olarak mantıksal XOR, kısa devre olarak değerlendirilemez.
-    Bu nedenle, mantıksal OR ve mantıksal AND operatörlerinden mantıksal bir XOR operatörü oluşturmak zordur.
-    Ancak eşitsizlik operatörünü (!=) kullanarak mantıksal XOR'u kolayca taklit edebilirsiniz:
+    C++ mantÄ±ksal bir XOR operatÃ¶rÃ¼ saÄŸlamaz (operatÃ¶r^ mantÄ±ksal bir XOR deÄŸil, bit dÃ¼zeyinde bir XOR'dur).
+    MantÄ±ksal VEYA veya mantÄ±ksal VE'den farklÄ± olarak mantÄ±ksal XOR, kÄ±sa devre olarak deÄŸerlendirilemez.
+    Bu nedenle, mantÄ±ksal OR ve mantÄ±ksal AND operatÃ¶rlerinden mantÄ±ksal bir XOR operatÃ¶rÃ¼ oluÅŸturmak zordur.
+    Ancak eÅŸitsizlik operatÃ¶rÃ¼nÃ¼ (!=) kullanarak mantÄ±ksal XOR'u kolayca taklitÂ edebilirsiniz:
 
-    ÖRNEĞİN: f (a != b) ... // a XOR b, assuming a and b are Booleans Bu birden çok olabilir. Mesela a XOR b XOR c şeklinde de yapbiliriz
+    Ã–RNEÄÄ°N: f (a != b) ... // a XOR b, assuming a and b areÂ Booleans Bu birden Ã§ok olabilir. Mesela a XOR b XOR c ÅŸeklinde de yapbiliriz
     sadece eklicez.
-    *** Burada bilinmesi gereken tek şey şu operandlar yani işlenenler boolean olmalı integer olmaz.
-    * 
-    * İlla başka bir type ı kullancam dersen static_cast<bool>(işlenen) yaparak bool a çevirirsin zaten hepsi çevriliyor.
+    *** Burada bilinmesi gereken tek ÅŸey ÅŸu operandlar yani iÅŸlenenler boolean olmalÄ± integer olmaz.
+    * Ä°lla baÅŸka bir type Ä± kullancam dersen static_cast<bool>(iÅŸlenen) yaparak bool a Ã§evirirsin zaten hepsi Ã§evriliyor.
     
-    bazı klavyeler bu işaretleri desteklemediği için 
+    bazÄ± klavyeler bu iÅŸaretleri desteklemediÄŸi iÃ§in 
     && -> and 
     || -> or
     !  -> not 
 
-    kelimeleri kullanılabilir. 
+    kelimeleri kullanÄ±labilir. 
 
     */
-
-
-    /*
-    
-           ÖZET
-    -----------------
-    
-    Özeti ordan okumak daha mantıklı geldi o yüzden yazmadım. CH Optional veya CH 7 ye geçecez. 
-    */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     return 0;
 }
