@@ -1,6 +1,6 @@
 // ch2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-// Quizler yapılmış ama sanki bir atlama olmuş burada o yüzden chapter 2  yi tekrar işlicez ama quizleri yapmicaz sadece bi işlicez not tutcaz.
-// Önemli bir konu. 
+// Quizler yapÄ±lmÄ±ÅŸ ama sanki bir atlama olmuÅŸ burada o yÃ¼zden chapter 2  yi tekrar iÅŸlicez ama quizleri yapmicaz sadece bi iÅŸlicez not tutcaz.
+// Ã–nemli bir konu. 
 
 #include <iostream>
 //#include "add.h"
@@ -9,241 +9,228 @@
 
 int main() {
 
-    //std::cout << add(4, 3) << '\n'; -> OLDU KARDEEEEŞ
+    //std::cout << add(4, 3) << '\n'; -> OLDU KARDEEEEÅ
     /*
-    Aynı şekilde geçmiş ve diğer bilgilerimizle aynı olduğu için yazmıyorum. Sadece bilmediğimi düşündüğüm şeyleri yazacam kral. 
-    C++ bağlı fonksiyonları desteklemiyor yani bir fonksiyonun içinde yeni bir fonksiyon tanımlayamazsın. 
+    NotlarÄ±n bir kÄ±smÄ± Ã§evrilmedi Ã¶zet niteliÄŸinde dÃ¼ÅŸÃ¼nÃ¼lmelidir. 
 
-    Sanırım bundan önceki sefer de de okumuşuz ama sadece not almamışız. Çünkü çoğunu biliyoruz. Hoşumuza giden ayrıntıları yazacaz sadece
-    C++ 3 status code tanımlıyor (main in dönüşü için) 0 , EXIT_SUCCESS, EXIT_FAILURE -> Taşınabilirliği arttırmak açısından bunları kullanmak 
-    lazım. 
+    * C++ 3 status code tanÄ±mlÄ±yor (main in dÃ¶nÃ¼ÅŸÃ¼ iÃ§in) 0 , EXIT_SUCCESS, EXIT_FAILURE -> TaÅŸÄ±nabilirliÄŸi arttÄ±rmak aÃ§Ä±sÄ±ndan bunlarÄ± kullanmak lazÄ±m. 
+    * DÃ¶nÃ¼ÅŸ yapan fonksiyonlarda dÃ¶nÃ¼ÅŸ yapmazsak tanÄ±mlanamayan davranÄ±ÅŸlar ortaya Ã§Ä±kabilir. 
+    * Fonksiyonlarda var olup kullanÄ±lmayan parametreler uyarÄ± verir. 
+    * Yerel deÄŸiÅŸkenlerinizi, ilk kullanacaklarÄ± yere mÃ¼mkÃ¼n olduÄŸunca yakÄ±n bir ÅŸekilde tanÄ±mlayÄ±n.
+
+                                        FONKSÄ°YONLARI ETKÄ°LÄ° KULLANMAK
+    Yeni programcÄ±larÄ±n karÅŸÄ±laÅŸtÄ±ÄŸÄ± en bÃ¼yÃ¼k zorluklardan biri (dilin Ã¶ÄŸrenilmesi dÄ±ÅŸÄ±nda), ne zaman ve nasÄ±l iÅŸlevleri etkili bir
+    ÅŸekilde kullanacaklarÄ±nÄ± anlamaktÄ±r. Ä°ÅŸte iÅŸlevler yazarken temel bazÄ± kurallar:
+
+    Bir programda birden fazla kez gÃ¶rÃ¼nen ifade gruplarÄ± genellikle bir iÅŸlev haline getirilmelidir. Ã–rneÄŸin, kullanÄ±cÄ±dan giriÅŸleri aynÄ± 
+    ÅŸekilde birden fazla kez alÄ±yorsak, bu, bir iÅŸlev iÃ§in harika bir adaydÄ±r. AynÄ± ÅŸekilde bir ÅŸeyi birden fazla yerde aynÄ± ÅŸekilde Ã§Ä±karÄ±yorsak,
+    bu da bir iÅŸlev iÃ§in mÃ¼kemmel bir adaydÄ±r.
+    Belirli girdi ve Ã§Ä±ktÄ±larÄ± olan kod, bir iÅŸlev iÃ§in iyi bir adaydÄ±r (Ã¶zellikle karmaÅŸÄ±ksa). Ã–rneÄŸin, sÄ±ralamak istediÄŸimiz bir 
+    Ã¶ÄŸeler listemiz varsa, sÄ±ralamayÄ± yapmak iÃ§in kod, yalnÄ±zca bir kez yapÄ±lsa bile harika bir iÅŸlev olur. GiriÅŸ sÄ±ralanmamÄ±ÅŸ liste,
+    Ã§Ä±kÄ±ÅŸ sÄ±ralanmÄ±ÅŸ listedir. BaÅŸka bir olasÄ± iÅŸlev de 6 yÃ¼zlÃ¼ bir zarÄ±n atÄ±lmasÄ±nÄ± simÃ¼le eden kod olurdu. Mevcut programÄ±nÄ±z bunu
+    yalnÄ±zca bir kez kullanabilir, ancak iÅŸlev haline getirirseniz, programÄ±nÄ±zÄ± daha sonra geniÅŸletirseniz veya gelecekteki bir programda
+    yeniden kullanÄ±ma hazÄ±r olur.
+    * Bir iÅŸlev genellikle bir (ve yalnÄ±zca bir) gÃ¶revi yerine getirmelidir.
+    * Bir iÅŸlev Ã§ok uzun, karmaÅŸÄ±k veya anlaÅŸÄ±lmasÄ± zor hale geldiÄŸinde, birden Ã§ok alt iÅŸleve bÃ¶lÃ¼nebilir. Buna yeniden yapÄ±landÄ±rma ( refactoring ) denir.
+    Genellikle C++ Ã¶ÄŸrenirken, 3 alt gÃ¶revi iÃ§eren programlar yazacaksÄ±nÄ±z:
+
+    KullanÄ±cÄ±dan giriÅŸleri okuma
+    GiriÅŸlerden bir deÄŸeri hesaplama
+    Hesaplanan deÄŸeri yazdÄ±rma
+    Basit programlar iÃ§in (Ã¶rneÄŸin 20 satÄ±rÄ±n altÄ±nda), bunlar ya da tÃ¼mÃ¼ main iÅŸlevinde yapÄ±labilir. Ancak daha uzun programlar iÃ§in
+    (veya sadece pratiÄŸin bir parÃ§asÄ± olarak), her biri ayrÄ± bir iÅŸlev iÃ§in iyi bir adaydÄ±r.
     
-    Dönüş yapan fonksiyonlarda dönüş yapmazsak tanımlanamayan davranışlar ortaya çıkabilir. 
-    Fonksiyonlarda var olup kullanılmayan parametreler uyarı verir. 
-
-    Yerel değişkenler.
-    Yerel değişkenlerinizi, ilk kullanacakları yere mümkün olduğunca yakın bir şekilde tanımlayın.
-
-                                        FONKSİYONLARI ETKİLİ KULLANMAK
-    Yeni programcıların karşılaştığı en büyük zorluklardan biri (dilin öğrenilmesi dışında), ne zaman ve nasıl işlevleri etkili bir
-    şekilde kullanacaklarını anlamaktır. İşte işlevler yazarken temel bazı kurallar:
-
-    Bir programda birden fazla kez görünen ifade grupları genellikle bir işlev haline getirilmelidir. Örneğin, kullanıcıdan girişleri aynı 
-    şekilde birden fazla kez alıyorsak, bu, bir işlev için harika bir adaydır. Aynı şekilde bir şeyi birden fazla yerde aynı şekilde çıkarıyorsak,
-    bu da bir işlev için mükemmel bir adaydır.
-    Belirli girdi ve çıktıları olan kod, bir işlev için iyi bir adaydır (özellikle karmaşıksa). Örneğin, sıralamak istediğimiz bir 
-    öğeler listemiz varsa, sıralamayı yapmak için kod, yalnızca bir kez yapılsa bile harika bir işlev olur. Giriş sıralanmamış liste,
-    çıkış sıralanmış listedir. Başka bir olası işlev de 6 yüzlü bir zarın atılmasını simüle eden kod olurdu. Mevcut programınız bunu
-    yalnızca bir kez kullanabilir, ancak işlev haline getirirseniz, programınızı daha sonra genişletirseniz veya gelecekteki bir programda
-    yeniden kullanıma hazır olur.
-    Bir işlev genellikle bir (ve yalnızca bir) görevi yerine getirmelidir.
-    Bir işlev çok uzun, karmaşık veya anlaşılması zor hale geldiğinde, birden çok alt işleve bölünebilir. Buna yeniden yapılandırma denir.
-    Genellikle C++ öğrenirken, 3 alt görevi içeren programlar yazacaksınız:
-
-    Kullanıcıdan girişleri okuma
-    Girişlerden bir değeri hesaplama
-    Hesaplanan değeri yazdırma
-    Basit programlar için (örneğin 20 satırın altında), bunlar ya da tümü main işlevinde yapılabilir. Ancak daha uzun programlar için
-    (veya sadece pratiğin bir parçası olarak), her biri ayrı bir işlev için iyi bir adaydır.
+    Yeni programcÄ±lar genellikle bir deÄŸeri hesaplama ve hesaplanan deÄŸeri yazdÄ±rma iÅŸlemlerini tek bir iÅŸlevde birleÅŸtirir. Bununla
+    birlikte, bu iÅŸlevlerin "bir gÃ¶rev" kuralÄ±nÄ± ihlal ettiÄŸini unuturlar. Bir iÅŸlev, bir deÄŸeri hesaplamalÄ± ve hesaplanan deÄŸeri Ã§aÄŸÄ±ran
+    kiÅŸiye dÃ¶ndÃ¼rmeli ve hesaplanan deÄŸeri yazmak gibi ne yapÄ±lacaÄŸÄ±nÄ± belirlemeli (Ã¶rneÄŸin baÅŸka bir iÅŸleve Ã§aÄŸrÄ±da bulunmak gibi) ve Ã§aÄŸÄ±ran
+    kiÅŸi hesaplanan deÄŸeri yazmalÄ±dÄ±r.
     
-    Yeni programcılar genellikle bir değeri hesaplama ve hesaplanan değeri yazdırma işlemlerini tek bir işlevde birleştirir. Bununla
-    birlikte, bu işlevlerin "bir görev" kuralını ihlal ettiğini unuturlar. Bir işlev, bir değeri hesaplamalı ve hesaplanan değeri çağıran
-    kişiye döndürmeli ve hesaplanan değeri yazmak gibi ne yapılacağını belirlemeli (örneğin başka bir işleve çağrıda bulunmak gibi) ve çağıran
-    kişi hesaplanan değeri yazmalıdır.
-    
-    
-
-
-    Programlarınızda derleme hatalarını veya uyarılarını çözerken, önce listelenen ilk sorunu çözün ve ardından tekrar derleyin.
+    * ProgramlarÄ±nÄ±zda derleme hatalarÄ±nÄ± veya uyarÄ±larÄ±nÄ± Ã§Ã¶zerken, Ã¶nce listelenen ilk sorunu Ã§Ã¶zÃ¼n ve ardÄ±ndan tekrar derleyin.
 
                                                 FORWARD DECLARATION
-    Bir ön deklarasyon, tanımlayıcıyı tanımlamadan önce tanıyıcı hakkında derleyiciye bilgi vermemizi sağlar.
+    Bir Ã¶n deklarasyon, tanÄ±mlayÄ±cÄ±yÄ± tanÄ±mlamadan Ã¶nce tanÄ±yÄ±cÄ± hakkÄ±nda derleyiciye bilgi vermemizi saÄŸlar.
 
-    Fonksiyonlar için, bu, derleyiciye fonksiyonun varlığı hakkında bilgi vermemize olanak tanır, ancak fonksiyonun
-    gövdesini tanımlamadan önce. Bu şekilde, derleyici, bir fonksiyonu aradığımızı anlayacaktır. Fonksiyonun nasıl 
-    veya nerede tanımlandığını henüz bilmiyor olsa bile, fonksiyonu doğru bir şekilde çağırdığımızı kontrol etmek için kullanabilir.
+    Fonksiyonlar iÃ§in, bu, derleyiciye fonksiyonun varlÄ±ÄŸÄ± hakkÄ±nda bilgi vermemize olanak tanÄ±r, ancak fonksiyonun
+    gÃ¶vdesini tanÄ±mlamadan Ã¶nce. Bu ÅŸekilde, derleyici, bir fonksiyonu aradÄ±ÄŸÄ±mÄ±zÄ± anlayacaktÄ±r. Fonksiyonun nasÄ±l 
+    veya nerede tanÄ±mlandÄ±ÄŸÄ±nÄ± henÃ¼z bilmiyor olsa bile, fonksiyonu doÄŸru bir ÅŸekilde Ã§aÄŸÄ±rdÄ±ÄŸÄ±mÄ±zÄ± kontrol etmek iÃ§in kullanabilir.
 
-    Bir fonksiyon için bir ön deklarasyon yazmak için, bir fonksiyon deklarasyon ifadesi (aynı zamanda bir fonksiyon
-    prototipi olarak da adlandırılır) kullanırız. Fonksiyon deklarasyonu, fonksiyonun dönüş türünü, adını ve parametre
-    türlerini içerir ve bir noktalı virgülle sona erer. Parametrelerin adları isteğe bağlı olarak dahil edilebilir. 
-    Fonksiyon gövdesi deklarasyona dahil edilmez.
+    Bir fonksiyon iÃ§in bir Ã¶n deklarasyon yazmak iÃ§in, bir fonksiyon deklarasyon ifadesi (aynÄ± zamanda bir fonksiyon
+    prototipi olarak da adlandÄ±rÄ±lÄ±r) kullanÄ±rÄ±z. Fonksiyon deklarasyonu, fonksiyonun dÃ¶nÃ¼ÅŸ tÃ¼rÃ¼nÃ¼, adÄ±nÄ± ve parametre
+    tÃ¼rlerini iÃ§erir ve bir noktalÄ± virgÃ¼lle sona erer. Parametrelerin adlarÄ± isteÄŸe baÄŸlÄ± olarak dahil edilebilir. 
+    Fonksiyon gÃ¶vdesi deklarasyona dahil edilmez.
     
 
-
-    Definition ve declaration aynı şey değil tüm definition lar birer declarationdur fakat tüm declarationlar bir definition değildir.
+    Definition ve declaration aynÄ± ÅŸey deÄŸil tÃ¼m definition lar birer declarationdur fakat tÃ¼m declarationlar bir definition deÄŸildir.
     Definition	Implements a function or instantiates a variable.
     Definitions are also declarations.	void foo() { } // function definition
     int x; // variable definition
     Declaration	Tells compiler about an identifier and its associated type information.	void foo(); // function declaration
     int x; // variable declaration
-    Pure declaration	A declaration that isn’t a definition.	void foo();
+    Pure declaration	A declaration that isnâ€™t a definition.	void foo();
 
 
                                             ***** The one definition rule (ODR) ******
     
-    Tek Tanımlama Kuralı (veya kısaca ODR), C++ içinde iyi bilinen bir kuraldır. ODR'nin üç bölümü vardır:
+    Tek TanÄ±mlama KuralÄ± (veya kÄ±saca ODR), C++ iÃ§inde iyi bilinen bir kuraldÄ±r. ODR'nin Ã¼Ã§ bÃ¶lÃ¼mÃ¼ vardÄ±r:
 
-    Bir dosya içinde, her bir fonksiyon, değişken, tür veya şablon sadece bir tanıma sahip olabilir. Farklı
-    kapsamlarda (örneğin, farklı işlevler içinde tanımlanan yerel değişkenler veya farklı ad alanlar içinde
-    tanımlanan işlevler) meydana gelen tanımlar bu kuralı ihlal etmez.
+    Bir dosya iÃ§inde, her bir fonksiyon, deÄŸiÅŸken, tÃ¼r veya ÅŸablon sadece bir tanÄ±ma sahip olabilir. FarklÄ±
+    kapsamlarda (Ã¶rneÄŸin, farklÄ± iÅŸlevler iÃ§inde tanÄ±mlanan yerel deÄŸiÅŸkenler veya farklÄ± ad alanlar iÃ§inde
+    tanÄ±mlanan iÅŸlevler) meydana gelen tanÄ±mlar bu kuralÄ± ihlal etmez.
 
-    Bir program içinde, her bir fonksiyon veya değişken yalnızca bir tanıma sahip olabilir. Bu kural, programların 
-    birden fazla dosyaya sahip olabileceği için var. Linker'a görünmeyen işlevler ve değişkenler bu kuraldan hariç 
-    tutulur (bu, ders 7.6'da daha ayrıntılı olarak ele alınır).
+    Bir program iÃ§inde, her bir fonksiyon veya deÄŸiÅŸken yalnÄ±zca bir tanÄ±ma sahip olabilir. Bu kural, programlarÄ±n 
+    birden fazla dosyaya sahip olabileceÄŸi iÃ§in var. Linker'a gÃ¶rÃ¼nmeyen iÅŸlevler ve deÄŸiÅŸkenler bu kuraldan hariÃ§ 
+    tutulur (bu, ders 7.6'da daha ayrÄ±ntÄ±lÄ± olarak ele alÄ±nÄ±r).
 
-    Türler, şablonlar, iç içe işlevler ve iç içe değişkenler, her bir tanımın aynı olduğu sürece farklı dosyalarda
-    yinelemeli tanımlara sahip olabilir. Bu konuların çoğunu henüz ele almadık, bu nedenle şu an için bu konuyu dert
-    etmeyin - ilgili olduğunda tekrar ele alacağız.
+    TÃ¼rler, ÅŸablonlar, iÃ§ iÃ§e iÅŸlevler ve iÃ§ iÃ§e deÄŸiÅŸkenler, her bir tanÄ±mÄ±n aynÄ± olduÄŸu sÃ¼rece farklÄ± dosyalarda
+    yinelemeli tanÄ±mlara sahip olabilir. Bu konularÄ±n Ã§oÄŸunu henÃ¼z ele almadÄ±k, bu nedenle ÅŸu an iÃ§in bu konuyu dert
+    etmeyin - ilgili olduÄŸunda tekrar ele alacaÄŸÄ±z.
 
-    ODR'nin 1. bölümünü ihlal etmek, derleyicinin yeniden tanımlama hatası vermesine neden olur. ODR'nin 2. bölümünü
-    ihlal etmek, linkerin yeniden tanımlama hatası vermesine neden olur. ODR'nin 3. bölümünü ihlal etmek, tanımsız davranışa neden olur.
+    ODR'nin 1. bÃ¶lÃ¼mÃ¼nÃ¼ ihlal etmek, derleyicinin yeniden tanÄ±mlama hatasÄ± vermesine neden olur. ODR'nin 2. bÃ¶lÃ¼mÃ¼nÃ¼
+    ihlal etmek, linkerin yeniden tanÄ±mlama hatasÄ± vermesine neden olur. ODR'nin 3. bÃ¶lÃ¼mÃ¼nÃ¼ ihlal etmek, tanÄ±msÄ±z davranÄ±ÅŸa neden olur.
                                             
     */
 
     /*
                                                 PROJEYE DOSYA EKLEME
-    Daha önce forward declaration ı anlatırken mevzuya bi tıkırtı için add() fonksiyonunu örnek vermiştik burada 
-    farklı bir dosya üzerinden bakacak olursak yani add() fonksiyonunu farklı bir dosyaya koyduktan sonra çalıştırsak
-    acaba hata alır mıyız ? Cevap evet burada da aynı cevabı alırız. Cpp add fonksiyonunun ne olduğunu bilmiyor.
-    Oysa derlemiştik. 
-    Unutmayın, derleyici her dosyayı ayrı ayrı derler. Diğer kod dosyalarının içeriğini bilmez veya önceden
-    derlenen kod dosyalarında gördüğü şeyleri hatırlamaz. Yani, derleyici fonksiyon add'ın tanımını daha 
-    önce görmüş olabilir (eğer önce add.cpp'yi derlediyse), ama hatırlamaz.
+    Daha Ã¶nce forward declaration Ä± anlatÄ±rken add() fonksiyonunu Ã¶rnek vermiÅŸtik burada farklÄ± bir dosya Ã¼zerinden bakacak olursak yani add() fonksiyonunu farklÄ± bir dosyaya koyduktan sonra Ã§alÄ±ÅŸtÄ±rsak
+    acaba hata alÄ±r mÄ±yÄ±z ? Cevap evet burada da aynÄ± cevabÄ± alÄ±rÄ±z. Cpp add fonksiyonunun ne olduÄŸunu bilmiyor.
+    Oysa derlemiÅŸtik. 
+    UnutmayÄ±n, derleyici her dosyayÄ± ayrÄ± ayrÄ± derler. DiÄŸer kod dosyalarÄ±nÄ±n iÃ§eriÄŸini bilmez veya Ã¶nceden
+    derlenen kod dosyalarÄ±nda gÃ¶rdÃ¼ÄŸÃ¼ ÅŸeyleri hatÄ±rlamaz. Yani, derleyici fonksiyon add'Ä±n tanÄ±mÄ±nÄ± daha 
+    Ã¶nce gÃ¶rmÃ¼ÅŸ olabilir (eÄŸer Ã¶nce add.cpp'yi derlediyse), ama hatÄ±rlamaz.
 
-    Bu sınırlı görünürlük ve kısa bellek bilinçli olarak tasarlanmıştır ve birkaç nedeni vardır:
+    Bu sÄ±nÄ±rlÄ± gÃ¶rÃ¼nÃ¼rlÃ¼k ve kÄ±sa bellek bilinÃ§li olarak tasarlanmÄ±ÅŸtÄ±r ve birkaÃ§ nedeni vardÄ±r:
 
-   1 Bir projenin kaynak dosyalarının herhangi bir sırayla derlenmesine izin verir.
-   2 Bir kaynak dosyasını değiştirdiğimizde, yalnızca o kaynak dosyasının yeniden derlenmesi gerekir.
-   3 Farklı dosyalardaki tanımlayıcılar arasındaki isim çakışmalarının olasılığını azaltır.
+   1 Bir projenin kaynak dosyalarÄ±nÄ±n herhangi bir sÄ±rayla derlenmesine izin verir.
+   2 Bir kaynak dosyasÄ±nÄ± deÄŸiÅŸtirdiÄŸimizde, yalnÄ±zca o kaynak dosyasÄ±nÄ±n yeniden derlenmesi gerekir.
+   3 FarklÄ± dosyalardaki tanÄ±mlayÄ±cÄ±lar arasÄ±ndaki isim Ã§akÄ±ÅŸmalarÄ±nÄ±n olasÄ±lÄ±ÄŸÄ±nÄ± azaltÄ±r.
     
 
 
-    Sorunu yine forward declaration ile çözdük ama burada alman gereken key point şı 
-    Bir tanımlayıcı bir ifadede kullanıldığında, tanımlayıcı kendi tanımına bağlı olmalıdır.
+    Sorunu yine forward declaration ile Ã§Ã¶zdÃ¼k ama burada anlamamÄ±z gereken ÅŸey;
+    Bir tanÄ±mlayÄ±cÄ± bir ifadede kullanÄ±ldÄ±ÄŸÄ±nda, tanÄ±mlayÄ±cÄ± kendi tanÄ±mÄ±na baÄŸlÄ± olmalÄ±dÄ±r.
 
-    Eğer derleyici, derlenmekte olan dosyada tanımlayıcı için ne bir forward declaration ne de bir tanımı daha görmemişse, 
-    tanımlayıcı kullanıldığı noktada hata verecektir.
+    EÄŸer derleyici, derlenmekte olan dosyada tanÄ±mlayÄ±cÄ± iÃ§in ne bir forward declaration ne de bir tanÄ±mÄ± daha gÃ¶rmemiÅŸse, 
+    tanÄ±mlayÄ±cÄ± kullanÄ±ldÄ±ÄŸÄ± noktada hata verecektir.
 
-    Eğer aynı dosyada bir tanım mevcutsa, derleyici tanımlayıcının kullanımını tanımına bağlayacaktır.
+    EÄŸer aynÄ± dosyada bir tanÄ±m mevcutsa, derleyici tanÄ±mlayÄ±cÄ±nÄ±n kullanÄ±mÄ±nÄ± tanÄ±mÄ±na baÄŸlayacaktÄ±r.
 
-    Aksi takdirde, farklı bir dosyada bir tanım mevcutsa (ve bağlayıcı için görünürse), bağlayıcı tanımlayıcının kullanımını tanımına bağlayacaktır.
-    Aksi takdirde, bağlayıcı hata verecektir.
-    
-    
+    Aksi takdirde, farklÄ± bir dosyada bir tanÄ±m mevcutsa (ve baÄŸlayÄ±cÄ± iÃ§in gÃ¶rÃ¼nÃ¼rse), baÄŸlayÄ±cÄ± tanÄ±mlayÄ±cÄ±nÄ±n kullanÄ±mÄ±nÄ± tanÄ±mÄ±na baÄŸlayacaktÄ±r.
+    Aksi takdirde, baÄŸlayÄ±cÄ± hata verecektir.
 
-    Birden fazla dosya ile çalışmaya başladığınızda işlerin ters gidebileceği pek çok durum olabilir.
-    Yukarıdaki örneği denediyseniz ve bir hata ile karşılaştıysanız, aşağıdakileri kontrol edin:
+    Birden fazla dosya ile Ã§alÄ±ÅŸmaya baÅŸladÄ±ÄŸÄ±nÄ±zda iÅŸlerin ters gidebileceÄŸi pek Ã§ok durum olabilir.
+    YukarÄ±daki Ã¶rneÄŸi denediyseniz ve bir hata ile karÅŸÄ±laÅŸtÄ±ysanÄ±z, aÅŸaÄŸÄ±dakileri kontrol edin:
 
-    Eğer main.cpp dosyasında add işlevi için önceden bildirimin eksik olduğu bir derleyici hatası alırsanız,
-    add işlevi için önceden bildirimi unuttuğunuz olabilir.
-    Eğer add işlevi tanımsız olduğuna dair bir bağlayıcı hatası alırsanız, örneğin:
+    EÄŸer main.cpp dosyasÄ±nda add iÅŸlevi iÃ§in Ã¶nceden bildirimin eksik olduÄŸu bir derleyici hatasÄ± alÄ±rsanÄ±z,
+    add iÅŸlevi iÃ§in Ã¶nceden bildirimi unuttuÄŸunuz olabilir.
+    EÄŸer add iÅŸlevi tanÄ±msÄ±z olduÄŸuna dair bir baÄŸlayÄ±cÄ± hatasÄ± alÄ±rsanÄ±z, Ã¶rneÄŸin:
     unresolved external symbol "int __cdecl add(int,int)" (?add@@YAHHH@Z) referenced in function _main
 
-    2a. ... muhtemelen add.cpp dosyasının projenize doğru şekilde eklenmediği anlamına gelir. Derlediğinizde,
-    derleyicinin hem main.cpp hem de add.cpp'yi listelediğini görmelisiniz. Eğer sadece main.cpp'yi görüyorsanız,
-    add.cpp kesinlikle derlenmiyor demektir. Visual Studio veya Code::Blocks kullanıyorsanız, IDE'nin sol veya sağ 
-    tarafında Solution Explorer/proje panelinde add.cpp'yi görmelisiniz. Görmüyorsanız, projenize sağ tıklayarak dosyayı 
-    ekleyin ve ardından yeniden derlemeyi deneyin. Komut satırında derliyorsanız, komutunuzda main.cpp ve add.cpp'yi dahil 
-    etmeyi unutmayın.
+    2a. ... muhtemelen add.cpp dosyasÄ±nÄ±n projenize doÄŸru ÅŸekilde eklenmediÄŸi anlamÄ±na gelir. DerlediÄŸinizde,
+    derleyicinin hem main.cpp hem de add.cpp'yi listelediÄŸini gÃ¶rmelisiniz. EÄŸer sadece main.cpp'yi gÃ¶rÃ¼yorsanÄ±z,
+    add.cpp kesinlikle derlenmiyor demektir. Visual Studio veya Code::Blocks kullanÄ±yorsanÄ±z, IDE'nin sol veya saÄŸ 
+    tarafÄ±nda Solution Explorer/proje panelinde add.cpp'yi gÃ¶rmelisiniz. GÃ¶rmÃ¼yorsanÄ±z, projenize saÄŸ tÄ±klayarak dosyayÄ± 
+    ekleyin ve ardÄ±ndan yeniden derlemeyi deneyin. Komut satÄ±rÄ±nda derliyorsanÄ±z, komutunuzda main.cpp ve add.cpp'yi dahil 
+    etmeyi unutmayÄ±n.
 
-    2b. ... add.cpp dosyasını yanlış projeye eklemiş olma olasılığınız var.
+    2b. ... add.cpp dosyasÄ±nÄ± yanlÄ±ÅŸ projeye eklemiÅŸ olma olasÄ±lÄ±ÄŸÄ±nÄ±z var.
 
-    2c. ... dosyanın derlenmemesi veya bağlanmaması için ayarlandığı olasılığınız var. Dosya özelliklerini kontrol edin
-    ve dosyanın derlenmesi/bağlanması için yapılandırıldığından emin olun. Code::Blocks'da derleme ve bağlantı ayrı onay
-    kutularıdır ve her ikisi de işaretlenmelidir. Visual Studio'da "derlemeden hariç tut" seçeneği, "hayır" olarak ayarlanmalı
-    veya boş bırakılmalıdır.
+    2c. ... dosyanÄ±n derlenmemesi veya baÄŸlanmamasÄ± iÃ§in ayarlandÄ±ÄŸÄ± olasÄ±lÄ±ÄŸÄ±nÄ±z var. Dosya Ã¶zelliklerini kontrol edin
+    ve dosyanÄ±n derlenmesi/baÄŸlanmasÄ± iÃ§in yapÄ±landÄ±rÄ±ldÄ±ÄŸÄ±ndan emin olun. Code::Blocks'da derleme ve baÄŸlantÄ± ayrÄ± onay
+    kutularÄ±dÄ±r ve her ikisi de iÅŸaretlenmelidir. Visual Studio'da "derlemeden hariÃ§ tut" seÃ§eneÄŸi, "hayÄ±r" olarak ayarlanmalÄ±
+    veya boÅŸ bÄ±rakÄ±lmalÄ±dÄ±r.
 
-    Main.cpp dosyasından "add.cpp" dosyasını #include etmeyin. Bu, önişlemcinin add.cpp içeriğini doğrudan main.cpp'ye 
-    eklemesine neden olur ve bunları ayrı dosyalar olarak işlememesini sağlar.
+    Main.cpp dosyasÄ±ndan "add.cpp" dosyasÄ±nÄ± #include etmeyin. Bu, Ã¶niÅŸlemcinin add.cpp iÃ§eriÄŸini doÄŸrudan main.cpp'ye 
+    eklemesine neden olur ve bunlarÄ± ayrÄ± dosyalar olarak iÅŸlememesini saÄŸlar.
     
 
 
 
 
-    ÖZET
-    C++, her kaynak dosyasının, diğer dosyalardaki bilgi hakkında hiçbir bilgi olmadan
-    bağımsız olarak derlenebilecek şekilde tasarlanmıştır. Bu nedenle, dosyaların aslında
-    hangi sırayla derlendiği önemli olmamalıdır.
+    Ã–ZET
+    C++, her kaynak dosyasÄ±nÄ±n, diÄŸer dosyalardaki bilgi hakkÄ±nda hiÃ§bir bilgi olmadan
+    baÄŸÄ±msÄ±z olarak derlenebilecek ÅŸekilde tasarlanmÄ±ÅŸtÄ±r. Bu nedenle, dosyalarÄ±n aslÄ±nda
+    hangi sÄ±rayla derlendiÄŸi Ã¶nemli olmamalÄ±dÄ±r.
 
-    Nesne yönelimli programlamaya girdiğimizde çok sayıda dosya ile çalışmaya başlayacağız,
-    bu yüzden çoklu dosya projelerini nasıl ekleyip derleyeceğinizi anladığınızdan emin olmanız gereken bir zamandır.
+    Nesne yÃ¶nelimli programlamaya girdiÄŸimizde Ã§ok sayÄ±da dosya ile Ã§alÄ±ÅŸmaya baÅŸlayacaÄŸÄ±z,
+    bu yÃ¼zden Ã§oklu dosya projelerini nasÄ±l ekleyip derleyeceÄŸinizi anladÄ±ÄŸÄ±nÄ±zdan emin olmanÄ±z gereken bir zamandÄ±r.
 
-    Hatırlatma: Her yeni kod (.cpp) dosyası oluşturduğunuzda, derlenmesi için projenize eklemeniz gerekecektir.
+    HatÄ±rlatma: Her yeni kod (.cpp) dosyasÄ± oluÅŸturduÄŸunuzda, derlenmesi iÃ§in projenize eklemeniz gerekecektir.
 
 
     */
 
-    // std::cout << BasicMath::add(4, 3); bunu da denemiş olduk başarılı. 
+    // std::cout << BasicMath::add(4, 3); bunu da denemiÅŸ olduk baÅŸarÄ±lÄ±. 
     /*
                                                         INTRO TO PREPROCESSOR 
-    Elbette! C++ derlemesi, belirli bir .cpp dosyasını tam olarak yazdığınız gibi derlemek yerine, önce bir ön işleme (preprocessing) aşamasından
-    geçer. Bu ön işleme aşamasında, bir program olan ön işlemci (preprocessor), kod dosyasının metninde çeşitli değişiklikler yapar. Ancak ön işlemci,
-    aslında orijinal kod dosyalarını herhangi bir şekilde değiştirmez. Yaptığı tüm değişiklikler, geçici bellekte veya geçici dosyalarda yapılır.
+    Elbette! C++ derlemesi, belirli bir .cpp dosyasÄ±nÄ± tam olarak yazdÄ±ÄŸÄ±nÄ±z gibi derlemek yerine, Ã¶nce bir Ã¶n iÅŸleme (preprocessing) aÅŸamasÄ±ndan
+    geÃ§er. Bu Ã¶n iÅŸleme aÅŸamasÄ±nda, bir program olan Ã¶n iÅŸlemci (preprocessor), kod dosyasÄ±nÄ±n metninde Ã§eÅŸitli deÄŸiÅŸiklikler yapar. Ancak Ã¶n iÅŸlemci,
+    aslÄ±nda orijinal kod dosyalarÄ±nÄ± herhangi bir ÅŸekilde deÄŸiÅŸtirmez. YaptÄ±ÄŸÄ± tÃ¼m deÄŸiÅŸiklikler, geÃ§ici bellekte veya geÃ§ici dosyalarda yapÄ±lÄ±r.
 
-    Ön işleme aşamasının amacı, derleme sürecini hazırlamak ve kodun belirli gereksinimlerini karşılamak için metni düzenlemektir. Ön işlemci, özel
-    işaretleme (directives) olarak adlandırılan komutları ve metni işler. Örneğin, #include direktifi, başka bir dosyadaki kodu mevcut dosyaya ekler.
-    Bu, farklı kod dosyalarını birleştirmek için yaygın olarak kullanılır.
+    Ã–n iÅŸleme aÅŸamasÄ±nÄ±n amacÄ±, derleme sÃ¼recini hazÄ±rlamak ve kodun belirli gereksinimlerini karÅŸÄ±lamak iÃ§in metni dÃ¼zenlemektir. Ã–n iÅŸlemci, Ã¶zel
+    iÅŸaretleme (directives) olarak adlandÄ±rÄ±lan komutlarÄ± ve metni iÅŸler. Ã–rneÄŸin, #include direktifi, baÅŸka bir dosyadaki kodu mevcut dosyaya ekler.
+    Bu, farklÄ± kod dosyalarÄ±nÄ± birleÅŸtirmek iÃ§in yaygÄ±n olarak kullanÄ±lÄ±r.
 
-    Ön işleme aşaması, kodunun derlenmesinden önce gerçekleşir ve kodunuzu derleyicinin kullanabileceği bir şekle dönüştürür. Bu, programcılara daha
-    fazla esneklik ve metin işleme yeteneği sağlar. Derleme işlemi sırasında, derleyici bu ön işlenmiş kodu kullanarak makine koduna çevirir ve
-    nihayetinde çalıştırılabilir bir program oluşturur.
+    Ã–n iÅŸleme aÅŸamasÄ±, kodunun derlenmesinden Ã¶nce gerÃ§ekleÅŸir ve kodunuzu derleyicinin kullanabileceÄŸi bir ÅŸekle dÃ¶nÃ¼ÅŸtÃ¼rÃ¼r. Bu, programcÄ±lara daha
+    fazla esneklik ve metin iÅŸleme yeteneÄŸi saÄŸlar. Derleme iÅŸlemi sÄ±rasÄ±nda, derleyici bu Ã¶n iÅŸlenmiÅŸ kodu kullanarak makine koduna Ã§evirir ve
+    nihayetinde Ã§alÄ±ÅŸtÄ±rÄ±labilir bir program oluÅŸturur.
 
-    Kısacası, ön işleme, kodunuzu derlemeye hazırlayan ve farklı kod dosyalarını birleştirmeye yardımcı olan bir ara aşamadır. Bu, C++'ın 
-    genişletilmiş yeteneklerini ve esnekliğini sağlar.
+    KÄ±sacasÄ±, Ã¶n iÅŸleme, kodunuzu derlemeye hazÄ±rlayan ve farklÄ± kod dosyalarÄ±nÄ± birleÅŸtirmeye yardÄ±mcÄ± olan bir ara aÅŸamadÄ±r. Bu, C++'Ä±n 
+    geniÅŸletilmiÅŸ yeteneklerini ve esnekliÄŸini saÄŸlar.
     
-    Geçmişte önişlemci derleyiciden ayrı bir programdı, ancak modern derleyicilerde önişlemci doğrudan derleyicinin içine yerleştirilebilir.
+    GeÃ§miÅŸte Ã¶niÅŸlemci derleyiciden ayrÄ± bir programdÄ±, ancak modern derleyicilerde Ã¶niÅŸlemci doÄŸrudan derleyicinin iÃ§ine yerleÅŸtirilebilir.
     
-    Ön işlemcinin yaptığı işlerin çoğu oldukça sıkıcıdır. Örneğin, yorumları (comments) kaldırır ve her kod dosyasının bir satır ile bittiğini sağlar.
-    Ancak, ön işlemcinin çok önemli bir rolü vardır: #include direktiflerini işlemesi (bu konuya birazdan daha fazla değineceğiz).
+    Ã–n iÅŸlemcinin yaptÄ±ÄŸÄ± iÅŸlerin Ã§oÄŸu oldukÃ§a sÄ±kÄ±cÄ±dÄ±r. Ã–rneÄŸin, yorumlarÄ± (comments) kaldÄ±rÄ±r ve her kod dosyasÄ±nÄ±n bir satÄ±r ile bittiÄŸini saÄŸlar.
+    Ancak, Ã¶n iÅŸlemcinin Ã§ok Ã¶nemli bir rolÃ¼ vardÄ±r: #include direktiflerini iÅŸlemesi (bu konuya birazdan daha fazla deÄŸineceÄŸiz).
 
-    Ön işlemci, bir kod dosyasını işledikten sonra elde edilen sonuca "çeviri birimi"(translation unit) denir. Bu çeviri birimi, ardından derleyici tarafından derlenir.
+    Ã–n iÅŸlemci, bir kod dosyasÄ±nÄ± iÅŸledikten sonra elde edilen sonuca "Ã§eviri birimi"(translation unit) denir. Bu Ã§eviri birimi, ardÄ±ndan derleyici tarafÄ±ndan derlenir.
 
-    Bu çeviri birimi(translation unit), ön işlemci tarafından işlenmiş haldeki kodun sonucunu temsil eder ve bu, derleyici tarafından makine koduna 
-    çevrilmek üzere kullanılır. Bu şekilde, C++ kodu derlenmiş ve çalıştırılabilir bir program haline gelir.
+    Bu Ã§eviri birimi(translation unit), Ã¶n iÅŸlemci tarafÄ±ndan iÅŸlenmiÅŸ haldeki kodun sonucunu temsil eder ve bu, derleyici tarafÄ±ndan makine koduna 
+    Ã§evrilmek Ã¼zere kullanÄ±lÄ±r. Bu ÅŸekilde, C++ kodu derlenmiÅŸ ve Ã§alÄ±ÅŸtÄ±rÄ±labilir bir program haline gelir.
 
-    Ön işleme, derleme ve bağlama sürecinin tamamına çeviri(translation) denir.
+    Ã–n iÅŸleme, derleme ve baÄŸlama sÃ¼recinin tamamÄ±na Ã§eviri(translation) denir.
     
                                                             PREPROCESSOR DIRECTIVES
-    Preprocessor çalıştığında, kod dosyası üzerinde yukarıdan aşağıya doğru tarar ve Preprocessor yönergelerini arar.
-    Preprocessor yönergeleri(pre. directives)     (genellikle yalnızca yönergeler(directives) olarak adlandırılır) # sembolü ile başlayıp 
-    bir satır sonuyla (noktalı virgül DEĞİL) biter. Bu yönergeler, Preprocessor belirli metin işleme görevlerini gerçekleştirmesini 
-    söyleyen talimatlar içerir. Ön işleyici, C++ sözdizimini anlamaz -- bunun yerine yönergeler kendi sözdizimlerine sahiptir
-    (bazı durumlarda C++ sözdizimine benzeyen ve bazı durumlarda benzemeyen).
+    Preprocessor Ã§alÄ±ÅŸtÄ±ÄŸÄ±nda, kod dosyasÄ± Ã¼zerinde yukarÄ±dan aÅŸaÄŸÄ±ya doÄŸru tarar ve Preprocessor yÃ¶nergelerini arar.
+    Preprocessor yÃ¶nergeleri(pre. directives)     (genellikle yalnÄ±zca yÃ¶nergeler(directives) olarak adlandÄ±rÄ±lÄ±r) # sembolÃ¼ ile baÅŸlayÄ±p 
+    bir satÄ±r sonuyla (noktalÄ± virgÃ¼l DEÄÄ°L) biter. Bu yÃ¶nergeler, Preprocessor belirli metin iÅŸleme gÃ¶revlerini gerÃ§ekleÅŸtirmesini 
+    sÃ¶yleyen talimatlar iÃ§erir. Ã–n iÅŸleyici, C++ sÃ¶zdizimini anlamaz -- bunun yerine yÃ¶nergeler kendi sÃ¶zdizimlerine sahiptir
+    (bazÄ± durumlarda C++ sÃ¶zdizimine benzeyen ve bazÄ± durumlarda benzemeyen).
     
 
-    Zaten gördünüz #include yönergesini (genellikle #include <iostream>) kullanırken. Bir dosyayı #include ettiğinizde, ön işleyici #include 
-    yönergesini dahil edilen dosyanın içeriğiyle değiştirir. Dahil edilen içerik ön işlemden geçer (bu, başka #include'ların daha fazla ön 
-    işleme tabi tutulmasına neden olabilir), ardından dosyanın geri kalanı ön işlemden geçer.
+    Zaten gÃ¶rdÃ¼nÃ¼z #include yÃ¶nergesini (genellikle #include <iostream>) kullanÄ±rken. Bir dosyayÄ± #include ettiÄŸinizde, Ã¶n iÅŸleyici #include 
+    yÃ¶nergesini dahil edilen dosyanÄ±n iÃ§eriÄŸiyle deÄŸiÅŸtirir. Dahil edilen iÃ§erik Ã¶n iÅŸlemden geÃ§er (bu, baÅŸka #include'larÄ±n daha fazla Ã¶n 
+    iÅŸleme tabi tutulmasÄ±na neden olabilir), ardÄ±ndan dosyanÄ±n geri kalanÄ± Ã¶n iÅŸlemden geÃ§er.
     
     
     
-     Ön işleyici (preprocessor), belirli bir kod dosyasını ve bu dosya içinde kullanılan tüm #include ile dahil edilen içerikleri 
-     işledikten sonra elde edilen sonuca "çeviri birimi" (translation unit) denir. Bu çeviri birimi, derlenmek üzere derleyiciye 
-     gönderilen işlenebilir kodun son halini temsil eder. Çeviri birimi, ön işleme komutlarının uygulandığı, tüm içeriklerin bir 
-     araya getirildiği ve sonunda derlemeye uygun hale getirilen bir dosyayı ifade eder.
+     Ã–n iÅŸleyici (preprocessor), belirli bir kod dosyasÄ±nÄ± ve bu dosya iÃ§inde kullanÄ±lan tÃ¼m #include ile dahil edilen iÃ§erikleri 
+     iÅŸledikten sonra elde edilen sonuca "Ã§eviri birimi" (translation unit) denir. Bu Ã§eviri birimi, derlenmek Ã¼zere derleyiciye 
+     gÃ¶nderilen iÅŸlenebilir kodun son halini temsil eder. Ã‡eviri birimi, Ã¶n iÅŸleme komutlarÄ±nÄ±n uygulandÄ±ÄŸÄ±, tÃ¼m iÃ§eriklerin bir 
+     araya getirildiÄŸi ve sonunda derlemeye uygun hale getirilen bir dosyayÄ± ifade eder.
 
-    Bu çeviri birimleri, derleme işlemi sırasında derleyici tarafından işlenir ve makine koduna çevrilir, böylece çalıştırılabilir
-    bir program oluşturulur. Bu, C++ dilinde birden fazla dosyanın bir araya getirilmesi ve ayrı ayrı derlenmesine olanak tanır.
-    Yani çeviri birimleri include dosyaları dahil kod dosyasındaki kodların hepsini içerir.
+    Bu Ã§eviri birimleri, derleme iÅŸlemi sÄ±rasÄ±nda derleyici tarafÄ±ndan iÅŸlenir ve makine koduna Ã§evrilir, bÃ¶ylece Ã§alÄ±ÅŸtÄ±rÄ±labilir
+    bir program oluÅŸturulur. Bu, C++ dilinde birden fazla dosyanÄ±n bir araya getirilmesi ve ayrÄ± ayrÄ± derlenmesine olanak tanÄ±r.
+    Yani Ã§eviri birimleri include dosyalarÄ± dahil kod dosyasÄ±ndaki kodlarÄ±n hepsini iÃ§erir.
 
                                                 MACRO TANIMLAR
-    #define yönergesi, bir makro oluşturmak için kullanılabilir. C++ dilinde, bir makro, girdi metnin nasıl dönüştürüldüğünü belirleyen bir kuraldır.
+    #define yÃ¶nergesi, bir makro oluÅŸturmak iÃ§in kullanÄ±labilir. C++ dilinde, bir makro, girdi metnin nasÄ±l dÃ¶nÃ¼ÅŸtÃ¼rÃ¼ldÃ¼ÄŸÃ¼nÃ¼ belirleyen bir kuraldÄ±r.
 
-    İki temel türde makro bulunur: nesne benzeri makrolar ve işlev benzeri makrolar.
+    Ä°ki temel tÃ¼rde makro bulunur: nesne benzeri makrolar ve iÅŸlev benzeri makrolar.
 
-    İşlev benzeri makrolar, işlevlere benzer şekilde davranır ve benzer bir amaç taşır. Genellikle kullanımları güvensiz kabul edilir ve 
-    neredeyse yapabildikleri her şey, normal bir işlevle yapılabilir.
+    Ä°ÅŸlev benzeri makrolar, iÅŸlevlere benzer ÅŸekilde davranÄ±r ve benzer bir amaÃ§ taÅŸÄ±r. Genellikle kullanÄ±mlarÄ± gÃ¼vensiz kabul edilir ve 
+    neredeyse yapabildikleri her ÅŸey, normal bir iÅŸlevle yapÄ±labilir.
 
-    Nesne benzeri makrolar iki şekilde tanımlanabilir:
+    Nesne benzeri makrolar iki ÅŸekilde tanÄ±mlanabilir:
 
-    #define tanımlayıcı
-    #define tanımlayıcı yerine_geçme_metni
+    #define tanÄ±mlayÄ±cÄ±
+    #define tanÄ±mlayÄ±cÄ± yerine_geÃ§me_metni
 
-    İlk tanımın yerine geçme metni yokken, ikinci tanımda yerine geçme metni vardır. Bu, ön işleyici yönergeleri olduğu için her iki 
-    biçim de noktalı virgülle bitmez.
+    Ä°lk tanÄ±mÄ±n yerine geÃ§me metni yokken, ikinci tanÄ±mda yerine geÃ§me metni vardÄ±r. Bu, Ã¶n iÅŸleyici yÃ¶nergeleri olduÄŸu iÃ§in her iki 
+    biÃ§im de noktalÄ± virgÃ¼lle bitmez.
 
-    Makro için kullanılan tanımlayıcı, normal tanımlayıcılarla aynı adlandırma kurallarını kullanır: harf, rakam ve alt çizgi kullanılabilir, 
-    bir rakamla başlayamaz ve alt çizgi ile başlamamalıdır. Geleneksel olarak, makro adları genellikle büyük harfle yazılır ve alt çizgilerle ayrılır.
+    Makro iÃ§in kullanÄ±lan tanÄ±mlayÄ±cÄ±, normal tanÄ±mlayÄ±cÄ±larla aynÄ± adlandÄ±rma kurallarÄ±nÄ± kullanÄ±r: harf, rakam ve alt Ã§izgi kullanÄ±labilir, 
+    bir rakamla baÅŸlayamaz ve alt Ã§izgi ile baÅŸlamamalÄ±dÄ±r. Geleneksel olarak, makro adlarÄ± genellikle bÃ¼yÃ¼k harfle yazÄ±lÄ±r ve alt Ã§izgilerle ayrÄ±lÄ±r.
     
 
     ** Nesne benzeri makrolar.
@@ -251,49 +238,49 @@ int main() {
 
     int main()
     {
-    std::cout << "My name is: " << MY_NAME << '\n'; -> std::cout << "My name is: " << "Alex" << '\n'; E DÖNÜŞTÜRÜYOR 
-    Substitution text ile birlikte olan obje benzeri makrolar (C'de) literallere isim atama amaçlı kullanılırdı.
-    Ancak bu artık C++'da gerekli değildir, çünkü C++'da daha iyi yöntemler bulunmaktadır. Artık object-like macros 
-    with substitution text, genellikle yalnızca eski kodlarda görülür.
+    std::cout << "My name is: " << MY_NAME << '\n'; -> std::cout << "My name is: " << "Alex" << '\n'; E DÃ–NÃœÅTÃœRÃœYOR 
+    Substitution text ile birlikte olan obje benzeri makrolar (C'de) literallere isim atama amaÃ§lÄ± kullanÄ±lÄ±rdÄ±.
+    Ancak bu artÄ±k C++'da gerekli deÄŸildir, Ã§Ã¼nkÃ¼ C++'da daha iyi yÃ¶ntemler bulunmaktadÄ±r. ArtÄ±k object-like macros 
+    with substitution text, genellikle yalnÄ±zca eski kodlarda gÃ¶rÃ¼lÃ¼r.
     
 
-    * Bir de substitution text olmayan object-like makrolar var onlarda text in yerine hiç bir şey konmadan yapılanlar. 
-    * Çok gereksiz gibi geliyor fakat textli olana göre kabul edilebilir kabul edilir.
+    * Bir de substitution text olmayan object-like makrolar var onlarda text in yerine hiÃ§ bir ÅŸey konmadan yapÄ±lanlar. 
+    * Ã‡ok gereksiz gibi geliyor fakat textli olana gÃ¶re kabul edilebilir kabul edilir.
     
-    ** Koşullu Derleme 
-    * Adından da belli koşula bağlı olarak bazı kodların derlenmesini sağlayan bu özelliğimiz için bir çok conditional compilation directive
-    * i var ama ben sadece #ifdef #ifndef #endif i öğrencem.
-    * Koşullu derleme ön işlem yönergeleri, belirli koşullara bağlı olarak bir kod parçasının derlenip derlenmeyeceğini kontrol etmek için kullanılır. Bu bağlamda, en yaygın kullanılan üç yönergeden bahsedeceğiz: #ifdef, #ifndef ve #endif.
+    ** KoÅŸullu Derleme 
+    * AdÄ±ndan da belli koÅŸula baÄŸlÄ± olarak bazÄ± kodlarÄ±n derlenmesini saÄŸlayan bu Ã¶zelliÄŸimiz iÃ§in bir Ã§ok conditional compilation directive
+    * i var ama ben sadece #ifdef #ifndef #endif i Ã¶ÄŸrencem.
+    * KoÅŸullu derleme Ã¶n iÅŸlem yÃ¶nergeleri, belirli koÅŸullara baÄŸlÄ± olarak bir kod parÃ§asÄ±nÄ±n derlenip derlenmeyeceÄŸini kontrol etmek iÃ§in kullanÄ±lÄ±r. Bu baÄŸlamda, en yaygÄ±n kullanÄ±lan Ã¼Ã§ yÃ¶nergeden bahsedeceÄŸiz: #ifdef, #ifndef ve #endif.
 
-#ifdef ön işlem yönergesi belirli bir tanımlayıcının önceden #define ile tanımlanıp tanımlanmadığını kontrol eder. Eğer tanımlayıcı daha önce tanımlandıysa, #ifdef ve eşleşen #endif arasındaki kod derlenir. Tanımlanmamışsa, kod görmezden gelinir.
-İşte bunu gösteren bir örnek program:
+#ifdef Ã¶n iÅŸlem yÃ¶nergesi belirli bir tanÄ±mlayÄ±cÄ±nÄ±n Ã¶nceden #define ile tanÄ±mlanÄ±p tanÄ±mlanmadÄ±ÄŸÄ±nÄ± kontrol eder. EÄŸer tanÄ±mlayÄ±cÄ± daha Ã¶nce tanÄ±mlandÄ±ysa, #ifdef ve eÅŸleÅŸen #endif arasÄ±ndaki kod derlenir. TanÄ±mlanmamÄ±ÅŸsa, kod gÃ¶rmezden gelinir.
+Ä°ÅŸte bunu gÃ¶steren bir Ã¶rnek program:
 
     
     #include <iostream>
     
-    #define ENABLE_FEATURE  // ENABLE_FEATURE tanımlayıcısını tanımla
+    #define ENABLE_FEATURE  // ENABLE_FEATURE tanÄ±mlayÄ±cÄ±sÄ±nÄ± tanÄ±mla
     
     int main() {
-    #ifdef ENABLE_FEATURE  // ENABLE_FEATURE tanımlayıcısı tanımlandı mı diye kontrol et
-        std::cout << "Özellik etkin." << std::endl;
+    #ifdef ENABLE_FEATURE  // ENABLE_FEATURE tanÄ±mlayÄ±cÄ±sÄ± tanÄ±mlandÄ± mÄ± diye kontrol et
+        std::cout << "Ã–zellik etkin." << std::endl;
     #else
-        std::cout << "Özellik devre dışı." << std::endl;
+        std::cout << "Ã–zellik devre dÄ±ÅŸÄ±." << std::endl;
     #endif
     
         return 0;
     }
-    Bu örnekte, ENABLE_FEATURE önceden tanımlandığı için #ifdef ENABLE_FEATURE ve #endif arasındaki kod derlenecektir.
-    * ifndef de zaten bunun tersi eğer #define ile tanımlanmamışsa blok çalıştırılır. if else yapısı ile aynıdır sadece c++ syntaxına daha çok benzer demek o kadar
+    Bu Ã¶rnekte, ENABLE_FEATURE Ã¶nceden tanÄ±mlandÄ±ÄŸÄ± iÃ§in #ifdef ENABLE_FEATURE ve #endif arasÄ±ndaki kod derlenecektir.
+    * ifndef de zaten bunun tersi eÄŸer #define ile tanÄ±mlanmamÄ±ÅŸsa blok Ã§alÄ±ÅŸtÄ±rÄ±lÄ±r. if else yapÄ±sÄ± ile aynÄ±dÄ±r sadece c++ syntaxÄ±na daha Ã§ok benzer demek o kadar
     
                                                                     #if 0 
     #if 0
-        şş
-        şşş
-        şşşş
-    #endif       -> Burad if 0 ile endif arasında kalan yer derlenmez çoklu yorum satırı gibi çalışır yani if ile endif arasındaki alan derlenmez.
-                    Burada o alanın derlenmesini istersek eğer #if 0 -> #if 1 olarak değiştirmemiz yeterli olacaktır. 
-                -> Çoklu yorum satırının olduğu yerde tekrar bir çoklu yorum satırı yapamayacağımız için bize uygun yol sağlar. 
-                örneğin:*/
+        ÅŸÅŸ
+        ÅŸÅŸÅŸ
+        ÅŸÅŸÅŸÅŸ
+    #endif       -> Burad if 0 ile endif arasÄ±nda kalan yer derlenmez Ã§oklu yorum satÄ±rÄ± gibi Ã§alÄ±ÅŸÄ±r yani if ile endif arasÄ±ndaki alan derlenmez.
+                    Burada o alanÄ±n derlenmesini istersek eÄŸer #if 0 -> #if 1 olarak deÄŸiÅŸtirmemiz yeterli olacaktÄ±r. 
+                -> Ã‡oklu yorum satÄ±rÄ±nÄ±n olduÄŸu yerde tekrar bir Ã§oklu yorum satÄ±rÄ± yapamayacaÄŸÄ±mÄ±z iÃ§in bize uygun yol saÄŸlar. 
+                Ã¶rneÄŸin:*/
                       #if 0 // Don't compile anything starting here
                              std::cout << "Bob\n";
                             /* Some
@@ -304,202 +291,166 @@ int main() {
                       #endif // until this point
     /*
         #define PRINT_JOE
-                                ---> Burda PRINT_JOE hiçbir şey ile değiştirilmez. Yani Object-like macrolar diğer directives leri etkilemez.
+                                ---> Burda PRINT_JOE hiÃ§bir ÅŸey ile deÄŸiÅŸtirilmez. Yani Object-like macrolar diÄŸer directives leri etkilemez.
         #ifdef PRINT_JOE
     
-    *   Program sonunda tüm preprocessorler çözümlenir ve çıkarılır çünkü derleyici bunlarla ne yapacağını bilemez.
+    *   Program sonunda tÃ¼m preprocessorler Ã§Ã¶zÃ¼mlenir ve Ã§Ä±karÄ±lÄ±r Ã§Ã¼nkÃ¼ derleyici bunlarla ne yapacaÄŸÄ±nÄ± bilemez.
     */
     /*
                                                                 The scope of #defines
-    * Yer farketmeksizin tanımlandıkları yerden dosyanın sonuna kadar kapsam alanına sahiptirler. Aynı projede bile diğer dosyaları etkilemezler.
+    * Yer farketmeksizin tanÄ±mlandÄ±klarÄ± yerden dosyanÄ±n sonuna kadar kapsam alanÄ±na sahiptirler. AynÄ± projede bile diÄŸer dosyalarÄ± etkilemezler.
     
-                                                                Header ( Başlık ) Dosyaları
-    Başlık dosyaları tanımlamaları bir dosyaya koyup onları istediğimiz yerde import ederek kullanabileceğimiz bir dosyaya koymaktır. Bu bizi bir 
-    çok yazma işinden kurtarır. Hele ki çok dosyalı sistemlerde çok işe yarar bir şeydir :)
+                                                                Header ( BaÅŸlÄ±k ) DosyalarÄ±
+    BaÅŸlÄ±k dosyalarÄ± tanÄ±mlamalarÄ± bir dosyaya koyup onlarÄ± istediÄŸimiz yerde import ederek kullanabileceÄŸimiz bir dosyaya koymaktÄ±r. Bu bizi bir 
+    Ã§ok yazma iÅŸinden kurtarÄ±r. Hele ki Ã§ok dosyalÄ± sistemlerde Ã§ok iÅŸe yarar bir ÅŸeydir :)
 
 
-   **BEST Başlık dosyalarınızı adlandırırken .h sonekini tercih edin (projeniz zaten başka bir kurala uymuyorsa).
+   **BEST BaÅŸlÄ±k dosyalarÄ±nÄ±zÄ± adlandÄ±rÄ±rken .h sonekini tercih edin (projeniz zaten baÅŸka bir kurala uymuyorsa).
 
-   **BEST Bu, C++ başlık dosyaları için uzun süredir devam eden bir kuraldır ve çoğu IDE, diğer seçeneklere göre hala varsayılan olarak .h'dir.
+   **BEST Bu, C++ baÅŸlÄ±k dosyalarÄ± iÃ§in uzun sÃ¼redir devam eden bir kuraldÄ±r ve Ã§oÄŸu IDE, diÄŸer seÃ§eneklere gÃ¶re hala varsayÄ±lan olarak .h'dir.
 
-   **BEST Bir başlık dosyası bir kod dosyasıyla eşleştirilmişse (örneğin, add.h ile add.cpp), her ikisinin de aynı temel adı (add) olması gerekir.
+   **BEST Bir baÅŸlÄ±k dosyasÄ± bir kod dosyasÄ±yla eÅŸleÅŸtirilmiÅŸse (Ã¶rneÄŸin, add.h ile add.cpp), her ikisinin de aynÄ± temel adÄ± (add) olmasÄ± gerekir.
     
-    Bu başlık dosyasını main.cpp'de kullanmak için, onu #include etmemiz gerekir (köşeli ayraçlar değil, tırnak işaretleri kullanarak). ADD.CPP örneğinde,
-    olduğu gbi #include "add.h" yaparak ekleriz (kendi yazdıklarımızı)
+    Bu baÅŸlÄ±k dosyasÄ±nÄ± main.cpp'de kullanmak iÃ§in, onu #include etmemiz gerekir (kÃ¶ÅŸeli ayraÃ§lar deÄŸil, tÄ±rnak iÅŸaretleri kullanarak). ADD.CPP Ã¶rneÄŸinde,
+    olduÄŸu gbi #include "add.h" yaparak ekleriz (kendi yazdÄ±klarÄ±mÄ±zÄ±)
 
-    **Kaynak dosyalar, eşleştirilmiş başlık dosyalarını (varsa) #include etmelidir. 
-    * Böyle zamanlarda diyelim ki elinde add.h add.cpp ve main.cpp olsun burada add.h i hem add.cpp hem de main.cpp de include etmen olabilecek hataları 
-    * linking time da değil de compile time da görmeni sağlar. Hem complexity azalır hem debugging hızlanır bu best practice dikkat et yani. 
-    
-
-
-    *** CPP KAYNAK DOSYALARINI INCLUDE ETMEKTEN KAÇINMALIYIZ NEDENLERİ ?
-    * İsim çakışmalarını önler: Birden fazla kaynak dosyası aynı isimli işlevleri veya değişkenleri tanımladığında, 
-    isim çakışmaları meydana gelebilir. Başlık dosyaları, bu tür isim çakışmalarını önlemek için gerekli işlevleri ve 
-    değişkenleri tanımlamayı kolaylaştırır.
-
-    ODR sorunlarını önler: Bir kaynak dosyasının birden fazla kaynak dosya tarafından içe aktarılması, bir tanımlama
-    kuralı ihlali (ODR) sorunlarına neden olabilir. Başlık dosyaları, bu tür sorunları önlemek için gerekli ön bildirimleri sağlar.
-
-    Derlemeyi hızlandırır: Kaynak dosyaları genellikle başlık dosyalarına göre daha sık değişir. Kaynak dosyasını 
-    değiştirdiğinizde, yalnızca o kaynak dosyasının yeniden derlenmesi gerekir. Başlık dosyaları daha az değiştiğinden,
-    diğer kaynak dosyalarının tekrar derlenmesi gerekmeyebilir.
-
-    Geleneklere uygunluk: C++ toplulukları ve projeler genellikle başlık dosyalarının kullanılmasını teşvik eder ve bu,
-    projenizin diğer geliştiriciler veya ekibiniz için daha anlaşılır ve bakımı daha kolay hale getirir.
+    **Kaynak dosyalar, eÅŸleÅŸtirilmiÅŸ baÅŸlÄ±k dosyalarÄ±nÄ± (varsa) #include etmelidir. 
+    * BÃ¶yle zamanlarda diyelim ki elinde add.h add.cpp ve main.cpp olsun burada add.h i hem add.cpp hem de main.cpp de include etmen olabilecek hatalarÄ± 
+    * linking time da deÄŸil de compile time da gÃ¶rmeni saÄŸlar. Hem complexity azalÄ±r hem debugging hÄ±zlanÄ±r bu best practice dikkat et yani. 
     
 
-                                                            SORUN ÇÖZME 
-    Bu konudaki sorunlar şu iki madde ile bir çoğunu çözebiliriz :D
-    "add.h" Bulunamayan Derleyici Hatası:
 
-    Başlık dosyasının gerçekten "add.h" adını taşıdığından emin olun. Dosyanın yanlış bir şekilde 
-    adlandırılmış olmadığına, örneğin "add" (uzantısız) veya ".txt" veya ".hpp" gibi farklı bir uzantıyla adlandırılmış olmadığına dikkat edin.
-    "add.h" dosyasının diğer kaynak kod dosyalarınızla aynı dizinde bulunduğundan emin olun.
-    "add" Fonksiyonunun Tanımlanmadığı Bağlayıcı Hatası:
+    *** CPP KAYNAK DOSYALARINI INCLUDE ETMEKTEN KAÃ‡INMALIYIZ NEDENLERÄ° ?
+    * Ä°sim Ã§akÄ±ÅŸmalarÄ±nÄ± Ã¶nler: Birden fazla kaynak dosyasÄ± aynÄ± isimli iÅŸlevleri veya deÄŸiÅŸkenleri tanÄ±mladÄ±ÄŸÄ±nda, 
+    isim Ã§akÄ±ÅŸmalarÄ± meydana gelebilir. BaÅŸlÄ±k dosyalarÄ±, bu tÃ¼r isim Ã§akÄ±ÅŸmalarÄ±nÄ± Ã¶nlemek iÃ§in gerekli iÅŸlevleri ve 
+    deÄŸiÅŸkenleri tanÄ±mlamayÄ± kolaylaÅŸtÄ±rÄ±r.
 
-    "add.cpp" dosyasını projenize eklediğinizden emin olun, böylece "add" fonksiyonu ve tanımı programınıza bağlanabilir.
-    Bu adımları takip ederek, projenizdeki başlık dosyaları ve kaynak dosyalarının varlığı ve dahil edilmesiyle ilgili
-    yaygın sorunları çözebilirsiniz.
+    ODR sorunlarÄ±nÄ± Ã¶nler: Bir kaynak dosyasÄ±nÄ±n birden fazla kaynak dosya tarafÄ±ndan iÃ§e aktarÄ±lmasÄ±, bir tanÄ±mlama
+    kuralÄ± ihlali (ODR) sorunlarÄ±na neden olabilir. BaÅŸlÄ±k dosyalarÄ±, bu tÃ¼r sorunlarÄ± Ã¶nlemek iÃ§in gerekli Ã¶n bildirimleri saÄŸlar.
+
+    Derlemeyi hÄ±zlandÄ±rÄ±r: Kaynak dosyalarÄ± genellikle baÅŸlÄ±k dosyalarÄ±na gÃ¶re daha sÄ±k deÄŸiÅŸir. Kaynak dosyasÄ±nÄ± 
+    deÄŸiÅŸtirdiÄŸinizde, yalnÄ±zca o kaynak dosyasÄ±nÄ±n yeniden derlenmesi gerekir. BaÅŸlÄ±k dosyalarÄ± daha az deÄŸiÅŸtiÄŸinden,
+    diÄŸer kaynak dosyalarÄ±nÄ±n tekrar derlenmesi gerekmeyebilir.
+
+    Geleneklere uygunluk: C++ topluluklarÄ± ve projeler genellikle baÅŸlÄ±k dosyalarÄ±nÄ±n kullanÄ±lmasÄ±nÄ± teÅŸvik eder ve bu,
+    projenizin diÄŸer geliÅŸtiriciler veya ekibiniz iÃ§in daha anlaÅŸÄ±lÄ±r ve bakÄ±mÄ± daha kolay hale getirir.
+    
+
+                                                            SORUN Ã‡Ã–ZME 
+    Bu konudaki sorunlar ÅŸu iki madde ile bir Ã§oÄŸunu Ã§Ã¶zebiliriz :D
+    "add.h" Bulunamayan Derleyici HatasÄ±:
+
+    BaÅŸlÄ±k dosyasÄ±nÄ±n gerÃ§ekten "add.h" adÄ±nÄ± taÅŸÄ±dÄ±ÄŸÄ±ndan emin olun. DosyanÄ±n yanlÄ±ÅŸ bir ÅŸekilde 
+    adlandÄ±rÄ±lmÄ±ÅŸ olmadÄ±ÄŸÄ±na, Ã¶rneÄŸin "add" (uzantÄ±sÄ±z) veya ".txt" veya ".hpp" gibi farklÄ± bir uzantÄ±yla adlandÄ±rÄ±lmÄ±ÅŸ olmadÄ±ÄŸÄ±na dikkat edin.
+    "add.h" dosyasÄ±nÄ±n diÄŸer kaynak kod dosyalarÄ±nÄ±zla aynÄ± dizinde bulunduÄŸundan emin olun.
+    "add" Fonksiyonunun TanÄ±mlanmadÄ±ÄŸÄ± BaÄŸlayÄ±cÄ± HatasÄ±:
+
+    "add.cpp" dosyasÄ±nÄ± projenize eklediÄŸinizden emin olun, bÃ¶ylece "add" fonksiyonu ve tanÄ±mÄ± programÄ±nÄ±za baÄŸlanabilir.
+    Bu adÄ±mlarÄ± takip ederek, projenizdeki baÅŸlÄ±k dosyalarÄ± ve kaynak dosyalarÄ±nÄ±n varlÄ±ÄŸÄ± ve dahil edilmesiyle ilgili
+    yaygÄ±n sorunlarÄ± Ã§Ã¶zebilirsiniz.
 
 
 
 
-    Muhtemelen iostream için köşeli parantezler ve add.h için çift tırnakların neden kullanıldığını merak ediyorsunuzdur.
-    Aynı ada sahip başlık dosyalarının birden fazla dizinde bulunma olasılığı vardır. Köşeli parantezleri veya çift tırnakları 
-    kullanmamız, ön işlemciye hangi başlık dosyalarını araması gerektiği konusunda bir ipucu verir.
+    Muhtemelen iostream iÃ§in kÃ¶ÅŸeli parantezler ve add.h iÃ§in Ã§ift tÄ±rnaklarÄ±n neden kullanÄ±ldÄ±ÄŸÄ±nÄ± merak ediyorsunuzdur.
+    AynÄ± ada sahip baÅŸlÄ±k dosyalarÄ±nÄ±n birden fazla dizinde bulunma olasÄ±lÄ±ÄŸÄ± vardÄ±r. KÃ¶ÅŸeli parantezleri veya Ã§ift tÄ±rnaklarÄ± 
+    kullanmamÄ±z, Ã¶n iÅŸlemciye hangi baÅŸlÄ±k dosyalarÄ±nÄ± aramasÄ± gerektiÄŸi konusunda bir ipucu verir.
 
-    Köşeli parantezleri kullandığımızda, ön işlemciye bu başlık dosyasının kendimiz tarafından yazılmadığını söylüyoruz. 
-    Ön işlemci, başlığı yalnızca içerik dizinleri tarafından belirtilen dizinlerde arayacaktır. İçerik dizinleri, projeniz/IDE 
-    ayarlarınızın bir parçası olarak yapılandırılır ve genellikle derleyiciniz ve/veya işletim sistemi ile birlikte gelen başlık
-    dosyalarını içeren dizinlere varsayılan olarak ayarlanır. Ön işlemci, başlık dosyasını projenizin kaynak kodu dizininde aramayacaktır.
+    KÃ¶ÅŸeli parantezleri kullandÄ±ÄŸÄ±mÄ±zda, Ã¶n iÅŸlemciye bu baÅŸlÄ±k dosyasÄ±nÄ±n kendimiz tarafÄ±ndan yazÄ±lmadÄ±ÄŸÄ±nÄ± sÃ¶ylÃ¼yoruz. 
+    Ã–n iÅŸlemci, baÅŸlÄ±ÄŸÄ± yalnÄ±zca iÃ§erik dizinleri tarafÄ±ndan belirtilen dizinlerde arayacaktÄ±r. Ä°Ã§erik dizinleri, projeniz/IDE 
+    ayarlarÄ±nÄ±zÄ±n bir parÃ§asÄ± olarak yapÄ±landÄ±rÄ±lÄ±r ve genellikle derleyiciniz ve/veya iÅŸletim sistemi ile birlikte gelen baÅŸlÄ±k
+    dosyalarÄ±nÄ± iÃ§eren dizinlere varsayÄ±lan olarak ayarlanÄ±r. Ã–n iÅŸlemci, baÅŸlÄ±k dosyasÄ±nÄ± projenizin kaynak kodu dizininde aramayacaktÄ±r.
 
-    Çift tırnakları kullandığımızda, ön işlemciye bu başlık dosyasının kendimiz tarafından yazıldığını söylüyoruz. Ön işlemci, 
-    önce mevcut dizinde başlık dosyasını arar. Eğer uygun bir başlık bulamazsa, ardından içerik dizinlerinde arama yapacaktır.
+    Ã‡ift tÄ±rnaklarÄ± kullandÄ±ÄŸÄ±mÄ±zda, Ã¶n iÅŸlemciye bu baÅŸlÄ±k dosyasÄ±nÄ±n kendimiz tarafÄ±ndan yazÄ±ldÄ±ÄŸÄ±nÄ± sÃ¶ylÃ¼yoruz. Ã–n iÅŸlemci, 
+    Ã¶nce mevcut dizinde baÅŸlÄ±k dosyasÄ±nÄ± arar. EÄŸer uygun bir baÅŸlÄ±k bulamazsa, ardÄ±ndan iÃ§erik dizinlerinde arama yapacaktÄ±r.
 
     *******KURAL 
-    * Yazdığınız veya geçerli dizinde bulunması beklenen başlık dosyalarını dahil etmek için çift tırnak işareti kullanın. 
-    Derleyicinizle, işletim sisteminizle veya sisteminizin başka bir yerine yüklediğiniz üçüncü taraf kitaplıklarla birlikte
-    gelen başlıkları dahil etmek için açılı parantezleri kullanın.
+    * YazdÄ±ÄŸÄ±nÄ±z veya geÃ§erli dizinde bulunmasÄ± beklenen baÅŸlÄ±k dosyalarÄ±nÄ± dahil etmek iÃ§in Ã§ift tÄ±rnak iÅŸareti kullanÄ±n. 
+    Derleyicinizle, iÅŸletim sisteminizle veya sisteminizin baÅŸka bir yerine yÃ¼klediÄŸiniz Ã¼Ã§Ã¼ncÃ¼ taraf kitaplÄ±klarla birlikte
+    gelen baÅŸlÄ±klarÄ± dahil etmek iÃ§in aÃ§Ä±lÄ± parantezleri kullanÄ±n.
 
 
     ****
-    *  standart kütüphane başlık dosyalarını (#include <iostream> gibi) kullanırken .h uzantısını kullanmamamız gerektiği.
-    Ancak, kullanıcı tarafından oluşturulan (user-defined) başlık dosyaları için (.h uzantılı olanlar), .h uzantısını kullanmamız 
-    gerektiği belirtiliyor. Yani standart kütüphane başlık dosyaları için .h uzantısı tercih edilmez, ama kullanıcı tanımlı
-    başlık dosyaları için .h uzantısı kullanılır.
+    *  standart kÃ¼tÃ¼phane baÅŸlÄ±k dosyalarÄ±nÄ± (#include <iostream> gibi) kullanÄ±rken .h uzantÄ±sÄ±nÄ± kullanmamamÄ±z gerektiÄŸi.
+    Ancak, kullanÄ±cÄ± tarafÄ±ndan oluÅŸturulan (user-defined) baÅŸlÄ±k dosyalarÄ± iÃ§in (.h uzantÄ±lÄ± olanlar), .h uzantÄ±sÄ±nÄ± kullanmamÄ±z 
+    gerektiÄŸi belirtiliyor. Yani standart kÃ¼tÃ¼phane baÅŸlÄ±k dosyalarÄ± iÃ§in .h uzantÄ±sÄ± tercih edilmez, ama kullanÄ±cÄ± tanÄ±mlÄ±
+    baÅŸlÄ±k dosyalarÄ± iÃ§in .h uzantÄ±sÄ± kullanÄ±lÄ±r.
 
 
 
-                                             BAŞKA DİZİNDE BULUNAN BAŞLIK DOSYASINI EKLEMEK
+                                             BAÅKA DÄ°ZÄ°NDE BULUNAN BAÅLIK DOSYASINI EKLEMEK
 
-    Bunu yapmanın (kötü) bir yolu, #include satırının bir parçası olarak eklemek istediğiniz başlık dosyasına göreli bir yol eklemektir.
-    Örneğin:
+    Bunu yapmanÄ±n (kÃ¶tÃ¼) bir yolu, #include satÄ±rÄ±nÄ±n bir parÃ§asÄ± olarak eklemek istediÄŸiniz baÅŸlÄ±k dosyasÄ±na gÃ¶reli bir yol eklemektir.
+    Ã–rneÄŸin:
 
-    #include "başlıklar/myHeader.h"
+    #include "baÅŸlÄ±klar/myHeader.h"
     #include "../moreHeaders/myOtherHeader.h"
-    Bu derlenecek olsa da (dosyaların ilgili dizinlerde mevcut olduğu varsayılırsa), bu yaklaşımın dezavantajı, dizin yapınızı kodunuza
-    yansıtmanızı gerektirmesidir. Dizin yapınızı güncellerseniz kodunuz artık çalışmaz.
+    Bu derlenecek olsa da (dosyalarÄ±n ilgili dizinlerde mevcut olduÄŸu varsayÄ±lÄ±rsa), bu yaklaÅŸÄ±mÄ±n dezavantajÄ±, dizin yapÄ±nÄ±zÄ± kodunuza
+    yansÄ±tmanÄ±zÄ± gerektirmesidir. Dizin yapÄ±nÄ±zÄ± gÃ¼ncellerseniz kodunuz artÄ±k Ã§alÄ±ÅŸmaz.
 
-    Daha iyi bir yöntem, derleyicinize veya IDE'nize, başka bir konumda bir grup başlık dosyanızın bulunduğunu, böylece bunları geçerli 
-    dizinde bulamadığında oraya bakacağını söylemektir. Bu genellikle IDE proje ayarlarınızda bir içerme yolu veya arama dizini ayarlayarak
-    yapılabilir.
+    Daha iyi bir yÃ¶ntem, derleyicinize veya IDE'nize, baÅŸka bir konumda bir grup baÅŸlÄ±k dosyanÄ±zÄ±n bulunduÄŸunu, bÃ¶ylece bunlarÄ± geÃ§erli 
+    dizinde bulamadÄ±ÄŸÄ±nda oraya bakacaÄŸÄ±nÄ± sÃ¶ylemektir. Bu genellikle IDE proje ayarlarÄ±nÄ±zda bir iÃ§erme yolu veya arama dizini ayarlayarak
+    yapÄ±labilir.
 
 
-    ** Hocamız bu ayarları göstermiş. Hani kötü bir mantalite olduğu için uzatmicam burada kalsın. 
+    ** HocamÄ±z bu ayarlarÄ± gÃ¶stermiÅŸ. Hani kÃ¶tÃ¼ bir mantalite olduÄŸu iÃ§in uzatmicam burada kalsÄ±n. 
                 
-                                                BAŞKA BAŞLIK DOSYALARINI İÇEREN BAŞLIK DOSYALARI
-    Bir başlık dosyasının farklı bir başlık dosyasında bulunan bir bildirime veya tanıma ihtiyaç duyması yaygındır. Bu nedenle, başlık 
-    dosyaları sıklıkla diğer başlık dosyalarını da içerir.
+                                                BAÅKA BAÅLIK DOSYALARINI Ä°Ã‡EREN BAÅLIK DOSYALARI
+    Bir baÅŸlÄ±k dosyasÄ±nÄ±n farklÄ± bir baÅŸlÄ±k dosyasÄ±nda bulunan bir bildirime veya tanÄ±ma ihtiyaÃ§ duymasÄ± yaygÄ±ndÄ±r. Bu nedenle, baÅŸlÄ±k 
+    dosyalarÄ± sÄ±klÄ±kla diÄŸer baÅŸlÄ±k dosyalarÄ±nÄ± da iÃ§erir.
 
-    Kod dosyanız #include ilk başlık dosyasını içerdiğinde, ilk başlık dosyasının içerdiği diğer başlık dosyalarını da (ve bunları içeren
-    tüm başlık dosyalarını vb.) alırsınız. Bu ek başlık dosyalarına bazen geçişli içermeler(transitive includes) adı verilir, çünkü bunlar açık bir şekilde
-    değil örtülü olarak dahil edilir.
+    Kod dosyanÄ±z #include ilk baÅŸlÄ±k dosyasÄ±nÄ± iÃ§erdiÄŸinde, ilk baÅŸlÄ±k dosyasÄ±nÄ±n iÃ§erdiÄŸi diÄŸer baÅŸlÄ±k dosyalarÄ±nÄ± da (ve bunlarÄ± iÃ§eren
+    tÃ¼m baÅŸlÄ±k dosyalarÄ±nÄ± vb.) alÄ±rsÄ±nÄ±z. Bu ek baÅŸlÄ±k dosyalarÄ±na bazen geÃ§iÅŸli iÃ§ermeler(transitive includes) adÄ± verilir, Ã§Ã¼nkÃ¼ bunlar aÃ§Ä±k bir ÅŸekilde
+    deÄŸil Ã¶rtÃ¼lÃ¼ olarak dahil edilir.
 
 
-    ** BEST**Her dosya, derlemesi gereken tüm başlık dosyalarını açıkça #include etmelidir. Diğer başlıklardan geçişli olarak eklenen başlıklara
-    güvenmeyin.
+    ** BEST**Her dosya, derlemesi gereken tÃ¼m baÅŸlÄ±k dosyalarÄ±nÄ± aÃ§Ä±kÃ§a #include etmelidir. DiÄŸer baÅŸlÄ±klardan geÃ§iÅŸli olarak eklenen baÅŸlÄ±klara
+    gÃ¼venmeyin.
     
-    BURADA ne demek istiyor. Mesela a.hpp yi include ediyorum diyelim ve a.hpp nin içinde de iostream kütüphanesini include ettiğimi varsayalım.
-    Bu durumda iostream i main de kullanacaksam a.hpp den ayrı olarak tekrar include etmemin daha iyi olacağından mı bahsediyor. 
+    BURADA ne demek istiyor. Mesela a.hpp yi include ediyorum diyelim ve a.hpp nin iÃ§inde de iostream kÃ¼tÃ¼phanesini include ettiÄŸimi varsayalÄ±m.
+    Bu durumda iostream i main de kullanacaksam a.hpp den ayrÄ± olarak tekrar include etmemin daha iyi olacaÄŸÄ±ndan mÄ± bahsediyor. 
 
-                                                 BAŞLIK DOSYALARININ SIRALAMASI
+                                                 BAÅLIK DOSYALARININ SIRALAMASI
    
    
-    Başlık dosyalarınız doğru şekilde yazılmışsa ve ihtiyaç duydukları her şeyi #include ediyorsa, dahil etme sırasının bir önemi olmamalıdır.
+    BaÅŸlÄ±k dosyalarÄ±nÄ±z doÄŸru ÅŸekilde yazÄ±lmÄ±ÅŸsa ve ihtiyaÃ§ duyduklarÄ± her ÅŸeyi #include ediyorsa, dahil etme sÄ±rasÄ±nÄ±n bir Ã¶nemi olmamalÄ±dÄ±r.
 
-    Şimdi aşağıdaki senaryoyu düşünün: Diyelim ki başlık dosyası A, başlık dosyası B'den gelen bildirimlere ihtiyaç duyar, ancak B'yi dahil 
-    etmeyi unutur. Kod dosyamızda, başlık B'yi başlık A'dan önce dahil edersek, kodumuz hala derlenecektir! Bu, derleyici tarafından,
-    bu bildirimlere ihtiyaç duyan kodu derlemeden önce B'den tüm bildirimleri derleyeceği için çalışır.
+    Åimdi aÅŸaÄŸÄ±daki senaryoyu dÃ¼ÅŸÃ¼nÃ¼n: Diyelim ki baÅŸlÄ±k dosyasÄ± A, baÅŸlÄ±k dosyasÄ± B'den gelen bildirimlere ihtiyaÃ§ duyar, ancak B'yi dahil 
+    etmeyi unutur. Kod dosyamÄ±zda, baÅŸlÄ±k B'yi baÅŸlÄ±k A'dan Ã¶nce dahil edersek, kodumuz hala derlenecektir! Bu, derleyici tarafÄ±ndan,
+    bu bildirimlere ihtiyaÃ§ duyan kodu derlemeden Ã¶nce B'den tÃ¼m bildirimleri derleyeceÄŸi iÃ§in Ã§alÄ±ÅŸÄ±r.
 
-    Ancak önce başlık A'yı dahil edersek, derleyici bu sefer şikayet edecektir çünkü A'dan gelen kodu derlerken henüz B'den gelen bildirimleri 
-    görmemiştir. Aslında bu daha tercih edilir çünkü hata yüzeye çıkarılmış ve ardından düzeltilmesi gereken bir hata tespit edilir.
+    Ancak Ã¶nce baÅŸlÄ±k A'yÄ± dahil edersek, derleyici bu sefer ÅŸikayet edecektir Ã§Ã¼nkÃ¼ A'dan gelen kodu derlerken henÃ¼z B'den gelen bildirimleri 
+    gÃ¶rmemiÅŸtir. AslÄ±nda bu daha tercih edilir Ã§Ã¼nkÃ¼ hata yÃ¼zeye Ã§Ä±karÄ±lmÄ±ÅŸ ve ardÄ±ndan dÃ¼zeltilmesi gereken bir hata tespit edilir.
    
    
-    Eksik içeriklerin derleyici tarafından işaretlenme olasılığını en üst düzeye çıkarmak için #includes'ınızı aşağıdaki gibi sıralayın:
+    Eksik iÃ§eriklerin derleyici tarafÄ±ndan iÅŸaretlenme olasÄ±lÄ±ÄŸÄ±nÄ± en Ã¼st dÃ¼zeye Ã§Ä±karmak iÃ§in #includes'Ä±nÄ±zÄ± aÅŸaÄŸÄ±daki gibi sÄ±ralayÄ±n:
 
-    Eşleştirilmiş başlık dosyası
-    Projenizdeki diğer başlıklar
-    3. taraf kitaplık başlıkları
-    Standart kitaplık başlıkları
-    Her gruplandırmanın başlıkları alfabetik olarak sıralanmalıdır (3. taraf kitaplık belgeleri size aksini söylemediği sürece).
+    EÅŸleÅŸtirilmiÅŸ baÅŸlÄ±k dosyasÄ±
+    Projenizdeki diÄŸer baÅŸlÄ±klar
+    3. taraf kitaplÄ±k baÅŸlÄ±klarÄ±
+    Standart kitaplÄ±k baÅŸlÄ±klarÄ±
+    Her gruplandÄ±rmanÄ±n baÅŸlÄ±klarÄ± alfabetik olarak sÄ±ralanmalÄ±dÄ±r (3. taraf kitaplÄ±k belgeleri size aksini sÃ¶ylemediÄŸi sÃ¼rece).
 
-    Bu şekilde, kullanıcı tanımlı başlıklarınızdan birinde 3. taraf kitaplık veya standart kitaplık başlığı için #include eksikse, derleme hatasına
-    neden olma olasılığı daha yüksektir, böylece düzeltebilirsiniz.
-
-
-    Başlık dosyaları için en iyi uygulamalar
-
-    İşte başlık dosyaları oluştururken ve kullanırken bazı öneriler.
-
-    Her zaman başlık koruyucularını içermelisiniz (sonraki ders).
-    Başlık dosyalarında değişkenleri ve işlevleri tanımlamayın (şu an için).
-    Bir başlık dosyasına, ilişkilendirildiği kaynak dosyanın adını verin (örneğin, grades.h ile grades.cpp eşleştirilmiştir).
-    Her başlık dosyası belirli bir göreve sahip olmalı ve mümkün olduğunca bağımsız olmalıdır. Örneğin, A işlevselliği ile ilgili
-    tüm bildirimleri A.h'ye ve B işlevselliği ile ilgili tüm bildirimleri B.h'ye yerleştirebilirsiniz. Bu şekilde, daha sonra sadece 
-    A ile ilgilenseniz bile A.h'yi içerebilir ve B ile ilgili olanlar hakkında hiçbir şey almak zorunda kalmazsınız.
-    Kullandığınız kod dosyalarındaki işlevselliği gerektiren başlıklara dikkat edin.
-    Yazdığınız her başlık dosyası kendi başına derlenmelidir (ihtiyaç duyduğu her bağımlılığı #include etmelidir).
-    Sadece ihtiyacınız olanı #include edin (her şeyi sadece yapabildiğiniz için #include etmeyin).
-    .cpp dosyalarını #include etmeyin.
-    Bir şeyin ne yaptığını veya nasıl kullanılacağını belirten belgelemeyi başlığa koymayı tercih edin. Orada daha olası görünür.
-    Bir şeyin nasıl çalıştığını açıklayan belgeleme kaynak dosyalarda kalmalıdır.
+    Bu ÅŸekilde, kullanÄ±cÄ± tanÄ±mlÄ± baÅŸlÄ±klarÄ±nÄ±zdan birinde 3. taraf kitaplÄ±k veya standart kitaplÄ±k baÅŸlÄ±ÄŸÄ± iÃ§in #include eksikse, derleme hatasÄ±na
+    neden olma olasÄ±lÄ±ÄŸÄ± daha yÃ¼ksektir, bÃ¶ylece dÃ¼zeltebilirsiniz.
 
 
-                                                Header guards
-    
+    BaÅŸlÄ±k dosyalarÄ± iÃ§in en iyi uygulamalar
 
+    Ä°ÅŸte baÅŸlÄ±k dosyalarÄ± oluÅŸtururken ve kullanÄ±rken bazÄ± Ã¶neriler.
 
-
-
-
-
-
+    Her zaman baÅŸlÄ±k koruyucularÄ±nÄ± iÃ§ermelisiniz (sonraki ders).
+    BaÅŸlÄ±k dosyalarÄ±nda deÄŸiÅŸkenleri ve iÅŸlevleri tanÄ±mlamayÄ±n (ÅŸu an iÃ§in).
+    Bir baÅŸlÄ±k dosyasÄ±na, iliÅŸkilendirildiÄŸi kaynak dosyanÄ±n adÄ±nÄ± verin (Ã¶rneÄŸin, grades.h ile grades.cpp eÅŸleÅŸtirilmiÅŸtir).
+    Her baÅŸlÄ±k dosyasÄ± belirli bir gÃ¶reve sahip olmalÄ± ve mÃ¼mkÃ¼n olduÄŸunca baÄŸÄ±msÄ±z olmalÄ±dÄ±r. Ã–rneÄŸin, A iÅŸlevselliÄŸi ile ilgili
+    tÃ¼m bildirimleri A.h'ye ve B iÅŸlevselliÄŸi ile ilgili tÃ¼m bildirimleri B.h'ye yerleÅŸtirebilirsiniz. Bu ÅŸekilde, daha sonra sadece 
+    A ile ilgilenseniz bile A.h'yi iÃ§erebilir ve B ile ilgili olanlar hakkÄ±nda hiÃ§bir ÅŸey almak zorunda kalmazsÄ±nÄ±z.
+    KullandÄ±ÄŸÄ±nÄ±z kod dosyalarÄ±ndaki iÅŸlevselliÄŸi gerektiren baÅŸlÄ±klara dikkat edin.
+    YazdÄ±ÄŸÄ±nÄ±z her baÅŸlÄ±k dosyasÄ± kendi baÅŸÄ±na derlenmelidir (ihtiyaÃ§ duyduÄŸu her baÄŸÄ±mlÄ±lÄ±ÄŸÄ± #include etmelidir).
+    Sadece ihtiyacÄ±nÄ±z olanÄ± #include edin (her ÅŸeyi sadece yapabildiÄŸiniz iÃ§in #include etmeyin).
+    .cpp dosyalarÄ±nÄ± #include etmeyin.
+    Bir ÅŸeyin ne yaptÄ±ÄŸÄ±nÄ± veya nasÄ±l kullanÄ±lacaÄŸÄ±nÄ± belirten belgelemeyi baÅŸlÄ±ÄŸa koymayÄ± tercih edin. Orada daha olasÄ± gÃ¶rÃ¼nÃ¼r.
+    Bir ÅŸeyin nasÄ±l Ã§alÄ±ÅŸtÄ±ÄŸÄ±nÄ± aÃ§Ä±klayan belgeleme kaynak dosyalarda kalmalÄ±dÄ±r.
     */
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
     return 0;
 }
